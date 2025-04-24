@@ -1,6 +1,6 @@
 title: ChronoKairo
 description: Soluções inteligentes com foco em tempo, automação e IA.
-baseurl: "" 
+baseurl: ""
 url: "https://chronokairo.github.io"
-theme: minima
+theme: null
 markdown: kramdown
