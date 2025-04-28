@@ -10,3 +10,4 @@ title: Início
 Somos uma startup focada em soluções que aliam inteligência artificial, automação e análise temporal. Nosso objetivo é transformar a forma como você interage com o tempo e os dados.
 
 [Saiba mais sobre nós](about)
+[Saiba mais sobre nós](test)
