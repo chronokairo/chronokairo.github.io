@@ -47,9 +47,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus
 
 | Coluna 1         | Coluna 2         | Coluna 3         |
 |-------------------|------------------|------------------|
-| Lorem ipsum       | Dolor sit       | Amet             |
-| Consectetur       | Adipiscing      | Elit             |
-| Sed do eiusmod    | Tempor          | Incididunt       |
+| Lorem ipsum       | Dolor sit        | Amet             |
+| Consectetur       | Adipiscing       | Elit             |
+| Sed do eiusmod    | Tempor           | Incididunt       |
 
 ### Contato
 
