@@ -1,75 +1,59 @@
 ---
 layout: default
-title: Test
+title: Portfólio
 ---
 
-# Test a ChronoKairo
+# Bem-vindo ao Portfólio da ChronoKairo
 
-A **ChronoKairo** nasceu da ideia de que o tempo é mais do que cronologia — é oportunidade.
-
-Nossa missão é desenvolver tecnologias que te ajudem a decidir melhor, agir com mais inteligência e inovar com propósito.
-
-Lorem ipsum dolor sit amet, *consectetur adipiscing elit*. Sed do **eiusmod tempor** incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud [exercitation ullamco](https://example.com) laboris nisi ut aliquip ex ea commodo consequat.
+A **ChronoKairo** é especializada em soluções tecnológicas que transformam ideias em realidade. Nosso foco é criar ferramentas inovadoras que ajudam empresas e indivíduos a alcançar seus objetivos.
 
 ---
 
-## Áreas de atuação
+## Nossos Serviços
 
-- **Inteligência Artificial aplicada**
-- Plataformas de automação de processos
-    - Subitem 1
-    - Subitem 2
-- Análise de dados em tempo real
-- Ferramentas educacionais e produtivas
+- **Inteligência Artificial**  
+  Desenvolvimento de modelos personalizados para análise preditiva, automação e otimização de processos.
+
+- **Automação de Processos**  
+  Plataformas que simplificam fluxos de trabalho e aumentam a eficiência operacional.
+
+- **Análise de Dados em Tempo Real**  
+  Soluções para monitoramento e tomada de decisão baseada em dados.
+
+- **Ferramentas Educacionais**  
+  Desenvolvimento de plataformas interativas para aprendizado e produtividade.
 
 ---
 
-## Sobre nós
+## Projetos Recentes
 
-> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum."  
-> — *Citação de exemplo*
+### Projeto 1: Plataforma de Automação Inteligente
+Desenvolvemos uma solução que automatiza processos repetitivos, reduzindo custos e aumentando a produtividade.
 
-### Código de exemplo
+### Projeto 2: Análise de Dados em Tempo Real
+Criamos um sistema que permite monitorar métricas críticas em tempo real, ajudando empresas a tomar decisões rápidas e informadas.
 
-```python
-# Exemplo de código em Python
-def exemplo():
-        print("Lorem ipsum dolor sit amet")
-```
+### Projeto 3: Ferramenta Educacional Interativa
+Uma plataforma que combina gamificação e aprendizado adaptativo para melhorar a experiência do usuário.
+
+---
+
+## Sobre Nós
+
+A **ChronoKairo** acredita que o tempo é mais do que cronologia — é oportunidade. Nossa missão é criar tecnologias que capacitem nossos clientes a inovar com propósito.
 
 ---
 
 ## Contato
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.
+Entre em contato conosco para saber mais sobre nossos serviços ou discutir seu próximo projeto:
 
-### Tabela de dados
-
-| Coluna 1         | Coluna 2         | Coluna 3         |
-|-------------------|------------------|------------------|
-| Lorem ipsum       | Dolor sit        | Amet             |
-| Consectetur       | Adipiscing       | Elit             |
-| Sed do eiusmod    | Tempor           | Incididunt       |
-
-### Contato
-
-- **Email**: contato@example.com  
+- **Email**: contato@chronokairo.com  
 - **Telefone**: +55 11 99999-9999  
-- **Endereço**: Lorem Ipsum Street, 123, São Paulo, SP  
+- **Endereço**: Rua Inovação, 123, São Paulo, SP  
 
-### Imagem de exemplo
+### Redes Sociais
 
-![Texto alternativo](https://via.placeholder.com/150 "Exemplo de imagem")
-
-### Lista de tarefas
-
-- [x] Planejar  
-- [ ] Desenvolver  
-- [ ] Testar  
-- [ ] Publicar  
-
-### Links rápidos
-
-- [Página inicial](#)  
-- [Sobre nós](#)  
-- [Contato](#)  
+- [LinkedIn](https://linkedin.com)  
+- [GitHub](https://github.com)  
+- [Twitter](https://twitter.com)
