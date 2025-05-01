@@ -1,11 +1,17 @@
 /* ===== Paleta de Cores ===== */
 :root {
-  --cor-primaria: #273b7d;
-  --cor-secundaria: #4159a3;
-  --cor-fundo: #eef1f9;
-  --cor-texto-principal: #4f5d75;
-  --cor-titulo: #1b3b6f;
+  --cor-primaria: #000000;
+  /* Preto */
+  --cor-secundaria: #333333;
+  /* Cinza escuro */
+  --cor-fundo: #ffffff;
+  /* Branco */
+  --cor-texto-principal: #000000;
+  /* Preto */
+  --cor-titulo: #000000;
+  /* Preto */
   --cor-container: #ffffff;
+  /* Branco */
 }
 
 /* ===== Reset e Base ===== */
@@ -27,20 +33,30 @@ body {
 /* ===== Cabeçalho ===== */
 header {
   background-color: var(--cor-primaria);
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
+  color: var(--cor-fundo);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header h1 a {
+  color: var(--cor-fundo);
+  text-decoration: none;
 }
 
 nav {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  padding: 0.5rem;
 }
 
 nav a {
-  color: #fff;
+  color: var(--cor-fundo);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -97,8 +113,8 @@ a:hover {
 
 /* ===== Rodapé ===== */
 footer {
-  background-color: var(--cor-titulo);
-  color: #fff;
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
   text-align: center;
   padding: 1.5rem 1rem;
   margin-top: 2rem;
