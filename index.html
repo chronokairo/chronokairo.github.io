@@ -4,113 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIESA Connect - Início</title> <!-- Título mais específico -->
+    <title>ChronoKairo | Inovação para Startups</title>
     <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYQ7JW845Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XYQ7JW845Z');
+    </script>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <!-- Certifique-se que a imagem /images/CIESAConnect.png existe -->
-            <img class="img-fluid" src="images/CIESAConnect.png" alt="Ciesa Logo" width="300">
-            <div class="logo"></div> <!-- Este div parece redundante, considerar remover se não tiver propósito -->
-        </div>
-    </header>
-
-    <nav>
-        <a href="index.html" class="active">Início</a> <!-- Classe active adicionada -->
-        <a href="avisos.html">Avisos</a>
-        <a href="eventos.html">Eventos</a>
-        <a href="estagios.html">Estágios</a>
-        <a href="materiais.html">Materiais</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="blog.html">Blog</a>
-    </nav>
-
-    <div class="container">
-
-        <section id="bem-vindo"> <!-- ID alterado para ser mais descritivo -->
-            <h2>Bem-vindo ao CIESA Connect</h2>
-            <p>
-                O CIESA Connect é um mural digital desenvolvido para facilitar a comunicação e o compartilhamento de
-                informações entre alunos, professores e coordenadores do Centro Universitário de Ensino Superior do
-                Amazonas.
-            </p>
-            <h3>Recursos Disponíveis</h3>
-            <ul>
-                <li><strong>Avisos:</strong> Informativos importantes da faculdade e dos professores.</li>
-                <li><strong>Eventos:</strong> Palestras, workshops e atividades acadêmicas.</li>
-                <li><strong>Estágios:</strong> Oportunidades de estágio e emprego para alunos.</li>
-                <li><strong>Materiais:</strong> Apostilas, slides e videoaulas de apoio.</li>
-            </ul>
-        </section>
-
-        <section id="comunidade">
-            <h2>Nossa Comunidade Acadêmica</h2>
-            <h3>Quem pode utilizar?</h3>
-            <p>
-                O CIESA Connect é uma plataforma aberta para todos os estudantes, professores e funcionários do Centro
-                Universitário de Ensino Superior do Amazonas.
-            </p>
-            <h3>Como participar?</h3>
-            <p>
-                Basta acessar o site e navegar pelas diferentes seções. Alunos, professores e coordenadores podem
-                contribuir com avisos e eventos, sujeitos à moderação.
-            </p>
-        </section>
-
-        <section id="destaques">
-            <h2>Destaques da Semana</h2>
-            <p>
-                Confira abaixo os principais avisos e eventos que estão acontecendo no CIESA:
-            </p>
-            <ul>
-                <li><strong>Avisos:</strong> <a href="avisos.html">Veja todos os avisos importantes</a></li>
-                <li><strong>Eventos:</strong> <a href="eventos.html">Confira os próximos eventos</a></li>
-            </ul>
-            <p>
-                Fique atento às atualizações e não perca nenhuma oportunidade importante para seu desenvolvimento
-                acadêmico.
-            </p>
-        </section>
-
-        <section id="sobre" class="sobre-projeto"> <!-- Classe adicionada para estilização específica se necessário -->
-            <!-- Tags <br> removidas -->
-            <h2>Sobre o Projeto</h2>
-            <p>
-                O <strong>CIESA Connect</strong> é uma iniciativa desenvolvida por alunos dos cursos de tecnologia do
-                Centro Universitário de Ensino Superior do Amazonas.
-                Seu principal objetivo é centralizar informações importantes e facilitar a comunicação entre todos os
-                membros da comunidade acadêmica.
-            </p>
-            <p>
-                A plataforma adota uma abordagem simples e organizada, permitindo que todos fiquem informados sobre
-                acontecimentos importantes da instituição.
-                Como um verdadeiro mural digital, o CIESA Connect aproxima pessoas e compartilha conhecimento.
-            </p>
-        </section>
-
-        <section id="o-que-encontrar"> <!-- ID alterado para ser mais descritivo -->
-            <h2>O que você encontrará no site</h2>
-            <ul>
-                <li>Avisos acadêmicos e administrativos importantes.</li>
-                <li>Eventos internos e externos de interesse para a comunidade acadêmica.</li>
-                <li>Materiais de apoio para as disciplinas.</li>
-            </ul>
-            <p>
-                Nosso objetivo é facilitar o acesso à informação, garantindo que você não perca nenhuma oportunidade
-                importante durante sua jornada acadêmica no CIESA.
-            </p>
-        </section>
+    <!-- Banner de Cookies -->
+    <div
+        style="position: fixed; bottom: 0; background-color: #fff; width: 100%; padding: 15px; text-align: center; border-top: 1px solid #f2f2f2; z-index: 3;">
+        Nosso site faz captura <b>cookies</b>. <a href="privacidade"><b>Clique Aqui</b></a> e leia nossa política de
+        privacidade.
     </div>
 
+    <header class="container">
+        <div class="logo">
+            <span>ChronoKairo</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container hero-section">
+            <div class="hero-text">
+                <h1>Impulsione seu negócio<br><span>com tecnologia e automação</span></h1>
+                <p>Desenvolvemos soluções digitais para quem quer crescer com inovação, eficiência e
+                    resultados reais.</p>
+                <a href="#servicos" class="btn btn-primary">Conheça nossos serviços</a>
+            </div>
+            <div class="hero-graphics">
+                <img src="logo.png" alt="Ilustração Startup">
+            </div>
+        </section>
+
+        <!-- Sobre Nós -->
+        <section id="sobre" class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="team-chronokairo.svg" alt="Equipe ChronoKairo">
+                    <span>Equipe ChronoKairo</span>
+                </div>
+                <div class="about-text">
+                    <h4>Quem somos</h4>
+                    <h2>Especialistas em soluções para startups</h2>
+                    <p>
+                        A ChronoKairo nasceu para ajudar startups a transformar ideias em produtos digitais de alto
+                        impacto.
+                        Nossa equipe une experiência em tecnologia, automação e design para entregar soluções sob
+                        medida,
+                        focadas em crescimento, escalabilidade e inovação.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/chronokairo" target="_blank" aria-label="LinkedIn">
+                            <!-- SVG inline do LinkedIn -->
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/chronokairo" target="_blank" aria-label="GitHub">
+                            <!-- SVG inline do GitHub -->
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.745 0 .267.18.579.688.481C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/chronokairo" target="_blank" aria-label="Instagram">
+                            <!-- SVG inline do Instagram -->
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.771.13 4.659.387 3.678 1.368c-.98.98-1.237 2.092-1.296 3.374C2.014 5.668 2 6.077 2 12c0 5.923.014 6.332.072 7.612.059 1.282.316 2.394 1.296 3.374.981.981 2.093 1.238 3.374 1.296C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.281-.058 2.393-.315 3.374-1.296.98-.98 1.237-2.092 1.296-3.374.058-1.28.072-1.689.072-7.612 0-5.923-.014-6.332-.072-7.612-.059-1.282-.316-2.394-1.296-3.374-.981-.981-2.093-1.238-3.374-1.296C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos" class="container">
+            <h2>O que fazemos</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="assets/icon_automation.svg+xml" alt="Automação">
+                    <h3>Automação de Processos</h3>
+                    <p>Elimine tarefas repetitivas e ganhe tempo para focar no que importa: crescer.</p>
+                </div>
+                <div class="service-card">
+                    <img src="assets/icon_software.svg+xml" alt="Desenvolvimento">
+                    <h3>Desenvolvimento de Software</h3>
+                    <p>Aplicativos, plataformas e sistemas sob medida para startups de todos os tamanhos.</p>
+                </div>
+                <div class="service-card">
+                    <img src="assets/icon_growth.svg+xml" alt="Growth">
+                    <h3>Consultoria em Growth</h3>
+                    <p>Estratégias digitais para acelerar a aquisição de clientes e escalar seu negócio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfólio -->
+        <section id="portfolio" class="container">
+            <h2>Projetos em destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Plataforma SaaS </h3>
+                    <p>Desenvolvimento completo de uma solução SaaS para gestão de equipes e tarefas.</p>
+                    <a href="#" class="project-link">Ver detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h3>Automação de Onboarding</h3>
+                    <p>Implantação de automações para acelerar o onboarding de novos clientes em fintech.</p>
+                    <a href="#" class="project-link">Ver detalhes</a>
+                </div>
+                <div class="project-card">
+                    <h3>Dashboard de Métricas</h3>
+                    <p>Criação de dashboard interativo para acompanhamento de KPIs em tempo real.</p>
+                    <a href="#" class="project-link">Ver detalhes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section id="depoimentos" class="container">
+            <h2>O que dizem nossos clientes (Ainda não temos um ;-; , mas esperamos que digam:</h2>
+            <blockquote>
+                "A ChronoKairo foi fundamental para automatizar nossos processos e acelerar nosso crescimento. Equipe
+                ágil e comprometida!"<br>
+                <strong>Lucas Andrade, CEO da FintechX</strong>
+            </blockquote>
+            <blockquote>
+                "Transformaram nossa ideia em um produto digital robusto e escalável. Recomendo para qualquer
+                startup!"<br>
+                <strong>Marina Souza, Fundadora da HealthStart</strong>
+            </blockquote>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="container">
+            <h2>Vamos conversar?</h2>
+            <p>Preencha o formulário e descubra como podemos ajudar sua startup a crescer com tecnologia.</p>
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
     <footer>
-        <button id="back-to-top">&#8593;</button>
-        &copy; 2025 - CIESA Connect | Centro Universitário de Ensino Superior do Amazonas
+        <div class="container">
+            <p>&copy; 2025 ChronoKairo. Todos os direitos reservados.</p>
+            <p>Inovação, tecnologia e crescimento para startups.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>

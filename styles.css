@@ -1,35 +1,26 @@
-/* ===== Paleta de Cores (Mantida) ===== */
+/* ===== Paleta de Cores Preto e Branco ===== */
 :root {
-    --cor-primaria: #273b7d;
-    /* Azul escuro */
-    --cor-secundaria: #4159a3;
-    /* Azul médio */
-    --cor-fundo: #eef1f9;
-    /* Azul claro */
-    --cor-botao: #273b7d;
-    /* Azul escuro para botões */
-    --cor-hover-botao: #4159a3;
-    /* Azul médio para hover */
-    --cor-texto-principal: #4f5d75;
-    /* Azul acinzentado */
-    --cor-titulo: #1b3b6f;
-    /* Azul mais escuro */
-    --cor-borda: #dfe3ec;
-    /* Azul claro para bordas */
-    --cor-container: #ffffff;
-    /* Branco */
-    --cor-foco-outline: #76a9fa; /* Azul claro para outline de foco */
+    --cor-primaria: #000;
+    --cor-secundaria: #222;
+    --cor-fundo: #fff;
+    --cor-botao: #000;
+    --cor-hover-botao: #222;
+    --cor-texto-principal: #111;
+    --cor-titulo: #000;
+    --cor-borda: #e0e0e0;
+    --cor-container: #fff;
+    --cor-foco-outline: #222;
 }
 
 /* ===== Reset e Base ===== */
 *,
 *::before,
 *::after {
-    box-sizing: border-box; /* Melhora o controle de padding/border */
+    box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Stack de fontes mais moderno */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -40,75 +31,228 @@ body {
 
 /* ===== Cabeçalho ===== */
 header {
-    background-color: var(--cor-primaria);
-    color: #fff;
-    padding: 1rem 0; /* Ajuste no padding */
+    background-color: var(--cor-fundo);
+    color: var(--cor-titulo);
+    padding: 1rem 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
 }
 
 .logo-container img {
-    display: block; /* Evita espaço extra abaixo da imagem */
-    margin: 0 auto; /* Centraliza se o container for maior */
+    display: block;
+    margin: 0 auto;
     max-width: 100%;
     height: auto;
 }
-/* .logo {} - Removido por parecer redundante */
+
+.logo span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cor-titulo);
+    letter-spacing: 1px;
+}
 
 /* ===== Navegação ===== */
 nav {
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-fundo);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0.5rem 1rem; /* Adicionado padding horizontal */
+    padding: 0.5rem 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
 }
 
 nav a {
-    color: #fff;
+    color: var(--cor-titulo);
+    background: none;
     text-decoration: none;
-    margin: 0.25rem 0.75rem; /* Ajuste na margem */
+    font-weight: 500;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
-    border-radius: 5px; /* Adicionado border-radius base */
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.2s;
-    white-space: nowrap; /* Evita quebra de linha nos links */
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
 }
 
 nav a:hover,
 nav a:focus {
-    text-decoration: underline;
-    background-color: var(--cor-secundaria);
-    color: #ffffff;
-    outline: none; /* Remove outline padrão */
-    box-shadow: 0 0 0 2px var(--cor-foco-outline); /* Adiciona outline de foco customizado */
+    background: var(--cor-titulo);
+    color: #fff;
+    outline: none;
 }
 
 nav a.active {
-    background-color: var(--cor-secundaria);
+    background: var(--cor-titulo);
+    color: #fff;
     font-weight: bold;
-    text-decoration: none; /* Remove sublinhado do link ativo */
+}
+
+/* ===== Banner ===== */
+.banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo para o carrossel do banner */
+.banner-carousel {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    height: 400px;
+}
+
+.banner-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.banner-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.banner-content .btn {
+    background-color: var(--cor-botao);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.banner-content .btn:hover {
+    background-color: var(--cor-hover-botao);
+}
+
+/* ===== Hero Section Moderno ===== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 4rem 2rem 2rem 2rem;
+    background: var(--cor-fundo);
+    min-height: 60vh;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: var(--cor-titulo);
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.hero-text h1 span {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--cor-texto-principal);
+    margin-bottom: 2rem;
+}
+
+.hero-text a.btn {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.hero-graphics {
+    flex: 1 1 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-graphics img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    background: #000;
 }
 
 /* ===== Contêiner Principal ===== */
 .container {
     padding: 1.5rem;
-    max-width: 1200px; /* Aumentado max-width para desktops maiores */
-    margin: 1.5rem auto; /* Adicionado margem vertical */
+    max-width: 1200px;
+    margin: 1.5rem auto;
     background-color: var(--cor-container);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Animação movida para o JS para melhor controle */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
-/* ===== Tipografia e Layout Geral ===== */
-h1, h2, h3, h4, h5, h6 {
+/* ===== Tipografia ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--cor-titulo);
-    margin-top: 1.5em; /* Espaçamento antes dos títulos */
+    margin-top: 1.5em;
     margin-bottom: 0.75em;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 h1 {
@@ -123,40 +267,63 @@ h3 {
     font-size: 1.4rem;
 }
 
+h4 {
+    font-size: 1.1rem;
+}
+
 p {
     margin-bottom: 1em;
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
 }
 
 section {
-    margin-bottom: 2.5rem; /* Aumentado espaçamento entre seções */
-    padding-top: 1rem; /* Adicionado padding para links de âncora */
+    margin-bottom: 2.5rem;
+    padding-top: 1rem;
 }
 
-ul {
-    padding-left: 1.5rem;
-    list-style: disc; /* Garante estilo de lista padrão */
-}
-
-ul li {
-    margin-bottom: 0.5rem;
-}
-
-a {
-    color: var(--cor-primaria);
+/* ===== Botões ===== */
+button,
+.btn,
+.btn-primary,
+.btn-outline {
+    display: inline-block;
+    background-color: var(--cor-botao);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
     text-decoration: none;
-    transition: color 0.2s, text-decoration 0.2s;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
-a:hover,
-a:focus {
-    color: var(--cor-secundaria);
-    text-decoration: underline;
-    outline: none; /* Remove outline padrão */
+.btn-outline {
+    background: transparent;
+    color: var(--cor-titulo);
+    border: 2px solid var(--cor-titulo);
 }
 
-a:focus {
-     box-shadow: 0 0 0 2px var(--cor-foco-outline); /* Adiciona outline de foco customizado */
-     border-radius: 2px;
+.btn-outline:hover {
+    background: var(--cor-titulo);
+    color: #fff;
+}
+
+.btn-primary:hover,
+button:hover,
+.btn:hover {
+    background: var(--cor-hover-botao);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+button:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--cor-foco-outline);
 }
 
 /* ===== Rodapé ===== */
@@ -164,11 +331,13 @@ footer {
     background-color: var(--cor-titulo);
     color: #fff;
     text-align: center;
-    padding: 1.5rem 1rem; /* Aumentado padding */
+    padding: 1.5rem 1rem;
     margin-top: 2rem;
+    border-radius: 0 0 8px 8px;
+    font-size: 1rem;
 }
 
-/* ===== Botão "Voltar ao topo" ===== */
+/* ===== Botão "Voltar ao Topo" ===== */
 #back-to-top {
     position: fixed;
     bottom: 20px;
@@ -177,14 +346,14 @@ footer {
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 40px; /* Tamanho fixo */
-    height: 40px; /* Tamanho fixo */
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
-    line-height: 40px; /* Centraliza o ícone */
+    line-height: 40px;
     text-align: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: none; /* Controlado pelo JS */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    display: none;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -195,326 +364,219 @@ footer {
     outline: none;
 }
 
-/* ===== Animação de Fade In (Controlada pelo JS) ===== */
-/* A classe .fade-in pode ser adicionada pelo JS se necessário, mas a animação direta no elemento é mais simples */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== Componentes: Filtros e Busca ===== */
-.filtros {
+/* ===== Carrossel Portfólio ===== */
+.portfolio-carousel {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 1rem 0;
 }
 
-.filtro-btn {
-    /* Usa a classe .btn */
-}
-
-.filtro-btn.ativo {
-    background-color: var(--cor-hover-botao);
-    font-weight: bold;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Efeito de botão pressionado */
-}
-
-.busca {
-    margin-bottom: 20px;
-    display: flex;
-}
-
-.busca input[type="text"] {
-    padding: 10px;
-    flex-grow: 1; /* Ocupa espaço disponível */
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px 0 0 5px;
-    font-size: 1rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.busca input[type="text"]:focus {
-    outline: none;
-    border-color: var(--cor-secundaria);
-    box-shadow: 0 0 0 2px var(--cor-foco-outline);
-}
-
-.busca button {
-    /* Usa a classe .btn */
-    border-radius: 0 5px 5px 0;
-    flex-shrink: 0; /* Não encolhe */
-}
-
-/* ===== Componentes: Itens de Lista (Avisos/Eventos) ===== */
-.list-item /* Classe comum para .aviso e .evento */
-{
+.portfolio-item {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
     background-color: var(--cor-container);
-    border-left: 5px solid var(--cor-botao);
-    padding: 1rem 1.5rem; /* Ajuste no padding */
-    margin-bottom: 1.5rem;
-    border-radius: 0 5px 5px 0;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.2s;
-}
-
-.list-item:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
-.aviso-data,
-.evento-data {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.aviso-titulo,
-.evento-titulo {
-    margin-top: 0.25em;
-    margin-bottom: 0.5em;
-    color: var(--cor-titulo);
-}
-
-.tipo-tag /* Classe comum para .aviso-tipo, .evento-tipo, .evento-categoria */
-{
-    display: inline-block;
-    padding: 3px 8px;
-    background-color: var(--cor-borda);
-    color: var(--cor-primaria);
-    border-radius: 3px;
-    font-size: 0.8rem;
-    margin-right: 5px;
-    margin-bottom: 5px; /* Espaçamento se houver múltiplas tags */
-    font-weight: 500;
-}
-
-.evento-local,
-.evento-horario {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
+    text-align: center;
+    padding: 1rem;
     color: var(--cor-texto-principal);
 }
 
-.evento-local {
-    font-weight: bold;
+.portfolio-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
 }
 
-.aviso-conteudo,
-.evento-descricao {
-    margin-top: 1rem;
-}
-
-/* ===== Componentes: Comentários ===== */
-.comentarios {
-    margin-top: 1.5rem;
-    border-top: 1px solid var(--cor-borda);
-    padding-top: 1rem;
-}
-
-.comentarios h4 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.comment-list .comentario {
-    background-color: var(--cor-fundo);
-    padding: 0.75rem 1rem;
-    border-radius: 5px;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-}
-
-.comment-list .comentario p {
-    margin: 0;
-}
-
-.comentario-form {
-    margin-top: 1rem;
-}
-
-.comentario-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px;
-    margin-bottom: 10px;
+.portfolio-item p {
     font-size: 1rem;
-    min-height: 80px; /* Altura mínima */
-    resize: vertical; /* Permite redimensionar verticalmente */
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.comentario-form textarea:focus {
-    outline: none;
-    border-color: var(--cor-secundaria);
-    box-shadow: 0 0 0 2px var(--cor-foco-outline);
-}
-
-.btn-comment {
-     /* Usa a classe .btn */
-}
-
-/* ===== Componentes: Paginação ===== */
-.paginacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 2rem;
-}
-
-.btn-page {
-    /* Usa a classe .btn mas com estilo mais leve */
-    background-color: var(--cor-container);
-    border: 1px solid var(--cor-borda);
-    color: var(--cor-primaria);
-    padding: 5px 12px;
-    min-width: 35px; /* Largura mínima */
-    text-align: center;
-}
-
-.btn-page:hover,
-.btn-page:focus {
-    background-color: var(--cor-borda);
-    border-color: var(--cor-secundaria);
-    color: var(--cor-titulo);
-    transform: none; /* Remove scale do .btn genérico */
-    box-shadow: 0 0 0 2px var(--cor-foco-outline);
-}
-
-.btn-page.atual {
-    background-color: var(--cor-botao);
-    color: white;
-    border-color: var(--cor-botao);
-    font-weight: bold;
-}
-
-.btn-page:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background-color: var(--cor-borda);
-    border-color: var(--cor-borda);
     color: var(--cor-texto-principal);
 }
 
-.btn-page:disabled:hover {
-     box-shadow: none;
+/* ===== Cards Modernos ===== */
+.service-card,
+.project-card,
+.portfolio-item,
+.skill-card {
+    background-color: var(--cor-container);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: var(--cor-texto-principal);
 }
 
-/* ===== Componentes: Botão Genérico ===== */
-.btn,
-.filtro-btn,
-.busca button,
-.btn-comment,
-.btn-page /* Aplica estilos base a todos os botões */
-{
-    display: inline-block;
-    background-color: var(--cor-botao);
-    color: white;
-    border: none;
-    padding: 10px 18px; /* Padding padrão */
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.95rem;
+.service-card:hover,
+.project-card:hover,
+.portfolio-item:hover,
+.skill-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.service-card img,
+.portfolio-item img,
+.project-card img {
+    max-width: 80px;
+    margin-bottom: 1rem;
+}
+
+.service-card h3,
+.project-card h3,
+.portfolio-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--cor-titulo);
+}
+
+.service-card p,
+.project-card p,
+.portfolio-item p {
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
+}
+
+/* ===== Depoimentos Modernos ===== */
+blockquote {
+    background: var(--cor-container);
+    border-left: 4px solid var(--cor-botao);
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--cor-texto-principal);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Formulário Moderno ===== */
+form {
+    background: var(--cor-container);
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--cor-titulo);
     font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-.btn:hover,
-.filtro-btn:hover,
-.busca button:hover,
-.btn-comment:hover {
-    background-color: var(--cor-hover-botao);
-    transform: translateY(-2px); /* Leve elevação no hover */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fafafa;
+    color: var(--cor-texto-principal);
+    transition: border 0.2s;
 }
 
-.btn:active,
-.filtro-btn:active,
-.busca button:active,
-.btn-comment:active {
-    transform: translateY(0); /* Volta ao normal no clique */
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.btn:focus,
-.filtro-btn:focus,
-.busca button:focus,
-.btn-comment:focus,
-.btn-page:focus {
+form input:focus,
+form textarea:focus {
+    border-color: var(--cor-botao);
     outline: none;
-    box-shadow: 0 0 0 3px var(--cor-foco-outline); /* Outline de foco mais visível */
 }
 
-/* ===== Blog: Embeds e Social Media ===== */
-.instagram-embed-container {
-    margin-bottom: 2rem;
+/* Social icons estilizados */
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
 }
 
-.instagram-embed-container h3 {
-    text-align: center;
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #181818;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.social-media a {
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    /* Adicionar ícones seria uma boa melhoria visual */
+.social-links a:hover {
+    background: #333;
+    transform: scale(1.08);
 }
 
-/* ===== Responsividade Adicional ===== */
+.social-links svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+/* Cores específicas para cada rede */
+.social-links a[aria-label="LinkedIn"] svg {
+    fill: #0077b5;
+    background: none;
+}
+
+.social-links a[aria-label="GitHub"] svg {
+    fill: #fff;
+    background: none;
+}
+
+.social-links a[aria-label="Instagram"] svg {
+    fill: #e4405f;
+    background: none;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-graphics img {
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 767px) {
-    nav {
-        padding: 0.5rem;
+    nav ul {
+        gap: 0.5rem;
     }
+
     nav a {
-        margin: 0.25rem 0.5rem;
         padding: 0.4rem 0.8rem;
+        font-size: 0.98rem;
     }
+
     .container {
         padding: 1rem;
         margin: 1rem auto;
     }
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.2rem; }
 
-    .busca {
-        flex-direction: column;
+    h1 {
+        font-size: 1.8rem;
     }
-    .busca input[type="text"] {
-        border-radius: 5px 5px 0 0;
-        margin-bottom: -1px; /* Corrige borda dupla */
+
+    h2 {
+        font-size: 1.5rem;
     }
-    .busca button {
-        border-radius: 0 0 5px 5px;
-        width: 100%;
+
+    h3 {
+        font-size: 1.2rem;
     }
-    .paginacao {
-        gap: 5px;
+
+    .hero-text h1 {
+        font-size: 1.5rem;
     }
-    .btn-page {
-        padding: 4px 8px;
-        min-width: 30px;
+
+    .hero-graphics img {
+        max-width: 90vw;
     }
 }
-
-/* ===== REMOVIDO: Estilo #sobre específico ===== */
-/* O espaçamento agora é controlado pela margem/padding da seção */
-.sobre-projeto {
-    /* Adicionar estilos específicos se necessário, ex: */
-    /* background-color: #f8f9fa; */
-    /* padding: 2rem; */
-}
-
