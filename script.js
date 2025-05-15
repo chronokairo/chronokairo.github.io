@@ -222,23 +222,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // A página de blog agora usa embeds do Instagram
 
     // ====== MODAL DE NAVEGAÇÃO ======
-    const openMenu = document.getElementById('openMenu');
-    const closeMenu = document.getElementById('closeMenu');
+    const menuToggle = document.getElementById('menuToggle');
     const navModal = document.getElementById('navModal');
+    const menuIcon = document.getElementById('menuIcon');
+    let isOpen = false;
 
-    if (openMenu && closeMenu && navModal) {
-        openMenu.addEventListener('click', function () {
-            navModal.classList.add('open');
-        });
-        closeMenu.addEventListener('click', function () {
+    function openModal() {
+        navModal.style.animation = '';
+        navModal.classList.add('open');
+        menuIcon.src = 'assets/images/close.png';
+        menuIcon.alt = 'Fechar menu';
+        isOpen = true;
+    }
+
+    function closeModal() {
+        navModal.style.animation = 'fadeOutModal 0.4s';
+        setTimeout(() => {
             navModal.classList.remove('open');
-        });
-        // Fecha ao clicar fora do conteúdo do modal
-        navModal.addEventListener('click', function (e) {
-            if (e.target === navModal) {
-                navModal.classList.remove('open');
+            navModal.style.animation = '';
+        }, 400);
+        menuIcon.src = 'assets/images/menu.png';
+        menuIcon.alt = 'Abrir menu';
+        isOpen = false;
+    }
+
+    if (menuToggle && navModal && menuIcon) {
+        menuToggle.addEventListener('click', function () {
+            if (!isOpen) {
+                openModal();
+            } else {
+                closeModal();
             }
         });
+
+        navModal.addEventListener('click', function (e) {
+            if (e.target === navModal) {
+                closeModal();
+            }
+        });
+
+        navModal.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', closeModal);
+        });
     }
-}); // Fim do DOMContentLoaded
+});
 
