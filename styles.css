@@ -24,7 +24,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: var(--cor-texto-principal);
+    color: #ebebeb;
     background-color: #000000;
     overflow-x: hidden;
 }
@@ -48,7 +48,7 @@ header {
 .logo span {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--cor-titulo);
+    color: #ebebeb; /* alterado para cinza claro */
     letter-spacing: 1px;
 }
 
