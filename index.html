@@ -23,19 +23,26 @@
         privacidade.
     </div>
 
-    <header class="container">
+    <header class="container" style="display: flex; align-items: center; position: relative;">
+        <button id="openMenu" aria-label="Abrir menu" class="menu-btn" style="margin-right: 1rem; background: none; border: none;">
+            <!-- Ícone de menu com imagem personalizada -->
+            <img src="assets/images/menu.png" alt="Menu" style="width:32px; height:32px; display:block;">
+        </button>
         <div class="logo">
             <span>ChronoKairo</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
-                <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-                <li><a href="#contato" class="nav-link">Contato</a></li>
-            </ul>
-        </nav>
+        <div id="navModal" class="nav-modal">
+            <div class="nav-modal-content">
+                <button id="closeMenu" aria-label="Fechar menu" class="close-btn">&times;</button>
+                <ul>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <main>
