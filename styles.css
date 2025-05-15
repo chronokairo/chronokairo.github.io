@@ -49,16 +49,38 @@ header.container {
 }
 
 .menu-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1200;
     background: none;
     border: none;
-    color: #ebebeb;
-    font-size: 2rem;
     cursor: pointer;
-    margin-right: 1rem;
-    margin-left: 0;
-    z-index: 1101;
-    display: flex;
-    align-items: center;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 3px 0;
+    background: #ebebeb;
+    border-radius: 2px;
+    transition: 0.4s;
+    position: relative;
+}
+
+.menu-btn.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .logo {
@@ -730,16 +752,38 @@ pre, code {
 }
 
 .menu-btn {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1200;
     background: none;
     border: none;
-    color: #ebebeb;
-    font-size: 2rem;
     cursor: pointer;
-    margin-right: 1rem;
-    margin-left: 0;
-    z-index: 1101;
-    display: flex;
-    align-items: center;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 3px 0;
+    background: #ebebeb; /* alterado para cinza claro */
+    border-radius: 2px;
+    transition: 0.4s;
+    position: relative;
+}
+
+.menu-btn.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-modal {
@@ -751,20 +795,36 @@ pre, code {
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0, 0, 0, 0.75); /* #000000 com 75% de transparência */
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
 }
 
 .nav-modal.open {
     display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeInModal 0.4s;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOutModal {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 .nav-modal-content {
-    background: #111;
+    background: #000000; /* mesma transparência do fundo do modal */
     padding: 2rem 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 32px rgba(46, 46, 46, 0.75);
     text-align: center;
     min-width: 260px;
 }
