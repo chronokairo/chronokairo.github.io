@@ -218,8 +218,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- REMOVIDO: Função loadPosts() --- 
+    // --- REMOVIDO: Função loadPosts() ---
     // A página de blog agora usa embeds do Instagram
 
+    // ====== MODAL DE NAVEGAÇÃO ======
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const navModal = document.getElementById('navModal');
+
+    if (openMenu && closeMenu && navModal) {
+        openMenu.addEventListener('click', function () {
+            navModal.classList.add('open');
+        });
+        closeMenu.addEventListener('click', function () {
+            navModal.classList.remove('open');
+        });
+        // Fecha ao clicar fora do conteúdo do modal
+        navModal.addEventListener('click', function (e) {
+            if (e.target === navModal) {
+                navModal.classList.remove('open');
+            }
+        });
+    }
 }); // Fim do DOMContentLoaded
 
