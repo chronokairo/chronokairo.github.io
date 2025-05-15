@@ -31,7 +31,7 @@ body {
 
 /* ===== Cabeçalho ===== */
 header {
-    background-color: var(--cor-fundo);
+    background-color:#000000;
     color: var(--cor-titulo);
     padding: 1rem 0;
     text-align: center;
@@ -54,7 +54,7 @@ header {
 
 /* ===== Navegação ===== */
 nav {
-    background-color: var(--cor-fundo);
+    background-color: #000000;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -236,9 +236,37 @@ nav a.active {
     padding: 1.5rem;
     max-width: 1200px;
     margin: 1.5rem auto;
-    background-color: var(--cor-container);
+    background-color: #000000 !important; /* fundo preto para todas as seções */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+/* Cards e elementos internos também com fundo preto */
+.service-card,
+.project-card,
+.portfolio-item,
+.skill-card,
+blockquote,
+form {
+    background-color: #000000 !important;
+    color: #fff !important;
+    border-color: #222 !important;
+}
+
+/* Ajuste para textos principais das seções ficarem legíveis */
+.container,
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.container p,
+.container label,
+.container li,
+.container a,
+.container strong {
+    color: #fff !important;
 }
 
 /* ===== Tipografia ===== */
@@ -667,4 +695,9 @@ form textarea:focus {
 .about-text h4,
 .about-text p {
     color: #fff;
+}
+
+pre, code {
+    background-color: #000000 !important;
+    color: #fff !important;
 }
