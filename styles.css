@@ -39,11 +39,15 @@ header {
 }
 
 header.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 2000;
+    background: #000;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    position: relative;
-    background: #000;
     padding: 1rem 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.04);
 }
@@ -85,6 +89,10 @@ header.container {
 
 .logo {
     margin-left: 0;
+    flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-container img {
@@ -795,12 +803,14 @@ pre, code {
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background: rgba(0, 0, 0, 0.75); /* #000000 com 75% de transparência */
+    background: rgba(0, 0, 0, 0.25); /* #000000 com 25% de transparência */
     justify-content: center;
     align-items: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s;
+    backdrop-filter: blur(8px); /* efeito de embaçamento */
+    -webkit-backdrop-filter: blur(8px); /* suporte para Safari */
 }
 
 .nav-modal.open {
@@ -821,10 +831,9 @@ pre, code {
 }
 
 .nav-modal-content {
-    background: #000000; /* mesma transparência do fundo do modal */
+    background: rgba(0, 0, 0, 0.25); /* #000000 com 25% de transparência */
     padding: 2rem 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(46, 46, 46, 0.75);
     text-align: center;
     min-width: 260px;
 }
@@ -860,4 +869,17 @@ pre, code {
     top: 1.2rem;
     right: 1.8rem;
     cursor: pointer;
+}
+
+main {
+    margin-top: 80px; /* ajuste conforme a altura do seu header */
+}
+
+.modal-logo span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ebebeb;
+    letter-spacing: 1px;
+    display: block;
+    text-align: center;
 }
