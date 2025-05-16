@@ -268,16 +268,12 @@ nav a.active {
     transition:
         opacity 0.7s cubic-bezier(.4,2,.6,1),
         transform 0.7s cubic-bezier(.4,2,.6,1);
-    text-align: center;              /* Alinha o texto à esquerda */
-    margin-left: 15rem;             /* Move o bloco mais à direita */
-}
-
-.hero-section.section-visible .hero-text {
-    opacity: 1;
-    transform: translateX(0);
+    text-align: left;              /* Alinha o texto à esquerda */
+    margin-left: 15rem;            /* Mantém o bloco mais à direita */
 }
 
 .hero-text h1 {
+    text-align: center;            /* Mantém o título centralizado */
     font-size: 2.5rem;
     color: var(--cor-titulo);
     margin-bottom: 1.2rem;
@@ -291,6 +287,7 @@ nav a.active {
 }
 
 .hero-text p {
+    text-align: left;             /* Força o alinhamento do texto à esquerda */
     font-size: 1.2rem;
     color: var(--cor-texto-principal);
     margin-bottom: 2rem;
@@ -927,7 +924,7 @@ pre, code {
 }
 
 main {
-    margin-top: 180px; /* ajuste conforme a nova altura do header */
+    margin-top: 180px; /* ajuste conforme a altura do header */
 }
 
 .modal-logo span {

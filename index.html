@@ -19,12 +19,13 @@
     <!-- Banner de Cookies -->
     <div
         style="position: fixed; bottom: 0; background-color: transparent; width: 100%; padding: 15px; text-align: center; border-top: 1px solid transparent; z-index: 3;">
-        Nosso site faz captura <b>cookies</b>. <a href="privacidade" style="color: #ebebeb;"><b>Clique Aqui</b></a> e leia nossa política de
+        Nosso site faz captura <b>cookies</b>. <a href="privacidade" style="color: #ebebeb;"><b>Clique Aqui</b></a> e
+        leia nossa política de
         privacidade.
     </div>
 
-    <header class="container">
-        <button id="menuToggle" class="menu-btn" aria-label="Abrir menu">
+    <header class="container" style="display: flex; justify-content: center; align-items: center; padding: 1rem;">
+        <button id="menuToggle" class="menu-btn" aria-label="Abrir menu" style="position: absolute; left: 1rem;">
             <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" style="width:32px; height:32px;">
         </button>
         <div class="logo">
@@ -68,15 +69,27 @@
                 <div class="about-text">
                     <h1>Quem somos</h1>
                     <h3>Especialistas em soluções</h3>
-                    <p>
-                        Na ChronoKairo, nossa missão é transformar ideias em produtos digitais de alto impacto. Nascemos com o propósito de ser mais do que uma empresa de tecnologia: somos parceiros estratégicos na construção do futuro digital dos nossos clientes.
-
-Reunimos uma equipe multidisciplinar com expertise em tecnologia, automação e design de experiência para criar soluções inovadoras, personalizadas e escaláveis. Cada projeto é encarado como uma oportunidade de impulsionar negócios, resolver problemas reais e gerar valor sustentável por meio da inovação.
-
-Com um olhar atento às tendências e um compromisso firme com a excelência, entregamos soluções que não apenas acompanham as mudanças do mercado — mas as lideram. Do conceito à execução, estamos prontos para transformar sua visão em resultados concretos.
-
-
-                    </p>
+                    <div
+                        style="display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start; width: 100%;">
+                        <div style="flex: 1; text-align: left; max-width: 700px;">
+                            <p style="margin: 0; padding: 0;">
+                                Na ChronoKairo, nossa missão é transformar ideias em produtos digitais de alto impacto.
+                                Nascemos com o propósito de ser mais do que uma empresa de tecnologia: somos parceiros
+                                estratégicos na construção do futuro digital dos nossos clientes.<br><br>
+                                Reunimos uma equipe multidisciplinar com expertise em tecnologia, automação e design de
+                                experiência para criar soluções inovadoras, personalizadas e escaláveis. Cada projeto é
+                                encarado como uma oportunidade de impulsionar negócios, resolver problemas reais e gerar
+                                valor sustentável por meio da inovação.<br><br>
+                                Com um olhar atento às tendências e um compromisso firme com a excelência, entregamos
+                                soluções que não apenas acompanham as mudanças do mercado — mas as lideram. Do conceito
+                                à
+                                execução, estamos prontos para transformar sua visão em resultados concretos.
+                            </p>
+                        </div>
+                        <div style="flex: 1;">
+                            <!-- Espaço reservado para futura imagem -->
+                        </div>
+                    </div>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/chronokairo" target="_blank" aria-label="LinkedIn">
                             <!-- SVG inline do LinkedIn -->
@@ -107,8 +120,7 @@ Com um olhar atento às tendências e um compromisso firme com a excelência, en
         <!-- Sócios -->
         <section id="socios" class="container">
             <h2>Conheça nossos sócios</h2>
-            <div class="socios-grid"
-                style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <div class="socios-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
                 <div class="socio-card"
                     style="background: #111; border-radius: 12px; padding: 2rem 1.5rem; max-width: 260px; text-align: center;">
                     <img src="assets/images/luan.png" alt="Sócio 1"
