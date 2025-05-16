@@ -242,10 +242,30 @@ nav a.active {
     border-radius: 16px;
     margin-bottom: 2.5rem;
     flex-wrap: wrap;
+    opacity: 0;
+    transform: translateX(80px);
+    transition:
+        opacity 0.7s cubic-bezier(.4,2,.6,1),
+        transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.hero-section.section-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .hero-text {
     max-width: 500px;
+    opacity: 0;
+    transform: translateX(-80px); /* começa da esquerda */
+    transition:
+        opacity 0.7s cubic-bezier(.4,2,.6,1),
+        transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.hero-section.section-visible .hero-text {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .hero-text h1 {
@@ -368,6 +388,16 @@ p {
 section {
     margin-bottom: 2.5rem;
     padding-top: 1rem;
+    opacity: 0;
+    transform: translateX(80px);
+    transition: 
+        opacity 0.7s cubic-bezier(.4,2,.6,1),
+        transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+section.section-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* ===== Botões ===== */

@@ -265,5 +265,25 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', closeModal);
         });
     }
+
+    function revealSectionsOnScroll() {
+        // Animação para hero-section
+        const hero = document.querySelector('.hero-section');
+        if (hero) {
+            const rect = hero.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                hero.classList.add('section-visible');
+            }
+        }
+        // Animação para outras seções
+        document.querySelectorAll('section:not(.hero-section)').forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                section.classList.add('section-visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealSectionsOnScroll);
+    revealSectionsOnScroll();
 });
 
