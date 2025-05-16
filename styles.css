@@ -907,3 +907,16 @@ main {
     object-fit: cover;
     margin-bottom: 1rem;
 }
+
+.socio-card {
+    transition: 
+        transform 0.25s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.25s cubic-bezier(.4,2,.6,1);
+}
+
+.socio-card:hover,
+.socio-card:focus-within {
+    transform: scale(1.07);
+    box-shadow: 0 0 32px 8px rgba(255,255,255,0.18), 0 0 8px 2px #fff;
+    z-index: 2;
+}
