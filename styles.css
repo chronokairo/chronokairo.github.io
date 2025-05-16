@@ -899,3 +899,11 @@ main {
     display: block;
     text-align: center;
 }
+
+.socio-card img {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
