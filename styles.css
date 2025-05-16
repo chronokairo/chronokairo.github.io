@@ -257,10 +257,12 @@ nav a.active {
 .hero-text {
     max-width: 500px;
     opacity: 0;
-    transform: translateX(-80px); /* começa da esquerda */
+    transform: translateX(-80px);
     transition:
         opacity 0.7s cubic-bezier(.4,2,.6,1),
         transform 0.7s cubic-bezier(.4,2,.6,1);
+    text-align: center;              /* Alinha o texto à esquerda */
+    margin-left: 10rem;             /* Move o bloco mais à direita */
 }
 
 .hero-section.section-visible .hero-text {
