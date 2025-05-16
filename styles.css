@@ -269,7 +269,7 @@ nav a.active {
         opacity 0.7s cubic-bezier(.4,2,.6,1),
         transform 0.7s cubic-bezier(.4,2,.6,1);
     text-align: center;              /* Alinha o texto à esquerda */
-    margin-left: 10rem;             /* Move o bloco mais à direita */
+    margin-left: 20rem;             /* Move o bloco mais à direita */
 }
 
 .hero-section.section-visible .hero-text {
@@ -963,4 +963,31 @@ main {
     opacity: 0.2 !important;
     pointer-events: none;
     transition: opacity 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+/* Adicione ou altere este bloco para alinhar a seção sócios mais à direita */
+#socios.container {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(40px); /* começa um pouco abaixo */
+    transition: 
+        opacity 0.7s cubic-bezier(.4,2,.6,1),
+        transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+#socios.container.section-visible {
+    opacity: 1;
+    transform: translateY(0); /* move para posição final centralizada */
+}
+
+#socios .socios-grid {
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 2rem;
 }
