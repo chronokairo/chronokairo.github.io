@@ -269,7 +269,7 @@ nav a.active {
         opacity 0.7s cubic-bezier(.4,2,.6,1),
         transform 0.7s cubic-bezier(.4,2,.6,1);
     text-align: center;              /* Alinha o texto à esquerda */
-    margin-left: 20rem;             /* Move o bloco mais à direita */
+    margin-left: 15rem;             /* Move o bloco mais à direita */
 }
 
 .hero-section.section-visible .hero-text {
