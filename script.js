@@ -285,5 +285,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', revealSectionsOnScroll);
     revealSectionsOnScroll();
+
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        let activeSection = null;
+        let maxVisible = 0;
+
+        // Descobre qual seção está mais visível na tela
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const visibleHeight = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+            if (visibleHeight > maxVisible) {
+                maxVisible = visibleHeight;
+                activeSection = section;
+            }
+        });
+
+        // Aplica/remover classes
+        sections.forEach(section => {
+            if (section === activeSection) {
+                section.classList.remove('hero-faded');
+                section.classList.add('section-visible');
+            } else {
+                section.classList.add('hero-faded');
+                section.classList.remove('section-visible');
+            }
+        });
+    });
 });
 
