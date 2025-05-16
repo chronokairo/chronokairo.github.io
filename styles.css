@@ -856,11 +856,21 @@ pre, code {
     font-size: 1.3rem;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s;
+    transition: 
+        color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 0.4em 1em;
 }
 
-.nav-modal-content a:hover {
+.nav-modal-content a:hover,
+.nav-modal-content a:focus {
     color: #fff;
+    transform: scale(1.12);
+    box-shadow: 0 0 16px 4px rgba(235,235,235,0.45), 0 0 4px 1px #fff;
+    outline: none;
 }
 
 .close-btn {
