@@ -1,425 +1,718 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChronoKairo | Inovação para Startups</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYQ7JW845Z"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XYQ7JW845Z');
-    </script>
+    <title>ChronoKairo | Tecnologia Colaborativa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --dark: #121212;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-in;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        
+        .open {
+            transform: rotate(90deg);
+            transform: translateY(0px);
+        }
+        
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translate(6px);
+        }
+        
+        .open .hamburger-middle {
+            display: none;
+        }
+        
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translate(-6px);
+        }
+    </style>
 </head>
-
-<body class="bg-black text-white font-sans">
-    <!-- Banner de Cookies -->
-    <div id="cookieBanner"
-        class="fixed bottom-0 bg-gray-900 bg-opacity-90 w-full p-4 text-center border-t border-gray-700 z-50 hidden">
-        Nosso site faz captura de <b>cookies</b>. <a href="privacidade" class="text-blue-300 underline"><b>Clique
-                Aqui</b></a> e leia nossa política de privacidade.
-        <button id="acceptCookies" class="ml-4 bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Aceitar</button>
-    </div>
-
-    <header class="container mx-auto p-6 relative">
-        <button id="menuToggle" class="menu-btn absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
-            aria-label="Abrir menu">
-            <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" class="w-10 h-10">
-        </button>
-        <div class="logo text-3xl md:text-4xl font-bold flex items-center justify-center">
-            <img src="assets/images/logo.png" alt="ChronoKairo Logo" class="w-12 h-12 md:w-16 md:h-16 mr-3">
-            <span>ChronoKairo</span>
-        </div>
-        <div id="navModal" class="nav-modal hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40">
-            <div class="nav-modal-content flex flex-col items-center justify-center h-full">
-                <div class="modal-logo mb-8 flex items-center">
-                    <img src="assets/images/logo.png" alt="ChronoKairo Logo" class="w-16 h-16 mr-3">
-                    <span class="text-4xl font-bold text-white text-center">ChronoKairo</span>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="#home" class="flex-shrink-0">
+                        <img class="h-10" src="https://i.postimg.cc/Z5Kz32kJ/logo-1.png" alt="ChronoKairo Logo">
+                    </a>
                 </div>
-                <ul class="space-y-6">
-                    <li><a href="#sobre" class="nav-link text-xl hover:text-blue-300">Sobre</a></li>
-                    <li><a href="#socios" class="nav-link text-xl hover:text-blue-300">Sócios</a></li>
-                    <li><a href="#servicos" class="nav-link text-xl hover:text-blue-300">Serviços</a></li>
-                    <li><a href="#portfolio" class="nav-link text-xl hover:text-blue-300">Portfólio</a></li>
-                    <li><a href="#depoimentos" class="nav-link text-xl hover:text-blue-300">Depoimentos</a></li>
-                    <li><a href="#contato" class="nav-link text-xl hover:text-blue-300">Contato</a></li>
-                </ul>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link active text-white px-3 py-2 text-sm font-medium">Início</a>
+                        <a href="#about" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Quem Somos</a>
+                        <a href="#services" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Serviços</a>
+                        <a href="#team" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Equipe</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Contato</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="hamburger">
+                        <span class="hamburger-top"></span>
+                        <span class="hamburger-middle"></span>
+                        <span class="hamburger-bottom"></span>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+        <!-- Mobile menu -->
+        <div id="menu" class="hidden md:hidden bg-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="nav-link active block px-3 py-2 text-base font-medium text-white">Início</a>
+                <a href="#about" class="nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Quem Somos</a>
+                <a href="#services" class="nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Serviços</a>
+                <a href="#team" class="nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Equipe</a>
+                <a href="#contact" class="nav-link block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Contato</a>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero"
-            class="container mx-auto flex flex-col md:flex-row items-center justify-between py-12 md:py-20">
-            <div class="hero-text text-center md:text-left mb-8 md:mb-0 md:w-1/2 space-y-4">
-                <h1 class="text-4xl md:text-5xl font-bold">
-                    Impulsione seu negócio<br><span class="text-blue-300">com tecnologia e automação</span>
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <span class="text-blue-500">10 mentes famintas</span> para resolver seu problema
                 </h1>
-                <p class="text-lg md:text-xl">Desenvolvemos soluções digitais para quem quer crescer com inovação,
-                    eficiência e resultados reais.</p>
-                <a href="#servicos"
-                    class="btn btn-primary inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">Conheça
-                    nossos serviços</a>
-            </div>
-            <div class="hero-graphics md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
-                    alt="Ilustração Startup" class="w-full h-64 object-cover rounded-lg"
-                    onerror="this.src='https://via.placeholder.com/600x400.png?text=Startup';">
-            </div>
-        </section>
-
-        <!-- Sobre Nós -->
-        <section id="sobre" class="container mx-auto py-12">
-            <div class="about-content space-y-6">
-                <h2 class="text-3xl font-bold flex items-center">
-                    <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                    </svg>
-                    Quem somos
-                </h2>
-                <h3 class="text-xl text-blue-300">Especialistas em soluções</h3>
-                <div class="flex flex-col md:flex-row items-start justify-start space-y-6 md:space-y-0 md:space-x-6">
-                    <div class="md:w-1/2">
-                        <p class="text-base md:text-lg leading-relaxed">
-                            Na ChronoKairo, nossa missão é transformar ideias em produtos digitais de alto impacto.
-                            Nascemos com o propósito de ser mais do que uma empresa de tecnologia: somos parceiros
-                            estratégicos na construção do futuro digital dos nossos clientes.<br><br>
-                            Reunimos uma equipe multidisciplinar com expertise em tecnologia, automação e design de
-                            experiência para criar soluções inovadoras, personalizadas e escaláveis. Cada projeto é
-                            encarado como uma oportunidade de impulsionar negócios, resolver problemas reais e gerar
-                            valor sustentável por meio da inovação.<br><br>
-                            Com um olhar atento às tendências e um compromisso firme com a excelência, entregamos
-                            soluções que não apenas acompanham as mudanças do mercado — mas as lideram. Do conceito à
-                            execução, estamos prontos para transformar sua visão em resultados concretos.
-                        </p>
-                    </div>
-                    <div class="md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80"
-                            alt="Equipe ChronoKairo" class="w-full h-64 object-cover rounded-lg"
-                            onerror="this.src='https://via.placeholder.com/400x300.png?text=Equipe';">
-                    </div>
-                </div>
-                <div class="social-links flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/company/chronokairo" target="_blank" aria-label="LinkedIn"
-                        class="hover:text-blue-300">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-                        </svg>
+                <p class="text-xl text-gray-300 mb-8">
+                    ChronoKairo: Tecnologia colaborativa que transforma ideias em realidade
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+                        Fale Conosco
                     </a>
-                    <a href="https://github.com/chronokairo" target="_blank" aria-label="GitHub"
-                        class="hover:text-blue-300">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.745 0 .267.18.579.688.481C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
-                        </svg>
-                    </a>
-                    <a href="https://instagram.com/chronokairo" target="_blank" aria-label="Instagram"
-                        class="hover:text-blue-300">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.059-1.282.316-2.394 1.296-3.374.981-.981 2.093-1.238 3.374-1.296C8.332 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.771.13 4.659.387 3.678 1.368c-.98.98-1.237 2.092-1.296 3.374C2.014 5.668 2 6.077 2 12c0 5.923.014 6.332.072 7.612.059 1.282.316 2.394 1.296 3.374.981.981 2.093 1.238 3.374 1.296C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.281-.058 2.393-.315 3.374-1.296.98-.98 1.237-2.092 1.296-3.374.058-1.28.072-1.689.072-7.612 0-5.923-.014-6.332-.072-7.612-.059-1.282-.316-2.394-1.296-3.374-.981-.981-2.093-1.238-3.374-1.296C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
-                        </svg>
+                    <a href="#services" class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-3 px-6 rounded-lg transition duration-300 text-center">
+                        Nossos Serviços
                     </a>
                 </div>
             </div>
-        </section>
+            <div class="md:w-1/2 fade-in">
+                <div class="bg-gray-800 rounded-xl p-8 shadow-2xl border border-gray-700">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-500">Nosso Diferencial</h3>
+                    <p class="text-gray-300 mb-6">
+                        Ao contratar a ChronoKairo, você não recebe apenas um desenvolvedor, mas uma equipe completa de profissionais experientes e estudantes talentosos colaborando para entregar a melhor solução possível.
+                    </p>
+                    <div class="flex items-center">
+                        <div class="flex -space-x-2">
+                            <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">1</div>
+                            <div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">0</div>
+                        </div>
+                        <span class="ml-4 text-gray-300">Mentores + Talentos = Solução Completa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Nossos Valores -->
-        <section id="valores" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                Nossos Valores
-            </h2>
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-800 bg-opacity-50 rounded-3xl my-12 fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Quem Somos</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team working" class="rounded-xl shadow-2xl">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-bold mb-6 text-blue-500">Nossa História</h3>
+                <p class="text-gray-300 mb-4">
+                    A ChronoKairo nasceu da união de profissionais experientes e estudantes talentosos, com o objetivo de oferecer soluções tecnológicas inovadoras e acessíveis.
+                </p>
+                <p class="text-gray-300 mb-6">
+                    Nossa missão é conectar mentores experientes com jovens talentos, criando um ecossistema onde o conhecimento é compartilhado e as melhores soluções são desenvolvidas em colaboração.
+                </p>
+                <div class="bg-gray-700 p-6 rounded-xl mb-6">
+                    <h4 class="text-xl font-bold mb-3 text-blue-400">Por que escolher a ChronoKairo?</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-300">Equipe multidisciplinar com 10 profissionais dedicados</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-300">Combinação única de experiência e inovação</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-300">Soluções personalizadas para cada desafio</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">✓</span>
+                            <span class="text-gray-300">Preços competitivos com qualidade premium</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition duration-300 h-full">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Desenvolvimento Web</h3>
+                <p class="text-gray-300">
+                    Sites e aplicações web personalizadas, desde landing pages simples até complexos sistemas web.
+                </p>
+            </div>
+            <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition duration-300 h-full">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Aplicativos Móveis</h3>
+                <p class="text-gray-300">
+                    Desenvolvimento de aplicativos nativos e híbridos para iOS e Android.
+                </p>
+            </div>
+            <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition duration-300 h-full">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Automações</h3>
+                <p class="text-gray-300">
+                    Soluções de automação para otimizar processos e aumentar a produtividade.
+                </p>
+            </div>
+            <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition duration-300 h-full">
+                <div class="text-blue-500 text-4xl mb-4">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Soluções com IA</h3>
+                <p class="text-gray-300">
+                    Implementação de inteligência artificial e machine learning em seus projetos.
+                </p>
+            </div>
+        </div>
+        <div class="mt-12 bg-gray-800 rounded-xl p-8 border border-gray-700">
+            <h3 class="text-2xl font-bold mb-4 text-blue-500">Como Trabalhamos</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
-                    <h3 class="text-xl font-semibold text-blue-300">Inovação</h3>
-                    <p class="text-base">Buscamos soluções criativas que transformam desafios em oportunidades.</p>
+                <div class="flex items-start">
+                    <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">1</div>
+                    <div>
+                        <h4 class="font-bold mb-2">Análise do Problema</h4>
+                        <p class="text-gray-300">Entendemos profundamente seu desafio para propor a melhor solução.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
-                    <h3 class="text-xl font-semibold text-blue-300">Excelência</h3>
-                    <p class="text-base">Compromisso com a qualidade em cada etapa do processo.</p>
+                <div class="flex items-start">
+                    <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">2</div>
+                    <div>
+                        <h4 class="font-bold mb-2">Desenvolvimento Colaborativo</h4>
+                        <p class="text-gray-300">Nossa equipe multidisciplinar trabalha em conjunto no projeto.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
-                    <h3 class="text-xl font-semibold text-blue-300">Colaboração</h3>
-                    <p class="text-base">Parcerias sólidas para co-criar o sucesso de nossos clientes.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sócios -->
-        <section id="socios" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                </svg>
-                Conheça nossos sócios
-            </h2>
-            <div class="socios-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
-                <div
-                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/luan.png" alt="Luan Nery"
-                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
-                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Luan';">
-                    <h3 class="text-xl font-semibold">Luan Nery</h3>
-                    <p class="text-blue-300">CEO & Fundador</p>
-                    <p class="text-base">Especialista em inovação e liderança de equipes multidisciplinares.</p>
-                </div>
-                <div
-                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/mike.png" alt="Mike"
-                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
-                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Mike';">
-                    <h3 class="text-xl font-semibold">Mike</h3>
-                    <p class="text-blue-300">CTO & Fundador</p>
-                    <p class="text-base">Desenvolvedor full stack apaixonado por tecnologia e automação.</p>
-                </div>
-                <div
-                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/riad.png" alt="Riad Makarem"
-                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
-                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Riad';">
-                    <h3 class="text-xl font-semibold">Riad Makarem</h3>
-                    <p class="text-blue-300">COO & Fundador</p>
-                    <p class="text-base">Gestor de operações com experiência em startups e crescimento acelerado.</p>
-                </div>
-                <div
-                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/victor.png" alt="Victor Martins"
-                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
-                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Victor';">
-                    <h3 class="text-xl font-semibold">Victor Martins</h3>
-                    <p class="text-blue-300">CMO & Fundador</p>
-                    <p class="text-base">Especialista em marketing digital e estratégias de aquisição de clientes.</p>
+                <div class="flex items-start">
+                    <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4 flex-shrink-0">3</div>
+                    <div>
+                        <h4 class="font-bold mb-2">Entrega e Suporte</h4>
+                        <p class="text-gray-300">Entregamos a solução e oferecemos suporte contínuo.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Serviços -->
-        <section id="servicos" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                O que fazemos
-            </h2>
-            <div class="services-grid grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/automacao.png" alt="Automação" class="w-32 h-32 mx-auto"
-                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Automação';">
-                    <h3 class="text-xl font-semibold text-blue-300">Automação de Processos</h3>
-                    <p class="text-base">Elimine tarefas repetitivas e ganhe tempo para focar no que importa: crescer.
-                    </p>
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-800 bg-opacity-50 rounded-3xl my-12 fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossa Equipe</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                Conheça as 10 mentes famintas que formam o coração da ChronoKairo
+            </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            <!-- Team Member 1 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/luan.png" alt="Mike" class="object-cover w-full h-full">
                 </div>
-                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/dev.png" alt="Desenvolvimento" class="w-32 h-32 mx-auto"
-                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Desenvolvimento';">
-                    <h3 class="text-xl font-semibold text-blue-300">Desenvolvimento de Software</h3>
-                    <p class="text-base">Aplicativos, plataformas e sistemas sob medida para startups de todos os
-                        tamanhos.</p>
+                <h3 class="text-xl font-bold mb-1">Luan Nery</h3>
+                <p class="text-blue-400 text-sm mb-3">Especialista em Inovação</p>
+                <p class="text-gray-300 text-sm">
+                    Liderança de equipes multidisciplinares com foco em soluções inovadoras.
+                </p>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/mike.jpg" alt="Mike" class="object-cover w-full h-full">
                 </div>
-                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="assets/images/growth.png" alt="Growth" class="w-32 h-32 mx-auto"
-                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Growth';">
-                    <h3 class="text-xl font-semibold text-blue-300">Consultoria em Growth</h3>
-                    <p class="text-base">Estratégias digitais para acelerar a aquisição de clientes e escalar seu
-                        negócio.</p>
+                <h3 class="text-xl font-bold mb-1">Mike</h3>
+                <p class="text-blue-400 text-sm mb-3">Desenvolvedor Full Stack</p>
+                <p class="text-gray-300 text-sm">
+                    Apaixonado por tecnologia e automação, com experiência em diversas stacks.
+                </p>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/riad.jpg" alt="Riad" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-xl font-bold mb-1">Riad Makarem</h3>
+                <p class="text-blue-400 text-sm mb-3">Gestor de Operações</p>
+                <p class="text-gray-300 text-sm">
+                    Experiência em startups e crescimento acelerado de empresas.
+                </p>
+            </div>
+            
+            <!-- Team Member 4 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/victor.png" alt="Victor" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-xl font-bold mb-1">Victor Martins</h3>
+                <p class="text-blue-400 text-sm mb-3">Marketing Digital</p>
+                <p class="text-gray-300 text-sm">
+                    Especialista em estratégias de aquisição de clientes e posicionamento.
+                </p>
+            </div>
+            
+            <!-- Team Member 5 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <i class="fas fa-user text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-1">Pedro Isaque</h3>
+                <p class="text-blue-400 text-sm mb-3">Front-end Developer</p>
+                <p class="text-gray-300 text-sm">
+                    Estudante de Ciência da Computação com talento para criar interfaces intuitivas.
+                </p>
+            </div>
+            
+            <!-- Team Member 6 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <i class="fas fa-user text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-1">Beatriz Mota</h3>
+                <p class="text-blue-400 text-sm mb-3">Designer UX/UI</p>
+                <p class="text-gray-300 text-sm">
+                    Combina habilidades de design visual com compreensão profunda de UX.
+                </p>
+            </div>
+            
+            <!-- Team Member 7 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <i class="fas fa-user text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-1">Matheus Rebelo</h3>
+                <p class="text-blue-400 text-sm mb-3">Especialista em IA</p>
+                <p class="text-gray-300 text-sm">
+                    Estudante de mestrado focado em machine learning e soluções de IA.
+                </p>
+            </div>
+            
+            <!-- Team Member 8 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <i class="fas fa-user text-3xl text-gray-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-1">Luis Everton</h3>
+                <p class="text-blue-400 text-sm mb-3">Back-end Developer</p>
+                <p class="text-gray-300 text-sm">
+                    Especialista em arquitetura de sistemas e criação de APIs robustas.
+                </p>
+            </div>
+            
+            <!-- Team Member 9 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/jordan.png" alt="Jordan" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-xl font-bold mb-1">Jordan Pereira</h3>
+                <p class="text-blue-400 text-sm mb-3">Especialista em Automação</p>
+                <p class="text-gray-300 text-sm">
+                    Desenvolve soluções que economizam tempo e aumentam a produtividade.
+                </p>
+            </div>
+            
+            <!-- Team Member 10 -->
+            <div class="team-member bg-gray-800 rounded-xl p-6 border border-gray-700 transition duration-300 hover:border-blue-500 text-center">
+                <div class="w-24 h-24 rounded-full bg-gray-700 mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                    <img src="assets/raphael.png" alt="Raphael" class="object-cover w-full h-full">
+                </div>
+                <h3 class="text-xl font-bold mb-1">Raphael Max</h3>
+                <p class="text-blue-400 text-sm mb-3">Analista de Dados</p>
+                <p class="text-gray-300 text-sm">
+                    Transforma dados brutos em insights acionáveis com análise preditiva.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">O Que Dizem Sobre Nós</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 max-w-4xl mx-auto">
+            <div class="text-center">
+                <div class="text-yellow-400 text-2xl mb-4">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="text-xl italic text-gray-300 mb-8">
+                    "A ChronoKairo superou todas as nossas expectativas. A abordagem colaborativa trouxe soluções que nunca teríamos considerado com um desenvolvedor individual."
+                </p>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center mr-4">
+                        <i class="fas fa-user text-xl text-gray-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Cliente Satisfeito</h4>
+                        <p class="text-sm text-gray-400">CEO, Empresa X</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Portfólio -->
-        <section id="portfolio" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                </svg>
-                Projetos em destaque
-            </h2>
-            <div class="projects-grid grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80"
-                        alt="SaaS" class="w-full h-40 object-cover rounded-t-lg"
-                        onerror="this.src='https://via.placeholder.com/300x200.png?text=SaaS';">
-                    <h3 class="text-xl font-semibold text-blue-300">Plataforma SaaS</h3>
-                    <p class="text-base">Desenvolvimento completo de uma solução SaaS para gestão de equipes e tarefas.
-                    </p>
-                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&q=80"
-                        alt="Onboarding" class="w-full h-40 object-cover rounded-t-lg"
-                        onerror="this.src='https://via.placeholder.com/300x200.png?text=Onboarding';">
-                    <h3 class="text-xl font-semibold text-blue-300">Automação de Onboarding</h3>
-                    <p class="text-base">Implantação de automações para acelerar o onboarding de novos clientes em
-                        fintech.</p>
-                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=300&q=80"
-                        alt="Dashboard" class="w-full h-40 object-cover rounded-t-lg"
-                        onerror="this.src='https://via.placeholder.com/300x200.png?text=Dashboard';">
-                    <h3 class="text-xl font-semibold text-blue-300">Dashboard de Métricas</h3>
-                    <p class="text-base">Criação de dashboard interativo para acompanhamento de KPIs em tempo real.</p>
-                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
-                </div>
-                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
-                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&q=80"
-                        alt="App Mobile" class="w-full h-40 object-cover rounded-t-lg"
-                        onerror="this.src='https://via.placeholder.com/300x200.png?text=App';">
-                    <h3 class="text-xl font-semibold text-blue-300">App Mobile de Gestão</h3>
-                    <p class="text-base">Desenvolvimento de um aplicativo para gerenciar projetos em tempo real.</p>
-                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            <p class="text-xl text-gray-300 mt-6 max-w-3xl mx-auto">
+                Pronto para transformar sua ideia em realidade? Nossa equipe está ansiosa para ajudar!
+            </p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/2">
+                <form id="contactForm" class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 mb-2">Seu Nome</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-300 mb-2">E-mail</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-gray-300 mb-2">Assunto</label>
+                        <select id="subject" name="subject" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                            <option value="" disabled selected>Selecione um assunto</option>
+                            <option value="web">Desenvolvimento Web</option>
+                            <option value="app">Aplicativos Móveis</option>
+                            <option value="automation">Automações</option>
+                            <option value="ai">Soluções com IA</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 h-full">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-500">Informações de Contato</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-500 text-xl mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Endereço</h4>
+                                <p class="text-gray-300">Av. Paulista, 1000 - São Paulo, SP</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-500 text-xl mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">E-mail</h4>
+                                <p class="text-gray-300">contato@chronokairo.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-500 text-xl mr-4 mt-1">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Telefone</h4>
+                                <p class="text-gray-300">(11) 99999-9999</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <h4 class="font-bold mb-4 text-blue-400">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Depoimentos -->
-        <section id="depoimentos" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                </svg>
-                Depoimentos
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
-                    <p class="text-base">"A ChronoKairo foi fundamental para automatizar nossos processos e acelerar
-                        nosso crescimento. Equipe ágil e comprometida!"</p>
-                    <footer class="text-right text-blue-300"><strong>Lucas Andrade, CEO da FintechX</strong></footer>
-                </blockquote>
-                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
-                    <p class="text-base">"Transformaram nossa ideia em um produto digital robusto e escalável. Recomendo
-                        para qualquer startup!"</p>
-                    <footer class="text-right text-blue-300"><strong>Marina Souza, Fundadora da HealthStart</strong>
-                    </footer>
-                </blockquote>
-                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
-                    <p class="text-base">"Excelente parceria! A automação que criaram otimizou nossa operação em
-                        semanas."</p>
-                    <footer class="text-right text-blue-300"><strong>Carlos Lima, CTO da TechRise</strong></footer>
-                </blockquote>
+    <!-- Floating Contact Button -->
+    <a href="#contact" class="fixed bottom-6 right-6 bg-blue-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg floating-btn z-40">
+        <i class="fas fa-comment-dots"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#home" class="flex items-center">
+                        <img class="h-8" src="https://i.postimg.cc/Z5Kz32kJ/logo-1.png" alt="ChronoKairo Logo">
+                        <span class="ml-2 text-xl font-bold">ChronoKairo</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Navegação</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-300 hover:text-white">Início</a></li>
+                            <li><a href="#about" class="text-gray-300 hover:text-white">Quem Somos</a></li>
+                            <li><a href="#services" class="text-gray-300 hover:text-white">Serviços</a></li>
+                            <li><a href="#team" class="text-gray-300 hover:text-white">Equipe</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Serviços</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white">Desenvolvimento Web</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Aplicativos Móveis</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Automações</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Soluções com IA</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white">Política de Privacidade</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Termos de Serviço</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Contato</h3>
+                        <ul class="space-y-2">
+                            <li><a href="mailto:contato@chronokairo.com" class="text-gray-300 hover:text-white">contato@chronokairo.com</a></li>
+                            <li><a href="tel:+5511999999999" class="text-gray-300 hover:text-white">(11) 99999-9999</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">São Paulo, SP</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <!-- Últimas Notícias -->
-        <section id="noticias" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-2-7H6v-2h12v2zm0 4H6v-2h12v2z" />
-                </svg>
-                Últimas Notícias
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-2">
-                    <h3 class="text-xl font-semibold text-blue-300">ChronoKairo na Tech Summit 2025</h3>
-                    <p class="text-base">Participe de nossa palestra sobre automação em 25 de maio de 2025. <a href="#"
-                            class="text-blue-300 hover:underline">Saiba mais</a></p>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-2">
-                    <h3 class="text-xl font-semibold text-blue-300">Novo Projeto SaaS Lançado</h3>
-                    <p class="text-base">Lançamos uma plataforma de gestão para startups. Confira os detalhes! <a
-                            href="#" class="text-blue-300 hover:underline">Leia agora</a></p>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2023 ChronoKairo. Todos os direitos reservados.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Contato -->
-        <section id="contato" class="container mx-auto py-12">
-            <h2 class="text-3xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-2-7H6v-2h12v2zm0 4H6v-2h12v2z" />
-                </svg>
-                Vamos conversar?
-            </h2>
-            <p class="text-lg mb-6">Preencha o formulário e descubra como podemos ajudar sua startup a crescer com
-                tecnologia.</p>
-            <form class="max-w-lg mx-auto space-y-4">
-                <div>
-                    <label for="nome" class="block text-sm font-medium">Nome:</label>
-                    <input type="text" id="nome" name="nome" required
-                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium">E-mail:</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="telefone" class="block text-sm font-medium">Telefone (opcional):</label>
-                    <input type="tel" id="telefone" name="telefone"
-                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="empresa" class="block text-sm font-medium">Empresa:</label>
-                    <input type="text" id="empresa" name="empresa"
-                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="mensagem" class="block text-sm font-medium">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" required
-                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-semibold transition">Enviar</button>
-            </form>
-        </section>
-    </main>
-
-    <footer class="bg-gray-900 py-6 text-center">
-        <div class="container mx-auto">
-            <p>© 2025 ChronoKairo. Todos os direitos reservados.</p>
-            <p>Inovação, tecnologia e crescimento para startups.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script>
-        // Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navModal = document.getElementById('navModal');
-        const menuIcon = document.getElementById('menuIcon');
-        menuToggle.addEventListener('click', () => {
-            navModal.classList.toggle('hidden');
-            menuIcon.src = navModal.classList.contains('hidden') ? 'assets/images/menu.png' : 'assets/images/close.png';
+        // Mobile menu toggle
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('open');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
         });
-
-        // Cookie Banner
-        const cookieBanner = document.getElementById('cookieBanner');
-        const acceptCookies = document.getElementById('acceptCookies');
-        if (!localStorage.getItem('cookiesAccepted')) {
-            cookieBanner.classList.remove('hidden');
-        }
-        acceptCookies.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookieBanner.classList.add('hidden');
+        
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if(name && email && subject && message) {
+                alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+                contactForm.reset();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
         });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                navModal.classList.add('hidden');
-                menuIcon.src = 'assets/images/menu.png';
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+        
+        // Highlight current nav link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.classList.remove('text-white');
+                link.classList.add('text-gray-300');
+                
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                    link.classList.add('text-white');
+                    link.classList.remove('text-gray-300');
+                }
             });
         });
     </script>
-</body>
-
 </html>
