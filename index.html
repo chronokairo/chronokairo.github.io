@@ -25,16 +25,19 @@
         <button id="acceptCookies" class="ml-4 bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Aceitar</button>
     </div>
 
-    <header class="container mx-auto flex justify-center items-center p-4 relative">
-        <button id="menuToggle" class="menu-btn absolute left-4 focus:outline-none" aria-label="Abrir menu">
-            <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" class="w-8 h-8">
+    <header class="container mx-auto p-6 relative">
+        <button id="menuToggle" class="menu-btn absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+            aria-label="Abrir menu">
+            <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" class="w-10 h-10">
         </button>
-        <div class="logo text-2xl font-bold">
+        <div class="logo text-3xl md:text-4xl font-bold flex items-center justify-center">
+            <img src="assets/images/logo.png" alt="ChronoKairo Logo" class="w-12 h-12 md:w-16 md:h-16 mr-3">
             <span>ChronoKairo</span>
         </div>
         <div id="navModal" class="nav-modal hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40">
             <div class="nav-modal-content flex flex-col items-center justify-center h-full">
-                <div class="modal-logo mb-8">
+                <div class="modal-logo mb-8 flex items-center">
+                    <img src="assets/images/logo.png" alt="ChronoKairo Logo" class="w-16 h-16 mr-3">
                     <span class="text-4xl font-bold text-white text-center">ChronoKairo</span>
                 </div>
                 <ul class="space-y-6">
