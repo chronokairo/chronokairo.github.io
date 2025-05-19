@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChronoKairo | Inovação para Startups</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYQ7JW845Z"></script>
     <script>
@@ -15,35 +16,34 @@
     </script>
 </head>
 
-<body>
+<body class="bg-black text-white font-sans">
     <!-- Banner de Cookies -->
-    <div
-        style="position: fixed; bottom: 0; background-color: transparent; width: 100%; padding: 15px; text-align: center; border-top: 1px solid transparent; z-index: 3;">
-        Nosso site faz captura <b>cookies</b>. <a href="privacidade" style="color: #ebebeb;"><b>Clique Aqui</b></a> e
-        leia nossa política de
-        privacidade.
+    <div id="cookieBanner"
+        class="fixed bottom-0 bg-gray-900 bg-opacity-90 w-full p-4 text-center border-t border-gray-700 z-50 hidden">
+        Nosso site faz captura de <b>cookies</b>. <a href="privacidade" class="text-blue-300 underline"><b>Clique
+                Aqui</b></a> e leia nossa política de privacidade.
+        <button id="acceptCookies" class="ml-4 bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Aceitar</button>
     </div>
 
-    <header class="container" style="display: flex; justify-content: center; align-items: center; padding: 1rem;">
-        <button id="menuToggle" class="menu-btn" aria-label="Abrir menu" style="position: absolute; left: 1rem;">
-            <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" style="width:32px; height:32px;">
+    <header class="container mx-auto flex justify-center items-center p-4 relative">
+        <button id="menuToggle" class="menu-btn absolute left-4 focus:outline-none" aria-label="Abrir menu">
+            <img id="menuIcon" src="assets/images/menu.png" alt="Abrir menu" class="w-8 h-8">
         </button>
-        <div class="logo">
+        <div class="logo text-2xl font-bold">
             <span>ChronoKairo</span>
         </div>
-        <div id="navModal" class="nav-modal">
-            <div class="nav-modal-content">
-                <div class="modal-logo" style="margin-bottom: 2rem;">
-                    <span
-                        style="font-size:2rem;font-weight:bold;color:#ebebeb;letter-spacing:1px;display:block;text-align:center;">ChronoKairo</span>
+        <div id="navModal" class="nav-modal hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40">
+            <div class="nav-modal-content flex flex-col items-center justify-center h-full">
+                <div class="modal-logo mb-8">
+                    <span class="text-4xl font-bold text-white text-center">ChronoKairo</span>
                 </div>
-                <ul>
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#socios" class="nav-link">Sócios</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
-                    <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                <ul class="space-y-6">
+                    <li><a href="#sobre" class="nav-link text-xl hover:text-blue-300">Sobre</a></li>
+                    <li><a href="#socios" class="nav-link text-xl hover:text-blue-300">Sócios</a></li>
+                    <li><a href="#servicos" class="nav-link text-xl hover:text-blue-300">Serviços</a></li>
+                    <li><a href="#portfolio" class="nav-link text-xl hover:text-blue-300">Portfólio</a></li>
+                    <li><a href="#depoimentos" class="nav-link text-xl hover:text-blue-300">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-link text-xl hover:text-blue-300">Contato</a></li>
                 </ul>
             </div>
         </div>
@@ -51,194 +51,372 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="container hero-section">
-            <div class="hero-text">
-                <h1>Impulsione seu negócio<br><span>com tecnologia e automação</span></h1>
-                <p>Desenvolvemos soluções digitais para quem quer crescer com inovação, eficiência e
-                    resultados reais.</p>
-                <a href="#servicos" class="btn btn-primary">Conheça nossos serviços</a>
+        <section id="hero"
+            class="container mx-auto flex flex-col md:flex-row items-center justify-between py-12 md:py-20">
+            <div class="hero-text text-center md:text-left mb-8 md:mb-0 md:w-1/2 space-y-4">
+                <h1 class="text-4xl md:text-5xl font-bold">
+                    Impulsione seu negócio<br><span class="text-blue-300">com tecnologia e automação</span>
+                </h1>
+                <p class="text-lg md:text-xl">Desenvolvemos soluções digitais para quem quer crescer com inovação,
+                    eficiência e resultados reais.</p>
+                <a href="#servicos"
+                    class="btn btn-primary inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">Conheça
+                    nossos serviços</a>
             </div>
-            <div class="hero-graphics">
-                <img src="assets/images/logo.png" alt="Ilustração Startup">
+            <div class="hero-graphics md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
+                    alt="Ilustração Startup" class="w-full h-64 object-cover rounded-lg"
+                    onerror="this.src='https://via.placeholder.com/600x400.png?text=Startup';">
             </div>
         </section>
 
         <!-- Sobre Nós -->
-        <section id="sobre" class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h1>Quem somos</h1>
-                    <h3>Especialistas em soluções</h3>
-                    <div
-                        style="display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start; width: 100%;">
-                        <div style="flex: 1; text-align: left; max-width: 700px;">
-                            <p style="margin: 0; padding: 0;">
-                                Na ChronoKairo, nossa missão é transformar ideias em produtos digitais de alto impacto.
-                                Nascemos com o propósito de ser mais do que uma empresa de tecnologia: somos parceiros
-                                estratégicos na construção do futuro digital dos nossos clientes.<br><br>
-                                Reunimos uma equipe multidisciplinar com expertise em tecnologia, automação e design de
-                                experiência para criar soluções inovadoras, personalizadas e escaláveis. Cada projeto é
-                                encarado como uma oportunidade de impulsionar negócios, resolver problemas reais e gerar
-                                valor sustentável por meio da inovação.<br><br>
-                                Com um olhar atento às tendências e um compromisso firme com a excelência, entregamos
-                                soluções que não apenas acompanham as mudanças do mercado — mas as lideram. Do conceito
-                                à
-                                execução, estamos prontos para transformar sua visão em resultados concretos.
-                            </p>
-                        </div>
-                        <div style="flex: 1;">
-                            <!-- Espaço reservado para futura imagem -->
-                        </div>
+        <section id="sobre" class="container mx-auto py-12">
+            <div class="about-content space-y-6">
+                <h2 class="text-3xl font-bold flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                    </svg>
+                    Quem somos
+                </h2>
+                <h3 class="text-xl text-blue-300">Especialistas em soluções</h3>
+                <div class="flex flex-col md:flex-row items-start justify-start space-y-6 md:space-y-0 md:space-x-6">
+                    <div class="md:w-1/2">
+                        <p class="text-base md:text-lg leading-relaxed">
+                            Na ChronoKairo, nossa missão é transformar ideias em produtos digitais de alto impacto.
+                            Nascemos com o propósito de ser mais do que uma empresa de tecnologia: somos parceiros
+                            estratégicos na construção do futuro digital dos nossos clientes.<br><br>
+                            Reunimos uma equipe multidisciplinar com expertise em tecnologia, automação e design de
+                            experiência para criar soluções inovadoras, personalizadas e escaláveis. Cada projeto é
+                            encarado como uma oportunidade de impulsionar negócios, resolver problemas reais e gerar
+                            valor sustentável por meio da inovação.<br><br>
+                            Com um olhar atento às tendências e um compromisso firme com a excelência, entregamos
+                            soluções que não apenas acompanham as mudanças do mercado — mas as lideram. Do conceito à
+                            execução, estamos prontos para transformar sua visão em resultados concretos.
+                        </p>
                     </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/company/chronokairo" target="_blank" aria-label="LinkedIn">
-                            <!-- SVG inline do LinkedIn -->
-                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-                            </svg>
-                        </a>
-                        <a href="https://github.com/chronokairo" target="_blank" aria-label="GitHub">
-                            <!-- SVG inline do GitHub -->
-                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.745 0 .267.18.579.688.481C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
-                            </svg>
-                        </a>
-                        <a href="https://instagram.com/chronokairo" target="_blank" aria-label="Instagram">
-                            <!-- SVG inline do Instagram -->
-                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.059-1.282.316-2.394 1.296-3.374.981-.981 2.093-1.238 3.374-1.296C8.332 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.771.13 4.659.387 3.678 1.368c-.98.98-1.237 2.092-1.296 3.374C2.014 5.668 2 6.077 2 12c0 5.923.014 6.332.072 7.612.059 1.282.316 2.394 1.296 3.374.981.981 2.093 1.238 3.374 1.296C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.281-.058 2.393-.315 3.374-1.296.98-.98 1.237-2.092 1.296-3.374.058-1.28.072-1.689.072-7.612 0-5.923-.014-6.332-.072-7.612-.059-1.282-.316-2.394-1.296-3.374-.981-.981-2.093-1.238-3.374-1.296C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
-                            </svg>
-                        </a>
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80"
+                            alt="Equipe ChronoKairo" class="w-full h-64 object-cover rounded-lg"
+                            onerror="this.src='https://via.placeholder.com/400x300.png?text=Equipe';">
                     </div>
+                </div>
+                <div class="social-links flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/company/chronokairo" target="_blank" aria-label="LinkedIn"
+                        class="hover:text-blue-300">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/chronokairo" target="_blank" aria-label="GitHub"
+                        class="hover:text-blue-300">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.745 0 .267.18.579.688.481C19.138 20.203 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/chronokairo" target="_blank" aria-label="Instagram"
+                        class="hover:text-blue-300">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.059-1.282.316-2.394 1.296-3.374.981-.981 2.093-1.238 3.374-1.296C8.332 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.771.13 4.659.387 3.678 1.368c-.98.98-1.237 2.092-1.296 3.374C2.014 5.668 2 6.077 2 12c0 5.923.014 6.332.072 7.612.059 1.282.316 2.394 1.296 3.374.981.981 2.093 1.238 3.374 1.296C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.281-.058 2.393-.315 3.374-1.296.98-.98 1.237-2.092 1.296-3.374.058-1.28.072-1.689.072-7.612 0-5.923-.014-6.332-.072-7.612-.059-1.282-.316-2.394-1.296-3.374-.981-.981-2.093-1.238-3.374-1.296C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossos Valores -->
+        <section id="valores" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                Nossos Valores
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
+                    <h3 class="text-xl font-semibold text-blue-300">Inovação</h3>
+                    <p class="text-base">Buscamos soluções criativas que transformam desafios em oportunidades.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
+                    <h3 class="text-xl font-semibold text-blue-300">Excelência</h3>
+                    <p class="text-base">Compromisso com a qualidade em cada etapa do processo.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition space-y-2">
+                    <h3 class="text-xl font-semibold text-blue-300">Colaboração</h3>
+                    <p class="text-base">Parcerias sólidas para co-criar o sucesso de nossos clientes.</p>
                 </div>
             </div>
         </section>
 
         <!-- Sócios -->
-        <section id="socios" class="container">
-            <h2>Conheça nossos sócios</h2>
-            <div class="socios-grid" style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-                <div class="socio-card"
-                    style="background: #111; border-radius: 12px; padding: 2rem 1.5rem; max-width: 260px; text-align: center;">
-                    <img src="assets/images/luan.png" alt="Sócio 1"
-                        style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
-                    <h3>Luan Nery</h3>
-                    <p>CEO &amp; Fundador</p>
-                    <p>Especialista em inovação e liderança de equipes multidisciplinares.</p>
+        <section id="socios" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                </svg>
+                Conheça nossos sócios
+            </h2>
+            <div class="socios-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+                <div
+                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/luan.png" alt="Luan Nery"
+                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
+                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Luan';">
+                    <h3 class="text-xl font-semibold">Luan Nery</h3>
+                    <p class="text-blue-300">CEO & Fundador</p>
+                    <p class="text-base">Especialista em inovação e liderança de equipes multidisciplinares.</p>
                 </div>
-                <div class="socio-card"
-                    style="background: #111; border-radius: 12px; padding: 2rem 1.5rem; max-width: 260px; text-align: center;">
-                    <img src="assets/images/mike.png" alt="Sócio 2"
-                        style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
-                    <h3>Mike</h3>
-                    <p>CTO &amp; Fundador</p>
-                    <p>Desenvolvedor full stack apaixonado por tecnologia e automação.</p>
+                <div
+                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/mike.png" alt="Mike"
+                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
+                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Mike';">
+                    <h3 class="text-xl font-semibold">Mike</h3>
+                    <p class="text-blue-300">CTO & Fundador</p>
+                    <p class="text-base">Desenvolvedor full stack apaixonado por tecnologia e automação.</p>
                 </div>
-                <div class="socio-card"
-                    style="background: #111; border-radius: 12px; padding: 2rem 1.5rem; max-width: 260px; text-align: center;">
-                    <img src="assets/images/riad.png" alt="Sócio 3"
-                        style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
-                    <h3>Riad Makarem</h3>
-                    <p>COO &amp; Fundador</p>
-                    <p>Gestor de operações com experiência em startups e crescimento acelerado.</p>
+                <div
+                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/riad.png" alt="Riad Makarem"
+                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
+                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Riad';">
+                    <h3 class="text-xl font-semibold">Riad Makarem</h3>
+                    <p class="text-blue-300">COO & Fundador</p>
+                    <p class="text-base">Gestor de operações com experiência em startups e crescimento acelerado.</p>
                 </div>
-                <div class="socio-card"
-                    style="background: #111; border-radius: 12px; padding: 2rem 1.5rem; max-width: 260px; text-align: center;">
-                    <img src="assets/images/victor.png" alt="Sócio 4"
-                        style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
-                    <h3>Victor Martins</h3>
-                    <p>CMO &amp; Fundador</p>
-                    <p>Especialista em marketing digital e estratégias de aquisição de clientes.</p>
+                <div
+                    class="socio-card bg-gray-800 p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/victor.png" alt="Victor Martins"
+                        class="w-48 h-48 rounded-full mx-auto object-cover mb-4 border-4 border-blue-300"
+                        onerror="this.src='https://via.placeholder.com/200x200.png?text=Victor';">
+                    <h3 class="text-xl font-semibold">Victor Martins</h3>
+                    <p class="text-blue-300">CMO & Fundador</p>
+                    <p class="text-base">Especialista em marketing digital e estratégias de aquisição de clientes.</p>
                 </div>
             </div>
         </section>
 
         <!-- Serviços -->
-        <section id="servicos" class="container">
-            <h2>O que fazemos</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="assets/images/automacao.png" alt="Automação">
-                    <h3>Automação de Processos</h3>
-                    <p>Elimine tarefas repetitivas e ganhe tempo para focar no que importa: crescer.</p>
+        <section id="servicos" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                O que fazemos
+            </h2>
+            <div class="services-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/automacao.png" alt="Automação" class="w-32 h-32 mx-auto"
+                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Automação';">
+                    <h3 class="text-xl font-semibold text-blue-300">Automação de Processos</h3>
+                    <p class="text-base">Elimine tarefas repetitivas e ganhe tempo para focar no que importa: crescer.
+                    </p>
                 </div>
-                <div class="service-card">
-                    <img src="assets/images/dev.png" alt="Desenvolvimento">
-                    <h3>Desenvolvimento de Software</h3>
-                    <p>Aplicativos, plataformas e sistemas sob medida para startups de todos os tamanhos.</p>
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/dev.png" alt="Desenvolvimento" class="w-32 h-32 mx-auto"
+                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Desenvolvimento';">
+                    <h3 class="text-xl font-semibold text-blue-300">Desenvolvimento de Software</h3>
+                    <p class="text-base">Aplicativos, plataformas e sistemas sob medida para startups de todos os
+                        tamanhos.</p>
                 </div>
-                <div class="service-card">
-                    <img src="assets/images/growth.png" alt="Growth">
-                    <h3>Consultoria em Growth</h3>
-                    <p>Estratégias digitais para acelerar a aquisição de clientes e escalar seu negócio.</p>
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="assets/images/growth.png" alt="Growth" class="w-32 h-32 mx-auto"
+                        onerror="this.src='https://via.placeholder.com/128x128.png?text=Growth';">
+                    <h3 class="text-xl font-semibold text-blue-300">Consultoria em Growth</h3>
+                    <p class="text-base">Estratégias digitais para acelerar a aquisição de clientes e escalar seu
+                        negócio.</p>
                 </div>
             </div>
         </section>
 
         <!-- Portfólio -->
-        <section id="portfolio" class="container">
-            <h2>Projetos em destaque</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Plataforma SaaS </h3>
-                    <p>Desenvolvimento completo de uma solução SaaS para gestão de equipes e tarefas.</p>
-                    <a href="#" class="project-link">Ver detalhes</a>
+        <section id="portfolio" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                </svg>
+                Projetos em destaque
+            </h2>
+            <div class="projects-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=300&q=80"
+                        alt="SaaS" class="w-full h-40 object-cover rounded-t-lg"
+                        onerror="this.src='https://via.placeholder.com/300x200.png?text=SaaS';">
+                    <h3 class="text-xl font-semibold text-blue-300">Plataforma SaaS</h3>
+                    <p class="text-base">Desenvolvimento completo de uma solução SaaS para gestão de equipes e tarefas.
+                    </p>
+                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
                 </div>
-                <div class="project-card">
-                    <h3>Automação de Onboarding</h3>
-                    <p>Implantação de automações para acelerar o onboarding de novos clientes em fintech.</p>
-                    <a href="#" class="project-link">Ver detalhes</a>
+                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=300&q=80"
+                        alt="Onboarding" class="w-full h-40 object-cover rounded-t-lg"
+                        onerror="this.src='https://via.placeholder.com/300x200.png?text=Onboarding';">
+                    <h3 class="text-xl font-semibold text-blue-300">Automação de Onboarding</h3>
+                    <p class="text-base">Implantação de automações para acelerar o onboarding de novos clientes em
+                        fintech.</p>
+                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
                 </div>
-                <div class="project-card">
-                    <h3>Dashboard de Métricas</h3>
-                    <p>Criação de dashboard interativo para acompanhamento de KPIs em tempo real.</p>
-                    <a href="#" class="project-link">Ver detalhes</a>
+                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=300&q=80"
+                        alt="Dashboard" class="w-full h-40 object-cover rounded-t-lg"
+                        onerror="this.src='https://via.placeholder.com/300x200.png?text=Dashboard';">
+                    <h3 class="text-xl font-semibold text-blue-300">Dashboard de Métricas</h3>
+                    <p class="text-base">Criação de dashboard interativo para acompanhamento de KPIs em tempo real.</p>
+                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
+                </div>
+                <div class="project-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition space-y-2">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&q=80"
+                        alt="App Mobile" class="w-full h-40 object-cover rounded-t-lg"
+                        onerror="this.src='https://via.placeholder.com/300x200.png?text=App';">
+                    <h3 class="text-xl font-semibold text-blue-300">App Mobile de Gestão</h3>
+                    <p class="text-base">Desenvolvimento de um aplicativo para gerenciar projetos em tempo real.</p>
+                    <a href="#" class="project-link text-blue-300 hover:underline">Ver detalhes</a>
                 </div>
             </div>
         </section>
 
         <!-- Depoimentos -->
-        <section id="depoimentos" class="container">
-            <h2>O que dizem nossos clientes (Ainda não temos um ;-; , mas esperamos que digam:</h2>
-            <blockquote>
-                "A ChronoKairo foi fundamental para automatizar nossos processos e acelerar nosso crescimento. Equipe
-                ágil e comprometida!"<br>
-                <strong>Lucas Andrade, CEO da FintechX</strong>
-            </blockquote>
-            <blockquote>
-                "Transformaram nossa ideia em um produto digital robusto e escalável. Recomendo para qualquer
-                startup!"<br>
-                <strong>Marina Souza, Fundadora da HealthStart</strong>
-            </blockquote>
+        <section id="depoimentos" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                </svg>
+                Depoimentos
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
+                    <p class="text-base">"A ChronoKairo foi fundamental para automatizar nossos processos e acelerar
+                        nosso crescimento. Equipe ágil e comprometida!"</p>
+                    <footer class="text-right text-blue-300"><strong>Lucas Andrade, CEO da FintechX</strong></footer>
+                </blockquote>
+                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
+                    <p class="text-base">"Transformaram nossa ideia em um produto digital robusto e escalável. Recomendo
+                        para qualquer startup!"</p>
+                    <footer class="text-right text-blue-300"><strong>Marina Souza, Fundadora da HealthStart</strong>
+                    </footer>
+                </blockquote>
+                <blockquote class="bg-gray-800 p-6 rounded-lg shadow-lg italic space-y-2">
+                    <p class="text-base">"Excelente parceria! A automação que criaram otimizou nossa operação em
+                        semanas."</p>
+                    <footer class="text-right text-blue-300"><strong>Carlos Lima, CTO da TechRise</strong></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Últimas Notícias -->
+        <section id="noticias" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-2-7H6v-2h12v2zm0 4H6v-2h12v2z" />
+                </svg>
+                Últimas Notícias
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-2">
+                    <h3 class="text-xl font-semibold text-blue-300">ChronoKairo na Tech Summit 2025</h3>
+                    <p class="text-base">Participe de nossa palestra sobre automação em 25 de maio de 2025. <a href="#"
+                            class="text-blue-300 hover:underline">Saiba mais</a></p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-2">
+                    <h3 class="text-xl font-semibold text-blue-300">Novo Projeto SaaS Lançado</h3>
+                    <p class="text-base">Lançamos uma plataforma de gestão para startups. Confira os detalhes! <a
+                            href="#" class="text-blue-300 hover:underline">Leia agora</a></p>
+                </div>
+            </div>
         </section>
 
         <!-- Contato -->
-        <section id="contato" class="container">
-            <h2>Vamos conversar?</h2>
-            <p>Preencha o formulário e descubra como podemos ajudar sua startup a crescer com tecnologia.</p>
-            <form>
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
+        <section id="contato" class="container mx-auto py-12">
+            <h2 class="text-3xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-2-7H6v-2h12v2zm0 4H6v-2h12v2z" />
+                </svg>
+                Vamos conversar?
+            </h2>
+            <p class="text-lg mb-6">Preencha o formulário e descubra como podemos ajudar sua startup a crescer com
+                tecnologia.</p>
+            <form class="max-w-lg mx-auto space-y-4">
+                <div>
+                    <label for="nome" class="block text-sm font-medium">Nome:</label>
+                    <input type="text" id="nome" name="nome" required
+                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium">E-mail:</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="telefone" class="block text-sm font-medium">Telefone (opcional):</label>
+                    <input type="tel" id="telefone" name="telefone"
+                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="empresa" class="block text-sm font-medium">Empresa:</label>
+                    <input type="text" id="empresa" name="empresa"
+                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="mensagem" class="block text-sm font-medium">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" required
+                        class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-semibold transition">Enviar</button>
             </form>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 ChronoKairo. Todos os direitos reservados.</p>
+    <footer class="bg-gray-900 py-6 text-center">
+        <div class="container mx-auto">
+            <p>© 2025 ChronoKairo. Todos os direitos reservados.</p>
             <p>Inovação, tecnologia e crescimento para startups.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navModal = document.getElementById('navModal');
+        const menuIcon = document.getElementById('menuIcon');
+        menuToggle.addEventListener('click', () => {
+            navModal.classList.toggle('hidden');
+            menuIcon.src = navModal.classList.contains('hidden') ? 'assets/images/menu.png' : 'assets/images/close.png';
+        });
+
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+        const acceptCookies = document.getElementById('acceptCookies');
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.classList.remove('hidden');
+        }
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.add('hidden');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                navModal.classList.add('hidden');
+                menuIcon.src = 'assets/images/menu.png';
+            });
+        });
+    </script>
 </body>
 
 </html>
