@@ -39,7 +39,8 @@ jobs:
         run: pnpm install
 
       - name: Update base path for root domain
-        run: sed -i "s|base: '/chronokairo_site/',|base: '/',|g" vite.config.ts
+        run: |
+          sed -i "s|base: '/chronokairo_site/',|base: '/',|g" vite.config.ts
 
       - name: Build
         run: pnpm run build
