@@ -21,9 +21,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          repository: chronokairo/chronokairo_site
-          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,16 +28,12 @@ jobs:
           node-version: '20'
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
           version: 10
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-
-      - name: Update base path for root domain
-        run: |
-          sed -i "s|base: '/chronokairo_site/',|base: '/',|g" vite.config.ts
 
       - name: Build
         run: pnpm run build
