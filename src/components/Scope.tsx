@@ -9,19 +9,19 @@ const Scope = () => {
       items: [
         <>
           Desenvolvimento de programas sob encomenda:{" "}
-          <strong className="text-foreground font-semibold">
+          <strong className="text-muted-foreground font-semibold">
             plataformas personalizadas
           </strong>
           , sistemas internos, e-commerce e portais educacionais/institucionais.
         </>,
         <>
           Desenvolvimento e licenciamento de softwares customizáveis{" "}
-          <strong className="text-foreground font-semibold">(SaaS)</strong> para
+          <strong className="text-muted-foreground font-semibold">(SaaS)</strong> para
           assinatura ou licença de uso.
         </>,
         <>
           Aplicativos para{" "}
-          <strong className="text-foreground font-semibold">Android e iOS</strong>,
+          <strong className="text-muted-foreground font-semibold">Android e iOS</strong>,
           incluindo soluções corporativas e educacionais.
         </>,
       ],
@@ -33,13 +33,13 @@ const Scope = () => {
       items: [
         <>
           Web design e interface responsiva com foco em{" "}
-          <strong className="text-foreground font-semibold">
+          <strong className="text-muted-foreground font-semibold">
             experiência do usuário
           </strong>
           .
         </>,
         <>
-          <strong className="text-foreground font-semibold">Motion design</strong>{" "}
+          <strong className="text-muted-foreground font-semibold">Motion design</strong>{" "}
           e identidade visual digital para interfaces mais claras e intuitivas.
         </>,
       ],
@@ -51,12 +51,12 @@ const Scope = () => {
       items: [
         <>
           Suporte técnico,{" "}
-          <strong className="text-foreground font-semibold">manutenção</strong>,
+          <strong className="text-muted-foreground font-semibold">manutenção</strong>,
           correções e otimização de performance.
         </>,
         <>
           Tratamento de dados e{" "}
-          <strong className="text-foreground font-semibold">
+          <strong className="text-muted-foreground font-semibold">
             hospedagem em nuvem
           </strong>{" "}
           (AWS, Google Cloud, Vercel), com gestão de bancos.
@@ -70,12 +70,12 @@ const Scope = () => {
       items: [
         <>
           Consultoria em TI para empresas de{" "}
-          <strong className="text-foreground font-semibold">Manaus</strong>{" "}
+          <strong className="text-muted-foreground font-semibold">Manaus</strong>{" "}
           (comércio, educação e Polo Industrial).
         </>,
         <>
           Mapeamento de processos e recomendação de{" "}
-          <strong className="text-foreground font-semibold">
+          <strong className="text-muted-foreground font-semibold">
             automações com IA
           </strong>{" "}
           e ferramentas de mercado.
@@ -94,24 +94,24 @@ const Scope = () => {
           <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
             Atuação & CNAEs
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Escopo <span className="text-muted-foreground">técnico e legal</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-tight text-foreground">
+            Escopo <span className="font-normal italic">técnico e legal</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            A ChronoKairo, startup/software house em{" "}
-            <strong className="text-foreground font-semibold">Manaus</strong>, atua em{" "}
-            <strong className="text-foreground font-semibold">
+          <p className="text-lg text-foreground/80 leading-relaxed">
+            A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>, startup/software house em{" "}
+            <strong className="text-muted-foreground font-semibold">Manaus</strong>, atua em{" "}
+            <strong className="text-muted-foreground font-semibold">
               transformação digital
             </strong>{" "}
             e experiências digitais modernas. No mercado amazonense, entrega
             plataformas institucionais e educacionais — como o{" "}
-            <strong className="text-foreground font-semibold">
+            <strong className="text-muted-foreground font-semibold">
               Instituto W / WD Educacional
             </strong>
             — com um escopo alinhado aos{" "}
-            <strong className="text-foreground font-semibold">CNAEs</strong> e à
+            <strong className="text-muted-foreground font-semibold">CNAEs</strong> e à
             operação do{" "}
-            <strong className="text-foreground font-semibold">CNPJ</strong>.
+            <strong className="text-muted-foreground font-semibold">CNPJ</strong>.
           </p>
         </div>
 
@@ -119,22 +119,22 @@ const Scope = () => {
           {areas.map((area, index) => (
             <div
               key={index}
-              className="glass rounded-2xl p-8 border border-border/50 transition-transform duration-300 hover:-translate-y-1"
+              className="border border-border rounded-lg p-8 bg-card transition-all duration-300 hover:border-foreground/30"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center">
-                  <area.icon className="w-6 h-6" />
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-12 h-12 rounded-lg bg-foreground/5 flex items-center justify-center flex-shrink-0">
+                  <area.icon className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{area.title}</h3>
-                  <p className="text-muted-foreground text-sm">{area.description}</p>
+                  <h3 className="text-xl font-serif font-bold text-foreground">{area.title}</h3>
+                  <p className="text-foreground/60 text-xs mt-1">{area.description}</p>
                 </div>
               </div>
 
-              <ul className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              <ul className="space-y-3 text-sm text-foreground/70 leading-relaxed">
                 {area.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-foreground/30 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -143,18 +143,18 @@ const Scope = () => {
           ))}
         </div>
 
-        <div className="mt-12 glass rounded-2xl p-8 border border-border/50">
-          <p className="text-muted-foreground leading-relaxed">
-            Em resumo, a ChronoKairo está habilitada para transformar uma ideia bruta
+        <div className="mt-12 border border-border rounded-lg p-8 bg-card">
+          <p className="text-foreground/80 leading-relaxed text-sm">
+            Em resumo, a <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> está habilitada para transformar uma ideia bruta
             em um ecossistema digital completo:{" "}
-            <strong className="text-foreground font-semibold">UX/UI</strong>,{" "}
-            <strong className="text-foreground font-semibold">front-end</strong> e{" "}
-            <strong className="text-foreground font-semibold">back-end</strong>,
+            <strong className="text-muted-foreground font-semibold">UX/UI</strong>,{" "}
+            <strong className="text-muted-foreground font-semibold">front-end</strong> e{" "}
+            <strong className="text-muted-foreground font-semibold">back-end</strong>,
             integrações com{" "}
-            <strong className="text-foreground font-semibold">APIs</strong> e{" "}
-            <strong className="text-foreground font-semibold">automações</strong>,
+            <strong className="text-muted-foreground font-semibold">APIs</strong> e{" "}
+            <strong className="text-muted-foreground font-semibold">automações</strong>,
             publicação em servidores seguros e{" "}
-            <strong className="text-foreground font-semibold">
+            <strong className="text-muted-foreground font-semibold">
               manutenção contínua
             </strong>
             .

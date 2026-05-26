@@ -25,15 +25,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border">
+    <footer className="relative border-t border-border bg-background">
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight text-foreground">
-                  CHRONO<span className="text-foreground">KAIRO</span>
+                <span className="text-xl font-serif font-bold tracking-tight text-foreground">
+                  Chrono<span className="font-normal italic">Kairo</span>
+                </span>
+                <span className="text-[9px] tracking-[0.25em] text-muted-foreground uppercase mt-0.5">
+                  Tecnologia no tempo certo
                 </span>
               </div>
             </div>
@@ -47,7 +50,7 @@ const Footer = () => {
                   key={index}
                   href={item.href}
                   aria-label={item.label}
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-foreground/5 transition-colors"
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
                 >
                   <item.icon className="w-4 h-4" />
                 </a>
@@ -57,7 +60,7 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm">Empresa</h4>
+            <h4 className="font-serif font-bold mb-4 text-sm text-foreground">Empresa</h4>
             <ul className="space-y-3">
               {links.company.map((link, index) => (
                 <li key={index}>
@@ -74,7 +77,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-sm">Legal</h4>
+            <h4 className="font-serif font-bold mb-4 text-sm text-foreground">Legal</h4>
             <ul className="space-y-3">
               {links.legal.map((link, index) => (
                 <li key={index}>
@@ -92,10 +95,10 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} ChronoKairo. Todos os direitos reservados.
+          <p className="text-xs text-muted-foreground flex items-center gap-1 flex-wrap">
+            © {currentYear} <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>. Todos os direitos reservados.
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-muted-foreground">
             Feito com precisão e dedicação.
           </p>
         </div>

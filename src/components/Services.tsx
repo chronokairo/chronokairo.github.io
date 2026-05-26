@@ -36,6 +36,9 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24 md:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-dots opacity-[0.15]" />
+
       <div className="container mx-auto px-6 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -43,11 +46,11 @@ const Services = () => {
             <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
               Pilares 2026
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Onde <span className="text-muted-foreground">geramos valor</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-foreground">
+              Onde <span className="font-normal italic">geramos valor</span>
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-md">
+          <p className="text-foreground/80 max-w-md text-sm leading-relaxed">
             Arquitetura distribuída, integração e inteligência aplicada ao negócio.
           </p>
         </div>
@@ -57,23 +60,23 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-2xl border border-border hover:border-foreground/20 bg-background transition-all duration-500 hover:-translate-y-1"
+              className="group relative p-8 rounded-lg border border-border bg-card transition-all duration-300 hover:border-foreground/30"
             >
               {/* Hover Background */}
-              <div className="absolute inset-0 rounded-2xl bg-foreground/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 rounded-lg bg-foreground/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="relative">
                 {/* Icon & Arrow */}
                 <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
-                    <service.icon className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-lg bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
+                    <service.icon className="w-6 h-6 text-foreground" />
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <h3 className="text-xl font-serif font-bold mb-3 text-foreground">{service.title}</h3>
+                <p className="text-foreground/70 leading-relaxed text-sm">{service.description}</p>
               </div>
             </div>
           ))}
@@ -81,12 +84,12 @@ const Services = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-4">
+          <p className="text-muted-foreground text-sm mb-4">
             Não encontrou o que procura?
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-foreground font-medium hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-foreground font-medium hover:gap-3 transition-all text-sm underline underline-offset-4"
           >
             Entre em contato para soluções personalizadas
             <ArrowUpRight className="w-4 h-4" />

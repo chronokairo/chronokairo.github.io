@@ -51,33 +51,35 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-24 md:py-32 relative">
+      <div className="absolute inset-0 bg-dots opacity-[0.15]" />
+
       <div className="container mx-auto px-6 relative">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
             FAQ
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Perguntas <span className="text-muted-foreground">frequentes</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-tight text-foreground">
+            Perguntas <span className="font-normal italic">frequentes</span>
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-foreground/80 text-sm">
             Encontre respostas para as dúvidas mais comuns sobre nossos serviços.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+        <div className="max-w-3xl mx-auto border-t border-b border-border">
+          <Accordion type="single" collapsible className="divide-y divide-border">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="glass rounded-2xl px-6 border-none"
+                className="border-none px-2"
               >
-                <AccordionTrigger className="text-left hover:no-underline py-6 text-base font-medium">
+                <AccordionTrigger className="text-left hover:no-underline py-5 text-base font-serif font-bold text-foreground hover:text-foreground/80 transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                <AccordionContent className="text-foreground/70 pb-5 leading-relaxed text-sm">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -87,12 +89,12 @@ const FAQ = () => {
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-4">
-            Não encontrou o que procurava?
+          <p className="text-foreground/80 text-sm mb-4">
+            Ainda tem alguma dúvida ou precisa de um projeto especial?
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:bg-foreground/5 transition-colors font-medium"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-border hover:bg-foreground hover:text-background transition-colors text-sm font-medium cursor-pointer"
           >
             Entre em contato conosco
           </a>

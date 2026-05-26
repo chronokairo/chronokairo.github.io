@@ -14,24 +14,34 @@ const Hero = () => {
       id="hero" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-grid opacity-30" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
+      
+      {/* Floating Elements */}
+      <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-foreground/20 rounded-full animate-float" />
+      <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-foreground/10 rounded-full animate-float animation-delay-200" />
+      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-foreground/15 rounded-full animate-float animation-delay-400" />
+
       <div className="container mx-auto px-6 pt-24 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 glass rounded-full animate-fade-in">
-            <Sparkles className="w-4 h-4 text-foreground/70" />
-            <span className="text-sm font-medium text-muted-foreground">
-              IA-first | Integração | Resultado
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 border border-border bg-card rounded-full animate-fade-in">
+            <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-pulse" />
+            <span className="text-xs font-mono tracking-wider text-foreground">
+              IA-FIRST // INTEGRAÇÃO // RESULTADO
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight animate-fade-in-up">
-            <span className="block">A hora é agora.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 tracking-tight animate-fade-in-up leading-[1.1] text-foreground">
+            A hora é <span className="font-normal italic">agora</span>.
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-            Com IA generativa e low-code democratizando o básico, a ChronoKairo foca em
+          <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
+            Com IA generativa e low-code democratizando o básico, a <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> foca em
             sistemas agênticos, integração de legados e hiperautomação com governança
             para entregar valor mensurável.
           </p>
@@ -41,16 +51,16 @@ const Hero = () => {
             <Button
               size="lg"
               onClick={scrollToServices}
-              className="group relative px-8 py-6 text-base font-medium overflow-hidden"
+              className="group rounded-full bg-foreground text-background hover:opacity-90 transition-all px-8 py-6 h-auto text-base font-medium cursor-pointer border-0"
             >
-              <span className="relative z-10">Ver Pilares</span>
-              <ArrowDown className="ml-2 h-4 w-4 relative z-10 group-hover:translate-y-1 transition-transform" />
+              <span>Ver Pilares</span>
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-6 text-base font-medium glass-hover"
+              className="rounded-full border border-border bg-background text-foreground hover:bg-secondary transition-all px-8 py-6 h-auto text-base font-medium cursor-pointer"
             >
               Fale Conosco
             </Button>
@@ -58,7 +68,7 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-400">
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-border pt-12 animate-fade-in-up animation-delay-400">
           {[
             { value: "25+", label: "Projetos" },
             { value: "98%", label: "Satisfação" },
@@ -66,8 +76,8 @@ const Hero = () => {
             { value: "2+", label: "Anos" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-3xl md:text-4xl font-serif font-bold mb-2 text-foreground">{stat.value}</div>
+              <div className="text-xs font-mono tracking-widest text-muted-foreground uppercase">{stat.label}</div>
             </div>
           ))}
         </div>

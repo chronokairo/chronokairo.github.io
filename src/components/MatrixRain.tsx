@@ -1,11 +1,29 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const MatrixRain = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { theme } = useTheme();
 
+  // Define morning/day as between 6:00 AM and 6:00 PM (18:00)
+  const [isMorning, setIsMorning] = useState(() => {
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 18;
+  });
+
   useEffect(() => {
+    const checkTime = () => {
+      const hour = new Date().getHours();
+      setIsMorning(hour >= 6 && hour < 18);
+    };
+    // Check every 30 seconds
+    const interval = setInterval(checkTime, 30000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!isMorning) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -21,7 +39,7 @@ const MatrixRain = () => {
     window.addEventListener("resize", resizeCanvas);
 
     // Matrix characters (Japanese katakana + numbers + symbols)
-    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]|/\\@#$%^&*";
+    const chars = "アイウエオカキクケコサシスセソタチツテト...0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]|/\\@#$%^&*";
     const charArray = chars.split("");
 
     const fontSize = 14;
@@ -36,12 +54,13 @@ const MatrixRain = () => {
     let animationId: number;
 
     const draw = () => {
-      // Semi-transparent black to create fade effect
-      ctx.fillStyle = "rgba(10, 10, 10, 0.05)";
+      const isDark = theme === "dark" || 
+        (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      // Semi-transparent background to create fade effect
+      ctx.fillStyle = isDark ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.06)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Green text - Matrix style
-      ctx.fillStyle = "#0f0";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -53,13 +72,15 @@ const MatrixRain = () => {
         const y = drops[i] * fontSize;
 
         // Varying opacity for depth effect
-        const opacity = Math.random() * 0.5 + 0.3;
-        ctx.fillStyle = `rgba(93, 186, 125, ${opacity})`;
+        const opacity = Math.random() * 0.4 + 0.15;
+        ctx.fillStyle = isDark 
+          ? `rgba(93, 186, 125, ${opacity})` // Green (#5dba7d) in Dark Theme (Green Theme)
+          : `rgba(74, 111, 165, ${opacity})`; // Blue (#4a6fa5) in Light Theme (Blue Theme)
         ctx.fillText(char, x, y);
 
-        // Brighter leading character
+        // Brighter/darker leading character
         if (Math.random() > 0.98) {
-          ctx.fillStyle = "#fff";
+          ctx.fillStyle = isDark ? "#ffffff" : "#000000";
           ctx.fillText(char, x, y);
         }
 
@@ -74,31 +95,23 @@ const MatrixRain = () => {
       animationId = requestAnimationFrame(draw);
     };
 
-    // Only run animation in dark mode
-    const isDark = theme === "dark" || 
-      (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-    if (isDark) {
-      draw();
-    }
+    // Run the animation
+    draw();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationId);
     };
-  }, [theme]);
+  }, [theme, isMorning]);
 
-  // Check if dark mode
-  const isDark = theme === "dark" || 
-    (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-  if (!isDark) return null;
+  // If it is night, we do not render the Matrix Rain (showing only the simple background grid/dots)
+  if (!isMorning) return null;
 
   return (
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.15 }}
+      style={{ opacity: 0.08 }}
     />
   );
 };
