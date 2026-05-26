@@ -26,8 +26,10 @@ export default defineConfig(async ({ mode }) => {
       rollupOptions: {
         input: path.resolve(__dirname, "index.html"),
         output: {
-          manualChunks: {
-            vendor: ["react", "react-dom", "react-router-dom"],
+          manualChunks: (id) => {
+            if (["react", "react-dom", "react-router-dom"].some((pkg) => id.includes(`/node_modules/${pkg}/`))) {
+              return "vendor";
+            }
           },
         },
       },
