@@ -2,7 +2,7 @@ import React from "react";
 import { 
   Bot, Terminal, Database, Briefcase, Headphones, Users, 
   Coins, Target, Megaphone, Smile, GitBranch, GraduationCap, 
-  Trello, Building2, Network, Scale, ShieldCheck, HelpCircle 
+  SquareKanban, Building2, Network, Scale, ShieldCheck, HelpCircle 
 } from "lucide-react";
 
 export type ProductCategory = "IA" | "Sistemas" | "Mobile" | "Web" | "DevTools" | "Setores";
@@ -362,7 +362,7 @@ export const productIconMap: Record<string, React.ComponentType<any>> = {
   "kairos-cs": Smile,
   "kairos-git": GitBranch,
   "kairos-edu": GraduationCap,
-  "kairos-trk": Trello,
+  "kairos-trk": SquareKanban,
   "chronos-erp": Building2,
   "chronos-sgr": Network,
   "chronos-agp": Scale,

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Instagram, Twitter } from "lucide-react";
+import { GitHubIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/BrandIcons";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,10 +18,10 @@ const Footer = () => {
   };
 
   const social = [
-    { icon: Github, href: "https://github.com/chronokairo", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/chronokairo", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/chronokairo", label: "Instagram" },
-    { icon: Twitter, href: "https://x.com/chronokairo", label: "X (Twitter)" },
+    { icon: GitHubIcon, href: "https://github.com/chronokairo", label: "GitHub" },
+    { icon: LinkedInIcon, href: "https://www.linkedin.com/company/chronokairo", label: "LinkedIn" },
+    { icon: InstagramIcon, href: "https://www.instagram.com/chronokairo", label: "Instagram" },
+    { icon: XIcon, href: "https://x.com/chronokairo", label: "X" },
   ];
 
   return (

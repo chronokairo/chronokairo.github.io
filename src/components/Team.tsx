@@ -1,4 +1,6 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+
+import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
 
 const Team = () => {
   const owners = [
@@ -91,13 +93,13 @@ const Team = () => {
           rel="noopener noreferrer"
           className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
         >
-          <Github className="w-3.5 h-3.5" />
+          <GitHubIcon className="w-3.5 h-3.5" />
         </a>
         <a 
           href="#" 
           className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
         >
-          <Linkedin className="w-3.5 h-3.5" />
+          <LinkedInIcon className="w-3.5 h-3.5" />
         </a>
         <a 
           href="#" 
