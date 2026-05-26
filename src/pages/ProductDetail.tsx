@@ -1,5 +1,7 @@
-import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Cpu, Layout, Smartphone, Globe, MessageSquare } from "lucide-react";
+"use client";
+
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, CheckCircle2, Cpu, Layout, Smartphone, Globe, Code2, Users, MessageSquare } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,14 +15,15 @@ const categoryIcons: Record<ProductCategory, React.ReactNode> = {
   Sistemas: <Layout className="h-5 w-5" />,
   Mobile: <Smartphone className="h-5 w-5" />,
   Web: <Globe className="h-5 w-5" />,
+  DevTools: <Code2 className="h-5 w-5" />,
+  Setores: <Users className="h-5 w-5" />,
 };
 
-const ProductDetail = () => {
-  const { slug } = useParams();
-  const product = slug ? getProductBySlug(slug) : undefined;
+const ProductDetail = ({ slug }: { slug: string }) => {
+  const product = getProductBySlug(slug);
 
   if (!product) {
-    return <Navigate to="/produtos" replace />;
+    return null;
   }
 
   const related = products.filter(
@@ -39,7 +42,7 @@ const ProductDetail = () => {
           <div className="border-b border-border/60">
             <div className="container mx-auto px-6 py-4">
               <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Link to="/produtos" className="hover:text-foreground transition-colors">
+                <Link href="/produtos" className="hover:text-foreground transition-colors">
                   Produtos
                 </Link>
                 <span>/</span>
@@ -136,13 +139,13 @@ const ProductDetail = () => {
                     {/* CTAs */}
                     <div className="space-y-3">
                       <Button asChild className="w-full rounded-full h-11 bg-foreground text-background hover:bg-foreground/90 border-0">
-                        <Link to="/#contact">
+                        <Link href="/#contact">
                           <MessageSquare className="mr-2 h-4 w-4" />
                           Solicitar algo parecido
                         </Link>
                       </Button>
                       <Button asChild variant="outline" className="w-full rounded-full h-11">
-                        <Link to="/produtos">
+                        <Link href="/produtos">
                           Ver mais produtos
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
@@ -167,7 +170,7 @@ const ProductDetail = () => {
                   </h2>
                 </div>
                 <Link
-                  to="/produtos"
+                  href="/produtos"
                   className="hidden md:inline-flex items-center gap-1.5 text-sm text-foreground/70 hover:text-foreground transition-colors"
                 >
                   Ver todos
@@ -179,7 +182,7 @@ const ProductDetail = () => {
                 {related.slice(0, 3).map((item) => (
                   <Link
                     key={item.slug}
-                    to={`/produtos/${item.slug}`}
+                    href={`/produtos/${item.slug}`}
                     className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-foreground/25 hover:shadow-md"
                   >
                     <div className="flex items-center justify-between gap-3 mb-4">
@@ -199,7 +202,7 @@ const ProductDetail = () => {
           {/* ── BACK LINK ── */}
           <div className="container mx-auto px-6 pb-16">
             <Link
-              to="/produtos"
+              href="/produtos"
               className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />

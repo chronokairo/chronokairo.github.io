@@ -41,14 +41,6 @@ const Team = () => {
 
   const developers: TeamMember[] = [
     {
-      name: "Pedro Isaque",
-      role: "Analista de Sistemas",
-      bio: "Desenvolvimento Web.",
-      initials: "PI",
-      github: "https://github.com/Isaqueodev",
-      avatar: "https://avatars.githubusercontent.com/Isaqueodev",
-    },
-    {
       name: "Jordan Cunha",
       role: "Cientista da Computação",
       bio: "Desenvolvimento Mobile e Web.",
@@ -56,14 +48,7 @@ const Team = () => {
       github: "https://github.com/JORD4N-01",
       avatar: "https://avatars.githubusercontent.com/JORD4N-01",
     },
-    {
-      name: "Mikhael",
-      role: "Analista de Sistemas",
-      bio: "Automação N8N.",
-      initials: "MK",
-      github: "https://github.com/UmTalDeMike",
-      avatar: "https://avatars.githubusercontent.com/UmTalDeMike",
-    },
+    
     {
       name: "Erick",
       role: "Cientista da Computação",
@@ -81,7 +66,7 @@ const Team = () => {
       bio: "Design de interfaces e experiência do usuário.",
       initials: "CN",
       github: "https://github.com/ClaraDevNeve",
-      avatar: "https://avatars.githubusercontent.com/u/246918660?s=400&u=02b4486e713d5e8210a5b47821e3a1bf2c242850&v=4",
+      avatar: "https://avatars.githubusercontent.com/u/246918660?s=400&u=1b3f5b56ce0cb479c31d58b43fe45470b3fb596a&v=4",
     },
   ];
 
@@ -173,7 +158,7 @@ const Team = () => {
           <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-10 uppercase">
             // Desenvolvedores
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-xl mx-auto justify-items-center">
             {developers.map((member, index) => (
               <MemberCard key={index} member={member} />
             ))}

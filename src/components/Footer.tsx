@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GitHubIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/BrandIcons";
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
     company: [
       { label: "Sobre", href: "#about" },
       { label: "Serviços", href: "#services" },
-      { label: "Atuação", href: "#atuacao" },
+      { label: "Pesquisas", href: "/pesquisas" },
       { label: "Projetos", href: "#projects" },
       { label: "Equipe", href: "#team" },
     ],
@@ -64,12 +65,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {links.company.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -14,11 +16,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
+    if (typeof window === "undefined") return;
+
+    if (window.location.hash) {
+      const id = window.location.hash.replace("#", "");
       window.setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 0);
@@ -26,7 +30,7 @@ const Index = () => {
     }
 
     window.scrollTo({ top: 0, behavior: "auto" });
-  }, [location.hash, location.pathname]);
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">

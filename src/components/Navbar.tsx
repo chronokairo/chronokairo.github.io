@@ -1,15 +1,11 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ArrowRight, Cpu, Layout, Smartphone, Globe, Code2, Users, Shield, Clock, Hourglass } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { kairosProducts, chronosProducts, featuredKairos, featuredChronos, groupedProducts, getProductIcon } from "@/data/products";
 import type { ProductCategory } from "@/data/products";
 
@@ -29,10 +25,16 @@ const Navbar = () => {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [logoText, setLogoText] = useState({ bold: "Chrono", italic: "Kairo" });
   const [productsOpen, setProductsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [contactOpen, setContactOpen] = useState(false);
   const productsRef = useRef<HTMLDivElement>(null);
+  const productsCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dropdownCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const contactCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLElement>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const navigate = (path: string) => router.push(path);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,11 +111,96 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isHomePage = location.pathname === "/";
+  useEffect(() => {
+    return () => {
+      if (productsCloseTimerRef.current) clearTimeout(productsCloseTimerRef.current);
+      if (dropdownCloseTimerRef.current) clearTimeout(dropdownCloseTimerRef.current);
+      if (contactCloseTimerRef.current) clearTimeout(contactCloseTimerRef.current);
+    };
+  }, []);
+
+  const isHomePage = pathname === "/";
+
+  const clearProductsCloseTimer = () => {
+    if (productsCloseTimerRef.current) {
+      clearTimeout(productsCloseTimerRef.current);
+      productsCloseTimerRef.current = null;
+    }
+  };
+
+  const clearDropdownCloseTimer = () => {
+    if (dropdownCloseTimerRef.current) {
+      clearTimeout(dropdownCloseTimerRef.current);
+      dropdownCloseTimerRef.current = null;
+    }
+  };
+
+  const clearContactCloseTimer = () => {
+    if (contactCloseTimerRef.current) {
+      clearTimeout(contactCloseTimerRef.current);
+      contactCloseTimerRef.current = null;
+    }
+  };
+
+  const openProductsMenu = () => {
+    clearProductsCloseTimer();
+    clearDropdownCloseTimer();
+    clearContactCloseTimer();
+    setProductsOpen(true);
+    setOpenDropdown(null);
+    setContactOpen(false);
+  };
+
+  const closeProductsMenu = () => {
+    clearProductsCloseTimer();
+    productsCloseTimerRef.current = setTimeout(() => setProductsOpen(false), 160);
+  };
+
+  const toggleProductsMenu = () => {
+    if (productsOpen) {
+      setProductsOpen(false);
+      return;
+    }
+
+    openProductsMenu();
+  };
+
+  const openNavDropdown = (label: string) => {
+    clearProductsCloseTimer();
+    clearDropdownCloseTimer();
+    clearContactCloseTimer();
+    setProductsOpen(false);
+    setOpenDropdown(label);
+    setContactOpen(false);
+  };
+
+  const closeNavDropdown = () => {
+    clearDropdownCloseTimer();
+    dropdownCloseTimerRef.current = setTimeout(() => setOpenDropdown(null), 160);
+  };
+
+  const openContactDropdown = () => {
+    clearProductsCloseTimer();
+    clearDropdownCloseTimer();
+    clearContactCloseTimer();
+    setProductsOpen(false);
+    setOpenDropdown(null);
+    setContactOpen(true);
+  };
+
+  const closeContactDropdown = () => {
+    clearContactCloseTimer();
+    contactCloseTimerRef.current = setTimeout(() => setContactOpen(false), 160);
+  };
 
   const closeMenus = () => {
+    clearProductsCloseTimer();
+    clearDropdownCloseTimer();
+    clearContactCloseTimer();
     setIsMobileMenuOpen(false);
     setProductsOpen(false);
+    setOpenDropdown(null);
+    setContactOpen(false);
   };
 
   // scroll-to-section helper (no longer needed for direct refs but kept for group items)
@@ -140,13 +227,15 @@ const Navbar = () => {
 
   interface NavItem {
     label: string;
-    kind: "section" | "products" | "group";
+    kind: "section" | "route" | "products" | "group";
     id?: string;
+    path?: string;
     subItems?: { label: string; id: string }[];
   }
 
   const navItems: NavItem[] = [
-    { label: "Pesquisas", kind: "section", id: "atuacao" },
+    { label: "Home", kind: "route", path: "/" },
+    { label: "Pesquisas", kind: "route", path: "/pesquisas" },
     { label: "Produtos", kind: "products" },
     {
       label: "Learn",
@@ -207,9 +296,15 @@ const Navbar = () => {
               /* ── PRODUCTS MEGA-DROPDOWN ── */
               if (item.kind === "products") {
                 return (
-                  <div key={index} ref={productsRef}>
+                  <div
+                    key={index}
+                    ref={productsRef}
+                    className="relative"
+                    onMouseEnter={openProductsMenu}
+                    onMouseLeave={closeProductsMenu}
+                  >
                     <button
-                      onClick={() => setProductsOpen((o) => !o)}
+                      onClick={toggleProductsMenu}
                       className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 flex items-center gap-1 cursor-pointer"
                       aria-expanded={productsOpen}
                     >
@@ -223,13 +318,13 @@ const Navbar = () => {
 
                     {productsOpen && (
                       <div
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[960px] max-w-[calc(100vw-2rem)] rounded-2xl border border-border shadow-xl overflow-hidden animate-scale-in"
-                        style={{ background: "var(--background)" }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[960px] max-w-[calc(100vw-2rem)] animate-scale-in"
                       >
-                        {/* thin top accent */}
-                        <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+                        <div className="rounded-2xl border border-border shadow-xl overflow-hidden" style={{ background: "var(--background)" }}>
+                          {/* thin top accent */}
+                          <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
 
-                        <div className="grid grid-cols-[1fr_1fr_260px]">
+                          <div className="grid grid-cols-[1fr_1fr_260px]">
                           {/* ── CHRONOS COLUMN ── */}
                           <div className="p-7 border-r border-border">
                             <div className="flex items-center gap-2 mb-5">
@@ -244,7 +339,7 @@ const Navbar = () => {
                                 return (
                                   <Link
                                     key={product.slug}
-                                    to={`/produtos/${product.slug}`}
+                                    href={`/produtos/${product.slug}`}
                                     onClick={() => setProductsOpen(false)}
                                     className="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
                                   >
@@ -285,7 +380,7 @@ const Navbar = () => {
                                 return (
                                   <Link
                                     key={product.slug}
-                                    to={`/produtos/${product.slug}`}
+                                    href={`/produtos/${product.slug}`}
                                     onClick={() => setProductsOpen(false)}
                                     className="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
                                   >
@@ -352,6 +447,7 @@ const Navbar = () => {
                           </div>
                         </div>
                       </div>
+                      </div>
                     )}
                   </div>
                 );
@@ -360,25 +456,41 @@ const Navbar = () => {
               /* ── GROUP DROPDOWN (Learn / Company) ── */
               if (item.kind === "group" && item.subItems) {
                 return (
-                  <DropdownMenu key={index}>
-                    <DropdownMenuTrigger asChild>
-                      <button className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 relative group flex items-center gap-1 cursor-pointer">
-                        {item.label}
-                        <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-48">
-                      {item.subItems.map((sub, sIdx) => (
-                        <DropdownMenuItem
-                          key={sIdx}
-                          onSelect={() => goToSection(sub.id)}
-                          className="cursor-pointer"
-                        >
-                          {sub.label}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                  <div
+                    key={index}
+                    className="relative"
+                    onMouseEnter={() => openNavDropdown(item.label)}
+                    onMouseLeave={closeNavDropdown}
+                  >
+                    <button
+                      onClick={() => (openDropdown === item.label ? setOpenDropdown(null) : openNavDropdown(item.label))}
+                      className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 relative group flex items-center gap-1 cursor-pointer"
+                      aria-expanded={openDropdown === item.label}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        className={`h-3.5 w-3.5 opacity-60 transition-transform duration-300 ${
+                          openDropdown === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {openDropdown === item.label && (
+                      <div className="absolute left-0 top-full z-50 w-48 pt-2 animate-in fade-in-0 zoom-in-95 duration-150">
+                        <div className="rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
+                        {item.subItems.map((sub, sIdx) => (
+                          <button
+                            key={sIdx}
+                            onClick={() => goToSection(sub.id)}
+                            className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            {sub.label}
+                          </button>
+                        ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 );
               }
 
@@ -386,7 +498,15 @@ const Navbar = () => {
               return (
                 <button
                   key={index}
-                  onClick={() => goToSection(item.id!)}
+                  onClick={() => {
+                    if (item.kind === "route") {
+                      closeMenus();
+                      navigate(item.path!);
+                      return;
+                    }
+
+                    goToSection(item.id!);
+                  }}
                   className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 relative group cursor-pointer"
                 >
                   {item.label}
@@ -398,34 +518,47 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="hidden md:inline-flex rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors px-6 h-10 border-0 font-medium cursor-pointer">
-                  Fale Conosco
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem asChild>
-                  <a href="mailto:contato@chronokairo.com.br">Email</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a href="tel:+5592981244044">Telefone</a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    href="https://wa.me/5592981244044"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    WhatsApp
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={() => scrollToSection("contact")}>
-                  Formulário de contato
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div
+              className="relative hidden md:block"
+              onMouseEnter={openContactDropdown}
+              onMouseLeave={closeContactDropdown}
+            >
+              <Button
+                onClick={() => (contactOpen ? setContactOpen(false) : openContactDropdown())}
+                className="inline-flex rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors px-6 h-10 border-0 font-medium cursor-pointer"
+                aria-expanded={contactOpen}
+              >
+                Fale Conosco
+              </Button>
+
+              {contactOpen && (
+                <div className="absolute right-0 top-full z-50 w-56 pt-2 animate-in fade-in-0 zoom-in-95 duration-150">
+                  <div className="rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
+                    <a className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground" href="mailto:contato@chronokairo.com.br">
+                      Email
+                    </a>
+                    <a className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground" href="tel:+5592981244044">
+                      Telefone
+                    </a>
+                    <a
+                      className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                      href="https://wa.me/5592981244044"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      WhatsApp
+                    </a>
+                    <div className="-mx-1 my-1 h-px bg-muted" />
+                    <button
+                      onClick={() => scrollToSection("contact")}
+                      className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                    >
+                      Formulário de contato
+                    </button>
+                  </div>
+              </div>
+              )}
+            </div>
             <ThemeToggle />
 
             {/* Mobile Menu Button */}
@@ -465,12 +598,20 @@ const Navbar = () => {
 
             {/* ── NAV ITEMS ── */}
             {navItems.map((item, index) => {
-              /* SECTION link */
-              if (item.kind === "section") {
+              /* SECTION / ROUTE link */
+              if (item.kind === "section" || item.kind === "route") {
                 return (
                   <button
                     key={index}
-                    onClick={() => goToSection(item.id!)}
+                    onClick={() => {
+                      if (item.kind === "route") {
+                        closeMenus();
+                        navigate(item.path!);
+                        return;
+                      }
+
+                      goToSection(item.id!);
+                    }}
                     className="text-left py-3.5 px-2 text-sm font-medium text-foreground border-b border-border/40 last:border-0"
                   >
                     {item.label}

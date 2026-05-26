@@ -1,5 +1,5 @@
 import type React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import {
   Carousel,
@@ -80,7 +80,7 @@ const Projects = () => {
                 className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
                 <Link
-                  to={`/produtos/${project.slug}`}
+                  href={`/produtos/${project.slug}`}
                   className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-foreground/30"
                 >
                   <div className="aspect-[16/10] bg-foreground/[0.02] relative overflow-hidden border-b border-border">
@@ -163,7 +163,7 @@ const Projects = () => {
 
         <div className="mt-12 text-center">
           <Link
-            to="/produtos"
+            href="/produtos"
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-border hover:bg-foreground hover:text-background transition-colors text-sm font-medium cursor-pointer"
           >
             Ver catálogo completo

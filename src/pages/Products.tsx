@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, ExternalLink, Cpu, Layout, Smartphone, Globe, Code2, Users } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
@@ -48,7 +50,7 @@ const Products = () => {
                 </p>
                 <div className="mt-8 flex items-center gap-3">
                   <Button asChild className="rounded-full h-11 px-7 bg-foreground text-background hover:bg-foreground/90 border-0">
-                    <Link to="/#contact">Falar com a equipe</Link>
+                    <Link href="/#contact">Falar com a equipe</Link>
                   </Button>
                   <Button asChild variant="outline" className="rounded-full h-11 px-7">
                     <a href="#catalogo" onClick={(e) => { e.preventDefault(); document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" }); }}>
@@ -71,7 +73,7 @@ const Products = () => {
                 {featuredProducts.map((product) => (
                   <Link
                     key={product.slug}
-                    to={`/produtos/${product.slug}`}
+                    href={`/produtos/${product.slug}`}
                     className="group rounded-xl border border-border bg-background p-6 transition-all hover:border-foreground/25 hover:shadow-md"
                   >
                     <div className="flex items-center justify-between gap-3 mb-3">
@@ -151,7 +153,7 @@ const Products = () => {
                     {group.products.map((product) => (
                       <Link
                         key={product.slug}
-                        to={`/produtos/${product.slug}`}
+                        href={`/produtos/${product.slug}`}
                         className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:border-foreground/25 hover:shadow-md"
                       >
                         {/* card top stripe */}
@@ -221,7 +223,7 @@ const Products = () => {
                 </p>
               </div>
               <Button asChild className="shrink-0 rounded-full h-11 px-7 bg-foreground text-background hover:bg-foreground/90 border-0">
-                <Link to="/#contact">Falar com a equipe</Link>
+                <Link href="/#contact">Falar com a equipe</Link>
               </Button>
             </div>
           </section>
