@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink, Cpu, Layout, Smartphone, Globe } from "lucide-react";
+import { ArrowRight, ExternalLink, Cpu, Layout, Smartphone, Globe, Code2, Users } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { groupedProducts, featuredProducts } from "@/data/products";
+import { groupedProducts, featuredProducts, getProductIcon } from "@/data/products";
 import type { ProductCategory } from "@/data/products";
 
 const categoryIcons: Record<ProductCategory, React.ReactNode> = {
@@ -14,6 +14,8 @@ const categoryIcons: Record<ProductCategory, React.ReactNode> = {
   Sistemas: <Layout className="h-5 w-5" />,
   Mobile: <Smartphone className="h-5 w-5" />,
   Web: <Globe className="h-5 w-5" />,
+  DevTools: <Code2 className="h-5 w-5" />,
+  Setores: <Users className="h-5 w-5" />,
 };
 
 const Products = () => {
@@ -74,7 +76,10 @@ const Products = () => {
                   >
                     <div className="flex items-center justify-between gap-3 mb-3">
                       <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/8 text-foreground/60">
-                        {categoryIcons[product.category]}
+                        {(() => {
+                          const Icon = getProductIcon(product.slug);
+                          return <Icon className="h-5 w-5" />;
+                        })()}
                       </span>
                       <ArrowRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -154,10 +159,18 @@ const Products = () => {
 
                         <div className="flex flex-col flex-1 p-6 space-y-4">
                           <div className="flex items-center justify-between gap-3">
-                            <Badge variant="secondary" className="rounded-full text-[10px] font-mono uppercase tracking-wider">
-                              {product.category}
-                            </Badge>
-                            <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground/[0.04] text-foreground/65 group-hover:bg-foreground/[0.08] group-hover:text-foreground transition-all duration-300">
+                              {(() => {
+                                const Icon = getProductIcon(product.slug);
+                                return <Icon className="h-4 w-4" />;
+                              })()}
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary" className="rounded-full text-[10px] font-mono uppercase tracking-wider">
+                                {product.category}
+                              </Badge>
+                              <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                            </div>
                           </div>
 
                           <div>

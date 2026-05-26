@@ -1,3 +1,10 @@
+import React from "react";
+import { 
+  Bot, Terminal, Database, Briefcase, Headphones, Users, 
+  Coins, Target, Megaphone, Smile, GitBranch, GraduationCap, 
+  Trello, Building2, Network, Scale, ShieldCheck, HelpCircle 
+} from "lucide-react";
+
 export type ProductCategory = "IA" | "Sistemas" | "Mobile" | "Web" | "DevTools" | "Setores";
 export type ProductBrand = "Kairos" | "Chronos";
 
@@ -340,4 +347,28 @@ export const featuredChronos = chronosProducts.filter((p) => p.featured);
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
+}
+
+export const productIconMap: Record<string, React.ComponentType<any>> = {
+  "kairos-rag": Bot,
+  "kairos-dev": Terminal,
+  "kairos-cms": Database,
+  "kairos-crm": Briefcase,
+  "kairos-support": Headphones,
+  "kairos-people": Users,
+  "kairos-fin": Coins,
+  "kairos-sales": Target,
+  "kairos-mkt": Megaphone,
+  "kairos-cs": Smile,
+  "kairos-git": GitBranch,
+  "kairos-edu": GraduationCap,
+  "kairos-trk": Trello,
+  "chronos-erp": Building2,
+  "chronos-sgr": Network,
+  "chronos-agp": Scale,
+  "chronos-sec": ShieldCheck,
+};
+
+export function getProductIcon(slug: string): React.ComponentType<any> {
+  return productIconMap[slug] || HelpCircle;
 }

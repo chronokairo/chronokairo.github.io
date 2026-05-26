@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { kairosProducts, chronosProducts, featuredKairos, featuredChronos, groupedProducts } from "@/data/products";
+import { kairosProducts, chronosProducts, featuredKairos, featuredChronos, groupedProducts, getProductIcon } from "@/data/products";
 import type { ProductCategory } from "@/data/products";
 
 /* icon map per category */
@@ -239,21 +239,29 @@ const Navbar = () => {
                               </p>
                             </div>
                             <div className="space-y-0.5 max-h-[380px] overflow-y-auto custom-scrollbar pr-1">
-                              {chronosProducts.map((product) => (
-                                <Link
-                                  key={product.slug}
-                                  to={`/produtos/${product.slug}`}
-                                  onClick={() => setProductsOpen(false)}
-                                  className="flex flex-col rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
-                                >
-                                  <span className="text-sm font-medium text-foreground">
-                                    {product.title}
-                                  </span>
-                                  <span className="text-xs text-muted-foreground leading-snug mt-0.5 line-clamp-1">
-                                    {product.summary}
-                                  </span>
-                                </Link>
-                              ))}
+                              {chronosProducts.map((product) => {
+                                const Icon = getProductIcon(product.slug);
+                                return (
+                                  <Link
+                                    key={product.slug}
+                                    to={`/produtos/${product.slug}`}
+                                    onClick={() => setProductsOpen(false)}
+                                    className="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
+                                  >
+                                    <span className="mt-0.5 p-1 rounded bg-foreground/[0.03] text-foreground/70 group-hover:bg-foreground/[0.08] transition-colors shrink-0">
+                                      <Icon className="h-4 w-4" />
+                                    </span>
+                                    <div className="flex flex-col">
+                                      <span className="text-sm font-medium text-foreground">
+                                        {product.title}
+                                      </span>
+                                      <span className="text-xs text-muted-foreground leading-snug mt-0.5 line-clamp-1">
+                                        {product.summary}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
                             </div>
                             <div className="mt-6 pt-5 border-t border-border">
                               <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-muted-foreground mb-1">Enterprise</p>
@@ -272,21 +280,29 @@ const Navbar = () => {
                               </p>
                             </div>
                             <div className="space-y-0.5 max-h-[380px] overflow-y-auto custom-scrollbar pr-1">
-                              {kairosProducts.map((product) => (
-                                <Link
-                                  key={product.slug}
-                                  to={`/produtos/${product.slug}`}
-                                  onClick={() => setProductsOpen(false)}
-                                  className="flex flex-col rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
-                                >
-                                  <span className="text-sm font-medium text-foreground">
-                                    {product.title}
-                                  </span>
-                                  <span className="text-xs text-muted-foreground leading-snug mt-0.5 line-clamp-1">
-                                    {product.summary}
-                                  </span>
-                                </Link>
-                              ))}
+                              {kairosProducts.map((product) => {
+                                const Icon = getProductIcon(product.slug);
+                                return (
+                                  <Link
+                                    key={product.slug}
+                                    to={`/produtos/${product.slug}`}
+                                    onClick={() => setProductsOpen(false)}
+                                    className="flex items-start gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-foreground/5 group"
+                                  >
+                                    <span className="mt-0.5 p-1 rounded bg-foreground/[0.03] text-foreground/70 group-hover:bg-foreground/[0.08] transition-colors shrink-0">
+                                      <Icon className="h-4 w-4" />
+                                    </span>
+                                    <div className="flex flex-col">
+                                      <span className="text-sm font-medium text-foreground">
+                                        {product.title}
+                                      </span>
+                                      <span className="text-xs text-muted-foreground leading-snug mt-0.5 line-clamp-1">
+                                        {product.summary}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
                             </div>
                           </div>
 
@@ -488,20 +504,28 @@ const Navbar = () => {
                               Chronos
                             </span>
                           </div>
-                          {chronosProducts.map((product) => (
-                            <button
-                              key={product.slug}
-                              onClick={() => goToProduct(product.slug)}
-                              className="flex flex-col text-left w-full py-2.5 pl-6 pr-3 border-b border-border/20 last:border-0 group"
-                            >
-                              <span className="text-sm font-medium text-foreground group-active:opacity-70">
-                                {product.title}
-                              </span>
-                              <span className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
-                                {product.summary}
-                              </span>
-                            </button>
-                          ))}
+                          {chronosProducts.map((product) => {
+                            const Icon = getProductIcon(product.slug);
+                            return (
+                              <button
+                                key={product.slug}
+                                onClick={() => goToProduct(product.slug)}
+                                className="flex items-start gap-3 text-left w-full py-2.5 pl-6 pr-3 border-b border-border/20 last:border-0 group"
+                              >
+                                <span className="p-1 rounded bg-foreground/[0.03] text-foreground/70 shrink-0 mt-0.5">
+                                  <Icon className="h-3.5 w-3.5" />
+                                </span>
+                                <div className="flex flex-col">
+                                  <span className="text-sm font-medium text-foreground group-active:opacity-70">
+                                    {product.title}
+                                  </span>
+                                  <span className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
+                                    {product.summary}
+                                  </span>
+                                </div>
+                              </button>
+                            );
+                          })}
                         </div>
 
                         {/* Kairos */}
@@ -512,20 +536,28 @@ const Navbar = () => {
                               Kairos
                             </span>
                           </div>
-                          {kairosProducts.map((product) => (
-                            <button
-                              key={product.slug}
-                              onClick={() => goToProduct(product.slug)}
-                              className="flex flex-col text-left w-full py-2.5 pl-6 pr-3 border-b border-border/20 last:border-0 group"
-                            >
-                              <span className="text-sm font-medium text-foreground group-active:opacity-70">
-                                {product.title}
-                              </span>
-                              <span className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
-                                {product.summary}
-                              </span>
-                            </button>
-                          ))}
+                          {kairosProducts.map((product) => {
+                            const Icon = getProductIcon(product.slug);
+                            return (
+                              <button
+                                key={product.slug}
+                                onClick={() => goToProduct(product.slug)}
+                                className="flex items-start gap-3 text-left w-full py-2.5 pl-6 pr-3 border-b border-border/20 last:border-0 group"
+                              >
+                                <span className="p-1 rounded bg-foreground/[0.03] text-foreground/70 shrink-0 mt-0.5">
+                                  <Icon className="h-3.5 w-3.5" />
+                                </span>
+                                <div className="flex flex-col">
+                                  <span className="text-sm font-medium text-foreground group-active:opacity-70">
+                                    {product.title}
+                                  </span>
+                                  <span className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
+                                    {product.summary}
+                                  </span>
+                                </div>
+                              </button>
+                            );
+                          })}
                         </div>
 
                         {/* CTA */}
