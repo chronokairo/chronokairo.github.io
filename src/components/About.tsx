@@ -1,21 +1,24 @@
-import { Eye, BookOpen, Lightbulb, ArrowRight } from "lucide-react";
+import { Brain, GitMerge, ShieldCheck, ArrowRight } from "lucide-react";
 
 const About = () => {
   const values = [
     {
-      icon: Eye,
-      title: "Transparência",
-      description: "Comunicação clara em todas as etapas, sem surpresas ou custos ocultos.",
+      icon: Brain,
+      title: "IA-First",
+      description:
+        "Orquestração de agentes com guardrails e integração a dados proprietários.",
     },
     {
-      icon: BookOpen,
-      title: "Aprendizado",
-      description: "Sempre atualizados com as últimas tecnologias e tendências do mercado.",
+      icon: GitMerge,
+      title: "Integração de Legados",
+      description:
+        "APIs e microsserviços para modernizar ERPs/CRMs sem refazer do zero.",
     },
     {
-      icon: Lightbulb,
-      title: "Inovação",
-      description: "Criatividade e tecnologia para soluções únicas aos seus desafios.",
+      icon: ShieldCheck,
+      title: "Governança e Segurança",
+      description:
+        "Automação com auditoria, LGPD e observabilidade preditiva.",
     },
   ];
 
@@ -35,9 +38,9 @@ const About = () => {
             Quem <span className="text-muted-foreground">somos</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Somos uma equipe apaixonada por tecnologia, unindo conhecimento técnico 
-            com soluções práticas para o mercado. Acreditamos que a tecnologia deve 
-            ser aplicada no momento certo para gerar o máximo de impacto.
+            Em 2026, o desenvolvimento básico virou commodity. A ChronoKairo atua onde o
+            valor real está: arquitetura complexa, integração de sistemas e inteligência
+            operacional orientada a resultados.
           </p>
         </div>
 
@@ -61,7 +64,7 @@ const About = () => {
         <div className="glass rounded-3xl p-8 md:p-12 lg:p-16">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              O significado de <span className="text-muted-foreground">ChronoKairo</span>
+              O significado de <span className="text-foreground">ChronoKairo</span>
             </h3>
 
             <div className="grid md:grid-cols-3 gap-8 items-center mb-12">

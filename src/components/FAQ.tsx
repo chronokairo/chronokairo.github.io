@@ -51,9 +51,6 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-24 md:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-dots opacity-50" />
-
       <div className="container mx-auto px-6 relative">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">

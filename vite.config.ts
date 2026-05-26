@@ -17,17 +17,17 @@ export default defineConfig(async ({ mode }) => {
   }
 
   return {
-    base: '/chronokairo_site/',
-    root: path.resolve(__dirname, "client"),
+    base: "/",
+    root: __dirname,
     publicDir: path.resolve(__dirname, "public"),
     build: {
       outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
       rollupOptions: {
-        input: path.resolve(__dirname, "client/index.html"),
+        input: path.resolve(__dirname, "index.html"),
         output: {
           manualChunks: {
-            vendor: ['react', 'react-dom', 'react-router-dom'],
+            vendor: ["react", "react-dom", "react-router-dom"],
           },
         },
       },
@@ -45,7 +45,7 @@ export default defineConfig(async ({ mode }) => {
     plugins: plugins.filter(Boolean),
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./client/src"),
+        "@": path.resolve(__dirname, "./src"),
       },
     },
   };

@@ -14,36 +14,26 @@ const Hero = () => {
       id="hero" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
-      
-      {/* Floating Elements */}
-      <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-foreground/20 rounded-full animate-float" />
-      <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-foreground/10 rounded-full animate-float animation-delay-200" />
-      <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-foreground/15 rounded-full animate-float animation-delay-400" />
-
       <div className="container mx-auto px-6 pt-24 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 glass rounded-full animate-fade-in">
             <Sparkles className="w-4 h-4 text-foreground/70" />
             <span className="text-sm font-medium text-muted-foreground">
-              Disponível para novos projetos
+              IA-first | Integração | Resultado
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight animate-fade-in-up">
-            <span className="block">Tecnologia</span>
-            <span className="block text-muted-foreground">no tempo certo</span>
+            <span className="block">A hora é agora.</span>
           </h1>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-            Desenvolvemos soluções tecnológicas sob medida, entregando resultados 
-            precisos no momento exato que seu negócio precisa evoluir.
+            Com IA generativa e low-code democratizando o básico, a ChronoKairo foca em
+            sistemas agênticos, integração de legados e hiperautomação com governança
+            para entregar valor mensurável.
           </p>
 
           {/* CTA Buttons */}
@@ -53,7 +43,7 @@ const Hero = () => {
               onClick={scrollToServices}
               className="group relative px-8 py-6 text-base font-medium overflow-hidden"
             >
-              <span className="relative z-10">Ver Serviços</span>
+              <span className="relative z-10">Ver Pilares</span>
               <ArrowDown className="ml-2 h-4 w-4 relative z-10 group-hover:translate-y-1 transition-transform" />
             </Button>
             <Button

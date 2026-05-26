@@ -7,6 +7,7 @@ const Footer = () => {
     company: [
       { label: "Sobre", href: "#about" },
       { label: "Serviços", href: "#services" },
+      { label: "Atuação", href: "#atuacao" },
       { label: "Projetos", href: "#projects" },
       { label: "Equipe", href: "#team" },
     ],
@@ -17,10 +18,10 @@ const Footer = () => {
   };
 
   const social = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Github, href: "https://github.com/chronokairo", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/chronokairo", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/chronokairo", label: "Instagram" },
+    { icon: Twitter, href: "https://x.com/chronokairo", label: "X (Twitter)" },
   ];
 
   return (
@@ -29,20 +30,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 border-2 border-foreground rotate-45" />
-                <div className="absolute inset-1.5 border border-foreground/50 rotate-45" />
-              </div>
+            <div className="flex items-center mb-4">
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight">
-                  CHRONO<span className="text-muted-foreground">KAIRO</span>
+                <span className="text-lg font-bold tracking-tight text-foreground">
+                  CHRONO<span className="text-foreground">KAIRO</span>
                 </span>
               </div>
             </div>
             <p className="text-muted-foreground text-sm max-w-sm mb-6 leading-relaxed">
-              Soluções tecnológicas personalizadas entregues no momento certo 
-              para maximizar o impacto no seu negócio.
+              Arquitetura, integração e inteligência para gerar valor mensurável no seu negócio.
             </p>
             {/* Social Links */}
             <div className="flex gap-2">

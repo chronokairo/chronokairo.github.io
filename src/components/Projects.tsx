@@ -89,8 +89,6 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-24 md:py-32 relative">
-      <div className="absolute inset-0 bg-dots opacity-50" />
-
       <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">

@@ -55,8 +55,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "chronokairo@gmail.com",
-      link: "mailto:chronokairo@gmail.com",
+      value: "contato@chronokairo.com.br",
+      link: "mailto:contato@chronokairo.com.br",
     },
     {
       icon: Phone,

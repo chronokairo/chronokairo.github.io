@@ -1,52 +1,54 @@
-import { Code, Database, Smartphone, Cloud, Zap, ArrowUpRight } from "lucide-react";
+import { Brain, Target, Workflow, Boxes, ShieldCheck, ArrowUpRight } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: Code,
-      title: "Desenvolvimento Web",
-      description: "Sites e aplicações web modernas, responsivas e otimizadas para performance.",
+      icon: Brain,
+      title: "Sistemas Agênticos (IA-First)",
+      description:
+        "Plataformas multiagentes com guardrails, orquestração e conexão a dados proprietários.",
     },
     {
-      icon: Database,
-      title: "Sistemas Personalizados",
-      description: "Sistemas sob medida para atender as necessidades específicas do seu negócio.",
+      icon: Target,
+      title: "Consultoria de Valor & Legados",
+      description:
+        "Contratos por resultado e modernização de ERPs/CRMs via APIs e microsserviços.",
     },
     {
-      icon: Smartphone,
-      title: "Aplicações Mobile",
-      description: "Apps nativos e híbridos com excelente experiência do usuário.",
+      icon: Workflow,
+      title: "Hiperautomação com Governança",
+      description:
+        "n8n/Make/IA com auditoria, tratamento de erros e conformidade LGPD.",
     },
     {
-      icon: Cloud,
-      title: "Soluções em Cloud",
-      description: "Migração e gestão de infraestrutura em nuvem para escalar seu negócio.",
+      icon: Boxes,
+      title: "Micro-SaaS Verticais",
+      description:
+        "Produtos nichados com dados proprietários e receita recorrente.",
     },
     {
-      icon: Zap,
-      title: "Automação",
-      description: "Automatize tarefas repetitivas e otimize seus processos.",
+      icon: ShieldCheck,
+      title: "Cibersegurança & Observabilidade",
+      description:
+        "Zero Trust, confidential computing e monitoramento preditivo.",
     },
   ];
 
   return (
     <section id="services" className="py-24 md:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-dots opacity-50" />
-
       <div className="container mx-auto px-6 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
-              Serviços
+              Pilares 2026
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              O que <span className="text-muted-foreground">fazemos</span>
+              Onde <span className="text-muted-foreground">geramos valor</span>
             </h2>
           </div>
           <p className="text-muted-foreground max-w-md">
-            Soluções tecnológicas completas com foco em entregar valor no momento certo.
+            Arquitetura distribuída, integração e inteligência aplicada ao negócio.
           </p>
         </div>
 
