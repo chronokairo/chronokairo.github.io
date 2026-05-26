@@ -2,8 +2,17 @@ import { Mail } from "lucide-react";
 
 import { GitHubIcon, LinkedInIcon } from "@/components/BrandIcons";
 
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  initials: string;
+  github: string;
+  avatar: string;
+};
+
 const Team = () => {
-  const owners = [
+  const owners: TeamMember[] = [
     {
       name: "Luan Nery",
       role: "Cientista da Computação",
@@ -30,7 +39,7 @@ const Team = () => {
     },
   ];
 
-  const developers = [
+  const developers: TeamMember[] = [
     {
       name: "Pedro Isaque",
       role: "Analista de Sistemas",
@@ -65,7 +74,18 @@ const Team = () => {
     },
   ];
 
-  const MemberCard = ({ member }: { member: typeof owners[0] }) => (
+  const designers: TeamMember[] = [
+    {
+      name: "Clara Neve",
+      role: "Cientista da Computação",
+      bio: "Design de interfaces e experiência do usuário.",
+      initials: "CN",
+      github: "https://github.com/ClaraDevNeve",
+      avatar: "https://avatars.githubusercontent.com/u/246918660?s=400&u=02b4486e713d5e8210a5b47821e3a1bf2c242850&v=4",
+    },
+  ];
+
+  const MemberCard = ({ member }: { member: TeamMember }) => (
     <div className="group text-center">
       {/* Avatar */}
       <div className="relative mx-auto w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
@@ -157,6 +177,23 @@ const Team = () => {
             {developers.map((member, index) => (
               <MemberCard key={index} member={member} />
             ))}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="w-full max-w-md mx-auto h-px bg-border my-16" />
+
+        {/* Design UX/UI Section */}
+        <div>
+          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-10 uppercase">
+            // Desing UX/UI
+          </h3>
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 gap-6 lg:gap-8 max-w-xs mx-auto">
+              {designers.map((member, index) => (
+                <MemberCard key={index} member={member} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
