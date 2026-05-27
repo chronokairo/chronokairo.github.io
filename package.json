@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "version:bump": "npm version patch --no-git-tag-version",
+    "build": "npm run version:bump && next build",
     "start": "next start",
     "lint": "next lint",
     "check": "tsc --noEmit",
