@@ -33,8 +33,27 @@ const ProductDetail = ({ slug }: { slug: string }) => {
   const categoryGroup = groupedProducts.find((group) => group.key === product.category);
   const categoryProductsCount = products.filter((p) => p.category === product.category).length;
 
+  const productSchemaLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.description,
+    brand: { "@type": "Brand", name: product.brand },
+    category: product.category,
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      price: "0",
+      priceCurrency: "BRL",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemaLd) }}
+      />
       <div className="relative z-10">
         <Navbar />
         <main className="pt-28">

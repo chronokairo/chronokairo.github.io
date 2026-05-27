@@ -235,6 +235,7 @@ const Navbar = () => {
 
   const navItems: NavItem[] = [
     { label: "Home", kind: "route", path: "/" },
+    { label: "Blog", kind: "route", path: "/blog" },
     { label: "Pesquisas", kind: "route", path: "/pesquisas" },
     { label: "Produtos", kind: "products" },
     {

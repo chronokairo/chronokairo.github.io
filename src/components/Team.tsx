@@ -78,6 +78,7 @@ const Team = () => {
           <img 
             src={member.avatar} 
             alt={member.name}
+            loading="lazy"
             className="w-full h-full object-cover rounded-full opacity-90 group-hover:opacity-100 transition-opacity duration-500"
           />
         </div>

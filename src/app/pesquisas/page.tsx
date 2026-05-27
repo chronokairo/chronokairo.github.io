@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Research from "@/pages/Research";
 
 export const metadata: Metadata = {
-  title: "Pesquisas",
+  title: "Pesquisas · IA e Tecnologia em Manaus e Amazônia",
   description:
     "Pesquisas conduzidas por membros da ChronoKairo em Manaus sobre IA aplicada, sistemas inteligentes e governança, com foco em impacto social positivo na região amazônica.",
   alternates: { canonical: "/pesquisas" },

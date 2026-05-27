@@ -9,7 +9,7 @@ const ogImage = `${siteUrl}/og-image.svg`;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ChronoKairo · Software house com IA, integração e automação",
+    default: "ChronoKairo · Software house em Manaus com IA, integração e automação",
     template: "%s · ChronoKairo",
   },
   description:
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "ChronoKairo",
     locale: "pt_BR",
     url: siteUrl,
-    title: "ChronoKairo · Software house com IA, integração e automação",
+    title: "ChronoKairo · Software house em Manaus com IA, integração e automação",
     description:
       "Software house em Manaus: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
     images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@chronokairo",
-    title: "ChronoKairo · Software house com IA, integração e automação",
+    title: "ChronoKairo · Software house em Manaus com IA, integração e automação",
     description:
       "Software house em Manaus: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
     images: [ogImage],
