@@ -36,14 +36,15 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 tracking-tight animate-fade-in-up leading-[1.1] text-foreground">
-            A hora é <span className="font-normal italic">agora</span>.
+            <span className="block">Software house em Manaus</span>
+            <span className="block font-normal italic">com IA, integracao e automacao.</span>
           </h1>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-            Com IA generativa e low-code democratizando o básico, a <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> foca em
-            sistemas agênticos, integração de legados e hiperautomação com governança
-            para entregar valor mensurável.
+            A hora e agora para escalar com IA generativa, integracao de legados e
+            hiperautomacao com governanca. A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> desenvolve software sob medida para
+            empresas que precisam entregar valor mensuravel com mais velocidade.
           </p>
 
           {/* CTA Buttons */}

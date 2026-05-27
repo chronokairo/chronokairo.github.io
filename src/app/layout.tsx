@@ -1,22 +1,22 @@
 import type { Metadata, Viewport } from "next";
 
 import "@/theme/theme.css";
+import { ogImage, siteUrl } from "@/lib/site";
 import { Providers } from "./providers";
-
-const siteUrl = "https://chronokairo.com.br";
-const ogImage = `${siteUrl}/og-image.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ChronoKairo · Software house com IA, integração e automação",
+    default: "ChronoKairo",
     template: "%s · ChronoKairo",
   },
   description:
-    "Software house brasileira focada em desenvolvimento com IA, automação de processos e integração de sistemas legados. Fale com o time e acelere seu produto digital.",
+    "Software house em Manaus focada em desenvolvimento com IA, automacao de processos e integracao de sistemas legados. Fale com o time e acelere seu produto digital.",
   applicationName: "ChronoKairo",
   authors: [{ name: "ChronoKairo" }],
   keywords: [
+    "software house em Manaus",
+    "software house Manaus",
     "software house com inteligência artificial",
     "desenvolvimento de software com IA",
     "automação de processos empresariais",
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
     "observabilidade",
     "ChronoKairo",
   ],
-  alternates: { canonical: "/" },
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
     siteName: "ChronoKairo",
     locale: "pt_BR",
     url: siteUrl,
-    title: "ChronoKairo · Software house com IA, integração e automação",
+    title: "ChronoKairo · Software house em Manaus com IA, integracao e automacao",
     description:
-      "Desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Desenvolvimento de software em Manaus com IA, automacao de processos e integracao de sistemas. Conheca produtos, pesquisas e a equipe da ChronoKairo.",
     images: [
       {
         url: ogImage,
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@chronokairo",
-    title: "ChronoKairo · Software house com IA, integração e automação",
+    title: "ChronoKairo · Software house em Manaus com IA, integracao e automacao",
     description:
-      "Desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Desenvolvimento de software em Manaus com IA, automacao de processos e integracao de sistemas. Conheca produtos, pesquisas e a equipe da ChronoKairo.",
     images: [ogImage],
   },
   icons: { icon: "/CHRONOKAIRO.ico" },
@@ -90,6 +90,28 @@ const organizationJsonLd = {
   ],
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "ChronoKairo",
+  url: `${siteUrl}/`,
+  image: ogImage,
+  description:
+    "Software house em Manaus especializada em IA, automacao de processos, integracao de sistemas e produtos digitais sob medida.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Manaus",
+    addressRegion: "AM",
+    addressCountry: "BR",
+  },
+  areaServed: [
+    { "@type": "City", name: "Manaus" },
+    { "@type": "Country", name: "Brasil" },
+  ],
+  email: "contato@chronokairo.com.br",
+  telephone: "+55-92-98124-4044",
+};
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -115,6 +137,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <script
           type="application/ld+json"

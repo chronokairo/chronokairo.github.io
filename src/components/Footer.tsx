@@ -13,8 +13,8 @@ const Footer = () => {
       { label: "Equipe", href: "#team" },
     ],
     legal: [
-      { label: "Privacidade", href: "#" },
-      { label: "Termos", href: "#" },
+      { label: "Privacidade", href: "/privacidade" },
+      { label: "Termos", href: "/termos" },
     ],
   };
 
@@ -91,12 +91,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {links.legal.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

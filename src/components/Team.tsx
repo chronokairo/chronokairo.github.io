@@ -8,6 +8,8 @@ type TeamMember = {
   bio: string;
   initials: string;
   github: string;
+  linkedin?: string;
+  email?: string;
   avatar: string;
 };
 
@@ -92,26 +94,35 @@ const Team = () => {
 
       {/* Social Links */}
       <div className="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <a 
+        <a
           href={member.github}
           target="_blank"
           rel="noopener noreferrer"
           className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
+          aria-label={`GitHub de ${member.name}`}
         >
           <GitHubIcon className="w-3.5 h-3.5" />
         </a>
-        <a 
-          href="#" 
-          className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
-        >
-          <LinkedInIcon className="w-3.5 h-3.5" />
-        </a>
-        <a 
-          href="#" 
-          className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
-        >
-          <Mail className="w-3.5 h-3.5" />
-        </a>
+        {member.linkedin ? (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
+            aria-label={`LinkedIn de ${member.name}`}
+          >
+            <LinkedInIcon className="w-3.5 h-3.5" />
+          </a>
+        ) : null}
+        {member.email ? (
+          <a
+            href={`mailto:${member.email}`}
+            className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
+            aria-label={`Email de ${member.name}`}
+          >
+            <Mail className="w-3.5 h-3.5" />
+          </a>
+        ) : null}
       </div>
     </div>
   );
