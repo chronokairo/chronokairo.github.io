@@ -4,7 +4,7 @@ import "@/theme/theme.css";
 import { Providers } from "./providers";
 
 const siteUrl = "https://chronokairo.com.br";
-const ogImage = `${siteUrl}/og-image.jpg`;
+const ogImage = `${siteUrl}/og-image.svg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s · ChronoKairo",
   },
   description:
-    "Software house brasileira focada em desenvolvimento com IA, automação de processos e integração de sistemas legados. Fale com o time e acelere seu produto digital.",
+    "Software house em Manaus com inteligência artificial, automação de processos e integração de sistemas legados. Fale com o time e acelere seu produto digital.",
   applicationName: "ChronoKairo",
   authors: [{ name: "ChronoKairo" }],
   keywords: [
@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "micro-saas",
     "observabilidade",
     "ChronoKairo",
+    "software house Manaus",
+    "desenvolvimento de software Amazonas",
+    "software house Brasil",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "ChronoKairo · Software house com IA, integração e automação",
     description:
-      "Desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Software house em Manaus: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
     images: [
       {
         url: ogImage,
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
     site: "@chronokairo",
     title: "ChronoKairo · Software house com IA, integração e automação",
     description:
-      "Desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Software house em Manaus: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
     images: [ogImage],
   },
   icons: { icon: "/CHRONOKAIRO.ico" },
@@ -69,7 +72,7 @@ const organizationJsonLd = {
   logo: `${siteUrl}/CHRONOKAIRO.ico`,
   image: ogImage,
   description:
-    "Software house brasileira focada em desenvolvimento com IA, automação de processos e integração de sistemas legados.",
+    "Software house em Manaus focada em desenvolvimento com IA, automação de processos e integração de sistemas legados.",
   slogan: "Tecnologia no tempo certo",
   address: { "@type": "PostalAddress", addressCountry: "BR" },
   contactPoint: [

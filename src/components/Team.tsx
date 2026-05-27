@@ -73,7 +73,7 @@ const Team = () => {
   const MemberCard = ({ member }: { member: TeamMember }) => (
     <div className="group text-center">
       {/* Avatar */}
-      <div className="relative mx-auto w-24 h-24 md:w-32 md:h-32 mb-4 md:mb-6">
+      <div className="relative mx-auto w-24 h-24 md:w-32 md:h-32 mb-3 md:mb-4">
         <div className="absolute inset-0 rounded-full bg-foreground/5 group-hover:bg-foreground/10 transition-colors duration-500 overflow-hidden">
           <img 
             src={member.avatar} 
@@ -87,8 +87,8 @@ const Team = () => {
 
       {/* Info */}
       <h3 className="text-base md:text-lg font-serif font-bold mb-1 text-foreground">{member.name}</h3>
-      <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">{member.role}</p>
-      <p className="text-xs md:text-sm text-muted-foreground/70 mb-3 md:mb-4 px-2 md:px-4 line-clamp-2 leading-relaxed">{member.bio}</p>
+      <p className="text-xs md:text-sm text-muted-foreground mb-1 md:mb-2">{member.role}</p>
+      <p className="text-xs md:text-sm text-muted-foreground/70 mb-2 md:mb-3 px-2 md:px-4 line-clamp-2 leading-relaxed">{member.bio}</p>
 
       {/* Social Links */}
       <div className="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -117,14 +117,14 @@ const Team = () => {
   );
 
   return (
-    <section id="team" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="team" className="py-16 md:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-border" />
       
       <div className="container mx-auto px-6 relative">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
             Equipe
           </span>
@@ -137,8 +137,8 @@ const Team = () => {
         </div>
 
         {/* Owners Section */}
-        <div className="mb-20">
-          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-10 uppercase">
+        <div className="mb-14">
+          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-6 uppercase">
             // Fundadores
           </h3>
           <div className="flex justify-center">
@@ -151,11 +151,11 @@ const Team = () => {
         </div>
 
         {/* Divider */}
-        <div className="w-full max-w-md mx-auto h-px bg-border mb-16" />
+        <div className="w-full max-w-md mx-auto h-px bg-border mb-12" />
 
         {/* Developers Section */}
         <div>
-          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-10 uppercase">
+          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-6 uppercase">
             // Desenvolvedores
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-xl mx-auto justify-items-center">
@@ -166,11 +166,11 @@ const Team = () => {
         </div>
 
         {/* Divider */}
-        <div className="w-full max-w-md mx-auto h-px bg-border my-16" />
+        <div className="w-full max-w-md mx-auto h-px bg-border my-12" />
 
         {/* Design UX/UI Section */}
         <div>
-          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-10 uppercase">
+          <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-6 uppercase">
             // Desing UX/UI
           </h3>
           <div className="flex justify-center">
