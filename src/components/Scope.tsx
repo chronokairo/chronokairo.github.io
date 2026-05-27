@@ -98,19 +98,19 @@ const Scope = () => {
             Escopo <span className="font-normal italic">técnico e legal</span>
           </h2>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>, startup/software house em{" "}
+            A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>, startup e software house em{" "}
             <strong className="text-muted-foreground font-semibold">Manaus</strong>, atua em{" "}
             <strong className="text-muted-foreground font-semibold">
               transformação digital
             </strong>{" "}
-            e experiências digitais modernas. No mercado amazonense, entrega
-            plataformas institucionais e educacionais — como o{" "}
+            e no desenvolvimento de experiências digitais modernas. No mercado
+            amazonense, entrega plataformas institucionais e educacionais — como o{" "}
             <strong className="text-muted-foreground font-semibold">
               Instituto W / WD Educacional
             </strong>
-            — com um escopo alinhado aos{" "}
+            — com escopo alinhado aos{" "}
             <strong className="text-muted-foreground font-semibold">CNAEs</strong> e à
-            operação do{" "}
+            s atividades econômicas registradas no{" "}
             <strong className="text-muted-foreground font-semibold">CNPJ</strong>.
           </p>
         </div>
