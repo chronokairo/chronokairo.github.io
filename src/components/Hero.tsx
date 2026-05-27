@@ -18,7 +18,17 @@ const Hero = () => {
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
-      
+
+      {/* Logo watermark */}
+      <div className="absolute inset-0 flex items-start justify-center pt-[15vh] pointer-events-none select-none">
+        <img
+          src="/logo.svg"
+          alt=""
+          aria-hidden="true"
+          className="w-[500px] h-[500px] opacity-[0.07] sm:opacity-[0.1]"
+        />
+      </div>
+
       {/* Floating Elements */}
       <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-foreground/20 rounded-full animate-float" />
       <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-foreground/10 rounded-full animate-float animation-delay-200" />
