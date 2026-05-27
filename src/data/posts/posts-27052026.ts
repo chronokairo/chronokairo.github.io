@@ -1,4 +1,4 @@
-import type { Post } from ".";
+﻿import type { Post } from ".";
 
 export const posts27052026: Post[] = [
   {
@@ -31,7 +31,7 @@ export const posts27052026: Post[] = [
     excerpt:
       "A Anthropic compartilhou as lições de design de harness para agentes autônomos de longa duração — incluindo sprints, contratos entre agente gerador e avaliador, e autoavaliação com Playwright.",
     content:
-      "Em março de 2026, a Anthropic publicou um artigo detalhando a evolução do harness design para agentes de codificação autônomos. O desafio era fazer com que Claude construísse aplicações completas sem intervenção humana, em sessões que duravam horas. A solução envolveu uma arquitetura multi-agente com três papéis: um gerador que implementa funcionalidades em sprints, um avaliador que usa Playwright MCP para testar a aplicação como um usuário real, e um revisor que negocia um contrato de sprint antes de cada ciclo — definindo o que significa "pronto" antes de qualquer código ser escrito. Com Opus 4.6, a Anthropic descobriu que poderia eliminar completamente os context resets, rodando agentes em sessão contínua com compactação automática. A lição principal: à medida que os modelos ficam mais capazes, o harness deve simplificar, não complicar. O mesmo princípio se aplica a qualquer empresa que queira automatizar fluxos de trabalho complexos com IA.",
+      "Em março de 2026, a Anthropic publicou um artigo detalhando a evolução do harness design para agentes de codificação autônomos. O desafio era fazer com que Claude construísse aplicações completas sem intervenção humana, em sessões que duravam horas. A solução envolveu uma arquitetura multi-agente com três papéis: um gerador que implementa funcionalidades em sprints, um avaliador que usa Playwright MCP para testar a aplicação como um usuário real, e um revisor que negocia um contrato de sprint antes de cada ciclo — definindo o que significa 'pronto' antes de qualquer código ser escrito. Com Opus 4.6, a Anthropic descobriu que poderia eliminar completamente os context resets, rodando agentes em sessão contínua com compactação automática. A lição principal: à medida que os modelos ficam mais capazes, o harness deve simplificar, não complicar. O mesmo princípio se aplica a qualquer empresa que queira automatizar fluxos de trabalho complexos com IA.",
     date: "2026-05-22",
     author: "Victor Martins",
     tags: ["Anthropic", "Agentes", "Arquitetura", "Automação"],
