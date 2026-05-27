@@ -58,7 +58,7 @@ export default function Design() {
       <div className="container mx-auto px-6 max-w-5xl">
         {/* HERO */}
         <section className="mb-24 text-center">
-          <img src="/logo.svg" alt="" aria-hidden="true" className="w-48 h-48 mx-auto opacity-80 block" />
+          <img src="/logo.svg" alt="" aria-hidden="true" className="w-48 h-48 mx-auto opacity-80 block dark:brightness-0 dark:invert" />
           <div className="text-2xl font-serif font-bold tracking-tight -mt-8 leading-none">
             Chrono<span className="font-normal italic">Kairo</span>
           </div>
