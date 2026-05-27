@@ -8,6 +8,7 @@ const Footer = () => {
     company: [
       { label: "Sobre", href: "#about" },
       { label: "Serviços", href: "#services" },
+      { label: "Design", href: "/design" },
       { label: "Pesquisas", href: "/pesquisas" },
       { label: "Projetos", href: "#projects" },
       { label: "Equipe", href: "#team" },

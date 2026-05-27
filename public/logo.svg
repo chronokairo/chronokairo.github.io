@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <polygon points="16,60 38,38 60,60 38,82" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="38" y="60" text-anchor="middle" dominant-baseline="central" fill="currentColor" font-family="ui-monospace,SFMono-Regular,monospace" font-size="13" font-weight="bold" letter-spacing="-0.5">&lt;/&gt;</text>
+
+  <polygon points="60,60 82,38 104,60 82,82" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+  <g transform="translate(82, 60)" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-5,-7 L5,-7 L2,0 L5,7 L-5,7 L-2,0 Z"/>
+    <line x1="-2" y1="0" x2="2" y2="0"/>
+  </g>
+</svg>

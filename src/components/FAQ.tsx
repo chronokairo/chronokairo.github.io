@@ -5,6 +5,77 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
+const faqSchemaLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quanto tempo leva para desenvolver um projeto?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O prazo varia conforme a complexidade do projeto. Sites institucionais geralmente levam de 2 a 4 semanas, enquanto sistemas mais complexos podem levar de 2 a 6 meses. Fazemos uma análise detalhada antes de iniciar para fornecer um cronograma preciso.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como funciona o processo de desenvolvimento?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Nosso processo segue metodologias ágeis: começamos com uma reunião de levantamento de requisitos, seguida pelo design, desenvolvimento em sprints com entregas parciais, testes rigorosos e, por fim, a implantação. Você acompanha cada etapa em tempo real.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vocês oferecem suporte após a entrega?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim! Oferecemos suporte técnico contínuo após a entrega. Temos planos mensais de manutenção que incluem correções de bugs, atualizações de segurança, pequenas melhorias e monitoramento do sistema.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quais tecnologias vocês utilizam?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Trabalhamos com as tecnologias mais modernas do mercado: React, Next.js, Node.js, TypeScript, Python, PostgreSQL, MongoDB, AWS, entre outras. Escolhemos a stack ideal de acordo com as necessidades específicas de cada projeto.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Como é feito o orçamento?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "O orçamento é calculado com base no escopo do projeto, complexidade técnica, prazo desejado e recursos necessários. Oferecemos uma consultoria gratuita inicial para entender suas necessidades e apresentar uma proposta detalhada e transparente.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vocês trabalham com projetos de qualquer tamanho?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim! Atendemos desde startups e pequenos negócios até grandes empresas. Cada projeto recebe a mesma atenção e dedicação, independentemente do tamanho. Adaptamos nossa abordagem conforme suas necessidades e orçamento.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "O que está incluso no desenvolvimento de um site?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Nossos projetos incluem: design personalizado, desenvolvimento responsivo, otimização para SEO, integração com analytics, formulários de contato, hospedagem inicial, treinamento básico e documentação. Recursos adicionais podem ser incluídos conforme necessidade.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Vocês fazem manutenção em sistemas existentes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sim! Realizamos manutenção, correções e melhorias em sistemas já existentes, mesmo que não tenham sido desenvolvidos por nós. Fazemos uma análise técnica do código atual antes de propor as soluções.",
+      },
+    },
+  ],
+};
+
 const FAQ = () => {
   const faqs = [
     {
@@ -51,6 +122,10 @@ const FAQ = () => {
 
   return (
     <section id="faq" className="py-24 md:py-32 relative">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaLd) }}
+      />
       <div className="absolute inset-0 bg-dots opacity-[0.15]" />
 
       <div className="container mx-auto px-6 relative">
