@@ -133,10 +133,57 @@ Carousel.displayName = "Carousel";
 
 const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    const { carouselRef, orientation } = useCarousel();
+    const { api, carouselRef, opts, orientation } = useCarousel();
+    const viewportRef = React.useRef<HTMLDivElement | null>(null);
+
+    const setViewportRef = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        viewportRef.current = node;
+        carouselRef(node);
+      },
+      [carouselRef],
+    );
+
+    React.useEffect(() => {
+      const viewportNode = viewportRef.current;
+
+      if (!viewportNode || !api || orientation !== "horizontal") {
+        return;
+      }
+
+      const onWheel = (event: WheelEvent) => {
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+        if (delta === 0) {
+          return;
+        }
+
+        const shouldScrollNext = delta > 0;
+        const canConsumeScroll = shouldScrollNext ? api.canScrollNext() : api.canScrollPrev();
+
+        if (!canConsumeScroll && !opts?.loop) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (shouldScrollNext) {
+          api.scrollNext();
+          return;
+        }
+
+        api.scrollPrev();
+      };
+
+      viewportNode.addEventListener("wheel", onWheel, { passive: false });
+
+      return () => {
+        viewportNode.removeEventListener("wheel", onWheel);
+      };
+    }, [api, opts?.loop, orientation]);
 
     return (
-      <div ref={carouselRef} className="overflow-hidden">
+      <div ref={setViewportRef} className="overflow-hidden">
         <div
           ref={ref}
           className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)}

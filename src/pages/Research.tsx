@@ -126,13 +126,13 @@ const Research = () => {
 
           <section className="border-t border-border/70">
             <div className="container mx-auto px-6 py-16 md:py-20">
-              <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
                 <div>
                   <p className="text-[10px] font-mono uppercase tracking-[0.28em] text-muted-foreground mb-3">
                     Publicações
                   </p>
                   <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight text-foreground">
-                    Pesquisas feitas e publicadas
+                    Pesquisas
                   </h2>
                 </div>
                 <div>
