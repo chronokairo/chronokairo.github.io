@@ -17,7 +17,7 @@ const Team = () => {
   const owners: TeamMember[] = [
     {
       name: "Daniel Fernandes",
-      role: "Sócio",
+      role: "Cientista da Computação",
       bio: "Desenvolvimento Web e Mobile.",
       initials: "DF",
       github: "https://github.com/danielfernandes-dev",
