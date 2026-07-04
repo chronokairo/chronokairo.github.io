@@ -159,7 +159,7 @@ const Team = () => {
         {/* Owners Section */}
         <div className="mb-14">
           <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-6 uppercase">
-            // Fundadores
+            // Sócios
           </h3>
           <div className="flex justify-center">
             <div className="grid grid-cols-4 gap-8 lg:gap-16 max-w-4xl">
