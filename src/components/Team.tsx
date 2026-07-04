@@ -18,7 +18,7 @@ const Team = () => {
     {
       name: "Daniel Fernandes",
       role: "Cientista da Computação",
-      bio: "Desenvolvimento Web e Mobile.",
+      bio: "Desenvolvimento Web.",
       initials: "DF",
       github: "https://github.com/danielfernandes-dev",
       avatar: "https://avatars.githubusercontent.com/danielfernandes-dev",
