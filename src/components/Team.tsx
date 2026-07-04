@@ -16,6 +16,14 @@ type TeamMember = {
 const Team = () => {
   const owners: TeamMember[] = [
     {
+      name: "Daniel Fernandes",
+      role: "Sócio",
+      bio: "Desenvolvimento Web e Mobile.",
+      initials: "DF",
+      github: "https://github.com/danielfernandes-dev",
+      avatar: "https://avatars.githubusercontent.com/danielfernandes-dev",
+    },
+    {
       name: "Luan Nery",
       role: "Cientista da Computação",
       bio: "Liderança técnica e desenvolvimento de soluções.",
@@ -154,7 +162,7 @@ const Team = () => {
             // Fundadores
           </h3>
           <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-8 lg:gap-16 max-w-3xl">
+            <div className="grid grid-cols-4 gap-8 lg:gap-16 max-w-4xl">
               {owners.map((member, index) => (
                 <MemberCard key={index} member={member} />
               ))}
