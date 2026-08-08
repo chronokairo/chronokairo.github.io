@@ -44,7 +44,7 @@ const Services = () => {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
-              Pilares 2026
+              Pilares
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-foreground">
               Onde <span className="font-normal italic">geramos valor</span>

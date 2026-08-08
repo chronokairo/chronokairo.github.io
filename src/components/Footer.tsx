@@ -8,14 +8,9 @@ const Footer = () => {
     company: [
       { label: "Sobre", href: "#about" },
       { label: "Serviços", href: "#services" },
-      { label: "Design", href: "/design" },
       { label: "Pesquisas", href: "/pesquisas" },
       { label: "Projetos", href: "#projects" },
       { label: "Equipe", href: "#team" },
-    ],
-    legal: [
-      { label: "Privacidade", href: "/privacidade" },
-      { label: "Termos", href: "/termos" },
     ],
   };
 
@@ -29,7 +24,7 @@ const Footer = () => {
   return (
     <footer className="relative border-t border-border bg-background">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
@@ -86,23 +81,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal */}
-          <div>
-            <h4 className="font-serif font-bold mb-4 text-sm text-foreground">Legal</h4>
-            <ul className="space-y-3">
-              {links.legal.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+
 
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">

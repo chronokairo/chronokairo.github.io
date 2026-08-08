@@ -17,7 +17,7 @@ import {
   ThinkTrackIllustration,
   CMSiteEduIllustration,
 } from "./illustrations";
-import { products } from "@/data/products";
+import { featuredKairos, featuredChronos } from "@/data/products";
 
 const projectIllustrations: Record<string, React.FC> = {
   "Kairos CMS": CMSIllustration,
@@ -39,7 +39,9 @@ const projectIllustrations: Record<string, React.FC> = {
   "Chronos SEC": RAGIllustration,
 };
 
-const projects = products.map((product) => ({
+const featuredProducts = [...featuredKairos, ...featuredChronos];
+
+const projects = featuredProducts.map((product) => ({
   title: product.title,
   category: product.category,
   description: product.description,

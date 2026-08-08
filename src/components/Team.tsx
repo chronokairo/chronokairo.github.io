@@ -59,7 +59,7 @@ const Team = () => {
       avatar: "https://avatars.githubusercontent.com/JORD4N-01",
     },
     {
-      name: "Erick",
+      name: "Erick Victor",
       role: "Desenvolvedor Mobile & Web",
       bio: "Desenvolvimento mobile com Flutter e interfaces web modernas.",
       initials: "ER",
