@@ -68,7 +68,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const targetBold = isScrolled ? "C" : "Chrono";
-    const targetItalic = isScrolled ? "K + Artificial Intelligence <3" : "Kairo";
+    const targetItalic = isScrolled ? "K · Artificial Intelligence" : "Kairo";
 
     if (logoText.bold === targetBold && logoText.italic === targetItalic) {
       return;
@@ -238,25 +238,6 @@ const Navbar = () => {
     { label: "Blog", kind: "route", path: "/blog" },
     { label: "Pesquisas", kind: "route", path: "/pesquisas" },
     { label: "Produtos", kind: "products" },
-    {
-      label: "Learn",
-      kind: "group",
-      subItems: [
-        { label: "ChronoKairo League", id: "about" },
-        { label: "Tutoriais", id: "services" },
-        { label: "Casos de Uso", id: "projects" },
-        { label: "For VibeCoders", id: "team" },
-      ],
-    },
-    {
-      label: "Company",
-      kind: "group",
-      subItems: [
-        { label: "Somos Chronokairo", id: "about" },
-        { label: "Carreiras", id: "contact" },
-        { label: "Eventos", id: "contact" },
-      ],
-    },
   ];
 
   return (

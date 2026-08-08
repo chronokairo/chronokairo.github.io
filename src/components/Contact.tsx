@@ -1,56 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        toast({
-          title: "Mensagem enviada!",
-          description: data.message,
-        });
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      } else {
-        toast({
-          title: "Erro",
-          description: data.message,
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Erro",
-        description: "Não foi possível enviar a mensagem. Tente novamente.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const contactInfo = [
     {
       icon: Mail,
@@ -88,69 +38,40 @@ const Contact = () => {
             Vamos <span className="font-normal italic">conversar</span>
           </h2>
           <p className="text-foreground/80 text-sm">
-            Pronto para transformar suas ideias em realidade? Entre em contato.
+            Pronto para transformar suas ideias em realidade? Entre em contato pelo canal de sua preferência.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
+        <div className="grid lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
+          {/* WhatsApp CTA — destaque principal */}
           <div className="lg:col-span-3">
-            <div className="border border-border rounded-lg p-8 bg-card">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider mb-2 text-foreground/80">Nome</label>
-                    <Input
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Seu nome"
-                      required
-                      className="bg-background border-border h-11 rounded hover:border-foreground/30 focus:border-foreground/50 transition-colors text-foreground text-sm"
-                    />
+            <div className="border border-border rounded-lg p-8 bg-card h-full flex flex-col justify-between gap-8">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-foreground/5 flex items-center justify-center text-foreground">
+                    <MessageCircle className="w-5 h-5" />
                   </div>
-                  <div>
-                    <label className="block text-xs font-mono uppercase tracking-wider mb-2 text-foreground/80">Email</label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="seu@email.com"
-                      required
-                      className="bg-background border-border h-11 rounded hover:border-foreground/30 focus:border-foreground/50 transition-colors text-foreground text-sm"
-                    />
-                  </div>
+                  <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Canal principal</span>
                 </div>
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider mb-2 text-foreground/80">Telefone</label>
-                  <Input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="(92) 99999-9999"
-                    required
-                    className="bg-background border-border h-11 rounded hover:border-foreground/30 focus:border-foreground/50 transition-colors text-foreground text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-mono uppercase tracking-wider mb-2 text-foreground/80">Mensagem</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Conte-nos sobre seu projeto..."
-                    required
-                    className="bg-background border-border min-h-[140px] resize-none rounded hover:border-foreground/30 focus:border-foreground/50 transition-colors text-foreground text-sm"
-                  />
-                </div>
-                <Button type="submit" className="w-full h-11 text-base font-medium rounded-full bg-foreground text-background hover:bg-foreground/90 border-0 transition-colors cursor-pointer" disabled={isLoading}>
-                  {isLoading ? "Enviando..." : "Enviar Mensagem"}
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
+                <h3 className="text-2xl font-serif font-bold text-foreground mb-2">WhatsApp</h3>
+                <p className="text-sm text-foreground/70 leading-relaxed">
+                  A forma mais rápida de iniciar uma conversa sobre seu projeto. Respondemos em horário comercial.
+                </p>
+              </div>
+              <a
+                href="https://wa.me/5592981244044"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full h-12 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity"
+              >
+                Iniciar conversa
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4">
             {/* Contact Details */}
             <div className="border border-border rounded-lg p-6 bg-card">
               <h3 className="text-lg font-serif font-bold mb-6 text-foreground">Informações</h3>

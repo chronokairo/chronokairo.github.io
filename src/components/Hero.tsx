@@ -79,12 +79,11 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-border pt-12 animate-fade-in-up animation-delay-400">
+        <div className="mt-24 grid grid-cols-3 gap-8 max-w-2xl mx-auto border-t border-border pt-12 animate-fade-in-up animation-delay-400">
           {[
-            { value: "25+", label: "Projetos" },
-            { value: "98%", label: "Satisfação" },
-            { value: "24/7", label: "Suporte" },
-            { value: "2+", label: "Anos" },
+            { value: "17+", label: "Produtos" },
+            { value: "2024", label: "Fundação" },
+            { value: "Manaus", label: "Base de Operações" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-serif font-bold mb-2 text-foreground">{stat.value}</div>

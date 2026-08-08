@@ -17,32 +17,32 @@ const Team = () => {
   const owners: TeamMember[] = [
     {
       name: "Daniel Fernandes",
-      role: "Cientista da Computação",
-      bio: "Desenvolvimento Web.",
+      role: "Engenharia de Software & Web",
+      bio: "Desenvolvimento web full-stack com foco em sistemas React e Node.js.",
       initials: "DF",
       github: "https://github.com/danielfernandes-dev",
       avatar: "https://avatars.githubusercontent.com/danielfernandes-dev",
     },
     {
       name: "Luan Nery",
-      role: "Cientista da Computação",
-      bio: "Liderança técnica e desenvolvimento de soluções.",
+      role: "Liderança Técnica & IA",
+      bio: "Liderança técnica e desenvolvimento de soluções orientadas a IA.",
       initials: "LN",
       github: "https://github.com/lu4nn3ry",
       avatar: "https://avatars.githubusercontent.com/lu4nn3ry",
     },
     {
       name: "Riad Makarem",
-      role: "Cientista da Computação",
-      bio: "Arquitetura de sistemas e backend.",
+      role: "Arquitetura & Backend",
+      bio: "Arquitetura de sistemas distribuídos e desenvolvimento backend.",
       initials: "RM",
       github: "https://github.com/Riadmakarem",
       avatar: "https://avatars.githubusercontent.com/Riadmakarem",
     },
     {
       name: "Victor Martins",
-      role: "Cientista da Computação",
-      bio: "Gestão de projetos e desenvolvimento.",
+      role: "Gestão de Projetos & Dev",
+      bio: "Gestão ágil de projetos e desenvolvimento de soluções digitais.",
       initials: "VM",
       github: "https://github.com/VictorMartins086",
       avatar: "https://avatars.githubusercontent.com/VictorMartins086",
@@ -52,17 +52,16 @@ const Team = () => {
   const developers: TeamMember[] = [
     {
       name: "Jordan Cunha",
-      role: "Cientista da Computação",
-      bio: "Desenvolvimento Mobile e Web.",
+      role: "Desenvolvedor Mobile & Web",
+      bio: "Desenvolvimento mobile com Flutter e aplicações web responsivas.",
       initials: "JC",
       github: "https://github.com/JORD4N-01",
       avatar: "https://avatars.githubusercontent.com/JORD4N-01",
     },
-    
     {
       name: "Erick",
-      role: "Cientista da Computação",
-      bio: "Desenvolvimento Mobile e Web.",
+      role: "Desenvolvedor Mobile & Web",
+      bio: "Desenvolvimento mobile com Flutter e interfaces web modernas.",
       initials: "ER",
       github: "https://github.com/ZeroErick",
       avatar: "https://avatars.githubusercontent.com/ZeroErick",
@@ -72,7 +71,7 @@ const Team = () => {
   const designers: TeamMember[] = [
     {
       name: "Clara Neve",
-      role: "Cientista da Computação",
+      role: "Design UX/UI",
       bio: "Design de interfaces e experiência do usuário.",
       initials: "CN",
       github: "https://github.com/ClaraDevNeve",
@@ -191,7 +190,7 @@ const Team = () => {
         {/* Design UX/UI Section */}
         <div>
           <h3 className="text-center text-xs font-mono tracking-[0.25em] text-muted-foreground mb-6 uppercase">
-            // Desing UX/UI
+            // Design UX/UI
           </h3>
           <div className="flex justify-center">
             <div className="grid grid-cols-1 gap-6 lg:gap-8 max-w-xs mx-auto">
