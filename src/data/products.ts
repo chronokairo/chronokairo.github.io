@@ -1,8 +1,33 @@
 import React from "react";
-import { 
-  Bot, Terminal, Database, Briefcase, Headphones, Users, 
-  Coins, Target, Megaphone, Smile, GitBranch, GraduationCap, 
-  SquareKanban, Building2, Network, Scale, ShieldCheck, HelpCircle 
+import {
+  Bot,
+  Terminal,
+  Database,
+  Briefcase,
+  Headphones,
+  Users,
+  Coins,
+  Target,
+  Megaphone,
+  Smile,
+  GitBranch,
+  GraduationCap,
+  SquareKanban,
+  Building2,
+  Network,
+  Scale,
+  ShieldCheck,
+  HelpCircle,
+  ShoppingCart,
+  Wrench,
+  Globe,
+  Smartphone,
+  BookOpen,
+  FileText,
+  MessageSquare,
+  Settings,
+  Layout,
+  Mail,
 } from "lucide-react";
 
 export type ProductCategory = "IA" | "Sistemas" | "Mobile" | "Web" | "DevTools" | "Setores";
@@ -58,44 +83,42 @@ export const productCategories: Array<{
 ];
 
 export const products: Product[] = [
-  // ── KAIROS IA ──────────────────────────────────────────────
   {
-    slug: "kairos-rag",
-    title: "Kairos RAG",
+    slug: "chatbot-ia",
+    title: "Chatbot Inteligente",
     brand: "Kairos",
     category: "IA",
     summary: "Chat inteligente com RAG para responder usando bases proprietárias.",
     description:
-      "Sistema de chat inteligente com RAG que consulta dados internos e responde perguntas com apoio de modelos de IA.",
+      "Sistema de chat inteligente com RAG que consulta bases de dados internas e responde perguntas com apoio de LLM.",
     highlights: [
       "Consulta dados internos em tempo real",
       "Respostas contextualizadas para operação",
       "Base pronta para copilots e assistentes internos",
     ],
-    stack: ["React", "Node.js", "Ollama", "TypeScript"],
+    stack: ["React", "Node.js", "Python", "TypeScript"],
     featured: true,
   },
   {
-    slug: "kairos-dev",
-    title: "Kairos DEV",
+    slug: "agente-ia",
+    title: "Agente de IA",
     brand: "Kairos",
     category: "IA",
     summary: "Agent coding com suporte a múltiplos provedores de LLM.",
     description:
-      "Plataforma de coding assistido por agentes de IA com suporte a múltiplos provedores (OpenAI, Anthropic, Gemini, Ollama) para automação de tarefas de desenvolvimento, geração de código e revisão inteligente.",
+      "Plataforma de agentes de IA com suporte a múltiplos provedores para automação de tarefas, geração de código e revisão inteligente.",
     highlights: [
-      "Agentes especializados por tarefa de desenvolvimento",
+      "Agentes especializados por tarefa",
       "Suporte nativo a múltiplos provedores de LLM",
       "Integração com repositórios e pipelines CI/CD",
     ],
-    stack: ["TypeScript", "Node.js", "OpenAI", "Anthropic", "Ollama"],
+    stack: ["TypeScript", "Node.js", "Python", "OpenAI", "Anthropic"],
     featured: true,
   },
 
-  // ── KAIROS SISTEMAS ────────────────────────────────────────
   {
-    slug: "kairos-cms",
-    title: "Kairos CMS",
+    slug: "cms",
+    title: "CMS Headless",
     brand: "Kairos",
     category: "Sistemas",
     summary: "Gerenciador de conteúdo extensível com painel administrativo.",
@@ -110,8 +133,8 @@ export const products: Product[] = [
     featured: true,
   },
   {
-    slug: "kairos-crm",
-    title: "Kairos CRM",
+    slug: "crm",
+    title: "CRM",
     brand: "Kairos",
     category: "Sistemas",
     summary: "CRM multiplataforma para vendas, relacionamento e relatórios.",
@@ -125,8 +148,8 @@ export const products: Product[] = [
     stack: ["Flutter", "Dart", "Riverpod", "Hive"],
   },
   {
-    slug: "kairos-support",
-    title: "Kairos Support",
+    slug: "helpdesk",
+    title: "Helpdesk",
     brand: "Kairos",
     category: "Sistemas",
     summary: "Suporte omnichannel com chat, email e helpdesk integrados.",
@@ -137,18 +160,17 @@ export const products: Product[] = [
       "Gestão de filas e SLA",
       "Base de conhecimento integrada",
     ],
-    stack: ["Ruby on Rails", "React", "PostgreSQL", "Redis"],
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Redis"],
   },
 
-  // ── KAIROS SETORES ────────────────────────────────────────
   {
-    slug: "kairos-people",
-    title: "Kairos People",
+    slug: "rh",
+    title: "RH",
     brand: "Kairos",
     category: "Setores",
     summary: "Gestão de RH, recrutamento, avaliações e benefícios.",
     description:
-      "Sistema de gestão de pessoas para PMEs com recrutamento, seleção, avaliações de desempenho, treinamentos e gestão de benefícios.",
+      "Sistema de gestão de pessoas com recrutamento, seleção, avaliações de desempenho, treinamentos e gestão de benefícios.",
     highlights: [
       "Recrutamento e onboarding digital",
       "Avaliações de desempenho",
@@ -157,13 +179,13 @@ export const products: Product[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
   },
   {
-    slug: "kairos-fin",
-    title: "Kairos FIN",
+    slug: "financeiro",
+    title: "Financeiro",
     brand: "Kairos",
     category: "Setores",
     summary: "Fluxo de caixa, contas a pagar/receber e conciliação bancária.",
     description:
-      "Plataforma financeira para PMEs com controle de contas a pagar e receber, fluxo de caixa, cobrança automatizada e conciliação bancária.",
+      "Plataforma financeira com controle de contas a pagar e receber, fluxo de caixa, cobrança automatizada e conciliação bancária.",
     highlights: [
       "Fluxo de caixa em tempo real",
       "Cobrança e régua automática",
@@ -173,8 +195,8 @@ export const products: Product[] = [
     featured: true,
   },
   {
-    slug: "kairos-sales",
-    title: "Kairos Sales",
+    slug: "vendas",
+    title: "Vendas",
     brand: "Kairos",
     category: "Setores",
     summary: "Gestão de pipeline, SDR e funil de vendas para times comerciais.",
@@ -188,8 +210,8 @@ export const products: Product[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
   },
   {
-    slug: "kairos-mkt",
-    title: "Kairos MKT",
+    slug: "marketing",
+    title: "Marketing",
     brand: "Kairos",
     category: "Setores",
     summary: "Automação de campanhas, email marketing e gestão de tráfego.",
@@ -203,8 +225,8 @@ export const products: Product[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
   },
   {
-    slug: "kairos-cs",
-    title: "Kairos CS",
+    slug: "customer-success",
+    title: "Customer Success",
     brand: "Kairos",
     category: "Setores",
     summary: "Customer success com onboarding, retenção e gestão de SLA.",
@@ -218,33 +240,31 @@ export const products: Product[] = [
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
   },
 
-  // ── KAIROS DEV TOOLS ──────────────────────────────────────
   {
-    slug: "kairos-git",
-    title: "Kairos Git",
+    slug: "git-tool",
+    title: "Git Tool",
     brand: "Kairos",
     category: "DevTools",
-    summary: "GitHub Desktop integrado com fluxo Kairos e gestão de repositórios.",
+    summary: "Ferramenta desktop para gestão de repositórios Git.",
     description:
-      "Ferramenta desktop de gestão de repositórios Git com integração nativa ao ecossistema Kairos, simplificando o fluxo de desenvolvimento em equipe.",
+      "Ferramenta desktop de gestão de repositórios Git com interface visual, simplificando o fluxo de desenvolvimento em equipe.",
     highlights: [
-      "Interface visual para Git sem linha de comando",
-      "Integração com Kairos DEV e pipelines",
-      "10k+ estrelas no GitHub",
+      "Interface visual para Git",
+      "Integração com pipelines CI/CD",
+      "Fluxo de trabalho otimizado",
     ],
     stack: ["TypeScript", "Electron", "React"],
     featured: true,
   },
 
-  // ── KAIROS WEB & EDU ──────────────────────────────────────
   {
-    slug: "kairos-edu",
-    title: "Kairos Edu",
+    slug: "portal-educacional",
+    title: "Portal Educacional",
     brand: "Kairos",
     category: "Web",
     summary: "Portal educacional com integrações acadêmicas e comunicação.",
     description:
-      "Plataforma educacional omnichannel com integrações acadêmicas para gestão de matrículas, notas e comunicação.",
+      "Portal educacional omnichannel com integrações acadêmicas para gestão de matrículas, notas, boletos e comunicação.",
     highlights: [
       "Experiência institucional completa",
       "Integração com processos acadêmicos",
@@ -253,8 +273,8 @@ export const products: Product[] = [
     stack: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
-    slug: "kairos-trk",
-    title: "Kairos TRK",
+    slug: "gestao-projetos",
+    title: "Gestão de Projetos",
     brand: "Kairos",
     category: "Web",
     summary: "Gestão de projetos com Kanban, Gantt e webhooks.",
@@ -268,46 +288,45 @@ export const products: Product[] = [
     stack: ["React", "TypeScript", "Firebase", "Material-UI"],
   },
 
-  // ── CHRONOS ───────────────────────────────────────────────
   {
-    slug: "chronos-erp",
-    title: "Chronos ERP",
+    slug: "erp",
+    title: "ERP",
     brand: "Chronos",
     category: "Sistemas",
     summary: "ERP completo para operação, financeiro e gestão integrada.",
     description:
-      "Sistema ERP enterprise com módulos integrados de financeiro, estoque, compras, RH e relatórios gerenciais.",
+      "Sistema ERP enterprise com módulos de financeiro, estoque, compras, RH e relatórios gerenciais, com implantação assistida.",
     highlights: [
       "Módulos integrados de toda a operação",
-      "Integração com APIs e microsserviços",
       "Implantação e suporte dedicado",
+      "Escalável para crescimento",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     featured: true,
   },
   {
-    slug: "chronos-sgr",
-    title: "Chronos SGR",
+    slug: "gestao-rede",
+    title: "Gestão de Rede",
     brand: "Chronos",
     category: "Sistemas",
-    summary: "Gestão de rede para provedores com monitoramento em tempo real.",
+    summary: "Gestão de rede com monitoramento em tempo real.",
     description:
       "Sistema de Gestão de Rede com monitoramento em tempo real e integrações com dispositivos de infraestrutura.",
     highlights: [
-      "Integração com infraestrutura de rede",
+      "Monitoramento em tempo real",
       "Visão operacional de dispositivos",
       "Painéis para suporte e NOC",
     ],
-    stack: ["Flutter", "Firebase", "Dart", "SSH"],
+    stack: ["Flutter", "Firebase", "Dart"],
   },
   {
-    slug: "chronos-agp",
-    title: "Chronos AGP",
+    slug: "app-agro",
+    title: "App Agro",
     brand: "Chronos",
     category: "Mobile",
-    summary: "Pesagem agropecuária com integração serial e gestão de lotes.",
+    summary: "Aplicativo agropecuário com gestão de lotes e pesagem.",
     description:
-      "Sistema de pesagem agropecuária com integração com balanças via comunicação serial e gestão de lotes de animais.",
+      "Sistema mobile para pesagem e gestão de lotes, com coleta de dados em campo e operação offline.",
     highlights: [
       "Coleta de dados em campo",
       "Operação offline-friendly",
@@ -316,17 +335,17 @@ export const products: Product[] = [
     stack: ["Flutter", "Dart", "SQLite"],
   },
   {
-    slug: "chronos-sec",
-    title: "Chronos SEC",
+    slug: "seguranca",
+    title: "Segurança",
     brand: "Chronos",
     category: "Sistemas",
-    summary: "Segurança da informação, LGPD, gestão de acessos e auditoria.",
+    summary: "Segurança da informação, gestão de acessos e auditoria.",
     description:
-      "Suite de segurança enterprise com gestão de acessos, adequação LGPD, auditoria de sistemas, pentest e criptografia de dados sensíveis.",
+      "Suite de segurança com gestão de acessos, auditoria de sistemas e conformidade.",
     highlights: [
-      "Adequação LGPD e ISO 27001",
       "Gestão de acessos e identidades",
       "Auditoria e relatórios de conformidade",
+      "Proteção de dados sensíveis",
     ],
     stack: ["TypeScript", "Node.js", "PostgreSQL"],
     featured: true,
@@ -350,23 +369,23 @@ export function getProductBySlug(slug: string) {
 }
 
 export const productIconMap: Record<string, React.ComponentType<any>> = {
-  "kairos-rag": Bot,
-  "kairos-dev": Terminal,
-  "kairos-cms": Database,
-  "kairos-crm": Briefcase,
-  "kairos-support": Headphones,
-  "kairos-people": Users,
-  "kairos-fin": Coins,
-  "kairos-sales": Target,
-  "kairos-mkt": Megaphone,
-  "kairos-cs": Smile,
-  "kairos-git": GitBranch,
-  "kairos-edu": GraduationCap,
-  "kairos-trk": SquareKanban,
-  "chronos-erp": Building2,
-  "chronos-sgr": Network,
-  "chronos-agp": Scale,
-  "chronos-sec": ShieldCheck,
+  "chatbot-ia": Bot,
+  "agente-ia": Terminal,
+  "cms": Database,
+  "crm": Briefcase,
+  "helpdesk": Headphones,
+  "rh": Users,
+  "financeiro": Coins,
+  "vendas": Target,
+  "marketing": Megaphone,
+  "customer-success": Smile,
+  "git-tool": GitBranch,
+  "portal-educacional": GraduationCap,
+  "gestao-projetos": SquareKanban,
+  "erp": Building2,
+  "gestao-rede": Network,
+  "app-agro": Scale,
+  "seguranca": ShieldCheck,
 };
 
 export function getProductIcon(slug: string): React.ComponentType<any> {
