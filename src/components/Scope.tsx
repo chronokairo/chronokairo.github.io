@@ -106,7 +106,7 @@ const Scope = () => {
             e no desenvolvimento de experiências digitais modernas. No mercado
             amazonense, entrega plataformas institucionais e educacionais — como o{" "}
             <strong className="text-muted-foreground font-semibold">
-              Instituto W / WD Educacional
+              
             </strong>
             — com escopo alinhado aos{" "}
             <strong className="text-muted-foreground font-semibold">CNAEs</strong> e à

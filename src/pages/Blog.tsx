@@ -21,7 +21,7 @@ const Blog = () => {
                   Tecnologia, IA e <span className="font-normal italic">Automação</span>
                 </h1>
                 <p className="text-foreground/80 text-sm">
-                  Artigos e insights sobre tecnologia, inteligência artificial e transformação digital para empresas em Manaus e Amazonas.
+                  Artigos e insights sobre tecnologia, inteligência artificial e transformação digital para empresas de tecnologia.
                 </p>
               </div>
 
