@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getProductBySlug, groupedProducts, products } from "@/data/products";
+import PricingCard from "@/components/Pricing";
 import type { ProductCategory } from "@/data/products";
 
 const categoryIcons: Record<ProductCategory, React.ReactNode> = {
@@ -114,63 +115,7 @@ const ProductDetail = ({ slug }: { slug: string }) => {
 
                 {/* right sidebar card */}
                 <div className="lg:pt-2">
-                  <div className="rounded-2xl border border-border bg-foreground/[0.015] p-7 space-y-7 sticky top-28">
-                    {/* category info */}
-                    <div>
-                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-1">
-                        Categoria
-                      </p>
-                      <p className="text-sm font-medium text-foreground">{categoryGroup?.label}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{categoryGroup?.description}</p>
-                    </div>
-
-                    <div className="border-t border-border" />
-
-                    {/* stack */}
-                    <div>
-                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-3">
-                        Stack
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {product.stack.map((item) => (
-                          <span
-                            key={item}
-                            className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-mono text-foreground/80"
-                          >
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="border-t border-border" />
-
-                    {/* products in category */}
-                    <div>
-                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-1">
-                        Produtos nesta categoria
-                      </p>
-                      <p className="text-2xl font-serif font-bold text-foreground">{categoryProductsCount}</p>
-                    </div>
-
-                    <div className="border-t border-border" />
-
-                    {/* CTAs */}
-                    <div className="space-y-3">
-                      <Button asChild className="w-full rounded-full h-11 bg-foreground text-background hover:bg-foreground/90 border-0">
-                        <Link href="/#contact">
-                          <MessageSquare className="mr-2 h-4 w-4" />
-                          Solicitar algo parecido
-                        </Link>
-                      </Button>
-                      <Button asChild variant="outline" className="w-full rounded-full h-11">
-                        <Link href="/produtos">
-                          Ver mais produtos
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
+                  <PricingCard slug={product.slug} />
                 </div>
               </div>
             </div>

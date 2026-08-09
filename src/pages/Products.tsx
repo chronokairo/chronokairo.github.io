@@ -88,6 +88,16 @@ const Products = () => {
                     <h3 className="font-serif text-xl font-bold text-foreground">{product.title}</h3>
                     <p className="mt-2 text-sm text-foreground/65 leading-relaxed">{product.summary}</p>
                     <div className="mt-4 flex flex-wrap gap-1.5">
+                      {product.pricePF && (
+                        <span className="text-xs font-mono text-foreground/60">
+                          {product.pricePF}
+                        </span>
+                      )}
+                      {product.pricePJ && (
+                        <span className="text-xs text-muted-foreground ml-2">
+                          {product.pricePJ}
+                        </span>
+                      )}
                       {product.stack.slice(0, 3).map((tech) => (
                         <span key={tech} className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[10px] font-mono text-foreground/70">
                           {tech}
