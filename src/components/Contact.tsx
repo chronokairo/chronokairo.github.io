@@ -17,7 +17,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Localização",
-      value: "Manaus, AM - Brasil",
+      value: "Brasil",
       link: "#",
     },
   ];

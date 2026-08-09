@@ -70,7 +70,7 @@ const Scope = () => {
       items: [
         <>
           Consultoria em TI para empresas de{" "}
-          <strong className="text-muted-foreground font-semibold">Manaus</strong>{" "}
+          <strong className="text-muted-foreground font-semibold">região</strong>{" "}
           (comércio, educação e Polo Industrial).
         </>,
         <>
@@ -99,7 +99,7 @@ const Scope = () => {
           </h2>
           <p className="text-lg text-foreground/80 leading-relaxed">
             A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>, startup e software house em{" "}
-            <strong className="text-muted-foreground font-semibold">Manaus</strong>, atua em{" "}
+            <strong className="text-muted-foreground font-semibold">região</strong>, atua em{" "}
             <strong className="text-muted-foreground font-semibold">
               transformação digital
             </strong>{" "}

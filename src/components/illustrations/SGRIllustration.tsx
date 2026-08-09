@@ -35,9 +35,9 @@ const SGRIllustration = () => (
     <rect x="190" y="100" width="8" height="3" rx="1" fill="#22C55E" fillOpacity="0.8" />
     <rect x="202" y="100" width="8" height="3" rx="1" fill="#FFCA28" fillOpacity="0.8" />
     <rect x="214" y="100" width="8" height="3" rx="1" fill="#22C55E" fillOpacity="0.8" />
-    <text x="200" y="120" fontSize="8" fill="currentColor" fillOpacity="0.5" textAnchor="middle" fontWeight="bold">MikroTik</text>
+    
     <rect x="50" y="150" width="50" height="35" rx="4" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeOpacity="0.2" />
-    <text x="75" y="172" fontSize="8" fill="currentColor" fillOpacity="0.5" textAnchor="middle" fontWeight="bold">OLT</text>
+    
     <circle cx="60" cy="158" r="3" fill="#22C55E" fillOpacity="0.8" />
     <circle cx="72" cy="158" r="3" fill="#22C55E" fillOpacity="0.8" />
     <circle cx="84" cy="158" r="3" fill="#22C55E" fillOpacity="0.8" />

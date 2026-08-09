@@ -250,7 +250,7 @@ export const products: Product[] = [
       "Integração com processos acadêmicos",
       "Estrutura para campanhas e conversão",
     ],
-    stack: ["Next.js", "TypeScript", "Tailwind", "TOTVS RM"],
+    stack: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
     slug: "kairos-trk",

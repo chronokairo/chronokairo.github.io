@@ -67,10 +67,10 @@ const faqSchemaLd = {
     },
     {
       "@type": "Question",
-      name: "Vocês atendem empresas fora de Manaus?",
+      name: "Vocês atendem empresas de forma remota?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sim. Atendemos clientes de forma remota em todo o Brasil. Nossa base é em Manaus, AM, mas operamos projetos de forma totalmente distribuída com comunicação assíncrona estruturada e rituais de acompanhamento regulares.",
+        text: "Sim. Atendemos clientes de forma remota em todo o Brasil. Operamos projetos de forma totalmente distribuída com comunicação assíncrona estruturada e rituais de acompanhamento regulares.",
       },
     },
   ],
@@ -114,9 +114,9 @@ const FAQ = () => {
         "Sistemas agênticos são plataformas com múltiplos agentes de IA que colaboram para executar tarefas complexas de forma autônoma — com guardrails, orquestração e dados proprietários. Em 2026, eles representam o próximo passo além da automação simples: o sistema pensa, decide e age dentro de limites definidos por você.",
     },
     {
-      question: "Vocês atendem empresas fora de Manaus?",
+      question: "Vocês atendem empresas de forma remota?",
       answer:
-        "Sim. Atendemos clientes de forma remota em todo o Brasil. Nossa base é em Manaus, AM, mas operamos projetos de forma totalmente distribuída com comunicação assíncrona estruturada e rituais de acompanhamento regulares.",
+        "Sim. Atendemos clientes de forma remota em todo o Brasil. Operamos projetos de forma totalmente distribuída com comunicação assíncrona estruturada e rituais de acompanhamento regulares.",
     },
   ];
 
