@@ -18,16 +18,6 @@ import {
   Scale,
   ShieldCheck,
   HelpCircle,
-  ShoppingCart,
-  Wrench,
-  Globe,
-  Smartphone,
-  BookOpen,
-  FileText,
-  MessageSquare,
-  Settings,
-  Layout,
-  Mail,
 } from "lucide-react";
 
 export type ProductCategory = "IA" | "Sistemas" | "Mobile" | "Web" | "DevTools" | "Setores";
@@ -42,6 +32,8 @@ export interface Product {
   description: string;
   highlights: string[];
   stack: string[];
+  pricePF: string;
+  pricePJ: string;
   featured?: boolean;
 }
 
@@ -97,6 +89,8 @@ export const products: Product[] = [
       "Base pronta para copilots e assistentes internos",
     ],
     stack: ["React", "Node.js", "Python", "TypeScript"],
+    pricePF: "R$ 89,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
   {
@@ -104,7 +98,7 @@ export const products: Product[] = [
     title: "Agente de IA",
     brand: "Kairos",
     category: "IA",
-    summary: "Agent coding com suporte a múltiplos provedores de LLM.",
+    summary: "Agentes autônomos para automação de tarefas complexas.",
     description:
       "Plataforma de agentes de IA com suporte a múltiplos provedores para automação de tarefas, geração de código e revisão inteligente.",
     highlights: [
@@ -113,6 +107,8 @@ export const products: Product[] = [
       "Integração com repositórios e pipelines CI/CD",
     ],
     stack: ["TypeScript", "Node.js", "Python", "OpenAI", "Anthropic"],
+    pricePF: "R$ 149,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
 
@@ -130,6 +126,8 @@ export const products: Product[] = [
       "Arquitetura pronta para múltiplos sites",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 59,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
   {
@@ -146,6 +144,8 @@ export const products: Product[] = [
       "Base sólida para times comerciais",
     ],
     stack: ["Flutter", "Dart", "Riverpod", "Hive"],
+    pricePF: "R$ 79,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "helpdesk",
@@ -161,6 +161,8 @@ export const products: Product[] = [
       "Base de conhecimento integrada",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Redis"],
+    pricePF: "R$ 69,90/mês",
+    pricePJ: "Sob consulta",
   },
 
   {
@@ -177,6 +179,8 @@ export const products: Product[] = [
       "Controle de benefícios e folha",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 89,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "financeiro",
@@ -192,6 +196,8 @@ export const products: Product[] = [
       "Conciliação bancária integrada",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 99,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
   {
@@ -208,6 +214,8 @@ export const products: Product[] = [
       "Relatórios de conversão e forecast",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 79,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "marketing",
@@ -223,6 +231,8 @@ export const products: Product[] = [
       "Analytics de conversão e SEO",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 69,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "customer-success",
@@ -238,6 +248,8 @@ export const products: Product[] = [
       "Alertas de churn e oportunidades de upsell",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 69,90/mês",
+    pricePJ: "Sob consulta",
   },
 
   {
@@ -254,6 +266,8 @@ export const products: Product[] = [
       "Fluxo de trabalho otimizado",
     ],
     stack: ["TypeScript", "Electron", "React"],
+    pricePF: "R$ 29,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
 
@@ -271,6 +285,8 @@ export const products: Product[] = [
       "Estrutura para campanhas e conversão",
     ],
     stack: ["Next.js", "TypeScript", "Tailwind"],
+    pricePF: "R$ 89,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "gestao-projetos",
@@ -286,6 +302,8 @@ export const products: Product[] = [
       "Controle de trabalho em equipe",
     ],
     stack: ["React", "TypeScript", "Firebase", "Material-UI"],
+    pricePF: "R$ 59,90/mês",
+    pricePJ: "Sob consulta",
   },
 
   {
@@ -302,6 +320,8 @@ export const products: Product[] = [
       "Escalável para crescimento",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 149,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
   {
@@ -318,6 +338,8 @@ export const products: Product[] = [
       "Painéis para suporte e NOC",
     ],
     stack: ["Flutter", "Firebase", "Dart"],
+    pricePF: "R$ 119,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "app-agro",
@@ -333,6 +355,8 @@ export const products: Product[] = [
       "Interface otimizada para uso rápido",
     ],
     stack: ["Flutter", "Dart", "SQLite"],
+    pricePF: "R$ 39,90/mês",
+    pricePJ: "Sob consulta",
   },
   {
     slug: "seguranca",
@@ -348,6 +372,8 @@ export const products: Product[] = [
       "Proteção de dados sensíveis",
     ],
     stack: ["TypeScript", "Node.js", "PostgreSQL"],
+    pricePF: "R$ 129,90/mês",
+    pricePJ: "Sob consulta",
     featured: true,
   },
 ];
