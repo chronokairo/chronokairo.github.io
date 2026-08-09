@@ -46,7 +46,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 tracking-tight animate-fade-in-up leading-[1.1] text-foreground">
-            <span className="block">Software house em Manaus</span>
+            <span className="block">Software house de produtos digitais</span>
             <span className="block font-normal italic">com IA, integração e automação.</span>
           </h1>
 
@@ -83,7 +83,7 @@ const Hero = () => {
           {[
             { value: "17+", label: "Produtos" },
             { value: "2024", label: "Fundação" },
-            { value: "Manaus", label: "Base de Operações" },
+            { value: "Região Norte", label: "Base de Operações" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-serif font-bold mb-2 text-foreground">{stat.value}</div>

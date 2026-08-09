@@ -66,7 +66,7 @@ export const products: Product[] = [
     category: "IA",
     summary: "Chat inteligente com RAG para responder usando bases proprietárias.",
     description:
-      "Sistema de chat inteligente com RAG que consulta APIs TOTVS e responde perguntas com apoio de LLM local via Ollama.",
+      "Sistema de chat inteligente com RAG que consulta dados internos e responde perguntas com apoio de modelos de IA.",
     highlights: [
       "Consulta dados internos em tempo real",
       "Respostas contextualizadas para operação",
@@ -100,7 +100,7 @@ export const products: Product[] = [
     category: "Sistemas",
     summary: "Gerenciador de conteúdo extensível com painel administrativo.",
     description:
-      "Sistema de Gerenciamento de Conteúdo moderno e extensível com dashboard administrativo, gestão de usuários e integrações com TOTVS RM e AWS S3.",
+      "Sistema de Gerenciamento de Conteúdo moderno e extensível com dashboard administrativo, gestão de usuários e integrações com armazenamento em nuvem.",
     highlights: [
       "Gestão de usuários e permissões",
       "Integração com armazenamento em nuvem",
@@ -244,7 +244,7 @@ export const products: Product[] = [
     category: "Web",
     summary: "Portal educacional com integrações acadêmicas e comunicação.",
     description:
-      "Portal educacional omnichannel com middleware de integração RM Edu TOTVS para matrículas, notas, boletos e comunicação acadêmica.",
+      "Plataforma educacional omnichannel com integrações acadêmicas para gestão de matrículas, notas e comunicação.",
     highlights: [
       "Experiência institucional completa",
       "Integração com processos acadêmicos",
@@ -276,10 +276,10 @@ export const products: Product[] = [
     category: "Sistemas",
     summary: "ERP completo para operação, financeiro e gestão integrada.",
     description:
-      "Sistema ERP enterprise com módulos de financeiro, estoque, compras, RH e relatórios gerenciais, com integração TOTVS e implantação assistida.",
+      "Sistema ERP enterprise com módulos integrados de financeiro, estoque, compras, RH e relatórios gerenciais.",
     highlights: [
       "Módulos integrados de toda a operação",
-      "Integração nativa com TOTVS",
+      "Integração com APIs e microsserviços",
       "Implantação e suporte dedicado",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
@@ -292,7 +292,7 @@ export const products: Product[] = [
     category: "Sistemas",
     summary: "Gestão de rede para provedores com monitoramento em tempo real.",
     description:
-      "Sistema de Gestão de Rede para provedores de internet com integração MikroTik, OLT e monitoramento em tempo real.",
+      "Sistema de Gestão de Rede com monitoramento em tempo real e integrações com dispositivos de infraestrutura.",
     highlights: [
       "Integração com infraestrutura de rede",
       "Visão operacional de dispositivos",
