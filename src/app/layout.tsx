@@ -62,7 +62,7 @@ export const viewport: Viewport = {
   themeColor: "#0a0a0a",
 };
 
-const themeBootstrap = `(function(){try{var t=localStorage.getItem('chronokairo-theme')||'light';var c=document.documentElement.classList;c.remove('light','dark');c.add(t==='dark'?'dark':'light');}catch(e){}})();`;
+const themeBootstrap = `(function(){try{var c=document.documentElement.classList;c.remove('light');c.add('dark');localStorage.setItem('chronokairo-theme','dark');}catch(e){}})();`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -134,7 +134,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" className="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
         <script

@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/BrandIcons";
 
 const Contact = () => {
   const contactInfo = [
@@ -45,27 +46,28 @@ const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
           {/* WhatsApp CTA — destaque principal */}
           <div className="lg:col-span-3">
-            <div className="border border-border rounded-lg p-8 bg-card h-full flex flex-col justify-between gap-8">
+            <div className="border border-[#25D366]/30 hover:border-[#25D366]/60 rounded-xl p-8 bg-card h-full flex flex-col justify-between gap-8 transition-colors shadow-lg shadow-[#25D366]/5">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-foreground/5 flex items-center justify-center text-foreground">
-                    <MessageCircle className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
+                    <WhatsAppIcon className="w-6 h-6 fill-current" />
                   </div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">Canal principal</span>
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#25D366] font-semibold">Canal Oficial Imediato</span>
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-2">WhatsApp</h3>
-                <p className="text-sm text-foreground/70 leading-relaxed">
-                  A forma mais rápida de iniciar uma conversa sobre seu projeto. Respondemos em horário comercial.
+                <h3 className="text-2xl font-serif font-bold text-foreground mb-2">WhatsApp Comercial</h3>
+                <p className="text-sm text-foreground/80 leading-relaxed">
+                  A forma mais rápida de iniciar uma conversa com nossa engenharia sobre seu projeto. Atendimento humano e imediato em horário comercial.
                 </p>
               </div>
               <a
-                href="https://wa.me/5592981244044"
+                href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20solucoes%20tecnologicas%20para%20minha%20empresa."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full h-12 rounded-full bg-foreground text-background text-base font-medium hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center gap-2.5 w-full h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-base font-semibold shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/35 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98"
               >
-                Iniciar conversa
-                <ArrowRight className="w-4 h-4" />
+                <WhatsAppIcon className="w-5 h-5 fill-white" />
+                <span>Conversar no WhatsApp (+55 92 98124-4044)</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>
           </div>

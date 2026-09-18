@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/BrandIcons";
 
 const Hero = () => {
   const scrollToServices = () => {
@@ -59,21 +60,23 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animation-delay-300">
+            <a
+              href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20solucoes%20tecnologicas%20para%20minha%20empresa."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white transition-all duration-300 px-8 py-4.5 h-auto text-base font-semibold cursor-pointer shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/35 hover:-translate-y-0.5 active:scale-95"
+            >
+              <WhatsAppIcon className="w-5 h-5 fill-white" />
+              <span>Falar no WhatsApp</span>
+            </a>
             <Button
               size="lg"
+              variant="outline"
               onClick={scrollToServices}
-              className="group rounded-full bg-foreground text-background hover:opacity-90 transition-all px-8 py-6 h-auto text-base font-medium cursor-pointer border-0"
+              className="group rounded-full border border-border bg-card/60 text-foreground hover:bg-secondary transition-all px-8 py-4.5 h-auto text-base font-medium cursor-pointer"
             >
               <span>Ver Pilares</span>
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="rounded-full border border-border bg-background text-foreground hover:bg-secondary transition-all px-8 py-6 h-auto text-base font-medium cursor-pointer"
-            >
-              Fale Conosco
             </Button>
           </div>
         </div>

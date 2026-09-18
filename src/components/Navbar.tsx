@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ArrowRight, Cpu, Layout, Smartphone, Globe, Code2, Users, Shield, Clock, Hourglass } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { WhatsAppIcon } from "@/components/BrandIcons";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { kairosProducts, chronosProducts, featuredKairos, featuredChronos, groupedProducts, getProductIcon } from "@/data/products";
@@ -499,18 +499,19 @@ const Navbar = () => {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
-            <div className="hidden md:block">
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block">
               <a
-                href="https://wa.me/5592981244044"
+                href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors px-6 h-10 border-0 font-medium cursor-pointer text-sm"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white transition-all duration-300 px-5 h-10 border-0 font-semibold cursor-pointer text-sm shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 hover:scale-[1.02]"
+                aria-label="Falar no WhatsApp"
               >
-                Fale Conosco
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
+                <span>Falar no WhatsApp</span>
               </a>
             </div>
-            <ThemeToggle />
 
             {/* Mobile Menu Button */}
             <Button
@@ -692,13 +693,15 @@ const Navbar = () => {
             {/* ── CONTACT ── */}
             <div className="pt-5 pb-8 flex flex-col gap-3">
               <a
-                href="https://wa.me/5592981244044"
+                href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
                 target="_blank"
                 rel="noreferrer"
                 onClick={closeMenus}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-medium"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white px-5 py-3.5 text-sm font-semibold shadow-md shadow-[#25D366]/20 transition-all"
+                aria-label="Falar no WhatsApp"
               >
-                Fale Conosco
+                <WhatsAppIcon className="w-5 h-5 fill-white" />
+                <span>Falar no WhatsApp</span>
               </a>
             </div>
 

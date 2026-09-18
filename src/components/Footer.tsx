@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GitHubIcon, InstagramIcon, LinkedInIcon, XIcon } from "@/components/BrandIcons";
+import { GitHubIcon, InstagramIcon, LinkedInIcon, XIcon, WhatsAppIcon } from "@/components/BrandIcons";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,6 +15,7 @@ const Footer = () => {
   };
 
   const social = [
+    { icon: WhatsAppIcon, href: "https://wa.me/5592981244044", label: "WhatsApp Oficial" },
     { icon: GitHubIcon, href: "https://github.com/chronokairo", label: "GitHub" },
     { icon: LinkedInIcon, href: "https://www.linkedin.com/company/chronokairo", label: "LinkedIn" },
     { icon: InstagramIcon, href: "https://www.instagram.com/chronokairo", label: "Instagram" },

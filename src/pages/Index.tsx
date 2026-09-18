@@ -14,6 +14,7 @@ import Projects from "@/components/Projects";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 
 const Index = () => {
   const pathname = usePathname();
@@ -46,6 +47,7 @@ const Index = () => {
           <Contact />
         </main>
         <Footer />
+        <WhatsAppFloatingButton />
       </div>
     </div>
   );

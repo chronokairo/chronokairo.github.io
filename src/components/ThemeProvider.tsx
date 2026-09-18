@@ -16,7 +16,7 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "dark",
   setTheme: () => null,
 };
 
@@ -28,12 +28,17 @@ export function ThemeProvider({
   storageKey = "chronokairo-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const stored = window.localStorage.getItem(storageKey) as Theme | null;
-    if (stored) setTheme(stored);
+    if (!stored || stored === "light") {
+      window.localStorage.setItem(storageKey, "dark");
+      setTheme("dark");
+    } else {
+      setTheme(stored);
+    }
   }, [storageKey]);
 
   useEffect(() => {

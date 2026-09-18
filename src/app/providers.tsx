@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={client}>
-      <ThemeProvider defaultTheme="light" storageKey="chronokairo-theme">
+      <ThemeProvider defaultTheme="dark" storageKey="chronokairo-theme">
         <TooltipProvider>
           {children}
           <Toaster />
