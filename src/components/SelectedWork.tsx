@@ -42,7 +42,7 @@ export default function SelectedWork() {
         <div className="mb-16 md:mb-24 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-white/40">01 / Projetos selecionados</p>
-            <h2 className="text-4xl font-light tracking-tight text-white md:text-6xl">Engenharia em contexto.</h2>
+            <h2 className="text-4xl font-light tracking-tight text-white md:text-6xl">Trabalhos selecionados.<br /><span className="text-white/55">Um projeto de cada vez.</span></h2>
           </div>
           <p className="max-w-sm text-sm font-light leading-relaxed text-white/50">
             Três problemas distintos. A mesma atenção ao funcionamento real de cada operação.

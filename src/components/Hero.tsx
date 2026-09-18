@@ -51,7 +51,7 @@ const Hero = () => {
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white text-black text-sm font-medium tracking-wide hover:bg-white/90 transition-all duration-300 hover:-translate-y-px active:scale-[0.98]"
             >
               <WhatsAppIcon className="w-4 h-4 fill-black" />
-              Agendar uma conversa
+              Solicitar consulta
             </a>
           </div>
         </div>
