@@ -60,11 +60,11 @@ export default function Design() {
         <section className="mb-24 text-center">
           <img src="/logo.svg" alt="" aria-hidden="true" className="w-48 h-48 mx-auto opacity-80 block dark:brightness-0 dark:invert" />
           <div className="text-2xl font-serif font-bold tracking-tight -mt-8 leading-none">
-            Chrono<span className="font-normal italic">Kairo</span>
+            Chrono<span className="font-normal italic">kairo</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-serif font-bold mb-2 tracking-tight">Design System</h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Diretrizes de marca, cores, tipografia e componentes para produtos ChronoKairo.
+            Diretrizes de marca, cores, tipografia e componentes para produtos Chronokairo.
           </p>
           <div className="flex items-center justify-center gap-3 mt-8">
             <Badge variant="outline" className="font-mono text-xs tracking-wider">v1.0</Badge>
@@ -83,10 +83,10 @@ export default function Design() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-background p-10 flex items-center justify-center min-h-[200px]">
-              <img src="/logo.svg" alt="ChronoKairo logo" className="w-32 h-32" />
+              <img src="/logo.svg" alt="Chronokairo logo" className="w-32 h-32" />
             </div>
             <div className="rounded-2xl border border-border bg-foreground p-10 flex items-center justify-center min-h-[200px]">
-              <img src="/logo.svg" alt="ChronoKairo logo dark" className="w-32 h-32 invert" />
+              <img src="/logo.svg" alt="Chronokairo logo dark" className="w-32 h-32 invert" />
             </div>
           </div>
           <div className="mt-4 flex items-center justify-between text-xs text-foreground/50 px-2">
@@ -96,9 +96,9 @@ export default function Design() {
           <div className="mt-6 rounded-xl border border-border bg-muted/30 p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono tracking-wider text-foreground/50">Uso do logo</span>
-              <CopyButton text='<img src="/logo.svg" alt="ChronoKairo" className="w-8 h-8" />' />
+              <CopyButton text='<img src="/logo.svg" alt="Chronokairo" className="w-8 h-8" />' />
             </div>
-            <pre className="text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<img src="/logo.svg" alt="ChronoKairo" className="w-8 h-8" />`}</pre>
+            <pre className="text-xs font-mono text-foreground/70 overflow-x-auto whitespace-pre">{`<img src="/logo.svg" alt="Chronokairo" className="w-8 h-8" />`}</pre>
           </div>
         </section>
 
@@ -336,7 +336,7 @@ export default function Design() {
         {/* FOOTER */}
         <footer className="border-t border-border pt-8 mt-24 text-center">
           <p className="text-xs text-foreground/40 font-mono">
-            ChronoKairo Design System · Tecnologia no tempo certo
+            Chronokairo Design System · Tecnologia no tempo certo
           </p>
           <a
             href="https://github.com/chronokairo"

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const WHATSAPP_URL =
-  "https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
+  "https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,8 +40,9 @@ const Navbar = () => {
   }, [pathname]);
 
   const links = [
-    { label: "Trabalhos", href: "/lp/inteligencia/" },
-    { label: "Agendar", href: "#contact" },
+    { label: "Projetos", href: "#work" },
+    { label: "Expertise", href: "#expertise" },
+    { label: "Contato", href: "#contact" },
   ];
 
   return (
@@ -56,10 +57,10 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo — ChronoKairo */}
+            {/* Logo — Chronokairo */}
             <Link href="/" className="flex flex-col leading-none group">
               <span className="text-base font-light tracking-[-0.01em] text-white group-hover:text-white/80 transition-colors">
-                Chrono<em className="not-italic font-extralight">Kairo</em>
+                Chrono<em className="not-italic font-extralight">kairo</em>
               </span>
               <span className="text-[9px] font-mono tracking-[0.2em] text-white/40 uppercase mt-0.5">
                 Tecnologia no tempo certo
@@ -93,10 +94,10 @@ const Navbar = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-px active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-white/90 text-black text-xs font-medium tracking-wide transition-all duration-200 hover:-translate-y-px active:scale-95"
               >
-                <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                WhatsApp
+                <WhatsAppIcon className="w-3.5 h-3.5 fill-black" />
+                Solicitar consulta
               </a>
             </div>
 
@@ -141,10 +142,10 @@ const Navbar = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-base transition-all"
+            className="mt-4 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white hover:bg-white/90 text-black font-medium text-base transition-all"
           >
-            <WhatsAppIcon className="w-5 h-5 fill-white" />
-            WhatsApp
+            <WhatsAppIcon className="w-5 h-5 fill-black" />
+            Solicitar consulta
           </a>
         </div>
       )}

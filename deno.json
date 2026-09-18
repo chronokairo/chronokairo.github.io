@@ -1,0 +1,9 @@
+{
+  "nodeModulesDir": "manual",
+  "tasks": {
+    "dev": "next dev",
+    "check": "tsc --noEmit && deno check scripts/align-lps.ts",
+    "build": "next build --webpack",
+    "align:lps": "deno run --allow-read=lp --allow-write=lp,public,marketing scripts/align-lps.ts"
+  }
+}

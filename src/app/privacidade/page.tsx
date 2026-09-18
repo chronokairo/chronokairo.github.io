@@ -5,7 +5,7 @@ import { siteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Política de Privacidade",
   description:
-    "Saiba como a ChronoKairo coleta, usa e protege dados pessoais em seus canais digitais.",
+    "Saiba como a Chronokairo coleta, usa e protege dados pessoais em seus canais digitais.",
   alternates: { canonical: `${siteUrl}/privacidade` },
 };
 
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
             Politica de Privacidade
           </h1>
           <p className="mb-10 text-base leading-relaxed text-foreground/80 md:text-lg">
-            Esta politica descreve como a ChronoKairo trata informacoes pessoais coletadas
+            Esta politica descreve como a Chronokairo trata informacoes pessoais coletadas
             por meio do site, formularios de contato e interacoes comerciais.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
             <p>
               Usamos esses dados para responder solicitacoes, apresentar propostas,
               prestar atendimento, melhorar nossos servicos e manter a seguranca das
-              interacoes digitais da ChronoKairo.
+              interacoes digitais da Chronokairo.
             </p>
           </section>
 

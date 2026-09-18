@@ -9,7 +9,7 @@ export function WhatsAppFloatingButton() {
       className="fixed bottom-6 right-6 z-50 flex items-center group"
     >
       <a
-        href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
+        href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Conversar no WhatsApp Oficial (+55 92 98124-4044)"

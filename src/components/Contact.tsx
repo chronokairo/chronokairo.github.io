@@ -2,7 +2,7 @@ import { WhatsAppIcon } from "@/components/BrandIcons";
 import { ArrowRight } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
+  "https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
 
 const Contact = () => {
   return (
@@ -13,18 +13,18 @@ const Contact = () => {
         <div className="max-w-2xl mx-auto text-center">
           {/* Eyebrow */}
           <p className="text-[11px] font-mono tracking-[0.3em] text-white/40 uppercase mb-10">
-            Acesso exclusivo
+            Contato
           </p>
 
           {/* Heading — branco puro */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-[-0.02em] mb-6 text-white">
-            Trabalhos selecionados.<br />
-            <em className="not-italic font-extralight text-white/55">Um projeto de cada vez.</em>
+            Have a difficult problem?<br />
+            <em className="not-italic font-extralight text-white/55">Vamos conversar.</em>
           </h2>
 
           {/* Body — branco suave */}
           <p className="text-sm md:text-base text-white/60 font-light leading-[1.9] mb-14 max-w-md mx-auto">
-            Atendemos um número limitado de projetos por ciclo. Se o seu problema é real e o prazo importa, fale conosco antes que a agenda feche.
+            Conte-nos sobre a operação, o desafio e o que precisa mudar. Começamos pela compreensão do problema.
           </p>
 
           {/* CTA — highlight preto */}
@@ -39,13 +39,9 @@ const Contact = () => {
             <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -ml-1 group-hover:ml-0 transition-all duration-200" />
           </a>
 
-          {/* Disponibilidade */}
-          <div className="flex items-center justify-center gap-2 mt-10">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-            <p className="text-xs text-white/35 font-mono tracking-wider">
-              Agenda aberta — resposta em até 24h
-            </p>
-          </div>
+          <p className="mt-10 text-xs text-white/35 font-mono tracking-wider">
+            Novos projetos sob avaliação
+          </p>
         </div>
       </div>
     </section>

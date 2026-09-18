@@ -6,7 +6,7 @@ import Research from "@/pages/Research";
 export const metadata: Metadata = {
   title: "Pesquisas · IA e Tecnologia",
   description:
-    "Pesquisas conduzidas por membros da ChronoKairo sobre IA aplicada, sistemas inteligentes e governança, com foco em impacto social positivo.",
+    "Pesquisas conduzidas por membros da Chronokairo sobre IA aplicada, sistemas inteligentes e governança, com foco em impacto social positivo.",
   alternates: { canonical: `${siteUrl}/pesquisas` },
 };
 

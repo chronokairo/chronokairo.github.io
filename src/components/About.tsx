@@ -38,7 +38,7 @@ const About = () => {
             Quem <span className="font-normal italic">somos</span>
           </h2>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            Em 2026, o desenvolvimento básico virou commodity. A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> atua onde o
+            Em 2026, o desenvolvimento básico virou commodity. A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">kairo</span></span> atua onde o
             valor real está: arquitetura complexa, integração de sistemas e inteligência
             operacional orientada a resultados.
           </p>
@@ -64,7 +64,7 @@ const About = () => {
         <div className="border border-border rounded-lg p-8 md:p-12 lg:p-16 bg-card">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-serif font-bold text-center mb-12 text-foreground">
-              O significado de Chrono<span className="font-normal italic">Kairo</span>
+              O significado de Chrono<span className="font-normal italic">kairo</span>
             </h3>
 
             <div className="grid md:grid-cols-3 gap-8 items-center mb-12">

@@ -98,7 +98,7 @@ const Scope = () => {
             Escopo <span className="font-normal italic">técnico e legal</span>
           </h2>
           <p className="text-lg text-foreground/80 leading-relaxed">
-            A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>, startup e software house em{" "}
+            A <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">kairo</span></span>, startup e boutique de engenharia em{" "}
             <strong className="text-muted-foreground font-semibold">região</strong>, atua em{" "}
             <strong className="text-muted-foreground font-semibold">
               transformação digital
@@ -145,7 +145,7 @@ const Scope = () => {
 
         <div className="mt-12 border border-border rounded-lg p-8 bg-card">
           <p className="text-foreground/80 leading-relaxed text-sm">
-            Em resumo, a <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span> está habilitada para transformar uma ideia bruta
+            Em resumo, a <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">kairo</span></span> está habilitada para transformar uma ideia bruta
             em um ecossistema digital completo:{" "}
             <strong className="text-muted-foreground font-semibold">UX/UI</strong>,{" "}
             <strong className="text-muted-foreground font-semibold">front-end</strong> e{" "}

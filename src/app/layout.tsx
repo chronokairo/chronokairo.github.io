@@ -7,51 +7,44 @@ import { Providers } from "./providers";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ChronoKairo",
-    template: "%s · ChronoKairo",
+    default: "Chronokairo",
+    template: "%s · Chronokairo",
   },
   description:
-    "Software house com inteligência artificial, automação de processos e integração de sistemas legados. Fale com o time e acelere seu produto digital.",
-  applicationName: "ChronoKairo",
-  authors: [{ name: "ChronoKairo" }],
+    "Engenharia de software, inteligência artificial e automação para resolver problemas operacionais complexos. Tecnologia no tempo certo.",
+  applicationName: "Chronokairo",
+  authors: [{ name: "Chronokairo" }],
   keywords: [
-    "software house de produtos digitais",
-    "software house de produtos digitais",
-    "software house com inteligência artificial",
-    "desenvolvimento de software com IA",
-    "automação de processos empresariais",
-    "integração de sistemas legados",
-    "micro-saas",
-    "observabilidade",
-    "ChronoKairo",
-    "software house de produtos digitais",
-    "desenvolvimento de software",
-    "software house Brasil",
+    "engenharia de software sob medida",
+    "inteligência artificial aplicada",
+    "automação de operações",
+    "sistemas empresariais",
+    "Chronokairo",
   ],
   alternates: { canonical: siteUrl },
   openGraph: {
     type: "website",
-    siteName: "ChronoKairo",
+    siteName: "Chronokairo",
     locale: "pt_BR",
     url: siteUrl,
-    title: "ChronoKairo · Software house de produtos digitais com IA e automação",
+    title: "Chronokairo · Engenharia de Software e Inteligência Artificial",
     description:
-      "Software house: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Sistemas sob medida para operações em que precisão, confiabilidade e tempo importam. Conheça projetos selecionados da Chronokairo.",
     images: [
       {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "ChronoKairo — Tecnologia no tempo certo",
+        alt: "Chronokairo — Tecnologia no tempo certo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@chronokairo",
-    title: "ChronoKairo · Software house de produtos digitais com IA e automação",
+    title: "Chronokairo · Engenharia de Software e Inteligência Artificial",
     description:
-      "Software house: desenvolvimento de software com IA, automação de processos e integração de sistemas. Conheça produtos, pesquisas e a equipe da ChronoKairo.",
+      "Sistemas sob medida para operações em que precisão, confiabilidade e tempo importam. Conheça projetos selecionados da Chronokairo.",
     images: [ogImage],
   },
   icons: { icon: "/CHRONOKAIRO.ico" },
@@ -67,12 +60,12 @@ const themeBootstrap = `(function(){try{var c=document.documentElement.classList
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "ChronoKairo",
+  name: "Chronokairo",
   url: `${siteUrl}/`,
   logo: `${siteUrl}/CHRONOKAIRO.ico`,
   image: ogImage,
   description:
-    "Software house em Manaus focada em desenvolvimento com IA, automação de processos e integração de sistemas legados.",
+    "Engenharia de software, inteligência artificial e automação para operações complexas.",
   slogan: "Tecnologia no tempo certo",
   address: { "@type": "PostalAddress", addressCountry: "BR" },
   contactPoint: [
@@ -96,11 +89,11 @@ const organizationJsonLd = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "ChronoKairo",
+  name: "Chronokairo",
   url: `${siteUrl}/`,
   image: ogImage,
   description:
-    "Software house em Manaus especializada em IA, automacao de processos, integracao de sistemas e produtos digitais sob medida.",
+    "Engenharia de software e inteligência artificial para sistemas sob medida e operações complexas.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Brasil",
@@ -118,7 +111,7 @@ const localBusinessJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "ChronoKairo",
+  name: "Chronokairo",
   url: `${siteUrl}/`,
   inLanguage: "pt-BR",
   potentialAction: {

@@ -42,7 +42,7 @@ const Products = () => {
                 </Badge>
                 <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight text-foreground leading-[1.05]">
                   Soluções que a<br />
-                  <span className="font-normal italic">ChronoKairo</span> entrega
+                  <span className="font-normal italic">Chronokairo</span> entrega
                 </h1>
                 <p className="mt-6 text-base md:text-lg text-foreground/70 leading-relaxed max-w-2xl">
                   Um portfólio organizado por domínio: IA, sistemas de gestão, aplicativos mobile

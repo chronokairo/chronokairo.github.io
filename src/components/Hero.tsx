@@ -1,7 +1,7 @@
 import { WhatsAppIcon } from "@/components/BrandIcons";
 
 const WHATSAPP_URL =
-  "https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
+  "https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
 
 const Hero = () => {
   return (
@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <p className="text-[11px] font-mono tracking-[0.3em] text-white/40 uppercase mb-12 animate-fade-in">
-            Software House · Manaus, Brasil
+            Engenharia de Software · Inteligência Artificial
           </p>
 
           {/* Headline — branco puro */}
@@ -39,7 +39,7 @@ const Hero = () => {
 
           {/* Support — branco suave */}
           <p className="text-base md:text-lg text-white/60 font-light leading-relaxed mb-16 max-w-md mx-auto animate-fade-in-up">
-            Construímos software sob medida para empresas que não toleram desperdício de tempo ou dinheiro.
+            Projetamos sistemas sob medida para operações em que precisão, confiabilidade e tempo importam.
           </p>
 
           {/* CTA único — highlight preto */}

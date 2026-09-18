@@ -44,6 +44,7 @@
     "node_modules",
     "dist",
     "out",
-    ".next"
+    ".next",
+    "scripts"
   ]
 }

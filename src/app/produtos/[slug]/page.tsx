@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: product.title,
-    description: `${product.summary} Conheça ${product.title}, da linha ${product.brand}, no catálogo de produtos da ChronoKairo.`,
+    description: `${product.summary} Conheça ${product.title}, da linha ${product.brand}, no catálogo de produtos da Chronokairo.`,
     alternates: { canonical: `${siteUrl}/produtos/${product.slug}` },
     openGraph: {
-      title: `${product.title} · ChronoKairo`,
+      title: `${product.title} · Chronokairo`,
       description: product.summary,
       url: `${siteUrl}/produtos/${product.slug}`,
       images: [
@@ -37,13 +37,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${product.title} - ChronoKairo`,
+          alt: `${product.title} - Chronokairo`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.title} · ChronoKairo`,
+      title: `${product.title} · Chronokairo`,
       description: product.summary,
       images: [ogImage],
     },

@@ -77,7 +77,7 @@ const Research = () => {
                   </Badge>
                   <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight text-foreground leading-[1.02]">
                     Pesquisas da<br />
-                    <span className="font-normal italic">ChronoKairo</span>
+                    <span className="font-normal italic">Chronokairo</span>
                   </h1>
                 </div>
 
@@ -137,7 +137,7 @@ const Research = () => {
                 </div>
                 <div>
                   <p className="text-base md:text-lg leading-relaxed text-foreground/75 max-w-2xl">
-                    Um espaço para reunir estudos, experimentos, artigos e relatórios produzidos por membros da ChronoKairo. Quando o conteúdo chegar, cada publicação poderá destacar tema, autores, data e chamada para leitura completa.
+                    Um espaço para reunir estudos, experimentos, artigos e relatórios produzidos por membros da Chronokairo. Quando o conteúdo chegar, cada publicação poderá destacar tema, autores, data e chamada para leitura completa.
                   </p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {["Todos", "Artigos", "Relatórios", "Experimentos", "Protótipos"].map((item, index) => (

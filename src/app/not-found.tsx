@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Página não encontrada",
   description:
-    "A página que você buscou não existe ou foi movida. Volte para a home da ChronoKairo.",
+    "A página que você buscou não existe ou foi movida. Volte para a home da Chronokairo.",
   robots: { index: false, follow: false },
 };
 

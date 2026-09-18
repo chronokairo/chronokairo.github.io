@@ -6,7 +6,7 @@ import Products from "@/pages/Products";
 export const metadata: Metadata = {
   title: "Produtos · Soluções em IA e Automação",
   description:
-    "Catálogo de produtos da ChronoKairo em IA, sistemas de gestão, aplicativos mobile e portais web. Soluções organizadas por domínio e prontas para escalar.",
+    "Catálogo de produtos da Chronokairo em IA, sistemas de gestão, aplicativos mobile e portais web. Soluções organizadas por domínio e prontas para escalar.",
   alternates: { canonical: `${siteUrl}/produtos` },
 };
 

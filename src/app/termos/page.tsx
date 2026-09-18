@@ -5,7 +5,7 @@ import { siteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Termos de Uso",
   description:
-    "Consulte as condicoes de uso do site e dos canais digitais da ChronoKairo.",
+    "Consulte as condicoes de uso do site e dos canais digitais da Chronokairo.",
   alternates: { canonical: `${siteUrl}/termos` },
 };
 
@@ -22,7 +22,7 @@ export default function TermsPage() {
           </h1>
           <p className="mb-10 text-base leading-relaxed text-foreground/80 md:text-lg">
             Ao acessar este site, voce concorda em utilizar os conteudos e canais da
-            ChronoKairo de forma licita, respeitando a legislacao aplicavel e estes termos.
+            Chronokairo de forma licita, respeitando a legislacao aplicavel e estes termos.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function TermsPage() {
             <h2 className="mb-3 font-serif text-2xl font-bold text-foreground">2. Propriedade intelectual</h2>
             <p>
               Marcas, textos, elementos visuais, materiais tecnicos e demais ativos do site
-              pertencem a ChronoKairo ou a seus respectivos titulares e nao podem ser
+              pertencem a Chronokairo ou a seus respectivos titulares e nao podem ser
               reproduzidos sem autorizacao previa, salvo nas hipoteses legais aplicaveis.
             </p>
           </section>
@@ -48,7 +48,7 @@ export default function TermsPage() {
           <section>
             <h2 className="mb-3 font-serif text-2xl font-bold text-foreground">3. Limites de responsabilidade</h2>
             <p>
-              A ChronoKairo busca manter informacoes atualizadas e acessiveis, mas nao
+              A Chronokairo busca manter informacoes atualizadas e acessiveis, mas nao
               garante ausencia de indisponibilidades temporarias, erros materiais ou
               adequacao do conteudo a finalidades especificas de terceiros.
             </p>

@@ -16,10 +16,10 @@ const Footer = () => {
     <footer className="relative border-t border-white/10 bg-background">
       <div className="container mx-auto px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Brand — ChronoKairo */}
+          {/* Brand — Chronokairo */}
           <div className="text-center md:text-left">
             <span className="text-sm font-light text-white tracking-[-0.01em]">
-              Chrono<em className="not-italic font-extralight text-white/55">Kairo</em>
+              Chrono<em className="not-italic font-extralight text-white/55">kairo</em>
             </span>
             <p className="text-[10px] font-mono tracking-[0.2em] text-white/30 uppercase mt-1">
               Tecnologia no tempo certo
@@ -44,7 +44,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-[11px] text-white/30 font-mono">
-            © {currentYear} ChronoKairo
+            © {currentYear} Chronokairo
           </p>
         </div>
       </div>

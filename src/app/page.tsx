@@ -5,10 +5,10 @@ import Index from "@/pages/Index";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "ChronoKairo · Software house de produtos digitais com IA e automação",
+    absolute: "Chronokairo · Engenharia de Software e Inteligência Artificial",
   },
   description:
-    "Software house focada em desenvolvimento com IA, automação de processos e integração de sistemas legados. Conheça nossos produtos, pesquisas e equipe.",
+    "Projetamos sistemas sob medida para operações em que precisão, confiabilidade e tempo importam. Conheça projetos selecionados da Chronokairo.",
   alternates: { canonical: siteUrl },
 };
 
