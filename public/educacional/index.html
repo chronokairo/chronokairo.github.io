@@ -6,20 +6,20 @@
   <meta name="theme-color" content="#0B0B0B">
   <meta name="robots" content="index, follow">
 
-  <title>Ecossistema Digital Educacional · Showcase de Engenharia ChronoKairo</title>
-  <meta name="description" content="Showcase da infraestrutura tecnológica completa desenvolvida pela ChronoKairo para grandes grupos educacionais: portais acadêmicos, motor de vestibular, banco de provas, biometria de campus e aplicativo mobile.">
-  <link rel="canonical" href="https://chronokairo.com.br/lp/educacao/">
+  <title>Plataforma de Gestão Educacional · Showcase de Engenharia ChronoKairo</title>
+  <meta name="description" content="Showcase da infraestrutura tecnológica completa desenvolvida pela ChronoKairo para grandes ecossistemas educacionais: portais acadêmicos, motor de vestibular, banco de provas, biometria de campus e aplicativo mobile.">
+  <link rel="canonical" href="https://chronokairo.com.br/lp/educacional/">
 
   <meta property="og:site_name" content="ChronoKairo Showcase">
-  <meta property="og:title" content="Ecossistema Digital Educacional · Engenharia de Software por ChronoKairo">
+  <meta property="og:title" content="Plataforma de Gestão Educacional · Engenharia de Software por ChronoKairo">
   <meta property="og:description" content="Infraestrutura unificada para Ensino Superior, Educação Básica e Centros de Pesquisa: captação, avaliações, controle de campus e ERP integrado.">
-  <meta property="og:url" content="https://chronokairo.com.br/lp/educacao/">
+  <meta property="og:url" content="https://chronokairo.com.br/lp/educacional/">
   <meta property="og:image" content="./assets/hero.jpg">
   <meta property="og:type" content="article">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@chronokairo">
-  <meta name="twitter:title" content="Ecossistema Digital Educacional · Case ChronoKairo">
+  <meta name="twitter:title" content="Plataforma Educacional Integrada · Case ChronoKairo">
   <meta name="twitter:description" content="Transformação digital para ecossistemas de ensino básico, superior e pesquisa desenvolvida sob medida pela ChronoKairo.">
   <meta name="twitter:image" content="./assets/hero.jpg">
 
@@ -246,7 +246,7 @@
       border-color: var(--slate-gray);
     }
 
-    /* Hero Showcase Frame */
+    /* Hero Visual Showcase */
     .hero-showcase {
       position: relative;
       border-radius: 8px;
@@ -341,75 +341,108 @@
       font-size: 1.05rem;
     }
 
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 24px;
+    /* Project Showcase Showcase Cards */
+    .project-showcase-section {
       margin-bottom: 96px;
     }
 
-    .feature-card {
+    .project-showcase-card {
       background: var(--surface-dark);
       border: 1px solid var(--border-subtle);
-      padding: 34px 28px;
-      border-radius: 6px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
       transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .feature-card:hover {
+    .project-showcase-card:hover {
       border-color: var(--border-active);
-      background: var(--surface-elevated);
-      transform: translateY(-2px);
     }
 
-    .feature-num {
+    .project-showcase-img {
+      position: relative;
+      background: #000000;
+      height: 100%;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .project-showcase-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-showcase-content {
+      padding: 40px;
+    }
+
+    .project-tag {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--slate-gray);
-      margin-bottom: 18px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.28rem;
-      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       margin-bottom: 12px;
-      letter-spacing: -0.02em;
+      display: block;
     }
 
-    .feature-card p {
+    .project-showcase-content h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .project-showcase-content p {
       color: var(--slate-gray);
       font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      line-height: 1.65;
+      margin-bottom: 24px;
     }
 
-    .feature-card ul {
-      margin: 0 0 20px 18px;
+    .project-features-list {
+      list-style: none;
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
       color: var(--glacier);
-      font-size: 0.88rem;
     }
 
-    .feature-card ul li {
-      margin-bottom: 6px;
+    .project-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
 
-    .feature-tags {
+    .project-features-list li::before {
+      content: "—";
+      color: var(--slate-gray);
+    }
+
+    .badge-pill-group {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
 
-    .feature-tag {
+    .badge-pill {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      padding: 3px 8px;
+      padding: 4px 10px;
       background: var(--bg-black);
       border: 1px solid var(--border-subtle);
-      border-radius: 3px;
+      border-radius: 4px;
       color: var(--glacier);
     }
 
@@ -645,7 +678,15 @@
       color: var(--pure-white);
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
+      .project-showcase-card {
+        grid-template-columns: 1fr;
+      }
+      .project-showcase-img {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        min-height: 240px;
+      }
       .scope-box, .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -672,13 +713,13 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#solucoes">Soluções Desenvolvidas</a></li>
-        <li><a href="#arquitetura">Arquitetura de Campus</a></li>
-        <li><a href="#escopo">Escopo de Atendimento</a></li>
+        <li><a href="#projetos">Projetos Desenvolvidos</a></li>
+        <li><a href="#arquitetura">Arquitetura Integrada</a></li>
+        <li><a href="#escopo">Escopo do Case</a></li>
         <li><a href="#contato">Fale Conosco</a></li>
       </ul>
 
-      <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Vi%20o%20case%20de%20infraestrutura%20educacional%20e%20gostaria%20de%20um%20diagnostico%20para%20minha%20instituicao." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-nav">
+      <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Vi%20o%20showcase%20de%20infraestrutura%20educacional%20e%20gostaria%20de%20um%20diagnostico%20para%20minha%20instituicao." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-nav">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         <span>Falar no WhatsApp</span>
       </a>
@@ -693,9 +734,9 @@
         Infraestrutura Digital Completa para Grandes Ecossistemas Educacionais
       </h1>
       <p>
-        Engenharia sob medida desenvolvida pela ChronoKairo para unificar a gestão de Ensino Superior, 
-        Educação Básica e Centros de Pesquisa: portais institucionais velozes, motor de captação de matrículas, 
-        banco automatizado de provas, controle biométrico de campus e aplicativo mobile do aluno.
+        Engenharia proprietária sob medida desenvolvida pela ChronoKairo para unificar as operações de Ensino Superior, 
+        Educação Básica e Centros de Pesquisa Científica: portais acadêmicos velozes, motor de captação de vestibulares, 
+        banco automatizado de provas, controle biométrico de campus e aplicativo mobile.
       </p>
 
       <div class="hero-actions">
@@ -703,8 +744,8 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           <span>Agendar Diagnóstico no WhatsApp</span>
         </a>
-        <a href="#solucoes" class="btn-secondary">
-          <span>Ver Módulos Construídos</span>
+        <a href="#projetos" class="btn-secondary">
+          <span>Explorar os 3 Pilares Desenvolvidos</span>
         </a>
       </div>
 
@@ -734,7 +775,7 @@
         </div>
         <div class="metric-card">
           <div class="metric-value">Tempo Real</div>
-          <div class="metric-label">Controle Biométrico e Catracas</div>
+          <div class="metric-label">Controle Biométrico de Campus</div>
         </div>
         <div class="metric-card">
           <div class="metric-value">&lt; 1s</div>
@@ -744,128 +785,91 @@
     </div>
   </section>
 
-  <!-- Soluções Desenvolvidas (Catálogo de Engenharia) -->
-  <section id="solucoes" style="padding: 24px 0 64px 0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">CATÁLOGO DE ENGENHARIA</span>
-        <h2 class="section-title">O Que Desenvolvemos para o Ecossistema</h2>
-        <p class="section-subtitle">Uma infraestrutura robusta, unificada e modular concebida para substituir silos de dados e ferramentas desarticuladas por uma esteira única de operações acadêmicas.</p>
+  <!-- Showcase dos 3 Projetos Desenvolvidos -->
+  <section id="projetos" class="container project-showcase-section">
+    <div class="section-header">
+      <span class="section-tag">SHOWCASE DE PROJETOS REALIZADOS</span>
+      <h2 class="section-title">Os Três Pilares da Transformação Digital</h2>
+      <p class="section-subtitle">Apresentação técnica das frentes de produto concebidas, desenvolvidas e sustentadas pela ChronoKairo para a operação educacional integrada.</p>
+    </div>
+
+    <!-- Projeto 1: Ensino Superior & Campus Digital -->
+    <div class="project-showcase-card">
+      <div class="project-showcase-img">
+        <img src="./assets/higher_edu.jpg" alt="Plataforma de Ensino Superior & Campus Digital" loading="lazy">
       </div>
-
-      <div class="features-grid">
-        <!-- 01. Captação & Vestibular -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[01] CAPTAÇÃO &amp; ADMISSÃO</div>
-            <h3>Motor de Vestibular Online &amp; Inscrições</h3>
-            <p>Portais modernos de inscrição com alta escalabilidade para absorver grandes picos de acesso simultâneo:</p>
-            <ul>
-              <li>Formulários de inscrição simplificados e integrados ao CRM de captação.</li>
-              <li>Emissão de boletos, confirmação instantânea e agendamento de provas online.</li>
-              <li>Dashboard executivo com métricas de conversão de candidatos por curso e turno.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">Vestibular Online</span>
-            <span class="feature-tag">Funil de Admissão</span>
-            <span class="feature-tag">Alta Disponibilidade</span>
-          </div>
+      <div class="project-showcase-content">
+        <span class="project-tag">[PILAR 01] ENSINO SUPERIOR &amp; OPERAÇÕES DE CAMPUS</span>
+        <h3>Plataforma Integrada de Graduação &amp; Acesso</h3>
+        <p>
+          Infraestrutura digital completa para gestão de campus universitário de grande porte, integrando 
+          a jornada do candidato desde o vestibular até a colação de grau:
+        </p>
+        <ul class="project-features-list">
+          <li><strong>Motor de Vestibular Online:</strong> Portal de inscrições com alta vazão para vestibulares e matrículas simultâneas.</li>
+          <li><strong>Biometria de Campus:</strong> Controle de acesso físico de catracas interligado ao status acadêmico em tempo real.</li>
+          <li><strong>Aplicativo Mobile do Estudante:</strong> Acesso à carteirinha digital, notas, faltas e avisos da coordenação.</li>
+          <li><strong>Integração com ERP Acadêmico:</strong> Barramento de dados seguro com bancos legados e sistemas de faturamento.</li>
+        </ul>
+        <div class="badge-pill-group">
+          <span class="badge-pill">Vestibular Online</span>
+          <span class="badge-pill">Biometria em Tempo Real</span>
+          <span class="badge-pill">App Nativo</span>
+          <span class="badge-pill">Barramento ERP</span>
         </div>
+      </div>
+    </div>
 
-        <!-- 02. Avaliações & Banco de Provas -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[02] GESTÃO PEDAGÓGICA</div>
-            <h3>Banco de Questões &amp; Gerador de Provas</h3>
-            <p>Sistema automatizado de elaboração avaliativa para corpo docente e coordenações:</p>
-            <ul>
-              <li>Repositório de questões categorizadas por disciplina, série e nível de dificuldade.</li>
-              <li>Sorteio balanceado e diagramação automática de cadernos de prova com folha de respostas.</li>
-              <li>Geração instantânea de gabaritos oficiais para correção ágil.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">Banco de Questões</span>
-            <span class="feature-tag">Diagramação Ágil</span>
-            <span class="feature-tag">Avaliações Escolares</span>
-          </div>
+    <!-- Projeto 2: Educação Básica & Sistema de Provas -->
+    <div class="project-showcase-card">
+      <div class="project-showcase-content">
+        <span class="project-tag">[PILAR 02] EDUCAÇÃO BÁSICA &amp; GESTÃO PEDAGÓGICA</span>
+        <h3>Banco de Questões &amp; Gerador Automatizado de Provas</h3>
+        <p>
+          Sistema de engenharia pedagógica desenhado para padronizar avaliações escolares, otimizando o trabalho 
+          de professores e unificando o controle de qualidade acadêmica:
+        </p>
+        <ul class="project-features-list">
+          <li><strong>Repositório Inteligente de Questões:</strong> Categorização por disciplina, competência e nível de dificuldade.</li>
+          <li><strong>Sorteio &amp; Diagramação Automática:</strong> Criação de cadernos de prova balanceados e folhas de gabarito em PDF.</li>
+          <li><strong>Portal do Professor:</strong> Diário de classe online, lançamento de notas e controle de frequência sem papel.</li>
+          <li><strong>PDV &amp; Cantina Integrada:</strong> Sistema de ponto de venda escolar para compras e controle de materiais.</li>
+        </ul>
+        <div class="badge-pill-group">
+          <span class="badge-pill">Gerador de Provas</span>
+          <span class="badge-pill">Banco de Questões</span>
+          <span class="badge-pill">Portal Docente</span>
+          <span class="badge-pill">PDV Escolar</span>
         </div>
+      </div>
+      <div class="project-showcase-img">
+        <img src="./assets/k12_exam.jpg" alt="Banco de Questões & Gerador de Provas" loading="lazy">
+      </div>
+    </div>
 
-        <!-- 03. Segurança & Biometria -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[03] SEGURANÇA DE CAMPUS</div>
-            <h3>Controle Biométrico de Acesso &amp; Catracas</h3>
-            <p>Sistema de alta velocidade para controle e triagem física de entradas e saídas:</p>
-            <ul>
-              <li>Integração direta com catracas biométricas em múltiplos blocos e portarias.</li>
-              <li>Validação instantânea do status acadêmico e financeiro no ato da entrada.</li>
-              <li>Auditoria em tempo real de ocupação do campus para segurança patrimonial.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">Biometria em Tempo Real</span>
-            <span class="feature-tag">Controle de Catracas</span>
-            <span class="feature-tag">Segurança Física</span>
-          </div>
-        </div>
-
-        <!-- 04. Integração ERP & Dados -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[04] INTEROPERABILIDADE</div>
-            <h3>Barramento de Integração com ERP Acadêmico</h3>
-            <p>Eliminação de retrabalho e consistência total entre sistemas legados e portais modernos:</p>
-            <ul>
-              <li>Sincronização bidirecional contínua com bases acadêmicas e ERPs corporativos.</li>
-              <li>Atualização automática de matrizes curriculares, históricos de notas e mensalidades.</li>
-              <li>Pipelines resilientes com tolerância a falhas e reconciliação de dados.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">Conectores ERP</span>
-            <span class="feature-tag">Sincronização Contínua</span>
-            <span class="feature-tag">Zero Silos</span>
-          </div>
-        </div>
-
-        <!-- 05. Mobilidade & Estudante -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[05] EXPERIÊNCIA DO ALUNO</div>
-            <h3>Aplicativo Mobile Acadêmico</h3>
-            <p>Canal direto na palma da mão para comunicação institucional e serviços ao estudante:</p>
-            <ul>
-              <li>Consulta de notas, faltas, horários de aula e cronograma acadêmico.</li>
-              <li>Carteira digital de estudante com autenticação antifraude para uso no campus.</li>
-              <li>Notificações push imediatas sobre avisos de coordenação e eventos acadêmicos.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">App Mobile</span>
-            <span class="feature-tag">Carteira Digital</span>
-            <span class="feature-tag">Notificações Push</span>
-          </div>
-        </div>
-
-        <!-- 06. Portal Docente & Biblioteca -->
-        <div class="feature-card">
-          <div>
-            <div class="feature-num">[06] RECURSOS EDUCACIONAIS</div>
-            <h3>Portal do Professor &amp; Acervo de Biblioteca</h3>
-            <p>Ambientes digitais focados na rotina pedagógica e pesquisa bibliográfica:</p>
-            <ul>
-              <li>Diário de classe online para registro de frequência, conteúdos ministrados e médias.</li>
-              <li>Módulo de consulta, reserva e controle de empréstimos do acervo físico e digital da biblioteca.</li>
-              <li>Ambiente exclusivo para divulgação de editais, projetos de extensão e iniciação científica.</li>
-            </ul>
-          </div>
-          <div class="feature-tags">
-            <span class="feature-tag">Portal Docente</span>
-            <span class="feature-tag">Biblioteca Digital</span>
-            <span class="feature-tag">Gestão de Acervo</span>
-          </div>
+    <!-- Projeto 3: Centro de Inovação, Pesquisa & P,D&I -->
+    <div class="project-showcase-card">
+      <div class="project-showcase-img">
+        <img src="./assets/research_hub.jpg" alt="Centro de Inovação & Pesquisa Tecnológica" loading="lazy">
+      </div>
+      <div class="project-showcase-content">
+        <span class="project-tag">[PILAR 03] PESQUISA, DESENVOLVIMENTO &amp; INOVAÇÃO</span>
+        <h3>Hub Digital de P,D&amp;I &amp; Projetos Científicos</h3>
+        <p>
+          Ambiente digital institucional concebido para posicionar o ecossistema educacional na fronteira 
+          do desenvolvimento científico, inovação e extensão tecnológica:
+        </p>
+        <ul class="project-features-list">
+          <li><strong>Portfólio de Projetos Científicos:</strong> Exposição transparente de iniciativas de P,D&amp;I e editais abertos.</li>
+          <li><strong>Conexão Empresa-Universidade:</strong> Módulo de parcerias com o setor industrial e órgãos de fomento.</li>
+          <li><strong>Formação de Novos Talentos:</strong> Programas de capacitação prática em tecnologias emergentes.</li>
+          <li><strong>Gestão de Propriedade Intelectual:</strong> Registro e acompanhamento de patentes e produções acadêmicas.</li>
+        </ul>
+        <div class="badge-pill-group">
+          <span class="badge-pill">Projetos P,D&amp;I</span>
+          <span class="badge-pill">Inovação Tecnológica</span>
+          <span class="badge-pill">Editais de Extensão</span>
+          <span class="badge-pill">Parcerias Corporativas</span>
         </div>
       </div>
     </div>
@@ -876,7 +880,7 @@
     <div class="arch-table-section">
       <div class="section-header" style="margin-bottom: 24px;">
         <span class="section-tag">ENGENHARIA COMPARATIVA</span>
-        <h2 class="section-title">Soluções Convencionais vs. Engenharia ChronoKairo</h2>
+        <h2 class="section-title">Sistemas Legados vs. Plataforma Unificada ChronoKairo</h2>
       </div>
 
       <table class="arch-table">
@@ -890,7 +894,7 @@
         <tbody>
           <tr>
             <td><strong>Picos de Matrícula &amp; Vestibular</strong></td>
-            <td style="color: #888;">Quedas constantes e lentidão sob alta carga</td>
+            <td style="color: #888;">Lentidão e quedas constantes sob alta concorrência</td>
             <td style="color: #FFF; font-weight: 600;">Arquitetura estática e APIs serverless de alta vazão</td>
           </tr>
           <tr>
