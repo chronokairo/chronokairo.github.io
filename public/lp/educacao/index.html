@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0B0B">
+  <meta name="robots" content="index, follow">
+
+  <title>Ecossistema Digital Educacional · Showcase de Engenharia ChronoKairo</title>
+  <meta name="description" content="Showcase da infraestrutura tecnológica completa desenvolvida pela ChronoKairo para grandes grupos educacionais: portais acadêmicos, motor de vestibular, banco de provas, biometria de campus e aplicativo mobile.">
+  <link rel="canonical" href="https://chronokairo.com.br/lp/educacao/">
+
+  <meta property="og:site_name" content="ChronoKairo Showcase">
+  <meta property="og:title" content="Ecossistema Digital Educacional · Engenharia de Software por ChronoKairo">
+  <meta property="og:description" content="Infraestrutura unificada para Ensino Superior, Educação Básica e Centros de Pesquisa: captação, avaliações, controle de campus e ERP integrado.">
+  <meta property="og:url" content="https://chronokairo.com.br/lp/educacao/">
+  <meta property="og:image" content="./assets/hero.jpg">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@chronokairo">
+  <meta name="twitter:title" content="Ecossistema Digital Educacional · Case ChronoKairo">
+  <meta name="twitter:description" content="Transformação digital para ecossistemas de ensino básico, superior e pesquisa desenvolvida sob medida pela ChronoKairo.">
+  <meta name="twitter:image" content="./assets/hero.jpg">
+
+  <link rel="icon" type="image/x-icon" href="/CHRONOKAIRO.ico">
+
+  <style>
+    :root {
+      --bg-black: #0B0B0B;
+      --surface-dark: #121212;
+      --surface-elevated: #1A1A1A;
+      --border-subtle: #262626;
+      --border-active: #3D3D3D;
+      --slate-gray: #8A8D8F;
+      --glacier: #E0E2E4;
+      --pure-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --whatsapp-dark: #1EBE5D;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-black);
+      color: var(--pure-white);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      line-height: 1.6;
+      background-color: var(--bg-black);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 11, 11, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--pure-white);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      background: var(--surface-elevated);
+      color: var(--glacier);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pure-white);
+    }
+
+    .btn-whatsapp-nav {
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 9px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp-nav:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 96px 0 64px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--glacier);
+      background: var(--surface-dark);
+      border: 1px solid var(--border-active);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.2vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+      max-width: 1040px;
+      margin: 0 auto 24px auto;
+      color: var(--pure-white);
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--slate-gray);
+      max-width: 860px;
+      margin: 0 auto 40px auto;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp-hero {
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 14px 30px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp-hero:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--pure-white);
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-active);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-elevated);
+      border-color: var(--slate-gray);
+    }
+
+    /* Hero Showcase Frame */
+    .hero-showcase {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-active);
+      background: var(--surface-dark);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+      margin-bottom: 40px;
+    }
+
+    .hero-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-showcase-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: var(--surface-dark);
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+    }
+
+    /* Metrics Strip */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 48px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 96px;
+    }
+
+    .metric-card {
+      padding: 24px 20px;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      text-align: left;
+    }
+
+    .metric-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--pure-white);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    /* Section Typography */
+    .section-header {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 64px auto;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: var(--slate-gray);
+      font-size: 1.05rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 96px;
+    }
+
+    .feature-card {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      padding: 34px 28px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-active);
+      background: var(--surface-elevated);
+      transform: translateY(-2px);
+    }
+
+    .feature-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.28rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p {
+      color: var(--slate-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .feature-card ul {
+      margin: 0 0 20px 18px;
+      color: var(--glacier);
+      font-size: 0.88rem;
+    }
+
+    .feature-card ul li {
+      margin-bottom: 6px;
+    }
+
+    .feature-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .feature-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      background: var(--bg-black);
+      border: 1px solid var(--border-subtle);
+      border-radius: 3px;
+      color: var(--glacier);
+    }
+
+    /* Architecture Highlights Table */
+    .arch-table-section {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 48px 36px;
+      margin-bottom: 96px;
+    }
+
+    .arch-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+      font-size: 0.95rem;
+    }
+
+    .arch-table th, .arch-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .arch-table th {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-gray);
+    }
+
+    .arch-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Client Scope Overview */
+    .scope-box {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-active);
+      border-radius: 8px;
+      padding: 48px 40px;
+      margin-bottom: 96px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .scope-box h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .scope-box p {
+      color: var(--slate-gray);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .scope-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      border-left: 1px solid var(--border-active);
+      padding-left: 32px;
+    }
+
+    .detail-item-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .detail-item-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--pure-white);
+    }
+
+    /* Contact Section (100% WhatsApp) */
+    .contact-section {
+      padding: 64px 0 96px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--slate-gray);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    .direct-whatsapp-card {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-active);
+      padding: 24px;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    .direct-whatsapp-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--pure-white);
+      margin-bottom: 6px;
+    }
+
+    .direct-whatsapp-card p {
+      font-size: 0.85rem;
+      color: var(--slate-gray);
+      margin-bottom: 16px;
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--glacier);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-black);
+      border: 1px solid var(--border-subtle);
+      color: var(--pure-white);
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--slate-gray);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit-whatsapp {
+      width: 100%;
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 15px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-submit-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0;
+      background: var(--bg-black);
+      color: var(--slate-gray);
+      font-size: 0.85rem;
+    }
+
+    .footer-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--slate-gray);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--pure-white);
+    }
+
+    @media (max-width: 860px) {
+      .scope-box, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .scope-details-grid {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border-active);
+        padding-top: 24px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="https://chronokairo.com.br" class="brand-logo">
+        <span>CHRONOKAIRO</span>
+        <span class="brand-badge">EDUCATION SHOWCASE</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#solucoes">Soluções Desenvolvidas</a></li>
+        <li><a href="#arquitetura">Arquitetura de Campus</a></li>
+        <li><a href="#escopo">Escopo de Atendimento</a></li>
+        <li><a href="#contato">Fale Conosco</a></li>
+      </ul>
+
+      <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Vi%20o%20case%20de%20infraestrutura%20educacional%20e%20gostaria%20de%20um%20diagnostico%20para%20minha%20instituicao." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-nav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Falar no WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">CASE STUDY · ENGENHARIA DE SOFTWARE &amp; EDUCAÇÃO</div>
+      <h1>
+        Infraestrutura Digital Completa para Grandes Ecossistemas Educacionais
+      </h1>
+      <p>
+        Engenharia sob medida desenvolvida pela ChronoKairo para unificar a gestão de Ensino Superior, 
+        Educação Básica e Centros de Pesquisa: portais institucionais velozes, motor de captação de matrículas, 
+        banco automatizado de provas, controle biométrico de campus e aplicativo mobile do aluno.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20solucoes%20tecnologicas%20para%20minha%20instituicao%20de%20ensino." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Agendar Diagnóstico no WhatsApp</span>
+        </a>
+        <a href="#solucoes" class="btn-secondary">
+          <span>Ver Módulos Construídos</span>
+        </a>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="hero-showcase">
+        <img src="./assets/hero.jpg" alt="Ecossistema Educacional Multi-Dispositivo desenvolvido pela ChronoKairo" loading="lazy">
+        <div class="hero-showcase-caption">
+          <span>SUÍTE: CAMPUS &amp; ACADEMIC OPERATIONS PLATFORM</span>
+          <span>ARQUITETURA: CHRONOKAIRO MULTI-TENANT &amp; BIOMETRIC ENGINE</span>
+          <span>STATUS: EM OPERAÇÃO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Strip -->
+  <section>
+    <div class="container">
+      <div class="metrics-strip">
+        <div class="metric-card">
+          <div class="metric-value">+15.000</div>
+          <div class="metric-label">Alunos e Usuários Atendidos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">100% Digital</div>
+          <div class="metric-label">Vestibular, Provas e Matrículas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">Tempo Real</div>
+          <div class="metric-label">Controle Biométrico e Catracas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">&lt; 1s</div>
+          <div class="metric-label">Resposta em Picos de Acesso</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Soluções Desenvolvidas (Catálogo de Engenharia) -->
+  <section id="solucoes" style="padding: 24px 0 64px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">CATÁLOGO DE ENGENHARIA</span>
+        <h2 class="section-title">O Que Desenvolvemos para o Ecossistema</h2>
+        <p class="section-subtitle">Uma infraestrutura robusta, unificada e modular concebida para substituir silos de dados e ferramentas desarticuladas por uma esteira única de operações acadêmicas.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- 01. Captação & Vestibular -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[01] CAPTAÇÃO &amp; ADMISSÃO</div>
+            <h3>Motor de Vestibular Online &amp; Inscrições</h3>
+            <p>Portais modernos de inscrição com alta escalabilidade para absorver grandes picos de acesso simultâneo:</p>
+            <ul>
+              <li>Formulários de inscrição simplificados e integrados ao CRM de captação.</li>
+              <li>Emissão de boletos, confirmação instantânea e agendamento de provas online.</li>
+              <li>Dashboard executivo com métricas de conversão de candidatos por curso e turno.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">Vestibular Online</span>
+            <span class="feature-tag">Funil de Admissão</span>
+            <span class="feature-tag">Alta Disponibilidade</span>
+          </div>
+        </div>
+
+        <!-- 02. Avaliações & Banco de Provas -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[02] GESTÃO PEDAGÓGICA</div>
+            <h3>Banco de Questões &amp; Gerador de Provas</h3>
+            <p>Sistema automatizado de elaboração avaliativa para corpo docente e coordenações:</p>
+            <ul>
+              <li>Repositório de questões categorizadas por disciplina, série e nível de dificuldade.</li>
+              <li>Sorteio balanceado e diagramação automática de cadernos de prova com folha de respostas.</li>
+              <li>Geração instantânea de gabaritos oficiais para correção ágil.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">Banco de Questões</span>
+            <span class="feature-tag">Diagramação Ágil</span>
+            <span class="feature-tag">Avaliações Escolares</span>
+          </div>
+        </div>
+
+        <!-- 03. Segurança & Biometria -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[03] SEGURANÇA DE CAMPUS</div>
+            <h3>Controle Biométrico de Acesso &amp; Catracas</h3>
+            <p>Sistema de alta velocidade para controle e triagem física de entradas e saídas:</p>
+            <ul>
+              <li>Integração direta com catracas biométricas em múltiplos blocos e portarias.</li>
+              <li>Validação instantânea do status acadêmico e financeiro no ato da entrada.</li>
+              <li>Auditoria em tempo real de ocupação do campus para segurança patrimonial.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">Biometria em Tempo Real</span>
+            <span class="feature-tag">Controle de Catracas</span>
+            <span class="feature-tag">Segurança Física</span>
+          </div>
+        </div>
+
+        <!-- 04. Integração ERP & Dados -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[04] INTEROPERABILIDADE</div>
+            <h3>Barramento de Integração com ERP Acadêmico</h3>
+            <p>Eliminação de retrabalho e consistência total entre sistemas legados e portais modernos:</p>
+            <ul>
+              <li>Sincronização bidirecional contínua com bases acadêmicas e ERPs corporativos.</li>
+              <li>Atualização automática de matrizes curriculares, históricos de notas e mensalidades.</li>
+              <li>Pipelines resilientes com tolerância a falhas e reconciliação de dados.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">Conectores ERP</span>
+            <span class="feature-tag">Sincronização Contínua</span>
+            <span class="feature-tag">Zero Silos</span>
+          </div>
+        </div>
+
+        <!-- 05. Mobilidade & Estudante -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[05] EXPERIÊNCIA DO ALUNO</div>
+            <h3>Aplicativo Mobile Acadêmico</h3>
+            <p>Canal direto na palma da mão para comunicação institucional e serviços ao estudante:</p>
+            <ul>
+              <li>Consulta de notas, faltas, horários de aula e cronograma acadêmico.</li>
+              <li>Carteira digital de estudante com autenticação antifraude para uso no campus.</li>
+              <li>Notificações push imediatas sobre avisos de coordenação e eventos acadêmicos.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">App Mobile</span>
+            <span class="feature-tag">Carteira Digital</span>
+            <span class="feature-tag">Notificações Push</span>
+          </div>
+        </div>
+
+        <!-- 06. Portal Docente & Biblioteca -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[06] RECURSOS EDUCACIONAIS</div>
+            <h3>Portal do Professor &amp; Acervo de Biblioteca</h3>
+            <p>Ambientes digitais focados na rotina pedagógica e pesquisa bibliográfica:</p>
+            <ul>
+              <li>Diário de classe online para registro de frequência, conteúdos ministrados e médias.</li>
+              <li>Módulo de consulta, reserva e controle de empréstimos do acervo físico e digital da biblioteca.</li>
+              <li>Ambiente exclusivo para divulgação de editais, projetos de extensão e iniciação científica.</li>
+            </ul>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">Portal Docente</span>
+            <span class="feature-tag">Biblioteca Digital</span>
+            <span class="feature-tag">Gestão de Acervo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabela de Arquitetura Comparativa -->
+  <section id="arquitetura" class="container">
+    <div class="arch-table-section">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag">ENGENHARIA COMPARATIVA</span>
+        <h2 class="section-title">Soluções Convencionais vs. Engenharia ChronoKairo</h2>
+      </div>
+
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Dimensão da Operação</th>
+            <th>Mercado Tradicional / Ferramentas Isoladas</th>
+            <th>Plataforma Unificada ChronoKairo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Picos de Matrícula &amp; Vestibular</strong></td>
+            <td style="color: #888;">Quedas constantes e lentidão sob alta carga</td>
+            <td style="color: #FFF; font-weight: 600;">Arquitetura estática e APIs serverless de alta vazão</td>
+          </tr>
+          <tr>
+            <td><strong>Consistência de Dados Acadêmicos</strong></td>
+            <td style="color: #888;">Planilhas manuais e retrabalho entre secretarias</td>
+            <td style="color: #FFF; font-weight: 600;">Barramento unificado sincronizado com ERP central</td>
+          </tr>
+          <tr>
+            <td><strong>Segurança &amp; Acesso Físico</strong></td>
+            <td style="color: #888;">Catracas desconectadas do status de matrícula</td>
+            <td style="color: #FFF; font-weight: 600;">Validação biométrica em milissegundos na portaria</td>
+          </tr>
+          <tr>
+            <td><strong>Elaboração de Avaliações</strong></td>
+            <td style="color: #888;">Arquivos Word descentralizados e sem controle</td>
+            <td style="color: #FFF; font-weight: 600;">Banco central com sorteio e diagramação padronizada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Escopo de Atendimento -->
+  <section id="escopo" class="container">
+    <div class="scope-box">
+      <div>
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--slate-gray); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 8px;">PERFIL DA OPERAÇÃO ATENDIDA</span>
+        <h3>Grande Ecossistema Educacional Integrado</h3>
+        <p>
+          O projeto atende a um dos mais representativos grupos educacionais privados da Região Norte, 
+          integrando instituições centenárias de Ensino Básico, centro universitário com dezenas de cursos 
+          de graduação e pós-graduação, e centros dedicados à pesquisa científica e inovação tecnológica.
+        </p>
+        <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20modernizacao%20de%20sistemas%20educacionais." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero" style="display: inline-flex; font-size: 0.95rem; padding: 12px 24px;">
+          <span>Conversar sobre Projeto Similar no WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="scope-details-grid">
+        <div>
+          <div class="detail-item-title">Abrangência</div>
+          <div class="detail-item-val">K-12, Ensino Superior &amp; P,D&amp;I</div>
+        </div>
+        <div>
+          <div class="detail-item-title">Ambiente</div>
+          <div class="detail-item-val">Multi-Campus &amp; Multi-Unidade</div>
+        </div>
+        <div>
+          <div class="detail-item-title">Arquitetura</div>
+          <div class="detail-item-val">Web, Mobile, Biometria &amp; APIs</div>
+        </div>
+        <div>
+          <div class="detail-item-title">Engenharia</div>
+          <div class="detail-item-val" style="color: var(--glacier);">ChronoKairo Software House</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fale Conosco — 100% WHATSAPP -->
+  <section id="contato" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info -->
+        <div class="contact-info">
+          <span class="section-tag">CONSULTORIA &amp; ENGENHARIA</span>
+          <h3>Transforme a Tecnologia da Sua Instituição Educacional</h3>
+          <p>
+            Precisa eliminar gargalos em processos de captação, modernizar a gestão de avaliações, 
+            integrar sistemas acadêmicos ou desenvolver aplicativos móveis sob medida?
+          </p>
+
+          <div class="direct-whatsapp-card">
+            <h4>Canal Oficial de Atendimento via WhatsApp</h4>
+            <p>Nosso time de engenharia responde diretamente pelo WhatsApp comercial para entender as necessidades da sua operação.</p>
+            <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20agendar%20um%20diagnostico%20para%20minha%20instituicao%20de%20ensino." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero" style="width: 100%; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Conversar pelo WhatsApp (+55 92 98124-4044)</span>
+            </a>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--slate-gray);">
+            Sede: Manaus, AM — Brasil · Atendimento Nacional &amp; Projetos Especiais
+          </p>
+        </div>
+
+        <!-- Form que abre WhatsApp diretamente -->
+        <div class="contact-form">
+          <form onsubmit="redirectToWhatsApp(event)">
+            <div class="form-group">
+              <label for="lead-name">Seu Nome / Cargo</label>
+              <input type="text" id="lead-name" class="form-control" placeholder="Ex: Gestor Acadêmico / Reitor / Diretor" required>
+            </div>
+
+            <div class="form-group">
+              <label for="lead-company">Instituição de Ensino</label>
+              <input type="text" id="lead-company" class="form-control" placeholder="Nome da instituição ou faculdade" required>
+            </div>
+
+            <div class="form-group">
+              <label for="lead-challenge">Qual o desafio prioritário?</label>
+              <textarea id="lead-challenge" class="form-control" placeholder="Descreva brevemente os sistemas que deseja unificar ou o portal que precisa desenvolver..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-whatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Enviar via WhatsApp Imediatamente</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrapper">
+      <div>
+        <strong style="color: var(--pure-white);">CHRONOKAIRO</strong> · Tecnologia no Tempo Certo. © 2026. Todos os direitos reservados.
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://chronokairo.com.br">Site Institucional</a></li>
+        <li><a href="https://chronokairo.com.br/lp/marketing/">Marketing Platform</a></li>
+        <li><a href="https://github.com/chronokairo">GitHub</a></li>
+        <li><a href="https://wa.me/5592981244044" target="_blank" rel="noopener">WhatsApp Direto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function redirectToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('lead-name').value;
+      const company = document.getElementById('lead-company').value;
+      const challenge = document.getElementById('lead-challenge').value;
+
+      const message = `Olá ChronoKairo! Vi o showcase de engenharia para ecossistemas educacionais no site e gostaria de agendar um diagnóstico técnico.\n\n*Nome:* ${name}\n*Instituição:* ${company}\n*Desafio:* ${challenge}`;
+      const url = `https://wa.me/5592981244044?text=${encodeURIComponent(message)}`;
+      
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
