@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import ArchitectureVisualizer from "@/components/visualizations/ArchitectureVisualizer";
+import { nimbusVisualization } from "@/lib/architecture-visualization";
 
 const cases = [
   {
@@ -63,21 +65,7 @@ export default function SelectedWork() {
                   />
                 </Link>
               ) : (
-                <div role="img" aria-label="Diagrama conceitual da arquitetura multicloud Nimbus" className="flex min-h-[340px] flex-col justify-between border border-white/10 bg-[#111318] p-6 md:aspect-[16/10] md:p-10">
-                  <div className="flex items-center justify-between border-b border-white/15 pb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
-                    <span>Nimbus / R&D</span><span>Cloud orchestration</span>
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-2 text-center font-mono text-[10px] uppercase tracking-wider text-white/65 md:grid-cols-5 md:gap-4 md:text-xs">
-                    <span className="border border-white/20 py-3">AWS</span>
-                    <span className="border border-white/20 py-3">Cloudflare</span>
-                    <span className="border border-white/20 py-3">Firebase</span>
-                    <span className="border border-white/20 py-3">GitHub</span>
-                    <span className="border border-white/20 py-3">GCP</span>
-                  </div>
-                  <div className="mx-auto h-10 w-px bg-white/20" />
-                  <div className="mx-auto w-full max-w-sm border border-white/35 px-5 py-4 text-center font-mono text-xs uppercase tracking-[0.2em] text-white">Provider contract / quota routing</div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">Representação conceitual · protótipo</p>
-                </div>
+                <ArchitectureVisualizer visualization={nimbusVisualization} />
               )}
               <div className="flex flex-col justify-between">
                 <div>
