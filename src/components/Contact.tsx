@@ -3,16 +3,16 @@ import { Mail, Phone, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-re
 const Contact = () => {
   const contactInfo = [
     {
-      icon: Mail,
-      title: "Email",
-      value: "contato@chronokairo.com.br",
-      link: "mailto:contato@chronokairo.com.br",
+      icon: MessageCircle,
+      title: "WhatsApp Oficial",
+      value: "+55 (92) 98124-4044",
+      link: "https://wa.me/5592981244044",
     },
     {
       icon: Phone,
-      title: "Telefone",
+      title: "Telefone / WhatsApp",
       value: "+55 (92) 98124-4044",
-      link: "tel:+5592981244044",
+      link: "https://wa.me/5592981244044",
     },
     {
       icon: MapPin,

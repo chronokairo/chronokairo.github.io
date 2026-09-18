@@ -500,46 +500,15 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <div
-              className="relative hidden md:block"
-              onMouseEnter={openContactDropdown}
-              onMouseLeave={closeContactDropdown}
-            >
-              <Button
-                onClick={() => (contactOpen ? setContactOpen(false) : openContactDropdown())}
-                className="inline-flex rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors px-6 h-10 border-0 font-medium cursor-pointer"
-                aria-expanded={contactOpen}
+            <div className="hidden md:block">
+              <a
+                href="https://wa.me/5592981244044"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors px-6 h-10 border-0 font-medium cursor-pointer text-sm"
               >
                 Fale Conosco
-              </Button>
-
-              {contactOpen && (
-                <div className="absolute right-0 top-full z-50 w-56 pt-2 animate-in fade-in-0 zoom-in-95 duration-150">
-                  <div className="rounded-md border bg-popover p-1 text-popover-foreground shadow-md">
-                    <a className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground" href="mailto:contato@chronokairo.com.br">
-                      Email
-                    </a>
-                    <a className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground" href="tel:+5592981244044">
-                      Telefone
-                    </a>
-                    <a
-                      className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      href="https://wa.me/5592981244044"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      WhatsApp
-                    </a>
-                    <div className="-mx-1 my-1 h-px bg-muted" />
-                    <button
-                      onClick={() => scrollToSection("contact")}
-                      className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-left text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      Formulário de contato
-                    </button>
-                  </div>
-              </div>
-              )}
+              </a>
             </div>
             <ThemeToggle />
 
