@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Design from "@/pages/Design";
 
 export const metadata: Metadata = {
-  title: "Design System · Guia de Marca e Interface",
+  title: "Brand System · Chronokairo",
   description:
-    "Conheça o sistema de design da Chronokairo: cores, tipografia, componentes, logotipo e diretrizes de marca para produtos digitais.",
+    "Diretrizes de marca e interface da Chronokairo: engenharia de software, inteligência artificial, automação e luxo silencioso tecnológico.",
   alternates: { canonical: "/design" },
 };
 

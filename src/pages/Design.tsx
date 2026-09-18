@@ -6,19 +6,19 @@ import { Copy, Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 const colors = [
-  { name: "Background", light: "#faf9f5", dark: "#0a0a0a" },
-  { name: "Foreground", light: "#0a0a0a", dark: "#fafafa" },
-  { name: "Primary", light: "#0a0a0a", dark: "#fafafa" },
-  { name: "Secondary", light: "#f2f1ed", dark: "#171717" },
-  { name: "Muted", light: "#ece9e1", dark: "#141f1a" },
-  { name: "Muted Foreground", light: "#4a6fa5", dark: "#5dba7d" },
-  { name: "Accent", light: "#ece9e1", dark: "#141f1a" },
-  { name: "Border", light: "#e2e0d8", dark: "#262626" },
-  { name: "Card", light: "#faf9f5", dark: "#121212" },
+  { name: "Background", light: "#0a0a0a", dark: "#0a0a0a" },
+  { name: "Foreground", light: "#fafafa", dark: "#fafafa" },
+  { name: "Primary", light: "#fafafa", dark: "#fafafa" },
+  { name: "Secondary", light: "#171717", dark: "#171717" },
+  { name: "Muted", light: "#141414", dark: "#141414" },
+  { name: "Muted Foreground", light: "#a3a3a3", dark: "#a3a3a3" },
+  { name: "Accent", light: "#1f1f1f", dark: "#1f1f1f" },
+  { name: "Border", light: "#292929", dark: "#292929" },
+  { name: "Card", light: "#121212", dark: "#121212" },
 ];
 
 const typography = [
-  { name: "Display", font: "Newsreader", usage: "Títulos e headlines", weight: "700", size: "h1 48px · h2 36px · h3 30px" },
+  { name: "Display", font: "Inter", usage: "Títulos, headlines e cases", weight: "300 · 400", size: "h1 48px · h2 36px · h3 30px" },
   { name: "Sans", font: "Inter", usage: "Corpo, navegação, UI", weight: "400 · 500 · 600", size: "body 16px · small 14px · xs 12px" },
   { name: "Mono", font: "ui-monospace", usage: "Código, badges, tracking", weight: "400 · 700", size: "10px · 12px · 14px" },
 ];
@@ -62,13 +62,36 @@ export default function Design() {
           <div className="text-2xl font-serif font-bold tracking-tight -mt-8 leading-none">
             Chrono<span className="font-normal italic">kairo</span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-2 tracking-tight">Design System</h1>
+          <h1 className="text-5xl md:text-7xl font-serif font-light mb-2 tracking-tight">Brand system</h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Diretrizes de marca, cores, tipografia e componentes para produtos Chronokairo.
+            Diretrizes para comunicar uma boutique de engenharia: precisa, silenciosa e próxima da operação.
           </p>
           <div className="flex items-center justify-center gap-3 mt-8">
-            <Badge variant="outline" className="font-mono text-xs tracking-wider">v1.0</Badge>
-            <Badge variant="outline" className="font-mono text-xs tracking-wider">Atualizado Maio 2026</Badge>
+            <Badge variant="outline" className="font-mono text-xs tracking-wider">Chronokairo</Badge>
+            <Badge variant="outline" className="font-mono text-xs tracking-wider">Atualizado Setembro 2026</Badge>
+          </div>
+        </section>
+
+        <section className="mb-24 scroll-mt-28" id="practice">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-1 h-6 rounded-full bg-muted-foreground" />
+            <h2 className="text-2xl font-serif font-bold tracking-tight">A prática</h2>
+          </div>
+          <p className="text-sm text-foreground/60 mb-8 ml-4 border-l-2 border-border pl-4">
+            Chronokairo resolve problemas operacionais complexos através de software, inteligência artificial e automação. A tecnologia é prova de competência; o produto é a solução funcionando.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              ["Software Engineering", "Sistemas sob medida para processos, integrações e decisões críticas."],
+              ["Artificial Intelligence", "Inteligência aplicada a fluxos reais, com supervisão e responsabilidade."],
+              ["Automation & Infrastructure", "Operações conectadas, ambientes resilientes e menos trabalho manual."],
+            ].map(([title, copy], index) => (
+              <div key={title} className="rounded-xl border border-border p-6">
+                <span className="font-mono text-xs text-foreground/40">0{index + 1}</span>
+                <h3 className="mt-8 mb-3 text-xl font-light">{title}</h3>
+                <p className="text-sm leading-relaxed text-foreground/60">{copy}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -79,7 +102,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Logotipo</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            O logotipo combina dois losangos em silhueta de infinito: <strong className="text-foreground/80">&lt;/&gt;</strong> (código) e <strong className="text-foreground/80">ampulheta</strong> (tempo).
+            O logotipo combina código e tempo em uma única marca. Use-o com bastante espaço ao redor, sem efeitos, sombras ou molduras decorativas.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-background p-10 flex items-center justify-center min-h-[200px]">
@@ -109,7 +132,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Cores</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            Paleta clara (warm off-white) e escura (deep black com verde). A cor <strong className="text-foreground/80">muted-foreground</strong> muda de azul (#4a6fa5) para verde (#5dba7d) no dark mode.
+            Paleta monocromática: preto profundo, branco suave e cinzas de leitura. Não adicione dourado ou verde para criar uma aparência de luxo.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {colors.map((c) => (
@@ -135,7 +158,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Tipografia</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            Duas famílias principais: <strong className="text-foreground/80">Newsreader</strong> (serifa, display) e <strong className="text-foreground/80">Inter</strong> (sans-serif, corpo). Mono reservado para código e badges.
+            <strong className="text-foreground/80">Inter</strong> conduz títulos, corpo e interface. Mono aparece apenas em índices, labels e referências técnicas. A tipografia deve ser leve, espaçada e precisa.
           </p>
           <div className="space-y-4">
             {typography.map((t) => (
@@ -183,7 +206,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Componentes</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            Componentes baseados em shadcn/ui com customizações de borda, glass e cores do tema.
+            Componentes discretos, com bordas finas, cantos contidos e contraste alto. Use movimento lento e funcional; não transforme a interface em uma vitrine de efeitos.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border p-6 glass-hover">
@@ -257,7 +280,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Iconografia</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            Ícones via <strong className="text-foreground/80">lucide-react</strong>. Marca Kairos usa <CodeInline>Hourglass</CodeInline>, Chronos usa <CodeInline>{'<code />'}</CodeInline>.
+            Ícones via <strong className="text-foreground/80">lucide-react</strong>, sempre monocromáticos. A assinatura da marca é tipográfica: <CodeInline>Χρόνος</CodeInline> e <CodeInline>Καιρός</CodeInline>.
           </p>
           <div className="flex flex-wrap gap-6 items-center justify-center rounded-xl border border-border p-8">
             <div className="flex flex-col items-center gap-2">
@@ -284,7 +307,7 @@ export default function Design() {
             <h2 className="text-2xl font-serif font-bold tracking-tight">Gradientes</h2>
           </div>
           <p className="text-sm text-foreground/60 mb-6 ml-4 border-l-2 border-border pl-4">
-            Gradient sutil usado em backgrounds de seções. Varia entre light e dark mode.
+            Gradientes são opcionais e quase imperceptíveis. A direção principal é preto, branco, espaço vazio e hierarquia tipográfica.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-xl border border-border overflow-hidden">
@@ -317,17 +340,17 @@ export default function Design() {
             <div className="rounded-xl border border-border/60 bg-green-500/5 p-5">
               <p className="text-xs font-mono tracking-wider text-green-600 dark:text-green-400 mb-2">✓ FAÇA</p>
               <ul className="space-y-2 text-sm text-foreground/80">
-                <li>• &ldquo;Automação de processos com IA&rdquo;</li>
-                <li>• &ldquo;Integramos com seu sistema legado&rdquo;</li>
+                <li>• &ldquo;Projetamos sistemas para operações complexas&rdquo;</li>
+                <li>• &ldquo;Envolvimento técnico direto, do diagnóstico à operação&rdquo;</li>
                 <li>• &ldquo;Tecnologia no tempo certo&rdquo;</li>
               </ul>
             </div>
             <div className="rounded-xl border border-border/60 bg-red-500/5 p-5">
               <p className="text-xs font-mono tracking-wider text-red-600 dark:text-red-400 mb-2">✗ EVITE</p>
               <ul className="space-y-2 text-sm text-foreground/60">
-                <li>• &ldquo;Solução disruptiva 360°&rdquo;</li>
-                <li>• &ldquo;Sinergia de plataforma omnichannel&rdquo;</li>
-                <li>• &ldquo;Paradigma de transformação digital&rdquo;</li>
+                <li>• &ldquo;Agenda aberta — resposta em até 24h&rdquo;</li>
+                <li>• &ldquo;Antes que a agenda feche&rdquo;</li>
+                <li>• &ldquo;Software House · Manaus, Brasil&rdquo;</li>
               </ul>
             </div>
           </div>
