@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0B0B">
+  <meta name="robots" content="index, follow">
+  
+  <title>ChronoKairo Marketing Operations · Plataforma Autônoma de Marketing B2B com IA</title>
+  <meta name="description" content="A primeira plataforma autônoma de operações de marketing orientada a agentes de IA, arquitetura hexagonal e protocolo A2A. Do benchmarking à publicação multicanal e conversão Comment-to-DM.">
+  <link rel="canonical" href="https://chronokairo.com.br/lp/marketing/">
+  
+  <meta property="og:site_name" content="ChronoKairo">
+  <meta property="og:title" content="ChronoKairo Marketing Operations · Plataforma Autônoma com IA">
+  <meta property="og:description" content="Engenharia de marketing autônomo com governança de agentes, publicação multicanal e design minimalista suíço Pantone 2026.">
+  <meta property="og:url" content="https://chronokairo.com.br/lp/marketing/">
+  <meta property="og:image" content="./assets/hero.jpg">
+  <meta property="og:type" content="product">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@chronokairo">
+  <meta name="twitter:title" content="ChronoKairo Marketing Operations · IA Autônoma">
+  <meta name="twitter:description" content="Operações de marketing autônomas para líderes que exigem precisão técnica e governança.">
+  <meta name="twitter:image" content="./assets/hero.jpg">
+
+  <link rel="icon" type="image/x-icon" href="/CHRONOKAIRO.ico">
+
+  <style>
+    :root {
+      --bg-black: #0B0B0B;
+      --surface-dark: #121212;
+      --surface-elevated: #1A1A1A;
+      --border-subtle: #262626;
+      --border-active: #3D3D3D;
+      --slate-gray: #8A8D8F;
+      --glacier: #E0E2E4;
+      --pure-white: #FFFFFF;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-black);
+      color: var(--pure-white);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      line-height: 1.6;
+      background-color: var(--bg-black);
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 11, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--pure-white);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      background: var(--surface-elevated);
+      color: var(--glacier);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pure-white);
+    }
+
+    .nav-cta {
+      background: var(--pure-white);
+      color: var(--bg-black);
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-cta:hover {
+      background: var(--glacier);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 96px 0 64px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--glacier);
+      background: var(--surface-dark);
+      border: 1px solid var(--border-active);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #00FF66;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      max-width: 960px;
+      margin: 0 auto 24px auto;
+      color: var(--pure-white);
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--slate-gray);
+      max-width: 760px;
+      margin: 0 auto 40px auto;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--pure-white);
+      color: var(--bg-black);
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--glacier);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--pure-white);
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 1px solid var(--border-active);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-elevated);
+      border-color: var(--slate-gray);
+    }
+
+    /* Hero Image Showcase */
+    .hero-showcase {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-active);
+      background: var(--surface-dark);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+      margin-bottom: 40px;
+    }
+
+    .hero-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-showcase-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: var(--surface-dark);
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+    }
+
+    /* Metrics Strip */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 48px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 96px;
+    }
+
+    .metric-card {
+      padding: 20px;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      text-align: left;
+    }
+
+    .metric-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--pure-white);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Section Titles */
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 64px auto;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: var(--slate-gray);
+      font-size: 1.05rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 112px;
+    }
+
+    .feature-card {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      padding: 32px;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-active);
+      background: var(--surface-elevated);
+      transform: translateY(-2px);
+    }
+
+    .feature-num {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--slate-gray);
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p {
+      color: var(--slate-gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .feature-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .feature-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      background: var(--bg-black);
+      border: 1px solid var(--border-subtle);
+      border-radius: 3px;
+      color: var(--glacier);
+    }
+
+    /* Architecture / Comparison */
+    .comparison-section {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 48px 36px;
+      margin-bottom: 112px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+      font-size: 0.95rem;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comparison-table th {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-gray);
+    }
+
+    .comparison-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge-check {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .badge-cross {
+      color: #555555;
+    }
+
+    /* Contact Section (Fale Conosco) */
+    .contact-section {
+      padding: 64px 0 96px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--slate-gray);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    .contact-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-detail-label {
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-detail-val a {
+      color: var(--pure-white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-detail-val a:hover {
+      color: var(--glacier);
+      text-decoration: underline;
+    }
+
+    /* Form */
+    .contact-form {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--glacier);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-black);
+      border: 1px solid var(--border-subtle);
+      color: var(--pure-white);
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--slate-gray);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--pure-white);
+      color: var(--bg-black);
+      padding: 14px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--glacier);
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-align: center;
+      background: #112211;
+      border: 1px solid #225522;
+      color: #77EE77;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0;
+      background: var(--bg-black);
+      color: var(--slate-gray);
+      font-size: 0.85rem;
+    }
+
+    .footer-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--slate-gray);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--pure-white);
+    }
+
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .comparison-table {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="https://chronokairo.com.br" class="brand-logo">
+        <span>CHRONOKAIRO</span>
+        <span class="brand-badge">MARKETING OPERATIONS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#modulos">Módulos</a></li>
+        <li><a href="#arquitetura">Arquitetura</a></li>
+        <li><a href="#comparativo">Diferenciais</a></li>
+        <li><a href="#contato">Fale Conosco</a></li>
+      </ul>
+      <a href="#contato" class="nav-cta">Solicitar Demonstração</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">SISTEMA AUTÔNOMO 2026 · ARQUITETURA HEXAGONAL & A2A</div>
+      <h1>Marketing Autônomo com Precisão Cirúrgica e Governança Absoluta</h1>
+      <p>
+        A primeira plataforma de operações de marketing orientada a agentes de inteligência artificial: 
+        do benchmarking de mercado à publicação omnichannel simultânea e conversão de leads via Comment-to-DM, 
+        sem intervenção manual ou ruído operacional.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">
+          <span>Agendar Sessão Estratégica</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#arquitetura" class="btn-secondary">
+          <span>Ver Especificações Técnicas</span>
+        </a>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="hero-showcase">
+        <img src="./assets/hero.jpg" alt="ChronoKairo Autonomous Marketing Platform Dashboard Mockup" loading="lazy">
+        <div class="hero-showcase-caption">
+          <span>CHRONOKAIRO_MARKETING_ENGINE_V1.0</span>
+          <span>ESTÉTICA PANTONE 2026 · SWISS MINIMALISM</span>
+          <span>STATUS: OPERACIONAL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Strip -->
+  <section>
+    <div class="container">
+      <div class="metrics-strip">
+        <div class="metric-card">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Orquestração Autônoma de Agentes</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">6+ Redes</div>
+          <div class="metric-label">Meta, LinkedIn, Bluesky, X, TikTok, YouTube</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">&lt; 10ms</div>
+          <div class="metric-label">Inspeção e Auditoria com w3m CLI</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">0 Ruído</div>
+          <div class="metric-label">Boardroom Grade Pantone 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulos da Plataforma -->
+  <section id="modulos" style="padding: 32px 0 64px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">MÓDULOS DE ALTA PERFORMANCE</span>
+        <h2 class="section-title">Engenharia Completa de Aquisição e Autoridade Digital</h2>
+        <p class="section-subtitle">Construído segundo o padrão Ports & Adapters para garantir velocidade de execução, auditoria irrestrita e independência de fornecedores de IA.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[01] DISPERSÃO OMNICHANNEL</div>
+            <h3>Publicação Multicanal Simultânea</h3>
+            <p>Disparo atômico de posts, carrosséis e vídeos para Bluesky (AT Protocol), LinkedIn B2B, Meta Suite, X, TikTok Studio e YouTube Shorts em uma única instrução CLI.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">mkt publish multi</span>
+            <span class="feature-tag">Bluesky XRPC</span>
+            <span class="feature-tag">LinkedIn Feed</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[02] CONVERSÃO & CRM</div>
+            <h3>Motor de Comment-to-DM</h3>
+            <p>Fechamento instantâneo do funil social. Detecta palavras-chave de interesse nos comentários, dispara a entrega do material no privado e grava os leads com idempotência.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">mkt community auto-dm</span>
+            <span class="feature-tag">Lead Ingestion</span>
+            <span class="feature-tag">Growth Funnel</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[03] DESIGN AUTÔNOMO</div>
+            <h3>Renderizador Visual Dark AI</h3>
+            <p>Gera carrosséis conceituais de 7 lâminas (1080x1080) em SVG nativo. Tipografia suíça rigorosa, paleta monocromática Pantone 2026 e menção de autoridade à marca.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">mkt copy generate</span>
+            <span class="feature-tag">Pantone Black 6 C</span>
+            <span class="feature-tag">SVG Compilation</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[04] INTELIGÊNCIA & SCRAPING</div>
+            <h3>Auditoria Text-Mode com w3m</h3>
+            <p>Extração semântica de LPs e páginas concorrentes em ~10ms. Elimina o custo e peso de navegadores gráficos para auditoria rápida de SEO, copy e acessibilidade.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">mkt browser dump</span>
+            <span class="feature-tag">w3m CLI</span>
+            <span class="feature-tag">Benchmarking</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[05] INTEROPERABILIDADE</div>
+            <h3>Protocolos A2A & ACP Nativos</h3>
+            <p>Compatibilidade total com o protocolo Agent-to-Agent. Agent Card oficial em JSON-RPC 2.0 que permite a outros agentes de IA delegar tarefas de marketing autonomamente.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">A2A Protocol</span>
+            <span class="feature-tag">ACP Compliant</span>
+            <span class="feature-tag">TaskManager</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card">
+          <div>
+            <div class="feature-num">[06] GOVERNANÇA & SITES</div>
+            <h3>Gestão Git de Landing Pages</h3>
+            <p>Gera, valida com w3m e faz deploy de novas LPs diretamente no GitHub Pages da empresa. Versionamento rigoroso em Git com zero dependência de CMSs vulneráveis.</p>
+          </div>
+          <div class="feature-tags">
+            <span class="feature-tag">mkt site deploy</span>
+            <span class="feature-tag">GitHub Pages</span>
+            <span class="feature-tag">chronokairo.com.br</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo / Diferenciais -->
+  <section id="comparativo" style="padding: 32px 0 64px 0;">
+    <div class="container">
+      <div class="comparison-section">
+        <div class="section-header" style="margin-bottom: 32px;">
+          <span class="section-tag">ANÁLISE COMPARATIVA</span>
+          <h2 class="section-title">Por que Engenharia de Marketing Autônoma?</h2>
+        </div>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Capacidade Operacional</th>
+              <th>Ferramentas Convencionais (SaaS / Canva)</th>
+              <th>ChronoKairo Marketing Platform</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Criação & Diagramação de Carrosséis</strong></td>
+              <td class="badge-cross">Manual, arrasta-e-solta lento em telas coloridas</td>
+              <td class="badge-check">Autônoma em SVG Suíço Pantone 2026 em &lt; 2s</td>
+            </tr>
+            <tr>
+              <td><strong>Distribuição em Canais Sociais</strong></td>
+              <td class="badge-cross">Disparo isolado por rede com limites de API</td>
+              <td class="badge-check">Multicanal atômico (Bluesky, LinkedIn, X, Meta)</td>
+            </tr>
+            <tr>
+              <td><strong>Funil Comment-to-DM & CRM</strong></td>
+              <td class="badge-cross">Ferramentas terceiras caras e com risco de ban</td>
+              <td class="badge-check">Integrado nativo com gravação estruturada no CRM</td>
+            </tr>
+            <tr>
+              <td><strong>Auditoria de LPs e Concorrentes</strong></td>
+              <td class="badge-cross">Abertura de abas pesadas e lentas</td>
+              <td class="badge-check">Inspeção relâmpago em modo texto via w3m (~10ms)</td>
+            </tr>
+            <tr>
+              <td><strong>Governança & Controle de Código</strong></td>
+              <td class="badge-cross">Sistemas fechados "black box" na nuvem</td>
+              <td class="badge-check">Código proprietário em Git, Hexagonal e A2A</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fale Conosco / Contato -->
+  <section id="contato" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Coluna de Informações -->
+        <div class="contact-info">
+          <span class="section-tag">BRIEFING & IMPLEMENTAÇÃO</span>
+          <h3>Fale Conosco e Implemente o Marketing Autônomo</h3>
+          <p>
+            Agende uma sessão técnica com os engenheiros e estrategistas da ChronoKairo para integrar 
+            a esteira de marketing autônomo ao seu ecossistema corporativo.
+          </p>
+
+          <ul class="contact-details">
+            <li class="contact-detail-item">
+              <span class="contact-detail-label">Canal Oficial de Atendimento</span>
+              <div class="contact-detail-val">
+                <a href="mailto:contato@chronokairo.com.br">contato@chronokairo.com.br</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <span class="contact-detail-label">Contato Direto / WhatsApp Estratégico</span>
+              <div class="contact-detail-val">
+                <a href="https://wa.me/5592981244044" target="_blank" rel="noopener">+55 (92) 98124-4044</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <span class="contact-detail-label">Repositório & Engenharia Oficial</span>
+              <div class="contact-detail-val">
+                <a href="https://github.com/chronokairo" target="_blank" rel="noopener">github.com/chronokairo</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <span class="contact-detail-label">Sede / Presença</span>
+              <div class="contact-detail-val" style="color: var(--glacier);">
+                Manaus, AM — Brasil · Operações Globais
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Formulário Estilizado -->
+        <div class="contact-form">
+          <form id="lead-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="name">Nome do Executivo / Líder</label>
+              <input type="text" id="name" class="form-control" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail Corporativo</label>
+              <input type="email" id="email" class="form-control" placeholder="voce@empresa.com.br" required>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Empresa / Setor</label>
+              <input type="text" id="company" class="form-control" placeholder="Nome da empresa e nicho" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Desafio de Marketing & Automação</label>
+              <textarea id="message" class="form-control" placeholder="Descreva brevemente seus canais prioritários e objetivos de crescimento..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">Agendar Briefing com o Time</button>
+            
+            <div id="form-feedback" class="form-feedback">
+              ✓ Solicitação registrada com sucesso! Nosso time estratégico entrará em contato via e-mail e WhatsApp em até 2 horas úteis.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrapper">
+      <div>
+        <strong style="color: var(--pure-white);">CHRONOKAIRO</strong> · Tecnologia no Tempo Certo. © 2026. Todos os direitos reservados.
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://chronokairo.com.br">Site Institucional</a></li>
+        <li><a href="https://github.com/chronokairo">GitHub</a></li>
+        <li><a href="https://linkedin.com/company/chronokairo">LinkedIn</a></li>
+        <li><a href="mailto:contato@chronokairo.com.br">Privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const company = document.getElementById('company').value;
+      const message = document.getElementById('message').value;
+
+      // Feedback visual
+      const feedback = document.getElementById('form-feedback');
+      feedback.style.display = 'block';
+
+      // Prepara envio complementar via WhatsApp corporativo para agilidade do lead
+      const text = encodeURIComponent(`Olá ChronoKairo! Gostaria de agendar um briefing sobre a Plataforma de Marketing Autônomo.\n\nNome: ${name}\nEmpresa: ${company}\nEmail: ${email}\nDesafio: ${message}`);
+      
+      setTimeout(() => {
+        const proceed = confirm("Sua solicitação foi registrada! Deseja abrir também uma conversa direta no WhatsApp institucional da ChronoKairo (+55 92 98124-4044)?");
+        if (proceed) {
+          window.open(`https://wa.me/5592981244044?text=${text}`, '_blank');
+        }
+      }, 500);
+    }
+  </script>
+</body>
+</html>
