@@ -4,18 +4,8 @@ import { GitHubIcon, InstagramIcon, LinkedInIcon, XIcon, WhatsAppIcon } from "@/
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const links = {
-    company: [
-      { label: "Sobre", href: "#about" },
-      { label: "Serviços", href: "#services" },
-      { label: "Pesquisas", href: "/pesquisas" },
-      { label: "Projetos", href: "#projects" },
-      { label: "Equipe", href: "#team" },
-    ],
-  };
-
   const social = [
-    { icon: WhatsAppIcon, href: "https://wa.me/5592981244044", label: "WhatsApp Oficial" },
+    { icon: WhatsAppIcon, href: "https://wa.me/5592981244044", label: "WhatsApp" },
     { icon: GitHubIcon, href: "https://github.com/chronokairo", label: "GitHub" },
     { icon: LinkedInIcon, href: "https://www.linkedin.com/company/chronokairo", label: "LinkedIn" },
     { icon: InstagramIcon, href: "https://www.instagram.com/chronokairo", label: "Instagram" },
@@ -23,73 +13,38 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-border bg-background">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+    <footer className="relative border-t border-border/50 bg-background">
+      <div className="container mx-auto px-8 py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center mb-4">
-              <div className="flex flex-col">
-                <span className="text-xl font-serif font-bold tracking-tight text-foreground">
-                  Chrono<span className="font-normal italic">Kairo</span>
-                </span>
-                <span className="text-[9px] tracking-[0.25em] text-muted-foreground uppercase mt-0.5">
-                  Tecnologia no tempo certo
-                </span>
-              </div>
-            </div>
-            <p className="text-muted-foreground text-sm max-w-sm mb-6 leading-relaxed">
-              Arquitetura, integração e inteligência para gerar valor mensurável no seu negócio.
+          <div className="text-center md:text-left">
+            <span className="text-sm font-light text-foreground tracking-[-0.01em]">
+              Chrono<em className="not-italic text-foreground/60">Kairo</em>
+            </span>
+            <p className="text-[10px] font-mono tracking-[0.2em] text-muted-foreground/50 uppercase mt-1">
+              Tecnologia no tempo certo
             </p>
-            {/* Social Links */}
-            <div className="flex gap-2">
-              {social.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  aria-label={item.label}
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-colors text-foreground"
-                >
-                  <item.icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-serif font-bold mb-4 text-sm text-foreground">Empresa</h4>
-            <ul className="space-y-3">
-              {links.company.map((link, index) => (
-                <li key={index}>
-                  {link.href.startsWith("/") ? (
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
+          {/* Social */}
+          <div className="flex gap-3">
+            {social.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={item.label}
+                className="w-8 h-8 rounded-full border border-border/60 flex items-center justify-center hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-200 text-muted-foreground"
+              >
+                <item.icon className="w-3.5 h-3.5" />
+              </a>
+            ))}
           </div>
-        </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground flex items-center gap-1 flex-wrap">
-            © {currentYear} <span className="font-serif font-bold text-foreground">Chrono<span className="font-normal italic">Kairo</span></span>. Todos os direitos reservados.
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Feito com precisão e dedicação.
+          {/* Copyright */}
+          <p className="text-[11px] text-muted-foreground/60 font-mono">
+            © {currentYear} ChronoKairo
           </p>
         </div>
       </div>

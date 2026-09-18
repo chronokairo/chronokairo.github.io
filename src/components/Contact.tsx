@@ -1,124 +1,50 @@
-import { Mail, Phone, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/BrandIcons";
+import { ArrowRight } from "lucide-react";
+
+const WHATSAPP_URL =
+  "https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo.%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20meu%20projeto.";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: MessageCircle,
-      title: "WhatsApp Oficial",
-      value: "+55 (92) 98124-4044",
-      link: "https://wa.me/5592981244044",
-    },
-    {
-      icon: Phone,
-      title: "Telefone / WhatsApp",
-      value: "+55 (92) 98124-4044",
-      link: "https://wa.me/5592981244044",
-    },
-    {
-      icon: MapPin,
-      title: "Localização",
-      value: "Brasil",
-      link: "#",
-    },
-  ];
-
   return (
-    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute top-0 left-0 w-full h-px bg-border" />
-      
-      <div className="container mx-auto px-6 relative">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-sm font-medium text-muted-foreground tracking-wider uppercase mb-4 block">
-            Contato
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-tight text-foreground">
-            Vamos <span className="font-normal italic">conversar</span>
-          </h2>
-          <p className="text-foreground/80 text-sm">
-            Pronto para transformar suas ideias em realidade? Entre em contato pelo canal de sua preferência.
+    <section id="contact" className="py-32 md:py-48 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-border/50" />
+
+      <div className="container mx-auto px-8 relative">
+        <div className="max-w-2xl mx-auto text-center">
+          {/* Eyebrow */}
+          <p className="text-[11px] font-mono tracking-[0.3em] text-muted-foreground uppercase mb-10">
+            Acesso exclusivo
           </p>
-        </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 max-w-4xl mx-auto">
-          {/* WhatsApp CTA — destaque principal */}
-          <div className="lg:col-span-3">
-            <div className="border border-[#25D366]/30 hover:border-[#25D366]/60 rounded-xl p-8 bg-card h-full flex flex-col justify-between gap-8 transition-colors shadow-lg shadow-[#25D366]/5">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
-                    <WhatsAppIcon className="w-6 h-6 fill-current" />
-                  </div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#25D366] font-semibold">Canal Oficial Imediato</span>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-2">WhatsApp Comercial</h3>
-                <p className="text-sm text-foreground/80 leading-relaxed">
-                  A forma mais rápida de iniciar uma conversa com nossa engenharia sobre seu projeto. Atendimento humano e imediato em horário comercial.
-                </p>
-              </div>
-              <a
-                href="https://wa.me/5592981244044?text=Ol%C3%A1%20ChronoKairo!%20Gostaria%20de%20conversar%20sobre%20solucoes%20tecnologicas%20para%20minha%20empresa."
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 w-full h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-base font-semibold shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/35 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98"
-              >
-                <WhatsAppIcon className="w-5 h-5 fill-white" />
-                <span>Conversar no WhatsApp (+55 92 98124-4044)</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-          </div>
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-[-0.02em] mb-6 text-foreground">
+            Trabalhos selecionados.<br />
+            <em className="not-italic text-foreground/60">Um projeto de cada vez.</em>
+          </h2>
 
-          {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-4">
-            {/* Contact Details */}
-            <div className="border border-border rounded-lg p-6 bg-card">
-              <h3 className="text-lg font-serif font-bold mb-6 text-foreground">Informações</h3>
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <a
-                    key={index}
-                    href={info.link}
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-foreground/5 flex items-center justify-center flex-shrink-0 group-hover:bg-foreground group-hover:text-background transition-colors text-foreground">
-                      <info.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-muted-foreground mb-0.5">{info.title}</div>
-                      <div className="font-serif font-bold text-foreground group-hover:underline transition-all">
-                        {info.value}
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+          {/* Body */}
+          <p className="text-sm md:text-base text-muted-foreground font-light leading-[1.9] mb-14 max-w-md mx-auto">
+            Atendemos um número limitado de projetos por ciclo. Se o seu problema é real e o prazo importa, fale conosco antes que a agenda feche.
+          </p>
 
-            {/* Business Hours */}
-            <div className="border border-border rounded-lg p-6 bg-card">
-              <div className="flex items-center gap-3 mb-4 text-foreground">
-                <Clock className="w-5 h-5" />
-                <h3 className="text-lg font-serif font-bold">Horário</h3>
-              </div>
-              <div className="space-y-2 text-sm text-foreground/80">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground text-xs font-mono uppercase">// Segunda - Sexta</span>
-                  <span>9h - 18h</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground text-xs font-mono uppercase">// Sábado</span>
-                  <span>9h - 13h</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground text-xs font-mono uppercase">// Domingo</span>
-                  <span>Fechado</span>
-                </div>
-              </div>
-            </div>
+          {/* CTA */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-foreground text-background text-sm font-medium tracking-wide hover:bg-foreground/90 transition-all duration-300 hover:-translate-y-px active:scale-[0.98] shadow-[0_0_40px_rgba(255,255,255,0.06)] group"
+          >
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
+            Solicitar consulta
+            <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -ml-1 group-hover:ml-0 transition-all duration-200" />
+          </a>
+
+          {/* Availability signal */}
+          <div className="flex items-center justify-center gap-2 mt-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+            <p className="text-xs text-muted-foreground font-mono tracking-wider">
+              Agenda aberta — resposta em até 24h
+            </p>
           </div>
         </div>
       </div>
