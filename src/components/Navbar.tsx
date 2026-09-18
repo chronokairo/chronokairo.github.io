@@ -56,15 +56,12 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <Link
-              href="/"
-              className="flex flex-col leading-none group"
-            >
-              <span className="text-base font-light tracking-[-0.01em] text-foreground group-hover:text-foreground/80 transition-colors">
-                Chrono<em className="not-italic text-foreground/60">Kairo</em>
+            {/* Logo — ChronoKairo */}
+            <Link href="/" className="flex flex-col leading-none group">
+              <span className="text-base font-light tracking-[-0.01em] text-white group-hover:text-white/80 transition-colors">
+                Chrono<em className="not-italic font-extralight">Kairo</em>
               </span>
-              <span className="text-[9px] font-mono tracking-[0.2em] text-muted-foreground/60 uppercase mt-0.5">
+              <span className="text-[9px] font-mono tracking-[0.2em] text-white/40 uppercase mt-0.5">
                 Tecnologia no tempo certo
               </span>
             </Link>
@@ -76,7 +73,7 @@ const Navbar = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide"
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200 tracking-wide"
                   >
                     {link.label}
                   </a>
@@ -84,19 +81,19 @@ const Navbar = () => {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 tracking-wide"
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200 tracking-wide"
                   >
                     {link.label}
                   </Link>
                 )
               )}
 
-              {/* CTA */}
+              {/* CTA — highlight preto */}
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-px active:scale-95 shadow-lg shadow-[#25D366]/20"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-px active:scale-95"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
                 WhatsApp
@@ -106,7 +103,7 @@ const Navbar = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-9 h-9 flex items-center justify-center text-foreground rounded-full hover:bg-foreground/5 transition-colors"
+              className="md:hidden w-9 h-9 flex items-center justify-center text-white rounded-full hover:bg-white/5 transition-colors"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -115,16 +112,16 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — fullscreen */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8">
+        <div className="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8">
           {links.map((link) =>
             link.href.startsWith("#") ? (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-light text-foreground/80 hover:text-foreground transition-colors"
+                className="text-3xl font-light text-white/70 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -133,7 +130,7 @@ const Navbar = () => {
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-light text-foreground/80 hover:text-foreground transition-colors"
+                className="text-3xl font-light text-white/70 hover:text-white transition-colors"
               >
                 {link.label}
               </Link>

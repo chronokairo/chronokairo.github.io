@@ -54,8 +54,8 @@
     --primary-foreground: #0a0a0a;
     --secondary: #171717;
     --secondary-foreground: #fafafa;
-    --muted: #141f1a;
-    --muted-foreground: #8a8d8f;
+    --muted: #141414;
+    --muted-foreground: #C8CACB;
     --accent: #141f1a;
     --accent-foreground: #fafafa;
     --destructive: #ef4444;
@@ -103,8 +103,8 @@
     --primary-foreground: #0a0a0a;
     --secondary: #171717;
     --secondary-foreground: #fafafa;
-    --muted: #141f1a;
-    --muted-foreground: #5dba7d;
+    --muted: #141414;
+    --muted-foreground: #C8CACB;
     --accent: #141f1a;
     --accent-foreground: #fafafa;
     --destructive: #ef4444;
@@ -398,4 +398,15 @@ body {
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text selection — highlight preto, texto branco */
+::selection {
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background-color: #0a0a0a;
+    color: #ffffff;
 }
