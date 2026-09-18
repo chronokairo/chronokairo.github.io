@@ -39,7 +39,22 @@ export default function Studio() {
 
       <section id="studio" className="scroll-mt-20 border-t border-white/10 py-24 md:py-36">
         <div className="container mx-auto grid gap-12 px-8 md:grid-cols-2 md:gap-20">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-white/40">04 / Chronokairo</p>
+          <div>
+            <p className="mb-14 font-mono text-[11px] uppercase tracking-[0.3em] text-white/40">04 / Chronokairo</p>
+            <div className="space-y-9">
+              <div>
+                <div className="font-serif text-4xl font-light tracking-tight text-white/90 md:text-5xl">Χρόνος</div>
+                <div className="mt-2 text-sm text-white/45">Chronos</div>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">Tempo técnico, sequência e continuidade.</p>
+              </div>
+              <div className="h-px w-16 bg-white/20" />
+              <div>
+                <div className="font-serif text-4xl font-light tracking-tight text-white/90 md:text-5xl">Καιρός</div>
+                <div className="mt-2 text-sm text-white/45">Kairós</div>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">O momento certo para uma decisão decisiva.</p>
+              </div>
+            </div>
+          </div>
           <div>
             <h2 className="text-4xl font-light tracking-tight text-white md:text-5xl">Tecnologia no tempo certo.</h2>
             <p className="mt-8 max-w-lg text-base font-light leading-relaxed text-white/55">
