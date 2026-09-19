@@ -43,10 +43,10 @@ export default function SelectedWork() {
       <div className="container mx-auto px-8">
         <div className="mb-16 md:mb-24 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-white/40">01 / Projetos selecionados</p>
+            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-white/60">01 / Projetos selecionados</p>
             <h2 className="text-4xl font-light tracking-tight text-white md:text-6xl">Trabalhos selecionados.<br /><span className="text-white/55">Um projeto de cada vez.</span></h2>
           </div>
-          <p className="max-w-sm text-sm font-light leading-relaxed text-white/50">
+          <p className="max-w-sm text-sm font-light leading-relaxed text-white/60">
             Três problemas distintos. A mesma atenção ao funcionamento real de cada operação.
           </p>
         </div>
@@ -69,21 +69,21 @@ export default function SelectedWork() {
               )}
               <div className="flex flex-col justify-between">
                 <div>
-                  <div className="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-white/40">
+                  <div className="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
                     <span>{project.number} / {project.field}</span>
                   </div>
                   <h3 className="mb-8 text-3xl font-light tracking-tight text-white md:text-4xl">{project.name}</h3>
                   <dl className="space-y-5 text-sm leading-relaxed">
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Desafio</dt><dd className="text-white/70">{project.problem}</dd></div>
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Intervenção</dt><dd className="text-white/70">{project.intervention}</dd></div>
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">Resultado</dt><dd className="text-white/70">{project.result}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Desafio</dt><dd className="text-white/70">{project.problem}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Intervenção</dt><dd className="text-white/70">{project.intervention}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Resultado</dt><dd className="text-white/70">{project.result}</dd></div>
                   </dl>
                 </div>
                 {"href" in project && project.href ? (
                   <Link href={project.href} className="mt-9 inline-flex w-fit items-center gap-2 border-b border-white/40 pb-1 text-sm text-white transition-colors hover:border-white" aria-label={`Ver projeto ${project.name}`}>
                     Ver projeto <ArrowUpRight className="h-4 w-4" />
                   </Link>
-                ) : <span className="mt-9 font-mono text-[11px] uppercase tracking-[0.18em] text-white/35">Pesquisa em desenvolvimento</span>}
+                ) : <span className="mt-9 font-mono text-[11px] uppercase tracking-[0.18em] text-white/60">Pesquisa em desenvolvimento</span>}
               </div>
             </article>
           ))}

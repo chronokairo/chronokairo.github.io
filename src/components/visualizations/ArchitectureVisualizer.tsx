@@ -57,12 +57,12 @@ export default function ArchitectureVisualizer({ visualization }: { visualizatio
   useEffect(() => controllerRef.current?.select(selectedId), [selectedId]);
 
   return (
-    <div className="border border-white/10 bg-[#0e0e0e] p-5 md:p-8">
-      <div className="flex items-center justify-between gap-4 border-b border-white/15 pb-4 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
+    <div className="border border-white/25 bg-[#101010] p-6 md:p-10 shadow-[0_24px_80px_rgba(255,255,255,0.05)]">
+      <div className="flex items-center justify-between gap-4 border-b border-white/20 pb-4 font-mono text-[11px] uppercase tracking-[0.16em] text-white/65">
         <span>{visualization.name}</span>
         <span className="text-right">{visualization.eyebrow}</span>
       </div>
-      <div className="relative mt-5 h-[230px] md:h-[300px]">
+      <div className="relative mt-6 h-[320px] md:h-[430px]">
         <div ref={hostRef} className="absolute inset-0" aria-hidden="true" />
         {!ready && (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 text-center" aria-hidden="true">
@@ -88,10 +88,10 @@ export default function ArchitectureVisualizer({ visualization }: { visualizatio
         ))}
       </div>
       <div className="mt-5 min-h-20 border-t border-white/15 pt-4 text-center" aria-live="polite">
-        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">{visualization.centerLabel} / {selectedProvider?.label}</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">{visualization.centerLabel} / {selectedProvider?.label}</p>
         <p className="mt-2 text-sm leading-relaxed text-white/70">{selectedProvider?.detail} {visualization.centerDetail}</p>
       </div>
-      <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/35">{visualization.note}</p>
+      <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/60">{visualization.note}</p>
     </div>
   );
 }
