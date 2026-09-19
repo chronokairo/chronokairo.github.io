@@ -43,7 +43,7 @@ export function mountArchitectureScene(
   const xStep = visualization.providers.length > 1 ? 5.6 / (visualization.providers.length - 1) : 0;
   const center = new THREE.Vector3(0, -0.62, 0.32);
 
-  const gridMaterial = track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.055 }));
+  const gridMaterial = track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.12 }));
   for (let i = -3; i <= 3; i++) {
     const horizontal = track(new THREE.BufferGeometry().setFromPoints([
       new THREE.Vector3(-3.6, i * 0.55, -0.8),
@@ -63,11 +63,11 @@ export function mountArchitectureScene(
       new THREE.Vector3(x * 0.65, 0.22, z + 0.08),
       center,
     ]));
-    const pathMaterial = track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 }));
+    const pathMaterial = track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.28 }));
     pathMaterials.set(provider.id, pathMaterial);
     group.add(new THREE.Line(path, pathMaterial));
 
-    const material = track(new THREE.MeshBasicMaterial({ color: 0x777777 }));
+    const material = track(new THREE.MeshBasicMaterial({ color: 0xaaaaaa }));
     const mesh = new THREE.Mesh(track(new THREE.IcosahedronGeometry(0.19, 1)), material);
     mesh.position.copy(position);
     mesh.userData.providerId = provider.id;
@@ -77,7 +77,7 @@ export function mountArchitectureScene(
 
     const halo = new THREE.Mesh(
       track(new THREE.RingGeometry(0.31, 0.32, 48)),
-      track(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.25, side: THREE.DoubleSide })),
+      track(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.38, side: THREE.DoubleSide })),
     );
     halo.position.copy(position);
     group.add(halo);
@@ -92,7 +92,7 @@ export function mountArchitectureScene(
 
   const coreRing = new THREE.Mesh(
     track(new THREE.RingGeometry(0.63, 0.64, 64)),
-    track(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.28, side: THREE.DoubleSide })),
+    track(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.42, side: THREE.DoubleSide })),
   );
   coreRing.position.copy(center);
   group.add(coreRing);
@@ -101,7 +101,7 @@ export function mountArchitectureScene(
     center,
     new THREE.Vector3(0, -1.72, 0.32),
   ]));
-  group.add(new THREE.Line(outputPath, track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 }))));
+  group.add(new THREE.Line(outputPath, track(new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.65 }))));
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let currentId = selectedId;
@@ -121,7 +121,7 @@ export function mountArchitectureScene(
     currentId = id;
     for (const [providerId, material] of providerMaterials) {
       material.color.setHex(providerId === id ? 0xffffff : 0x777777);
-      pathMaterials.get(providerId)!.opacity = providerId === id ? 0.9 : 0.15;
+      pathMaterials.get(providerId)!.opacity = providerId === id ? 0.9 : 0.22;
     }
     render();
   };
