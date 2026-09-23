@@ -7,7 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./ui/carousel";
+} from "@chronokairo/platform/ui";
 import {
   CMSIllustration,
   CRMIllustration,

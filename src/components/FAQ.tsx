@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@chronokairo/platform/ui";
 
 const faqSchemaLd = {
   "@context": "https://schema.org",

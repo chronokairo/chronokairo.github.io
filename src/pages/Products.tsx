@@ -6,8 +6,8 @@ import { ArrowRight, ExternalLink, Cpu, Layout, Smartphone, Globe, Code2, Users 
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@chronokairo/platform/ui";
+import { Button } from "@chronokairo/platform/ui";
 import { groupedProducts, featuredProducts, getProductIcon } from "@/data/products";
 import type { ProductCategory } from "@/data/products";
 

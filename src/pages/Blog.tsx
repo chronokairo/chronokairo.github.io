@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { posts } from "@/data/posts";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@chronokairo/platform/ui";
 import { ArrowRight } from "lucide-react";
 
 const Blog = () => {

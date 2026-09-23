@@ -6,6 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  transpilePackages: ["@chronokairo/platform"],
 };
 
 export default nextConfig;

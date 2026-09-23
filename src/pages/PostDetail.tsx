@@ -5,7 +5,7 @@ import { ArrowLeft, Calendar, Tag, ExternalLink } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@chronokairo/platform/ui";
 import { getPostBySlug } from "@/data/posts";
 
 const PostDetail = ({ slug }: { slug: string }) => {

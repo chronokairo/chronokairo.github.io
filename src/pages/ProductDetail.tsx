@@ -5,8 +5,8 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Cpu, Layout, Smartphone, Globe, Co
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@chronokairo/platform/ui";
+import { Button } from "@chronokairo/platform/ui";
 import { getProductBySlug, groupedProducts, products } from "@/data/products";
 import PricingCard from "@/components/Pricing";
 import type { ProductCategory } from "@/data/products";

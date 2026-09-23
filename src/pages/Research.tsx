@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@chronokairo/platform/ui";
+import { Button } from "@chronokairo/platform/ui";
 
 const researchAreas = [
   {

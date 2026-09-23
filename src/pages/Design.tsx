@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@chronokairo/platform/ui";
+import { Badge } from "@chronokairo/platform/ui";
 import { Copy, Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
