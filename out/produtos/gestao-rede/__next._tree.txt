@@ -1,2 +1,2 @@
-:HL["/_next/static/css/a7165aae6e45a2c8.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"produtos","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"gestao-rede","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"7MT6f2-_S73V2gaWKpZPx"}
+:HL["/_next/static/css/0f77b0ef64781068.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"produtos","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"gestao-rede","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"wNUjoHIc902UB5fwjVWg5"}

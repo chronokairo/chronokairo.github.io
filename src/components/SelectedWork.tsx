@@ -39,23 +39,23 @@ const cases = [
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="scroll-mt-20 border-t border-white/10 py-24 md:py-36">
+    <section id="work" className="scroll-mt-20 border-t border-border py-24 md:py-36 bg-background">
       <div className="container mx-auto px-8">
         <div className="mb-16 md:mb-24 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-white/60">01 / Projetos selecionados</p>
-            <h2 className="text-4xl font-light tracking-tight text-white md:text-6xl">Trabalhos selecionados.<br /><span className="text-white/55">Um projeto de cada vez.</span></h2>
+            <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">01 / Projetos selecionados</p>
+            <h2 className="text-4xl font-light tracking-tight text-foreground md:text-6xl">Trabalhos selecionados.<br /><span className="text-muted-foreground">Um projeto de cada vez.</span></h2>
           </div>
-          <p className="max-w-sm text-sm font-light leading-relaxed text-white/60">
+          <p className="max-w-sm text-sm font-light leading-relaxed text-muted-foreground">
             Três problemas distintos. A mesma atenção ao funcionamento real de cada operação.
           </p>
         </div>
 
         <div className="space-y-20 md:space-y-28">
           {cases.map((project) => (
-            <article key={project.number} className="grid gap-8 border-t border-white/15 pt-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:gap-14">
+            <article key={project.number} className="grid gap-8 border-t border-border pt-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:gap-14">
               {"image" in project && project.image ? (
-                <Link href={project.href} className="group block overflow-hidden bg-white/[0.035]" aria-label={`Conhecer o projeto ${project.name}`}>
+                <Link href={project.href} className="group block overflow-hidden bg-card border border-border rounded-xl" aria-label={`Conhecer o projeto ${project.name}`}>
                   <Image
                     src={project.image}
                     alt={project.alt}
@@ -69,21 +69,21 @@ export default function SelectedWork() {
               )}
               <div className="flex flex-col justify-between">
                 <div>
-                  <div className="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
+                  <div className="mb-6 flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                     <span>{project.number} / {project.field}</span>
                   </div>
-                  <h3 className="mb-8 text-3xl font-light tracking-tight text-white md:text-4xl">{project.name}</h3>
+                  <h3 className="mb-8 text-3xl font-light tracking-tight text-foreground md:text-4xl">{project.name}</h3>
                   <dl className="space-y-5 text-sm leading-relaxed">
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Desafio</dt><dd className="text-white/70">{project.problem}</dd></div>
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Intervenção</dt><dd className="text-white/70">{project.intervention}</dd></div>
-                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-white/60">Resultado</dt><dd className="text-white/70">{project.result}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Desafio</dt><dd className="text-foreground/80 font-light">{project.problem}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Intervenção</dt><dd className="text-foreground/80 font-light">{project.intervention}</dd></div>
+                    <div><dt className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Resultado</dt><dd className="text-foreground/80 font-light">{project.result}</dd></div>
                   </dl>
                 </div>
                 {"href" in project && project.href ? (
-                  <Link href={project.href} className="mt-9 inline-flex w-fit items-center gap-2 border-b border-white/40 pb-1 text-sm text-white transition-colors hover:border-white" aria-label={`Ver projeto ${project.name}`}>
+                  <Link href={project.href} className="mt-9 inline-flex w-fit items-center gap-2 border-b border-foreground/40 pb-1 text-sm text-foreground transition-colors hover:border-foreground" aria-label={`Ver projeto ${project.name}`}>
                     Ver projeto <ArrowUpRight className="h-4 w-4" />
                   </Link>
-                ) : <span className="mt-9 font-mono text-[11px] uppercase tracking-[0.18em] text-white/60">Pesquisa em desenvolvimento</span>}
+                ) : <span className="mt-9 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Pesquisa em desenvolvimento</span>}
               </div>
             </article>
           ))}

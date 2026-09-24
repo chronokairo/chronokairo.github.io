@@ -6,40 +6,40 @@ const WHATSAPP_URL =
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 md:py-48 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+    <section id="contact" className="py-32 md:py-48 relative overflow-hidden bg-background">
+      <div className="absolute top-0 left-0 w-full h-px bg-border" />
 
       <div className="container mx-auto px-8 relative">
         <div className="max-w-2xl mx-auto text-center">
           {/* Eyebrow */}
-          <p className="text-[11px] font-mono tracking-[0.3em] text-white/40 uppercase mb-10">
+          <p className="text-[11px] font-mono tracking-[0.3em] text-muted-foreground uppercase mb-10">
             Contato
           </p>
 
-          {/* Heading — branco puro */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-[-0.02em] mb-6 text-white">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] tracking-[-0.02em] mb-6 text-foreground">
             Have a difficult problem?<br />
-            <em className="not-italic font-extralight text-white/55">Vamos conversar.</em>
+            <em className="not-italic font-extralight text-muted-foreground">Vamos conversar.</em>
           </h2>
 
-          {/* Body — branco suave */}
-          <p className="text-sm md:text-base text-white/60 font-light leading-[1.9] mb-14 max-w-md mx-auto">
+          {/* Body */}
+          <p className="text-sm md:text-base text-muted-foreground font-light leading-[1.9] mb-14 max-w-md mx-auto">
             Conte-nos sobre a operação, o desafio e o que precisa mudar. Começamos pela compreensão do problema.
           </p>
 
-          {/* CTA — highlight preto */}
+          {/* CTA — Inverte conforme o tema */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white text-black text-sm font-medium tracking-wide hover:bg-white/90 transition-all duration-300 hover:-translate-y-px active:scale-[0.98] group"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-foreground text-background text-sm font-medium tracking-wide hover:bg-foreground/90 transition-all duration-300 hover:-translate-y-px active:scale-[0.98] group shadow-sm"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-black" />
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
             Solicitar consulta
             <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -ml-1 group-hover:ml-0 transition-all duration-200" />
           </a>
 
-          <p className="mt-10 text-xs text-white/35 font-mono tracking-wider">
+          <p className="mt-10 text-xs text-muted-foreground/70 font-mono tracking-wider">
             Novos projetos sob avaliação
           </p>
         </div>

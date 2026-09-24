@@ -55,7 +55,7 @@ export const viewport: Viewport = {
   themeColor: "#0a0a0a",
 };
 
-const themeBootstrap = `(function(){try{var c=document.documentElement.classList;c.remove('light');c.add('dark');localStorage.setItem('chronokairo-theme','dark');}catch(e){}})();`;
+const themeBootstrap = `(function(){try{var stored=localStorage.getItem('chronokairo-theme')||localStorage.getItem('chronokairo-pantone-theme');var theme=stored;if(!theme||theme==='auto'||theme==='system'){var h=new Date().getHours();theme=(h>=6&&h<18)?'light':'dark';}var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(theme);root.style.colorScheme=theme;}catch(e){}})();`;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
