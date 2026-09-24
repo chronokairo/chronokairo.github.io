@@ -31,3 +31,5 @@ out
 
 # Markdown files
 *.md
+!docs/**/*.md
+!README.md
