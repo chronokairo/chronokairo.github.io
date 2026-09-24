@@ -2,11 +2,7 @@
 
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import { TooltipProvider, Toaster, SonnerToaster } from "@chronokairo/platform/ui";
-import { ThemeProvider } from "@/components/ThemeProvider";
-
-
+import { TooltipProvider, Toaster, SonnerToaster, ThemeProvider } from "@chronokairo/platform/ui";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [client] = useState(() => new QueryClient());
@@ -18,7 +14,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
           {children}
           <Toaster />
           <SonnerToaster />
-
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>

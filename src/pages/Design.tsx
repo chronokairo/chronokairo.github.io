@@ -1,40 +1,14 @@
 "use client";
 
-import { Button } from "@chronokairo/platform/ui";
-import { Badge } from "@chronokairo/platform/ui";
+import {
+  Button,
+  Badge,
+  brandColors as colors,
+  brandTypography as typography,
+  brandSpacing as spacing,
+} from "@chronokairo/platform/ui";
 import { Copy, Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-
-const colors = [
-  { name: "Background", light: "#0a0a0a", dark: "#0a0a0a" },
-  { name: "Foreground", light: "#fafafa", dark: "#fafafa" },
-  { name: "Primary", light: "#fafafa", dark: "#fafafa" },
-  { name: "Secondary", light: "#171717", dark: "#171717" },
-  { name: "Muted", light: "#141414", dark: "#141414" },
-  { name: "Muted Foreground", light: "#a3a3a3", dark: "#a3a3a3" },
-  { name: "Accent", light: "#1f1f1f", dark: "#1f1f1f" },
-  { name: "Border", light: "#292929", dark: "#292929" },
-  { name: "Card", light: "#121212", dark: "#121212" },
-];
-
-const typography = [
-  { name: "Display", font: "Inter", usage: "Títulos, headlines e cases", weight: "300 · 400", size: "h1 48px · h2 36px · h3 30px" },
-  { name: "Sans", font: "Inter", usage: "Corpo, navegação, UI", weight: "400 · 500 · 600", size: "body 16px · small 14px · xs 12px" },
-  { name: "Mono", font: "ui-monospace", usage: "Código, badges, tracking", weight: "400 · 700", size: "10px · 12px · 14px" },
-];
-
-const spacing = [
-  { name: "4xs", px: 2, rem: 0.125 },
-  { name: "3xs", px: 4, rem: 0.25 },
-  { name: "2xs", px: 8, rem: 0.5 },
-  { name: "xs", px: 12, rem: 0.75 },
-  { name: "sm", px: 16, rem: 1 },
-  { name: "md", px: 24, rem: 1.5 },
-  { name: "lg", px: 32, rem: 2 },
-  { name: "xl", px: 48, rem: 3 },
-  { name: "2xl", px: 64, rem: 4 },
-  { name: "3xl", px: 96, rem: 6 },
-];
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
