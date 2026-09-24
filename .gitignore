@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 .next
-out
+# out (tracked for static GitHub Pages deploy)
 *.tsbuildinfo
 *.local
 

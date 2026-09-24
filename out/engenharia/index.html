@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engenharia de Missão Crítica & Legados // Integração TOTVS, Biometria & Uptime</title>
+  <meta name="description" content="Engenharia Chronokairo para integrar sistemas legados e modernizar operações críticas com atenção à continuidade do negócio.">
+  <link rel="icon" type="image/x-icon" href="/CHRONOKAIRO.ico">
+
+  <meta property="og:title" content="Engenharia de Missão Crítica & Modernização de Legados // Chronokairo">
+  <meta property="og:description" content="Construímos pontes modernas sobre ERPs legados complexos. Portais, APIs e biometria em tempo real sem interrupção de operação.">
+  <meta property="og:image" content="https://chronokairo.com.br/lp/missao-critica/assets/hero.jpg">
+  <meta property="og:url" content="https://chronokairo.com.br/lp/missao-critica/">
+
+  <style>
+    :root {
+      --bg-primary: #0B0B0B;
+      --surface-dark: #121212;
+      --surface-card: #181818;
+      --surface-hover: #222222;
+      --border-subtle: #262626;
+      --border-active: #3D3D3D;
+      --slate-gray: #8A8D8F;
+      --glacier: #E0E2E4;
+      --pure-white: #FFFFFF;
+      --whatsapp-green: #25D366;
+      --whatsapp-dark: #1EBE5D;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--glacier);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Header Nav */
+    header {
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(11, 11, 11, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--pure-white);
+    }
+
+    .brand-logo span.logo-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo span.logo-sub {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--slate-gray);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--slate-gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--pure-white);
+    }
+
+    .btn-whatsapp-nav {
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-whatsapp-nav:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .badge-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-active);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 28px;
+    }
+
+    .badge-hero .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--whatsapp-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--whatsapp-green);
+    }
+
+    .hero h1 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--pure-white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 span.italic {
+      font-weight: 400;
+      font-style: italic;
+      color: var(--slate-gray);
+    }
+
+    .hero p.lead {
+      max-width: 820px;
+      margin: 0 auto 36px;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--slate-gray);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp-hero {
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 16px 36px;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+      cursor: pointer;
+    }
+
+    .btn-whatsapp-hero:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-secondary-hero {
+      background: var(--surface-dark);
+      color: var(--pure-white);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 32px;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary-hero:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-active);
+    }
+
+    /* Showcase Boardroom Image */
+    .hero-showcase {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-active);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .hero-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-showcase-caption {
+      background: var(--surface-dark);
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--slate-gray);
+    }
+
+    /* Metrics Bar */
+    .metrics-bar {
+      margin: 60px 0;
+      padding: 36px;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .metric-item {
+      text-align: left;
+    }
+
+    .metric-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--pure-white);
+      font-family: var(--font-mono);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--slate-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Pillars Section */
+    .pillars-section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-gray);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--pure-white);
+      letter-spacing: -0.02em;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+    }
+
+    .pillar-card {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 32px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .pillar-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--slate-gray);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--pure-white);
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      font-size: 0.92rem;
+      color: var(--slate-gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .pillar-specs {
+      list-style: none;
+      margin-bottom: 24px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 16px;
+    }
+
+    .pillar-specs li {
+      font-size: 0.85rem;
+      color: var(--glacier);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillar-specs li::before {
+      content: "—";
+      color: var(--slate-gray);
+      font-family: var(--font-mono);
+    }
+
+    /* Architecture Showcase */
+    .showcase-dual {
+      margin: 80px 0;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .showcase-dual {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .showcase-content {
+      padding: 48px;
+    }
+
+    .showcase-content h3 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 2.2rem;
+      color: var(--pure-white);
+      margin-bottom: 16px;
+    }
+
+    .showcase-content p {
+      color: var(--slate-gray);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-left: 1px solid var(--border-subtle);
+    }
+
+    /* CTA Section */
+    .cta-banner {
+      margin: 80px 0 100px;
+      background: linear-gradient(180deg, var(--surface-dark) 0%, #000000 100%);
+      border: 1px solid var(--border-active);
+      border-radius: 12px;
+      padding: 64px 36px;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--pure-white);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      color: var(--slate-gray);
+      font-size: 1.05rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--whatsapp-green);
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .floating-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: scale(1.05);
+      box-shadow: 0 14px 36px rgba(37, 211, 102, 0.55);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slate-gray);
+    }
+  </style>
+  <link rel="stylesheet" href="/lp/boutique.css">
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="/" class="brand-logo">
+        <div>
+          <span class="logo-title">Chronokairo</span>
+          <span class="logo-sub">Missão Crítica & Legados</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#totvs">Barramento ERP</a></li>
+        <li><a href="#biometria">Biometria & Acesso</a></li>
+        <li><a href="#alta-disponibilidade">Continuidade operacional</a></li>
+        <li><a href="#modernizacao">Modernização</a></li>
+      </ul>
+
+      <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20conversar%20sobre%20integracao%20de%20ERPs%20legados%20e%20sistemas%20de%20missao%20critica." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-nav">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Falar no WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge-hero">
+        <span class="pulse-dot"></span>
+        <span>ENGENHARIA DE SOFTWARE · OPERAÇÕES CRÍTICAS</span>
+      </div>
+
+      <h1>
+        Modernização de sistemas <br>
+        <span class="italic">sem perder o contexto da operação.</span>
+      </h1>
+
+      <p class="lead">
+        Integramos sistemas legados, dados e novas interfaces com atenção à continuidade da operação. Cada intervenção começa pelo diagnóstico das dependências que sustentam o negócio.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20agendar%20um%20diagnostico%20de%20modernizacao%20de%20ERP%20e%20sistemas%20legados." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Solicitar consulta</span>
+        </a>
+        <a href="#totvs" class="btn-secondary-hero">Ver Arquitetura</a>
+      </div>
+
+      <!-- Hero Showcase Image -->
+      <div class="hero-showcase">
+        <img src="/lp/missao-critica/assets/hero.jpg" alt="Centro de Operações de Missão Crítica Chronokairo">
+        <div class="hero-showcase-caption">
+          <span>CENTRO DE CONTROLE DE MISSÃO CRÍTICA (MC-OCC) // CHRONOKAIRO</span>
+          <span>INTEGRAÇÃO · CONTINUIDADE OPERACIONAL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Bar -->
+  <section class="container">
+    <div class="metrics-bar">
+      <div class="metric-item">
+        <div class="metric-value">Resiliência</div>
+        <div class="metric-label">Arquitetura orientada à continuidade</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">Gradual</div>
+        <div class="metric-label">Modernização em paralelo sem congelar operação</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">Integração</div>
+        <div class="metric-label">Dados conectados entre sistemas</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">Biometria Real-Time</div>
+        <div class="metric-label">Integração física e lógica com catracas industriais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Showcase Dual (TOTVS & Legados) -->
+  <section id="totvs" class="container">
+    <div class="showcase-dual">
+      <div class="showcase-content">
+        <span class="pillar-badge">Legacy ERP Integration Bus</span>
+        <h3>Barramento de Integração TOTVS (Protheus & RM)</h3>
+        <p>
+          Nossa engenharia projeta uma camada de integração para conectar o ERP às interfaces e processos que a operação precisa. A modernização avança por etapas, com atenção às dependências e à integridade dos dados.
+        </p>
+        <ul class="pillar-specs">
+          <li>Conectores bidirecionais com validação contra travas de tabela</li>
+          <li>Camada de abstração GraphQL e REST de alta performance</li>
+          <li>Fila assíncrona com idempotência e tolerância a quedas de link</li>
+        </ul>
+        <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20conversar%20sobre%20integracao%20com%20TOTVS%20e%20ERPs." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero" style="font-size: 0.9rem; padding: 12px 24px;">
+          <span>Conversar sobre Integração TOTVS</span>
+        </a>
+      </div>
+      <div class="showcase-image">
+        <img src="/lp/missao-critica/assets/totvs.jpg" alt="Arquitetura de Barramento de Integração de ERPs Legados">
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars Section -->
+  <section id="biometria" class="pillars-section container">
+    <div class="section-header">
+      <span class="section-tag">// PILARES DA OPERAÇÃO</span>
+      <h2 class="section-title">Infraestrutura que Nunca Para</h2>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div>
+          <span class="pillar-badge">Hardware & IoT // Real-Time</span>
+          <h3>Controle Biométrico e Catracas</h3>
+          <p>Autenticação facial e digital integrada a catracas físicas para campi universitários, indústrias e prédios corporativos. Resposta em menos de 300ms mesmo sob pico de milhares de entradas simultâneas.</p>
+          <ul class="pillar-specs">
+            <li>Sincronização offline-first com banco central</li>
+            <li>Auditoria de passagem em tempo real com anti-passback</li>
+            <li>Homologação com os principais fabricantes de hardware</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-card" id="alta-disponibilidade">
+        <div>
+          <span class="pillar-badge">Resiliência // Observabilidade</span>
+          <h3>Continuidade e Resiliência Operacional</h3>
+          <p>Projetamos sistemas com redundância ativa, balanceamento geográfico de carga e telemetria profunda com Prometheus, Grafana e OpenTelemetry para detecção proativa de anomalias.</p>
+          <ul class="pillar-specs">
+            <li>Failover automático de nós sem perda de transações</li>
+            <li>Circuit breakers para isolar instabilidades de provedores</li>
+            <li>Trilha de auditoria imutável para conformidade regulatória</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-card" id="modernizacao">
+        <div>
+          <span class="pillar-badge">Next.js & Flutter // Mobile First</span>
+          <h3>Portais Modernos & Apps Nativos</h3>
+          <p>Sua equipe e seus clientes não precisam usar a interface antiga do ERP. Criamos portais web fluidos em Next.js e aplicativos mobile em Flutter que consomem os legados com rapidez cirúrgica.</p>
+          <ul class="pillar-specs">
+            <li>Experiência mobile impecável para iOS e Android</li>
+            <li>Portais do cliente, dashboards de vendas e autoatendimento</li>
+            <li>Segurança por token com revogação instantânea</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="container">
+    <div class="cta-banner">
+      <h2>Modernize seus Sistemas sem Paralisar sua Empresa</h2>
+      <p>
+        Fale diretamente com os engenheiros responsáveis pela arquitetura de missão crítica da Chronokairo e receba uma análise de viabilidade técnica para sua operação.
+      </p>
+      <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20agendar%20um%20diagnostico%20de%20modernizacao%20de%20sistemas." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>Falar Diretamente no WhatsApp (+55 92 98124-4044)</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20conversar%20sobre%20integracao%20de%20sistemas%20de%20missao%20critica." target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Atendimento via WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <span>Falar no WhatsApp</span>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Chronokairo. Engenharia de Missão Crítica & Resiliência Corporativa. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

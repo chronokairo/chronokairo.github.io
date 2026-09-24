@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <line x1="72" y1="72" x2="1128" y2="72" stroke="#393939" stroke-width="1"/>
+  <text x="72" y="185" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="300" fill="#ffffff">Chronokairo</text>
+  <text x="72" y="340" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="300" fill="#ffffff">Tecnologia no</text>
+  <text x="72" y="432" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="300" fill="#aaaaaa">tempo certo.</text>
+  <line x1="72" y1="515" x2="1128" y2="515" stroke="#393939" stroke-width="1"/>
+  <text x="72" y="563" font-family="Arial, sans-serif" font-size="20" fill="#aaaaaa" letter-spacing="2">ENGENHARIA DE SOFTWARE · INTELIGÊNCIA ARTIFICIAL</text>
+</svg>

@@ -1,0 +1,40 @@
+/* Identidade compartilhada das páginas de projeto Chronokairo. */
+:root {
+  --bg-black: #0a0a0a;
+  --bg-primary: #0a0a0a;
+  --bg-clinical: #0a0a0a;
+  --surface-dark: #121212;
+  --surface-elevated: #171717;
+  --surface-card: #121212;
+  --surface-white: #121212;
+  --card-black: #121212;
+  --dark-charcoal: #fafafa;
+  --slate-dark: #d4d4d4;
+  --slate-muted: #a3a3a3;
+  --border-clinical: #292929;
+  --border-subtle: #292929;
+  --primary-teal: #fafafa;
+  --primary-teal-dark: #d4d4d4;
+  --primary-teal-light: #171717;
+  --whatsapp-green: #fafafa;
+  --whatsapp-dark: #e5e5e5;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html, body { background: #0a0a0a !important; color: #fafafa; font-family: var(--font-sans); }
+header { background: rgba(10, 10, 10, .94) !important; border-bottom: 1px solid #292929 !important; }
+.brand-logo, .brand-logo span.logo-title, .logo, .audiomed-logo { font-family: var(--font-sans) !important; font-weight: 300 !important; letter-spacing: -.02em !important; text-transform: none !important; }
+.hero { padding-top: clamp(80px, 10vw, 150px) !important; padding-bottom: clamp(72px, 8vw, 120px) !important; }
+.hero h1, .headline { font-family: var(--font-sans) !important; font-weight: 300 !important; letter-spacing: -.035em !important; line-height: 1.1 !important; }
+.hero p, .subheadline { font-weight: 300 !important; max-width: 760px; }
+.section-title, .contact-section h2, .contact-section h3 { font-family: var(--font-sans) !important; font-weight: 300 !important; letter-spacing: -.025em !important; }
+.hero-tag, .badge-case, .tagline, .section-tag { background: transparent !important; border: 0 !important; color: #a3a3a3 !important; font-weight: 400 !important; letter-spacing: .2em !important; }
+.bg-grid { opacity: .25; }
+.metric-card, .feature-card, .card-feature, .card, .contact-section, .client-box { border-color: #292929 !important; border-radius: 2px !important; box-shadow: none !important; }
+.btn-whatsapp-nav, .btn-whatsapp-hero, .btn-cta, .nav-cta, .form-submit-btn, a[class*="btn-primary"] { background: #fafafa !important; color: #0a0a0a !important; border: 1px solid #fafafa !important; border-radius: 999px !important; box-shadow: none !important; font-weight: 500 !important; }
+.btn-whatsapp-nav svg, .btn-whatsapp-hero svg, .form-submit-btn svg { fill: #0a0a0a !important; color: #0a0a0a !important; }
+.btn-outline, .btn-secondary, .btn-secondary-hero { border: 1px solid #666 !important; border-radius: 999px !important; background: transparent !important; color: #fafafa !important; }
+.hero-showcase, .showcase-frame { border-radius: 2px !important; border-color: #292929 !important; box-shadow: none !important; }
+.hero-showcase img, .showcase-frame img { filter: saturate(.65); }
+footer { border-top: 1px solid #292929 !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }

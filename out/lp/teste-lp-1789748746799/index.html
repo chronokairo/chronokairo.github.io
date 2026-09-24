@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Teste | Chronokairo</title>
+  <meta name="description" content="Sistemas autônomos para escalar sua operação.">
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Landing Page Teste">
+  <meta property="og:description" content="Sistemas autônomos para escalar sua operação.">
+  <meta property="og:url" content="https://chronokairo.com.br/lp/teste-lp-1789748746799/">
+  <meta property="og:type" content="website">
+
+  <!-- Estilos Black and White Pantone 2026 -->
+  <style>
+    :root {
+      --bg-black: #0B0B0B;       /* Pantone Black 6 C */
+      --card-black: #121214;
+      --border-gray: #2E2E34;
+      --slate-gray: #8A8D8F;     /* Pantone Cool Gray 7 C */
+      --glacier: #E0E2E4;        /* Pantone 14-4102 TCX */
+      --pure-white: #FFFFFF;     /* Pantone 11-0601 TCX */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-black);
+      color: var(--pure-white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pure-white);
+      text-decoration: none;
+    }
+    .badge-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--slate-gray);
+      border: 1px solid var(--border-gray);
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 96px 0 64px 0;
+      text-align: center;
+    }
+    .tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--glacier);
+      margin-bottom: 24px;
+      display: inline-block;
+      border-bottom: 1px solid var(--slate-gray);
+      padding-bottom: 4px;
+    }
+    .headline {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      margin: 0 auto 24px auto;
+    }
+    .subheadline {
+      font-size: 20px;
+      color: var(--slate-gray);
+      max-width: 720px;
+      margin: 0 auto 40px auto;
+      font-weight: 400;
+    }
+
+    /* Buttons */
+    .btn-cta {
+      display: inline-block;
+      background: var(--pure-white);
+      color: var(--bg-black);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 18px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+    .btn-cta:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+
+    /* Grid de Features */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 64px 0;
+    }
+    .card {
+      background: var(--card-black);
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      padding: 36px 30px;
+      transition: border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--slate-gray);
+    }
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--pure-white);
+    }
+    .card p {
+      color: var(--slate-gray);
+      font-size: 15px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-gray);
+      padding: 40px 0;
+      margin-top: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--slate-gray);
+      font-size: 13px;
+    }
+    footer a { color: var(--pure-white); text-decoration: none; }
+  </style>
+  <link rel="stylesheet" href="/lp/boutique.css">
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="https://chronokairo.com.br" class="logo">Chronokairo</a>
+      <span class="badge-mono">TECNOLOGIA NO TEMPO CERTO</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="tagline">Boutique de Engenharia &amp; Inteligência Aplicada</span>
+        <h1 class="headline">Engenharia de Software de Alta Performance</h1>
+        <p class="subheadline">Sistemas autônomos para escalar sua operação.</p>
+        <a href="https://wa.me/5592981244044?text=Ol%C3%A1%20Chronokairo!%20Gostaria%20de%20solicitar%20um%20diagnostico%20estrategico." target="_blank" rel="noopener noreferrer" class="btn-cta">Falar com Especialista</a>
+      </section>
+
+      <section class="grid">
+
+          <div class="card">
+            <h3>Atendimento em Segundos</h3>
+            <p>Respostas instantâneas e qualificação de leads 24/7 sem atrito.</p>
+          </div>
+
+
+          <div class="card">
+            <h3>Engenharia Sob Medida</h3>
+            <p>Arquitetura de software desenhada para as regras específicas da sua empresa.</p>
+          </div>
+
+
+          <div class="card">
+            <h3>Dashboard Executivo</h3>
+            <p>Visibilidade em tempo real de KPIs de vendas e conversão.</p>
+          </div>
+
+      </section>
+    </main>
+
+    <footer>
+      <span>&copy; 2026 Chronokairo Automation. Tecnologia no tempo certo.</span>
+      <a href="https://chronokairo.com.br">chronokairo.com.br</a>
+    </footer>
+  </div>
+</body>
+</html>
