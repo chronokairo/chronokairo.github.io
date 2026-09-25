@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
+  <script>(function(){try{var s=localStorage.getItem('chronokairo-theme')||localStorage.getItem('chronokairo-pantone-theme');var t=s;if(!t||t==='auto'||t==='system'){var h=new Date().getHours();t=(h>=6&&h<18)?'light':'dark';}var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(t);r.style.colorScheme=t;}catch(e){}})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Engenharia de Missão Crítica & Legados // Integração TOTVS, Biometria & Uptime</title>
@@ -696,5 +697,6 @@
     </div>
   </footer>
 
+  <button type="button" class="lp-theme-toggle" onclick="(function(){var r=document.documentElement;var next=r.classList.contains('dark')?'light':'dark';r.classList.remove('light','dark');r.classList.add(next);r.style.colorScheme=next;localStorage.setItem('chronokairo-theme',next);})()" aria-label="Alternar tema dia/noite" title="Alternar tema (Dia / Noite)"><svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
 </body>
 </html>
