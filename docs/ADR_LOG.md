@@ -12,8 +12,8 @@ Formato padrão do ecossistema: `docs/ADR_LOG.md` + `docs/adr/NNNN-*.md`.
 | [0003](./adr/0003-modernizacao-catalogo-e-detalhes-de-produtos.md) | Modernização do Catálogo e Detalhes de Produtos (`/produtos` e `/produtos/[slug]`) | 2026-09-24 | Aceito |
 | [0004](./adr/0004-modernizacao-das-landing-pages-e-showcases.md) | Modernização das Landing Pages e Showcases com Design de Luxo e Ciclo Solar | 2026-09-24 | Aceito |
 | [0005](./adr/0005-posicionamento-boutique-colecao-e-anamnesic-labs.md) | Posicionamento de boutique: Coleção Proprietária, Anamnesic Labs e discrição com clientes | 2026-09-25 | Aceito |
+| [0006](./adr/0006-colecao-como-catalogo-labs-workmed-e-candidatura.md) | Coleção como catálogo único, Labs, WorkMed e contato por avaliação | 2026-09-25 | Aceito |
 
 ## Débitos técnicos abertos
-- `/produtos` (`src/data/products.ts`) desalinhado da Coleção Proprietária da home.
-- `/pesquisas` com conteúdo placeholder; deveria apresentar a Anamnesic Labs.
-- 7 diretórios `lp/teste-lp-*` publicados.
+- Hero da home ainda usa o slogan "Tecnologia no tempo certo."; avaliar convergência com a OG ("Software sob medida, feito para durar.").
+- `src/pages/*` é interpretado como Pages Router e gera rotas duplicadas em `out/` (`/Index`, `/Blog`, `/Research` etc.); mover para `src/views/` ou similar.

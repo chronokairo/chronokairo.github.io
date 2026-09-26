@@ -4,9 +4,9 @@ import { siteUrl } from "@/lib/site";
 import Research from "@/pages/Research";
 
 export const metadata: Metadata = {
-  title: "Pesquisas · IA e Tecnologia",
+  title: "Anamnesic Labs · Pesquisa aberta em inferência eficiente",
   description:
-    "Pesquisas conduzidas por membros da Chronokairo sobre IA aplicada, sistemas inteligentes e governança, com foco em impacto social positivo.",
+    "Anamnesic Labs, o braço de pesquisa aberta da Chronokairo: inferência de LLMs em hardware restrito, runtime relic para OpenCL, quantização extrema e decodificação especulativa.",
   alternates: { canonical: `${siteUrl}/pesquisas` },
 };
 

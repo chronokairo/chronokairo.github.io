@@ -7,14 +7,14 @@ import { nimbusVisualization } from "@/lib/architecture-visualization";
 const cases = [
   {
     number: "01",
-    name: "Audiomed",
-    field: "Saúde ocupacional",
-    image: "/images/audiomed-showcase-hero.jpg",
-    alt: "Interface da plataforma Audiomed para operações clínicas",
+    name: "WorkMed",
+    field: "Saúde ocupacional · produto próprio",
+    image: "/images/workmed-showcase-hero.jpg",
+    alt: "Interface do WorkMed para operações clínicas",
     problem: "Unificar o atendimento clínico e manter a operação ativa mesmo com conexão instável.",
     intervention: "Fluxo de triagem guiada, roteamento entre especialidades e operação offline em uma plataforma sob medida.",
     result: "Atendimento e gestão reunidos em um fluxo digital integrado.",
-    href: "/lp/audiomed/",
+    href: "/lp/workmed/",
   },
   {
     number: "02",
@@ -30,10 +30,10 @@ const cases = [
   {
     number: "03",
     name: "Nimbus",
-    field: "Infrastructure R&D · projeto próprio",
+    field: "Infraestrutura e DevOps · produto próprio",
     problem: "Gerenciar múltiplos provedores e limites de uso por interfaces e regras diferentes.",
-    intervention: "Base desktop com contrato comum de provedores e avaliação de cotas para orientar o roteamento.",
-    result: "Fundação de engenharia e prévia de decisões de roteamento no aplicativo desktop.",
+    intervention: "Painel DevOps único, com contrato comum entre provedores e núcleo em Rust para toda a lógica de infraestrutura.",
+    result: "Servidores, deploy, CI/CD e monitoramento em uma só operação, com failover automático antes do limite de cota.",
   },
 ];
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const research = [
@@ -18,14 +19,12 @@ export default function Labs() {
           <p className="mt-10 max-w-lg text-base font-light leading-relaxed text-muted-foreground">
             Anamnesic é o braço de pesquisa aberta da Chronokairo, dedicado à inferência de IA eficiente em hardware restrito. O que aprendemos no laboratório chega ao produto: modelos que rodam localmente, com privacidade e sem depender de infraestrutura cara.
           </p>
-          <a
-            href="https://github.com/anamnesic"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href="/pesquisas/"
             className="mt-10 inline-flex w-fit items-center gap-2 border-b border-foreground/40 pb-1 text-sm text-foreground transition-colors hover:border-foreground"
           >
             Conhecer o laboratório <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
         <div className="space-y-2">
           {research.map((item) => (

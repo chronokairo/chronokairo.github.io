@@ -1,23 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, Cpu, Layout, Smartphone, Globe, Code2, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Badge, Button } from "@chronokairo/platform/ui";
-import { getProductBySlug, groupedProducts, products, getProductIcon } from "@/data/products";
-import PricingCard from "@/components/Pricing";
-import type { ProductCategory } from "@/data/products";
-
-const categoryIcons: Record<ProductCategory, React.ReactNode> = {
-  IA: <Cpu className="h-4 w-4" />,
-  Sistemas: <Layout className="h-4 w-4" />,
-  Mobile: <Smartphone className="h-4 w-4" />,
-  Web: <Globe className="h-4 w-4" />,
-  DevTools: <Code2 className="h-4 w-4" />,
-  Setores: <Users className="h-4 w-4" />,
-};
+import { getProductBySlug, products, getProductIcon } from "@/data/products";
 
 const ProductDetail = ({ slug }: { slug: string }) => {
   const product = getProductBySlug(slug);
@@ -35,14 +24,8 @@ const ProductDetail = ({ slug }: { slug: string }) => {
     "@type": "Product",
     name: product.title,
     description: product.description,
-    brand: { "@type": "Brand", name: product.brand },
+    brand: { "@type": "Brand", name: "Chronokairo" },
     category: product.category,
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      price: "0",
-      priceCurrency: "BRL",
-    },
   };
 
   const Icon = getProductIcon(product.slug);
@@ -131,7 +114,17 @@ const ProductDetail = ({ slug }: { slug: string }) => {
 
                 {/* Right sidebar card */}
                 <div className="lg:pt-2">
-                  <PricingCard slug={product.slug} />
+                  <div className="rounded-2xl border border-border bg-card/60 p-7 shadow-sm">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground">Engajamento</p>
+                    <h2 className="mt-3 text-2xl font-light tracking-tight text-foreground">Sob consulta</h2>
+                    <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">
+                      {product.title} é licenciado como parte de um projeto sob medida, adaptado ao contexto da sua operação.
+                      Atendemos poucos clientes por vez, com um time sênior dedicado.
+                    </p>
+                    <Button asChild size="pill" className="mt-7 h-11 w-full bg-foreground text-background hover:bg-foreground/90 font-medium border-0 shadow-sm">
+                      <Link href="/#contact">Solicitar uma conversa</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,14 +139,14 @@ const ProductDetail = ({ slug }: { slug: string }) => {
                     Soluções Relacionadas
                   </p>
                   <h2 className="mt-1 text-2xl font-light tracking-tight text-foreground">
-                    Outros sistemas em {product.category}
+                    Outros produtos em {product.category}
                   </h2>
                 </div>
                 <Link
                   href="/produtos"
                   className="hidden md:inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Ver catálogo completo
+                  Ver a coleção completa
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
@@ -200,7 +193,7 @@ const ProductDetail = ({ slug }: { slug: string }) => {
               className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Voltar ao catálogo de produtos
+              Voltar à coleção
             </Link>
           </div>
         </main>

@@ -18,10 +18,10 @@ const Blog = () => {
                   Blog
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 tracking-tight text-foreground">
-                  Tecnologia, IA e <span className="font-normal italic">Automação</span>
+                  Ensaios e <span className="font-normal italic">notas de laboratório</span>
                 </h1>
                 <p className="text-foreground/80 text-sm">
-                  Artigos e insights sobre tecnologia, inteligência artificial e transformação digital para empresas de tecnologia.
+                  Textos do ateliê sobre arquitetura e engenharia, notas da Anamnesic Labs e a curadoria de notícias que acompanhamos.
                 </p>
               </div>
 

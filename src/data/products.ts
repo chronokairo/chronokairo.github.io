@@ -1,39 +1,30 @@
 import React from "react";
 import {
-  Bot,
-  Terminal,
-  Database,
-  Briefcase,
-  Headphones,
-  Users,
+  Layers,
+  Sparkles,
+  CreditCard,
+  Cloud,
   Coins,
-  Target,
-  Megaphone,
-  Smile,
-  GitBranch,
-  GraduationCap,
-  SquareKanban,
-  Building2,
-  Network,
+  Users,
   Scale,
-  ShieldCheck,
+  Headphones,
+  Briefcase,
+  PenTool,
+  ShoppingBag,
+  Stethoscope,
   HelpCircle,
 } from "lucide-react";
 
-export type ProductCategory = "IA" | "Sistemas" | "Mobile" | "Web" | "DevTools" | "Setores";
-export type ProductBrand = "Kairos" | "Chronos";
+export type ProductCategory = "Fundação" | "Operação" | "Crescimento" | "Verticais";
 
 export interface Product {
   slug: string;
   title: string;
-  brand: ProductBrand;
   category: ProductCategory;
   summary: string;
   description: string;
   highlights: string[];
   stack: string[];
-  pricePF: string;
-  pricePJ: string;
   featured?: boolean;
 }
 
@@ -43,337 +34,203 @@ export const productCategories: Array<{
   description: string;
 }> = [
   {
-    key: "IA",
-    label: "IA",
-    description: "Busca, resposta e automação com dados proprietários.",
+    key: "Fundação",
+    label: "Fundação",
+    description: "A base comum sobre a qual todo projeto é construído.",
   },
   {
-    key: "Sistemas",
-    label: "Sistemas",
-    description: "Plataformas para operação, gestão e integração.",
+    key: "Operação",
+    label: "Operação",
+    description: "Finanças, pessoas, jurídico e atendimento sob um mesmo padrão.",
   },
   {
-    key: "Setores",
-    label: "Setores",
-    description: "Apps verticais para cada área do negócio.",
+    key: "Crescimento",
+    label: "Crescimento",
+    description: "Vendas, marketing, conteúdo e comércio.",
   },
   {
-    key: "DevTools",
-    label: "Dev Tools",
-    description: "Ferramentas para times de desenvolvimento.",
-  },
-  {
-    key: "Mobile",
-    label: "Mobile",
-    description: "Apps corporativos e operacionais para campo e equipe.",
-  },
-  {
-    key: "Web",
-    label: "Web",
-    description: "Portais, produtos digitais e experiências web.",
+    key: "Verticais",
+    label: "Verticais",
+    description: "Produtos completos para setores específicos.",
   },
 ];
 
 export const products: Product[] = [
   {
-    slug: "chatbot-ia",
-    title: "Chatbot Inteligente",
-    brand: "Kairos",
-    category: "IA",
-    summary: "Chat inteligente com RAG para responder usando bases proprietárias.",
+    slug: "platform",
+    title: "Platform",
+    category: "Fundação",
+    summary: "A fundação comum: autenticação, UI e design system, segurança, observabilidade e SDKs.",
     description:
-      "Sistema de chat inteligente com RAG que consulta bases de dados internas e responde perguntas com apoio de LLM.",
+      "Pacote único que concentra as capacidades compartilhadas de todos os produtos: autenticação, configuração, contratos, banco de dados, eventos, observabilidade, SDKs de serviços externos, segurança e o design system. Cada capacidade tem uma única fonte, sem cópias entre projetos.",
     highlights: [
-      "Consulta dados internos em tempo real",
-      "Respostas contextualizadas para operação",
-      "Base pronta para copilots e assistentes internos",
+      "Design system único para todos os produtos",
+      "Criptografia, políticas e cofre de segredos centralizados",
+      "Clients de serviços externos em um só SDK",
+      "Testes de isolamento multi-tenant (RLS) incluídos",
     ],
-    stack: ["React", "Node.js", "Python", "TypeScript"],
-    pricePF: "R$ 89,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["TypeScript", "React", "PostgreSQL", "Supabase"],
     featured: true,
   },
   {
-    slug: "agente-ia",
-    title: "Agente de IA",
-    brand: "Kairos",
-    category: "IA",
-    summary: "Agentes autônomos para automação de tarefas complexas.",
+    slug: "ai",
+    title: "AI",
+    category: "Fundação",
+    summary: "Agentes, RAG, MCP, provedores de LLM e um coding agent nativo em Rust.",
     description:
-      "Plataforma de agentes de IA com suporte a múltiplos provedores para automação de tarefas, geração de código e revisão inteligente.",
+      "O centro de inteligência da coleção. Reúne chat, recuperação aumentada (RAG), servidores MCP, múltiplos provedores de LLM, governança de agentes e um coding agent nativo em Rust com interface desktop. Os demais produtos importam essas capacidades em vez de reimplementá-las.",
     highlights: [
-      "Agentes especializados por tarefa",
-      "Suporte nativo a múltiplos provedores de LLM",
-      "Integração com repositórios e pipelines CI/CD",
+      "Múltiplos provedores de LLM, inclusive modelos locais",
+      "RAG e MCP sobre dados proprietários",
+      "Painel de governança de agentes",
+      "Coding agent nativo em Rust, com app desktop Tauri",
     ],
-    stack: ["TypeScript", "Node.js", "Python", "OpenAI", "Anthropic"],
-    pricePF: "R$ 149,90/mês",
-    pricePJ: "Sob consulta",
-    featured: true,
-  },
-
-  {
-    slug: "cms",
-    title: "CMS Headless",
-    brand: "Kairos",
-    category: "Sistemas",
-    summary: "Gerenciador de conteúdo extensível com painel administrativo.",
-    description:
-      "Sistema de Gerenciamento de Conteúdo moderno e extensível com dashboard administrativo, gestão de usuários e integrações com armazenamento em nuvem.",
-    highlights: [
-      "Gestão de usuários e permissões",
-      "Integração com armazenamento em nuvem",
-      "Arquitetura pronta para múltiplos sites",
-    ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 59,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["TypeScript", "Next.js", "Rust", "Tauri"],
     featured: true,
   },
   {
-    slug: "crm",
-    title: "CRM",
-    brand: "Kairos",
-    category: "Sistemas",
-    summary: "CRM multiplataforma para vendas, relacionamento e relatórios.",
+    slug: "payments",
+    title: "Payments",
+    category: "Fundação",
+    summary: "Camada única para Stripe, Pix e boleto, Asaas, Mercado Pago e PagBank.",
     description:
-      "Sistema completo de CRM para gestão de relacionamento com clientes, vendas, produtos e relatórios.",
+      "Abstração unificada de gateways de pagamento, em arquitetura de portas e adaptadores. Um único contrato para cobranças, assinaturas e webhooks, independentemente do provedor escolhido.",
     highlights: [
-      "Fluxo de vendas e relacionamento",
-      "Relatórios operacionais",
-      "Base sólida para times comerciais",
+      "Stripe, Banco Inter (Pix e boleto), Asaas, Mercado Pago e PagBank",
+      "Webhooks normalizados em um único formato",
+      "Troca de gateway sem reescrever o produto",
     ],
-    stack: ["Flutter", "Dart", "Riverpod", "Hive"],
-    pricePF: "R$ 79,90/mês",
-    pricePJ: "Sob consulta",
-  },
-  {
-    slug: "helpdesk",
-    title: "Helpdesk",
-    brand: "Kairos",
-    category: "Sistemas",
-    summary: "Suporte omnichannel com chat, email e helpdesk integrados.",
-    description:
-      "Plataforma de atendimento ao cliente omnichannel com chat em tempo real, gestão de tickets, base de conhecimento e integração com WhatsApp.",
-    highlights: [
-      "Atendimento via chat, email e WhatsApp",
-      "Gestão de filas e SLA",
-      "Base de conhecimento integrada",
-    ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Redis"],
-    pricePF: "R$ 69,90/mês",
-    pricePJ: "Sob consulta",
-  },
-
-  {
-    slug: "rh",
-    title: "RH",
-    brand: "Kairos",
-    category: "Setores",
-    summary: "Gestão de RH, recrutamento, avaliações e benefícios.",
-    description:
-      "Sistema de gestão de pessoas com recrutamento, seleção, avaliações de desempenho, treinamentos e gestão de benefícios.",
-    highlights: [
-      "Recrutamento e onboarding digital",
-      "Avaliações de desempenho",
-      "Controle de benefícios e folha",
-    ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 89,90/mês",
-    pricePJ: "Sob consulta",
-  },
-  {
-    slug: "financeiro",
-    title: "Financeiro",
-    brand: "Kairos",
-    category: "Setores",
-    summary: "Fluxo de caixa, contas a pagar/receber e conciliação bancária.",
-    description:
-      "Plataforma financeira com controle de contas a pagar e receber, fluxo de caixa, cobrança automatizada e conciliação bancária.",
-    highlights: [
-      "Fluxo de caixa em tempo real",
-      "Cobrança e régua automática",
-      "Conciliação bancária integrada",
-    ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 99,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["TypeScript", "Ports & Adapters"],
     featured: true,
   },
   {
-    slug: "vendas",
-    title: "Vendas",
-    brand: "Kairos",
-    category: "Setores",
-    summary: "Gestão de pipeline, SDR e funil de vendas para times comerciais.",
+    slug: "nimbus",
+    title: "Nimbus",
+    category: "Fundação",
+    summary: "Painel DevOps e gestão multi-cloud de free tier, com roteamento por cota.",
     description:
-      "Plataforma comercial com gestão de pipeline de vendas, cadências de prospecção, controle de SDRs e relatórios de conversão.",
+      "Painel DevOps completo para servidores, redes, SSH, Docker e Kubernetes, monitoramento, CI/CD, deploy e backup, combinado à gestão multi-cloud de serviços com uso gratuito permanente em AWS, Cloudflare, Firebase, GitHub e Google Cloud. Um rastreador de cotas classifica o consumo de cada provedor e recomenda a migração para outro antes que o limite seja atingido. Toda a lógica de infraestrutura vive em um núcleo em Rust.",
     highlights: [
-      "Pipeline visual por etapa",
-      "Cadências e automações de prospecção",
-      "Relatórios de conversão e forecast",
+      "Servidores, SSH, Docker, Kubernetes e monitoramento em um só painel",
+      "CI/CD com GitHub, deploy e backup",
+      "AWS, Cloudflare, Firebase, GitHub e Google Cloud sob um contrato único",
+      "Rastreamento de cotas com failover entre provedores",
+      "Domínios personalizados via API nativa da Cloudflare",
     ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 79,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "TypeScript", "Rust"],
   },
   {
-    slug: "marketing",
-    title: "Marketing",
-    brand: "Kairos",
-    category: "Setores",
-    summary: "Automação de campanhas, email marketing e gestão de tráfego.",
+    slug: "finance",
+    title: "Finance",
+    category: "Operação",
+    summary: "Contas a pagar e a receber, conciliação, DRE e patrimônio.",
     description:
-      "Plataforma de marketing digital com automação de campanhas, email marketing, gestão de tráfego pago e relatórios de SEO.",
+      "Gestão financeira completa: contas a pagar e a receber, conciliação bancária, DRE e controle patrimonial, integrada à camada de pagamentos.",
     highlights: [
-      "Automação de campanhas e disparos",
-      "Gestão de tráfego pago integrada",
-      "Analytics de conversão e SEO",
+      "Conciliação bancária",
+      "DRE e visão consolidada",
+      "Controle de patrimônio",
     ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 69,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "Rust", "PostgreSQL"],
   },
   {
-    slug: "customer-success",
-    title: "Customer Success",
-    brand: "Kairos",
-    category: "Setores",
-    summary: "Customer success com onboarding, retenção e gestão de SLA.",
+    slug: "people-projects",
+    title: "People · Projects",
+    category: "Operação",
+    summary: "Pessoas e acessos; projetos, cronogramas e entregas.",
     description:
-      "Plataforma de customer success para times de pós-venda com onboarding guiado, monitoramento de saúde de conta e gestão de SLA.",
+      "Gestão de colaboradores, equipes, cargos e acessos, integrada à gestão de projetos, cronogramas, timesheet e ao portal de acompanhamento de entregas para o cliente.",
     highlights: [
-      "Onboarding digitalizado por etapa",
-      "Health score por conta",
-      "Alertas de churn e oportunidades de upsell",
+      "Organização, cargos e controle de acesso",
+      "Cronogramas, timesheet e PMO",
+      "Portal do cliente com linha do tempo das entregas",
     ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 69,90/mês",
-    pricePJ: "Sob consulta",
-  },
-
-  {
-    slug: "git-tool",
-    title: "Git Tool",
-    brand: "Kairos",
-    category: "DevTools",
-    summary: "Ferramenta desktop para gestão de repositórios Git.",
-    description:
-      "Ferramenta desktop de gestão de repositórios Git com interface visual, simplificando o fluxo de desenvolvimento em equipe.",
-    highlights: [
-      "Interface visual para Git",
-      "Integração com pipelines CI/CD",
-      "Fluxo de trabalho otimizado",
-    ],
-    stack: ["TypeScript", "Electron", "React"],
-    pricePF: "R$ 29,90/mês",
-    pricePJ: "Sob consulta",
-    featured: true,
-  },
-
-  {
-    slug: "portal-educacional",
-    title: "Portal Educacional",
-    brand: "Kairos",
-    category: "Web",
-    summary: "Portal educacional com integrações acadêmicas e comunicação.",
-    description:
-      "Portal educacional omnichannel com integrações acadêmicas para gestão de matrículas, notas, boletos e comunicação.",
-    highlights: [
-      "Experiência institucional completa",
-      "Integração com processos acadêmicos",
-      "Estrutura para campanhas e conversão",
-    ],
-    stack: ["Next.js", "TypeScript", "Tailwind"],
-    pricePF: "R$ 89,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "TypeScript", "Supabase"],
   },
   {
-    slug: "gestao-projetos",
-    title: "Gestão de Projetos",
-    brand: "Kairos",
-    category: "Web",
-    summary: "Gestão de projetos com Kanban, Gantt e webhooks.",
+    slug: "legal",
+    title: "Legal",
+    category: "Operação",
+    summary: "Contratos, compliance e gestão eletrônica de documentos.",
     description:
-      "Sistema de gestão de projetos com integração GitHub, Kanban board, gráfico de Gantt e sincronização automática via webhooks.",
+      "Gestão jurídica e de compliance com geração automatizada de contratos a partir de modelos, gestão eletrônica de documentos e OCR.",
     highlights: [
-      "Integração com GitHub e webhooks",
-      "Visão de progresso e cronograma",
-      "Controle de trabalho em equipe",
+      "Geração de contratos a partir de modelos",
+      "Gestão eletrônica de documentos",
+      "Trilha de compliance",
     ],
-    stack: ["React", "TypeScript", "Firebase", "Material-UI"],
-    pricePF: "R$ 59,90/mês",
-    pricePJ: "Sob consulta",
-  },
-
-  {
-    slug: "erp",
-    title: "ERP",
-    brand: "Chronos",
-    category: "Sistemas",
-    summary: "ERP completo para operação, financeiro e gestão integrada.",
-    description:
-      "Sistema ERP enterprise com módulos de financeiro, estoque, compras, RH e relatórios gerenciais, com implantação assistida.",
-    highlights: [
-      "Módulos integrados de toda a operação",
-      "Implantação e suporte dedicado",
-      "Escalável para crescimento",
-    ],
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 149,90/mês",
-    pricePJ: "Sob consulta",
-    featured: true,
+    stack: ["Next.js", "TypeScript"],
   },
   {
-    slug: "gestao-rede",
-    title: "Gestão de Rede",
-    brand: "Chronos",
-    category: "Sistemas",
-    summary: "Gestão de rede com monitoramento em tempo real.",
+    slug: "support",
+    title: "Support",
+    category: "Operação",
+    summary: "Helpdesk e atendimento omnichannel em tempo real.",
     description:
-      "Sistema de Gestão de Rede com monitoramento em tempo real e integrações com dispositivos de infraestrutura.",
+      "Helpdesk, tickets e atendimento omnichannel em tempo real, com WhatsApp e demais canais reunidos em uma única caixa de entrada.",
     highlights: [
-      "Monitoramento em tempo real",
-      "Visão operacional de dispositivos",
-      "Painéis para suporte e NOC",
+      "Tickets e SLA",
+      "WhatsApp e canais em uma só caixa de entrada",
+      "Atendimento em tempo real",
     ],
-    stack: ["Flutter", "Firebase", "Dart"],
-    pricePF: "R$ 119,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "TypeScript"],
   },
   {
-    slug: "app-agro",
-    title: "App Agro",
-    brand: "Chronos",
-    category: "Mobile",
-    summary: "Aplicativo agropecuário com gestão de lotes e pesagem.",
+    slug: "crm-marketing",
+    title: "CRM · Marketing",
+    category: "Crescimento",
+    summary: "Pipeline comercial, automação de marketing, SEO e analytics.",
     description:
-      "Sistema mobile para pesagem e gestão de lotes, com coleta de dados em campo e operação offline.",
+      "Gestão de leads, clientes e oportunidades, integrada à automação de marketing, rastreamento de conversões, SEO e analytics.",
     highlights: [
-      "Coleta de dados em campo",
-      "Operação offline-friendly",
-      "Interface otimizada para uso rápido",
+      "Pipeline comercial e oportunidades",
+      "Automação de marketing",
+      "Rastreamento de conversões e analytics",
     ],
-    stack: ["Flutter", "Dart", "SQLite"],
-    pricePF: "R$ 39,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "TypeScript"],
   },
   {
-    slug: "seguranca",
-    title: "Segurança",
-    brand: "Chronos",
-    category: "Sistemas",
-    summary: "Segurança da informação, gestão de acessos e auditoria.",
+    slug: "content",
+    title: "Content",
+    category: "Crescimento",
+    summary: "Estúdio criativo e CMS com inteligência artificial.",
     description:
-      "Suite de segurança com gestão de acessos, auditoria de sistemas e conformidade.",
+      "Estúdio de criação de conteúdo com IA e CMS headless, com armazenamento agnóstico (S3 ou local) e otimização automática de mídia.",
     highlights: [
-      "Gestão de acessos e identidades",
-      "Auditoria e relatórios de conformidade",
-      "Proteção de dados sensíveis",
+      "Criação de conteúdo assistida por IA",
+      "CMS headless",
+      "Otimização automática de imagens",
     ],
-    stack: ["TypeScript", "Node.js", "PostgreSQL"],
-    pricePF: "R$ 129,90/mês",
-    pricePJ: "Sob consulta",
+    stack: ["Next.js", "TypeScript"],
+  },
+  {
+    slug: "e-commerce",
+    title: "E-commerce",
+    category: "Crescimento",
+    summary: "B2B, marketplace, catálogo digital, WMS e logística de entregas.",
+    description:
+      "Solução integrada de comércio B2B e marketplace, com catálogo digital, gestão de armazém (WMS), logística de distribuição e entregas.",
+    highlights: [
+      "B2B e marketplace",
+      "Catálogo digital",
+      "WMS, logística e entregas",
+    ],
+    stack: ["Next.js", "React", "Turborepo"],
+  },
+  {
+    slug: "workmed",
+    title: "WorkMed",
+    category: "Verticais",
+    summary: "SaaS multi-tenant de saúde ocupacional.",
+    description:
+      "Plataforma multi-tenant de saúde ocupacional: triagem guiada, roteamento entre especialidades e salas, gestão de ASOs e operação offline, com cada clínica isolada em seu próprio ambiente.",
+    highlights: [
+      "Triagem guiada e roteamento entre salas",
+      "Gestão de ASOs e conformidade",
+      "Operação mesmo com conexão instável",
+      "Isolamento completo entre clínicas",
+    ],
+    stack: ["Next.js", "Supabase", "TypeScript"],
     featured: true,
   },
 ];
@@ -383,35 +240,25 @@ export const groupedProducts = productCategories.map((category) => ({
   products: products.filter((product) => product.category === category.key),
 }));
 
-export const kairosProducts = products.filter((p) => p.brand === "Kairos");
-export const chronosProducts = products.filter((p) => p.brand === "Chronos");
-
 export const featuredProducts = products.filter((product) => product.featured);
-export const featuredKairos = kairosProducts.filter((p) => p.featured);
-export const featuredChronos = chronosProducts.filter((p) => p.featured);
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
 }
 
 export const productIconMap: Record<string, React.ComponentType<any>> = {
-  "chatbot-ia": Bot,
-  "agente-ia": Terminal,
-  "cms": Database,
-  "crm": Briefcase,
-  "helpdesk": Headphones,
-  "rh": Users,
-  "financeiro": Coins,
-  "vendas": Target,
-  "marketing": Megaphone,
-  "customer-success": Smile,
-  "git-tool": GitBranch,
-  "portal-educacional": GraduationCap,
-  "gestao-projetos": SquareKanban,
-  "erp": Building2,
-  "gestao-rede": Network,
-  "app-agro": Scale,
-  "seguranca": ShieldCheck,
+  platform: Layers,
+  ai: Sparkles,
+  payments: CreditCard,
+  nimbus: Cloud,
+  finance: Coins,
+  "people-projects": Users,
+  legal: Scale,
+  support: Headphones,
+  "crm-marketing": Briefcase,
+  content: PenTool,
+  "e-commerce": ShoppingBag,
+  workmed: Stethoscope,
 };
 
 export function getProductIcon(slug: string): React.ComponentType<any> {

@@ -44,7 +44,7 @@ const Navbar = () => {
     { label: "Projetos", href: "/#work" },
     { label: "Expertise", href: "/#expertise" },
     { label: "Coleção", href: "/#collection" },
-    { label: "Labs", href: "/#labs" },
+    { label: "Labs", href: "/pesquisas" },
     { label: "Produtos", href: "/produtos" },
     { label: "Design", href: "/design" },
     { label: "Contato", href: "/#contact" },

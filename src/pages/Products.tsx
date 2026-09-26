@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Cpu, Layout, Smartphone, Globe, Code2, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Layers, Briefcase, TrendingUp, Building2 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,12 +11,10 @@ import { groupedProducts, featuredProducts, getProductIcon } from "@/data/produc
 import type { ProductCategory } from "@/data/products";
 
 const categoryIcons: Record<ProductCategory, React.ReactNode> = {
-  IA: <Cpu className="h-4 w-4" />,
-  Sistemas: <Layout className="h-4 w-4" />,
-  Mobile: <Smartphone className="h-4 w-4" />,
-  Web: <Globe className="h-4 w-4" />,
-  DevTools: <Code2 className="h-4 w-4" />,
-  Setores: <Users className="h-4 w-4" />,
+  Fundação: <Layers className="h-4 w-4" />,
+  Operação: <Briefcase className="h-4 w-4" />,
+  Crescimento: <TrendingUp className="h-4 w-4" />,
+  Verticais: <Building2 className="h-4 w-4" />,
 };
 
 const Products = () => {
@@ -44,18 +42,19 @@ const Products = () => {
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-card/60 mb-8">
                   <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 animate-pulse" />
                   <span className="text-[11px] font-mono tracking-[0.25em] text-muted-foreground uppercase">
-                    Catálogo de Soluções
+                    Coleção Proprietária
                   </span>
                 </div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light tracking-[-0.02em] leading-[1.08] mb-6 text-foreground">
-                  Sistemas construídos<br />
-                  <em className="not-italic font-extralight text-muted-foreground">sob demanda real.</em>
+                  Uma base única.<br />
+                  <em className="not-italic font-extralight text-muted-foreground">Doze produtos maduros.</em>
                 </h1>
 
                 <p className="mt-6 text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
-                  Portfólio de engenharia organizado por domínio: inteligência artificial aplicada, sistemas operacionais
-                  críticos, aplicativos e infraestrutura resiliente. Cada produto nasce da resolução de um gargalo operacional.
+                  Cada projeto sob medida parte de componentes já testados em produção. O cliente recebe o que é exclusivo da
+                  sua operação, sobre uma fundação que não precisa ser reinventada. Os produtos são licenciados sob consulta,
+                  como parte de um engajamento.
                 </p>
 
                 <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -70,7 +69,7 @@ const Products = () => {
                         document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" });
                       }}
                     >
-                      Explorar catálogo
+                      Explorar a coleção
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -85,11 +84,11 @@ const Products = () => {
               <div className="flex items-center gap-3 mb-8">
                 <span className="w-1 h-5 rounded-full bg-muted-foreground" />
                 <p className="text-[11px] font-mono uppercase tracking-[0.28em] text-muted-foreground">
-                  Destaques Operacionais
+                  Pilares da Coleção
                 </p>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
                 {featuredProducts.map((product) => {
                   const Icon = getProductIcon(product.slug);
                   return (

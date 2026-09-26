@@ -1,3 +1,4 @@
+import { postsEnsaios } from "./posts-ensaios";
 import { posts27052026 } from "./posts-27052026";
 
 export type Post = {
@@ -12,6 +13,7 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  ...postsEnsaios,
   ...posts27052026,
 ];
 

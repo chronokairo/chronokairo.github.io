@@ -1,6 +1,6 @@
 // Run with `deno task align:lps` after editing a canonical page in lp/.
 const pages = [
-  ["audiomed", ["audiomed", "showcase/audiomed"]],
+  ["workmed", ["workmed", "showcase/workmed"]],
   ["educacional", ["educacional", "showcase/educacional"]],
   ["marketing", ["marketing"]],
   ["inteligencia", ["ia", "inteligencia"]],

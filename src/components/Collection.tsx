@@ -1,17 +1,6 @@
-const collection = [
-  { name: "Platform", description: "A fundação comum: autenticação, UI e design system, segurança, observabilidade e SDKs." },
-  { name: "AI", description: "Agentes, RAG, MCP, provedores de LLM e um coding agent nativo em Rust." },
-  { name: "Payments", description: "Camada única para Stripe, Pix e boleto, Asaas, Mercado Pago e PagBank." },
-  { name: "Finance", description: "Contas a pagar e a receber, conciliação, DRE e patrimônio." },
-  { name: "CRM · Marketing", description: "Pipeline comercial, automação de marketing, SEO e analytics." },
-  { name: "Support", description: "Helpdesk e atendimento omnichannel em tempo real." },
-  { name: "People · Projects", description: "Pessoas e acessos; projetos, cronogramas e entregas." },
-  { name: "Legal", description: "Contratos, compliance e gestão eletrônica de documentos." },
-  { name: "Content", description: "Estúdio criativo e CMS com inteligência artificial." },
-  { name: "WorkMed", description: "SaaS multi-tenant de saúde ocupacional." },
-  { name: "E-commerce", description: "B2B, marketplace, catálogo digital, WMS e logística de entregas." },
-  { name: "Nimbus", description: "Infraestrutura, cloud e DevOps automatizados." },
-];
+import Link from "next/link";
+
+import { products } from "@/data/products";
 
 export default function Collection() {
   return (
@@ -28,12 +17,12 @@ export default function Collection() {
         </div>
 
         <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {collection.map((item, index) => (
-            <div key={item.name} className="border-t border-border pt-6">
+          {products.map((item, index) => (
+            <Link key={item.slug} href={`/produtos/${item.slug}/`} className="group block border-t border-border pt-6">
               <span className="font-mono text-xs text-muted-foreground/70">{String(index + 1).padStart(2, "0")}</span>
-              <h3 className="mt-6 mb-3 text-2xl font-light text-foreground">{item.name}</h3>
-              <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-            </div>
+              <h3 className="mt-6 mb-3 text-2xl font-light text-foreground transition-colors group-hover:text-foreground/80">{item.title}</h3>
+              <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">{item.summary}</p>
+            </Link>
           ))}
         </div>
       </div>

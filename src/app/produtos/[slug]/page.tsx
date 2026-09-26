@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: product.title,
-    description: `${product.summary} Conheça ${product.title}, da linha ${product.brand}, no catálogo de produtos da Chronokairo.`,
+    description: `${product.summary} ${product.title} integra a Coleção Proprietária da Chronokairo.`,
     alternates: { canonical: `${siteUrl}/produtos/${product.slug}` },
     openGraph: {
       title: `${product.title} · Chronokairo`,

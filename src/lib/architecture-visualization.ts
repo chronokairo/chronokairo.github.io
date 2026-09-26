@@ -17,7 +17,7 @@ export const nimbusVisualization: ArchitectureVisualization = {
   name: "Nimbus",
   eyebrow: "Infrastructure R&D / arquitetura conceitual",
   centerLabel: "Contrato de provedores",
-  centerDetail: "Avaliação de cotas e prévia de roteamento entre provedores.",
+  centerDetail: "Rastreamento de cotas e failover automático entre provedores.",
   note: "Representação conceitual de uma pesquisa em desenvolvimento.",
   providers: [
     { id: "aws", label: "AWS", detail: "Recursos elegíveis ao Always Free, sujeitos a limites mensais." },
