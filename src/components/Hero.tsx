@@ -28,7 +28,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <p className="text-[11px] font-mono tracking-[0.3em] text-muted-foreground uppercase mb-12 animate-fade-in">
-            Engenharia de Software · Inteligência Artificial
+            Ateliê de Engenharia de Software
           </p>
 
           {/* Headline */}
@@ -39,7 +39,7 @@ const Hero = () => {
 
           {/* Support */}
           <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed mb-16 max-w-md mx-auto animate-fade-in-up">
-            Projetamos sistemas sob medida para operações em que precisão, confiabilidade e tempo importam.
+            Software sob medida, construído para durar. Para operações em que precisão, confiabilidade e tempo importam.
           </p>
 
           {/* CTA único — Inverte as cores conforme o tema */}

@@ -5,10 +5,10 @@ import Index from "@/pages/Index";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Chronokairo · Engenharia de Software e Inteligência Artificial",
+    absolute: "Chronokairo · Ateliê de Engenharia de Software",
   },
   description:
-    "Projetamos sistemas sob medida para operações em que precisão, confiabilidade e tempo importam. Conheça projetos selecionados da Chronokairo.",
+    "Boutique de engenharia de software e inteligência artificial. Software sob medida, construído sobre uma coleção proprietária de produtos maduros, e pesquisa aberta em inferência eficiente com a Anamnesic Labs.",
   alternates: { canonical: siteUrl },
 };
 

@@ -244,11 +244,24 @@ header {
 }
 
 /* Buttons — Pill Luxury Style */
+.floating-whatsapp {
+  background: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.floating-whatsapp:hover {
+  background: var(--btn-primary-bg) !important;
+  opacity: 0.92 !important;
+}
+
 .btn-whatsapp-nav,
 .btn-whatsapp-hero,
 .btn-cta,
 .nav-cta,
 .form-submit-btn,
+.form-submit-whatsapp,
 a[class*="btn-primary"] {
   background: var(--btn-primary-bg) !important;
   color: var(--btn-primary-text) !important;
@@ -273,6 +286,7 @@ a[class*="btn-primary"] {
 .btn-cta:hover,
 .nav-cta:hover,
 .form-submit-btn:hover,
+.form-submit-whatsapp:hover,
 a[class*="btn-primary"]:hover {
   transform: translateY(-1px) !important;
   opacity: 0.92 !important;
@@ -280,7 +294,9 @@ a[class*="btn-primary"]:hover {
 
 .btn-whatsapp-nav svg,
 .btn-whatsapp-hero svg,
-.form-submit-btn svg {
+.form-submit-btn svg,
+.form-submit-whatsapp svg,
+.floating-whatsapp svg {
   fill: var(--btn-primary-text) !important;
   color: var(--btn-primary-text) !important;
 }

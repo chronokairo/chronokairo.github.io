@@ -11,6 +11,9 @@ Formato padrão do ecossistema: `docs/ADR_LOG.md` + `docs/adr/NNNN-*.md`.
 | [0002](./adr/0002-ciclo-solar-e-inversao-de-tema-claro-escuro.md) | Ciclo Solar de Temas (Dia = Branco, Noite = Preto) e Inversão de Cores | 2026-09-24 | Aceito |
 | [0003](./adr/0003-modernizacao-catalogo-e-detalhes-de-produtos.md) | Modernização do Catálogo e Detalhes de Produtos (`/produtos` e `/produtos/[slug]`) | 2026-09-24 | Aceito |
 | [0004](./adr/0004-modernizacao-das-landing-pages-e-showcases.md) | Modernização das Landing Pages e Showcases com Design de Luxo e Ciclo Solar | 2026-09-24 | Aceito |
+| [0005](./adr/0005-posicionamento-boutique-colecao-e-anamnesic-labs.md) | Posicionamento de boutique: Coleção Proprietária, Anamnesic Labs e discrição com clientes | 2026-09-25 | Aceito |
 
 ## Débitos técnicos abertos
-- Nenhum débito aberto em UI ou build (zero erros em `tsc --noEmit` e `next build`).
+- `/produtos` (`src/data/products.ts`) desalinhado da Coleção Proprietária da home.
+- `/pesquisas` com conteúdo placeholder; deveria apresentar a Anamnesic Labs.
+- 7 diretórios `lp/teste-lp-*` publicados.

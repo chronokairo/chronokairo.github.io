@@ -43,6 +43,8 @@ const Navbar = () => {
   const links = [
     { label: "Projetos", href: "/#work" },
     { label: "Expertise", href: "/#expertise" },
+    { label: "Coleção", href: "/#collection" },
+    { label: "Labs", href: "/#labs" },
     { label: "Produtos", href: "/produtos" },
     { label: "Design", href: "/design" },
     { label: "Contato", href: "/#contact" },

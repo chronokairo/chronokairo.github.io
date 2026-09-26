@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SelectedWork from "@/components/SelectedWork";
-import Studio from "@/components/Studio";
+import { Expertise, Approach, Manifesto } from "@/components/Studio";
+import Collection from "@/components/Collection";
+import Labs from "@/components/Labs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
@@ -35,7 +37,11 @@ const Index = () => {
         <main>
           <Hero />
           <SelectedWork />
-          <Studio />
+          <Expertise />
+          <Collection />
+          <Labs />
+          <Approach />
+          <Manifesto />
           <Contact />
         </main>
         <Footer />
