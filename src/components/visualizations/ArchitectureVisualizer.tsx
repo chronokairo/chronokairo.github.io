@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { ArchitectureVisualization } from "@/lib/architecture-visualization";
+import {
+  CUTOVER_THRESHOLD,
+  quotaState,
+  quotaStateLabel,
+  type ArchitectureVisualization,
+} from "@/lib/architecture-visualization";
 
 type SceneController = {
   select: (id: string) => void;
@@ -13,10 +18,12 @@ export default function ArchitectureVisualizer({ visualization }: { visualizatio
   const controllerRef = useRef<SceneController | null>(null);
   const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
-  const [selectedId, setSelectedId] = useState(visualization.providers[0]?.id ?? "");
-  const selectedIdRef = useRef(selectedId);
-  selectedIdRef.current = selectedId;
-  const selectedProvider = visualization.providers.find((provider) => provider.id === selectedId);
+  const [activeId, setActiveId] = useState(visualization.providers[0]?.id ?? "");
+  const [usage, setUsage] = useState<Record<string, number>>({});
+  const [failovers, setFailovers] = useState(0);
+  const activeIdRef = useRef(activeId);
+  activeIdRef.current = activeId;
+  const activeProvider = visualization.providers.find((provider) => provider.id === activeId);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -36,7 +43,13 @@ export default function ArchitectureVisualizer({ visualization }: { visualizatio
     const host = hostRef.current;
     import("./architectureScene").then(({ mountArchitectureScene }) => {
       if (cancelled) return;
-      const controller = mountArchitectureScene(host, visualization, selectedIdRef.current, setSelectedId);
+      const controller = mountArchitectureScene(host, visualization, activeIdRef.current, {
+        onRoute: (id) => {
+          setActiveId(id);
+          setFailovers((total) => total + 1);
+        },
+        onUsage: setUsage,
+      });
       if (controller) {
         controllerRef.current = controller;
         setReady(true);
@@ -50,48 +63,81 @@ export default function ArchitectureVisualizer({ visualization }: { visualizatio
       controllerRef.current = null;
       setReady(false);
     };
-    // The visualization is a stable configuration; selection is updated below.
+    // The visualization is a stable configuration; routing is updated below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible, visualization]);
 
-  useEffect(() => controllerRef.current?.select(selectedId), [selectedId]);
+  useEffect(() => controllerRef.current?.select(activeId), [activeId]);
 
   return (
-    <div className="border border-white/25 bg-[#101010] p-6 md:p-10 shadow-[0_24px_80px_rgba(255,255,255,0.05)]">
-      <div className="flex items-center justify-between gap-4 border-b border-white/20 pb-4 font-mono text-[11px] uppercase tracking-[0.16em] text-white/65">
-        <span>{visualization.name}</span>
-        <span className="text-right">{visualization.eyebrow}</span>
+    <div data-visualizer className="flex flex-col overflow-hidden rounded-xl border border-border bg-card text-foreground">
+      <div className="flex items-center justify-between gap-4 border-b border-border px-6 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:px-8">
+        <span className="flex items-center gap-3">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground/40 motion-reduce:hidden" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-foreground" />
+          </span>
+          {visualization.name}
+        </span>
+        <span className="hidden text-right sm:inline">{visualization.eyebrow}</span>
       </div>
-      <div className="relative mt-6 h-[320px] md:h-[430px]">
-        <div ref={hostRef} className="absolute inset-0" aria-hidden="true" />
+
+      <div className="relative aspect-[4/3] w-full md:aspect-[16/10]">
+        <div ref={hostRef} className="absolute inset-0 text-foreground" aria-hidden="true" />
         {!ready && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 text-center" aria-hidden="true">
-            <div className="flex flex-wrap justify-center gap-2">
-              {visualization.providers.map((provider) => <span key={provider.id} className="h-3 w-3 rounded-full border border-white/65 bg-white/20" />)}
-            </div>
-            <div className="h-12 w-px bg-white/25" />
-            <div className="h-14 w-14 rotate-45 border border-white/60" />
+          <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+            <div className="h-24 w-24 rotate-45 border border-foreground/30" />
           </div>
         )}
+        <div className="pointer-events-none absolute left-6 top-5 font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-muted-foreground md:left-8">
+          <p>Rota ativa</p>
+          <p className="text-foreground">{activeProvider?.label}</p>
+        </div>
+        <div className="pointer-events-none absolute right-6 top-5 text-right font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-muted-foreground md:right-8">
+          <p>Migrações</p>
+          <p className="tabular-nums text-foreground">{String(failovers).padStart(2, "0")}</p>
+        </div>
       </div>
-      <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Selecionar provedor">
-        {visualization.providers.map((provider) => (
-          <button
-            key={provider.id}
-            type="button"
-            aria-pressed={selectedId === provider.id}
-            onClick={() => setSelectedId(provider.id)}
-            className={`border px-2.5 py-2 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:px-3 ${selectedId === provider.id ? "border-white bg-white text-black" : "border-white/20 text-white/60 hover:border-white/60 hover:text-white"}`}
-          >
-            {provider.label}
-          </button>
-        ))}
+
+      <div className="grid grid-cols-5 border-t border-border" role="group" aria-label="Rotear tráfego para um provedor">
+        {visualization.providers.map((provider) => {
+          const value = usage[provider.id] ?? 0;
+          const active = provider.id === activeId;
+          return (
+            <button
+              key={provider.id}
+              type="button"
+              aria-pressed={active}
+              onClick={() => setActiveId(provider.id)}
+              className={`group relative border-r border-border px-2 py-4 text-left transition-colors last:border-r-0 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-foreground md:px-4 ${active ? "bg-foreground/[0.04]" : "hover:bg-foreground/[0.02]"}`}
+            >
+              {active && <span className="absolute inset-x-0 top-0 h-px bg-foreground" />}
+              <span className={`block truncate font-mono text-[9px] uppercase tracking-[0.12em] md:text-[10px] ${active ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
+                <span className="sm:hidden">{provider.short}</span>
+                <span className="hidden sm:inline">{provider.label}</span>
+              </span>
+              <span className="relative mt-3 block h-px w-full bg-border">
+                <span className="absolute inset-y-0 left-0 bg-foreground transition-[width] duration-200" style={{ width: `${Math.round(value * 100)}%` }} />
+                <span className="absolute -top-1 h-2 w-px bg-muted-foreground" style={{ left: `${CUTOVER_THRESHOLD * 100}%` }} />
+              </span>
+              <span className="mt-3 flex items-baseline justify-between gap-1 font-mono text-[9px] uppercase tracking-[0.08em] text-muted-foreground md:text-[10px]">
+                <span className="tabular-nums text-foreground">{Math.round(value * 100)}%</span>
+                <span className="hidden sm:inline">{quotaStateLabel[quotaState(value)]}</span>
+              </span>
+            </button>
+          );
+        })}
       </div>
-      <div className="mt-5 min-h-20 border-t border-white/15 pt-4 text-center" aria-live="polite">
-        <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/65">{visualization.centerLabel} / {selectedProvider?.label}</p>
-        <p className="mt-2 text-sm leading-relaxed text-white/70">{selectedProvider?.detail} {visualization.centerDetail}</p>
+
+      <div className="border-t border-border px-6 py-5 md:px-8" aria-live="polite">
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+          {visualization.centerLabel} / {activeProvider?.label}
+        </p>
+        <p className="mt-2 text-sm font-light leading-relaxed text-foreground/80">
+          {activeProvider?.detail} {visualization.centerDetail}
+        </p>
+        <p className="mt-4 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground/70">{visualization.note}</p>
       </div>
-      <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.12em] text-white/60">{visualization.note}</p>
     </div>
   );
 }

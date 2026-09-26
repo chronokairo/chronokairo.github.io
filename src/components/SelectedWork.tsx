@@ -34,6 +34,7 @@ const cases = [
     problem: "Gerenciar múltiplos provedores e limites de uso por interfaces e regras diferentes.",
     intervention: "Painel DevOps único, com contrato comum entre provedores e núcleo em Rust para toda a lógica de infraestrutura.",
     result: "Servidores, deploy, CI/CD e monitoramento em uma só operação, com failover automático antes do limite de cota.",
+    href: "/produtos/nimbus/",
   },
 ];
 
