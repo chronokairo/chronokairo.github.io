@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://chronokairo.com.br
+Sitemap: https://chronokairo.com.br/sitemap.xml
