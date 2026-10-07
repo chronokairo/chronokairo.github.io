@@ -1,2 +1,5 @@
 :HL["/_next/static/css/2de8f70c5169a918.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"produtos","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"workmed","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"eUoHWx5BGdDmoFEo-KfM_"}
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"workmed","s":[]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"produtos","h":96,"c":"$Q2"}]]
+0:{"b":"PsZ-0pxpmhU35KFwc_ZWl","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
